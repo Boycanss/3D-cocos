@@ -12,25 +12,25 @@
     ],
     "_variables": {
       "Float Number": {
-        "__id__": 78
-      },
-      "isRunning": {
-        "__id__": 79
-      },
-      "Jump": {
         "__id__": 80
       },
-      "currentSpeed": {
+      "isRunning": {
         "__id__": 81
       },
-      "hValue": {
+      "Jump": {
         "__id__": 82
       },
-      "isTurning": {
+      "currentSpeed": {
         "__id__": 83
       },
-      "Vault": {
+      "hValue": {
         "__id__": 84
+      },
+      "isTurning": {
+        "__id__": 85
+      },
+      "Vault": {
+        "__id__": 86
       }
     }
   },
@@ -188,7 +188,7 @@
       "clone": null
     },
     "clip": {
-      "__uuid__": "f7105bf5-6f92-4d6c-9ff3-0c4a58d9395a@18d6f",
+      "__uuid__": "c56601ce-b894-40c8-85f9-24cecd6ed2ed@18d6f",
       "__expectedType__": "cc.AnimationClip"
     }
   },
@@ -232,7 +232,7 @@
       "clone": null
     },
     "clip": {
-      "__uuid__": "64d89e24-57c6-4c7b-9fec-6a4670f66aac@18d6f",
+      "__uuid__": "487e2e40-16ee-41dd-9ee5-5081fab1e982@70aad",
       "__expectedType__": "cc.AnimationClip"
     }
   },
@@ -586,7 +586,7 @@
     },
     "duration": 0.3,
     "relativeDuration": false,
-    "exitConditionEnabled": false,
+    "exitConditionEnabled": true,
     "_exitCondition": 1
   },
   {
@@ -860,19 +860,35 @@
     "to": {
       "__id__": 6
     },
-    "conditions": [],
+    "conditions": [
+      {
+        "__id__": 76
+      }
+    ],
     "destinationStart": 0,
     "relativeDestinationStart": false,
     "startEventBinding": {
-      "__id__": 76
+      "__id__": 78
     },
     "endEventBinding": {
-      "__id__": 77
+      "__id__": 79
     },
     "duration": 0.3,
     "relativeDuration": false,
     "exitConditionEnabled": true,
     "_exitCondition": 1
+  },
+  {
+    "__type__": "cc.animation.UnaryCondition",
+    "operator": 1,
+    "operand": {
+      "__id__": 77
+    }
+  },
+  {
+    "__type__": "cc.animation.BindableBoolean",
+    "variable": "isRunning",
+    "value": false
   },
   {
     "__type__": "cc.animation.AnimationGraphEventBinding",

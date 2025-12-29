@@ -1,0 +1,123 @@
+{
+  "ver": "2.3.13",
+  "importer": "gltf",
+  "imported": true,
+  "uuid": "2a04c7d1-e863-41bf-9ea8-91147c7e3c4e",
+  "files": [],
+  "subMetas": {
+    "dfe3b": {
+      "importer": "gltf-mesh",
+      "uuid": "2a04c7d1-e863-41bf-9ea8-91147c7e3c4e@dfe3b",
+      "displayName": "",
+      "id": "dfe3b",
+      "name": "Cube.953.mesh",
+      "userData": {
+        "gltfIndex": 0,
+        "triangleCount": 60
+      },
+      "ver": "1.1.1",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "e39f7": {
+      "importer": "texture",
+      "uuid": "2a04c7d1-e863-41bf-9ea8-91147c7e3c4e@e39f7",
+      "displayName": "",
+      "id": "e39f7",
+      "name": "UnnamedTexture.texture",
+      "userData": {
+        "wrapModeS": "repeat",
+        "wrapModeT": "repeat",
+        "minfilter": "linear",
+        "magfilter": "linear",
+        "mipfilter": "linear",
+        "anisotropy": 0,
+        "isUuid": false,
+        "imageUuidOrDatabaseUri": "db://assets/building/gltf/citybits_texture.png"
+      },
+      "ver": "1.0.22",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "319cb": {
+      "importer": "gltf-material",
+      "uuid": "2a04c7d1-e863-41bf-9ea8-91147c7e3c4e@319cb",
+      "displayName": "",
+      "id": "319cb",
+      "name": "citybits_texture.material",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.0.14",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "c5edb": {
+      "importer": "gltf-scene",
+      "uuid": "2a04c7d1-e863-41bf-9ea8-91147c7e3c4e@c5edb",
+      "displayName": "",
+      "id": "c5edb",
+      "name": "base.prefab",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.0.14",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    }
+  },
+  "userData": {
+    "imageMetas": [
+      {
+        "name": "citybits_texture",
+        "uri": "db://assets/building/gltf/citybits_texture.png"
+      }
+    ],
+    "lods": {
+      "enable": false,
+      "hasBuiltinLOD": false,
+      "options": [
+        {
+          "screenRatio": 0.25,
+          "faceCount": 1
+        },
+        {
+          "screenRatio": 0.125,
+          "faceCount": 0.25
+        },
+        {
+          "screenRatio": 0.01,
+          "faceCount": 0.1
+        }
+      ]
+    },
+    "assetFinder": {
+      "meshes": [
+        "2a04c7d1-e863-41bf-9ea8-91147c7e3c4e@dfe3b"
+      ],
+      "skeletons": [],
+      "textures": [
+        "2a04c7d1-e863-41bf-9ea8-91147c7e3c4e@e39f7"
+      ],
+      "materials": [
+        "2a04c7d1-e863-41bf-9ea8-91147c7e3c4e@319cb"
+      ],
+      "scenes": [
+        "2a04c7d1-e863-41bf-9ea8-91147c7e3c4e@c5edb"
+      ]
+    }
+  }
+}

@@ -1,3 +1,23 @@
 {
-  "__version__": "1.0.6"
+  "__version__": "1.0.6",
+  "sorting-layer": {
+    "layers": [
+      {
+        "id": 0,
+        "name": "default",
+        "value": 0
+      }
+    ],
+    "increaseId": 1
+  },
+  "layer": [
+    {
+      "name": "LowBox",
+      "value": 524288
+    },
+    {
+      "name": "HighBox",
+      "value": 262144
+    }
+  ]
 }

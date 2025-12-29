@@ -1,4 +1,4 @@
-import { _decorator, CCFloat, Color, Component, geometry, Line, MeshRenderer, Node, PhysicsSystem, Vec3 } from 'cc';
+import { _decorator, CCFloat, Collider, Color, Component, geometry, Line, MeshRenderer, Node, PhysicsSystem, Vec3 } from 'cc';
 const { ccclass, property } = _decorator;
 
 @ccclass('VaultDetector')
@@ -9,7 +9,7 @@ export class VaultDetector extends Component {
     @property(CCFloat)
     vaultDistance:number;
 
-    public hitResult;
+    public hitResult: Node;
     
     start() {
     }
@@ -25,7 +25,7 @@ export class VaultDetector extends Component {
         Ray.fromPoints(this._ray, origin, fw);
 
         if(fis.raycastClosest(this._ray, 1, this.vaultDistance)){
-            return fis.raycastClosestResult.collider;
+            return fis.raycastClosestResult.collider.node;
         }
         
     }

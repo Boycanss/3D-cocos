@@ -1,14 +1,8 @@
-import { _decorator, animation, CapsuleCharacterController, CCBoolean, CCFloat, CharacterController, Component, easing, Enum, EventKeyboard, Input, input, KeyCode, log, math, Node, NodeSpace, RigidBody, Tween, tween, Vec3 } from 'cc';
+import { _decorator, animation, CapsuleCharacterController, CCBoolean, CCFloat, CharacterController, Collider, Component, easing, Enum, EventKeyboard, Input, input, KeyCode, Layers, log, math, Node, NodeSpace, RigidBody, Tween, tween, Vec3 } from 'cc';
 import { VaultDetector } from './VaultDetector';
+import { MovementState, ObstacleType } from './Define/Define';
+import { Box } from './Obstacle/Box';
 const { ccclass, property } = _decorator;
-
-enum MovementState {
-    IDLE,
-    WALKING,
-    RUNNING,
-    VAULTING,
-    TURNING
-}
 
 @ccclass('PlayerController')
 export class PlayerController extends Component {
@@ -50,6 +44,7 @@ export class PlayerController extends Component {
 
     onKeyDown(event: EventKeyboard) {
 
+        if(this.currentState == MovementState.VAULTING) return;
         //walk - run
         if (event.keyCode === KeyCode.KEY_W) {
             this._moveDir.z = 1;
@@ -76,7 +71,7 @@ export class PlayerController extends Component {
             }
 
             if (event.keyCode === KeyCode.KEY_F) {
-                this.Vault();
+                this.VaultOver();
             }
         }
     }
@@ -118,22 +113,14 @@ export class PlayerController extends Component {
     }
 
     update(deltaTime: number) {
-        this.HandleMovement(deltaTime);
-        if (this.currentState == MovementState.VAULTING) {
-            this.VaultOver();
-        }
+        if (this.currentState != MovementState.VAULTING) this.HandleMovement(deltaTime);
     }
 
 
     HandleMovement(deltaTime: number) {
-        this.movementDirection.set(
-            0,
-            this.verticalVelocity,
-            0
-        );
-
+        
+        this.movementDirection.set(0, this.verticalVelocity, 0);
         this.ApplyGravity(deltaTime);
-
         this.Run(deltaTime);
         this.Turn(deltaTime);
 
@@ -142,34 +129,38 @@ export class PlayerController extends Component {
         }
     }
 
-    Vault() {
-        const obstacle = this.node.getComponent(VaultDetector).hitResult;
-        if (!obstacle) return;
-
-        this.SetState(MovementState.VAULTING);
+    LowVault(obstacle: Node) {
+        console.log("vaulting LowVault");
         this.Animation.setValue('Vault', true);
         const pos = this.node.worldPosition.clone()
-        const finishPos = new Vec3(pos.x, obstacle.node.position.y - .35, pos.z);
         var destination = pos.clone();
-        Vec3.scaleAndAdd(destination, pos, this.node.forward, -.5);
-        destination.y = obstacle.node.position.y+.5;
+        Vec3.scaleAndAdd(destination, pos, this.node.forward, -.75);
+        destination.y = obstacle.position.y+.5;
         // console.log(destination);
-
+        
         tween()
-            .target(this.node)
-            .delay(.25)
-            .to(.5, { worldPosition: destination })
-            .call(() => {
-                console.log(">>>>> VAULT");
-                this.SetState(MovementState.IDLE);
-            })
-            .start();
+        .target(this.node)
+        .delay(.25)
+        .to(.5, { worldPosition: destination })
+        .call(() => {
+            this.SetState(MovementState.IDLE);
+        })
+        .start();
     }
-
+    
     VaultOver() {
+        const obstacle:Node = this.node.getComponent(VaultDetector).hitResult;
+        
+        if (!obstacle || this.currentState == MovementState.VAULTING) return;
+        this.SetState(MovementState.IDLE);
+        this.SetState(MovementState.VAULTING);
+        if(obstacle && obstacle.getComponent(Box).boxType == ObstacleType.LOWBOX){
+            this.LowVault(obstacle);
+        }
     }
 
     Jump() {
+        if(this.currentSpeed == 0) return;
         this.Animation.setValue('Jump', true);
         this.verticalVelocity = 8.5 * (this.currentSpeed / this.maxSpeed);
     }

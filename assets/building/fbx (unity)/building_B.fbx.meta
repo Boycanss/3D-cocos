@@ -1,0 +1,126 @@
+{
+  "ver": "2.3.13",
+  "importer": "fbx",
+  "imported": true,
+  "uuid": "c56cfe6f-12c3-4ef5-8071-175ec6ae3118",
+  "files": [],
+  "subMetas": {
+    "35886": {
+      "importer": "gltf-mesh",
+      "uuid": "c56cfe6f-12c3-4ef5-8071-175ec6ae3118@35886",
+      "displayName": "",
+      "id": "35886",
+      "name": "Cube.936.mesh",
+      "userData": {
+        "gltfIndex": 0,
+        "triangleCount": 1082
+      },
+      "ver": "1.1.1",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "7d6ab": {
+      "importer": "texture",
+      "uuid": "c56cfe6f-12c3-4ef5-8071-175ec6ae3118@7d6ab",
+      "displayName": "",
+      "id": "7d6ab",
+      "name": "base_color_texture.texture",
+      "userData": {
+        "wrapModeS": "repeat",
+        "wrapModeT": "repeat",
+        "minfilter": "linear",
+        "magfilter": "linear",
+        "mipfilter": "none",
+        "anisotropy": 0,
+        "isUuid": false,
+        "imageUuidOrDatabaseUri": "db://assets/building/fbx (unity)/citybits_texture.png"
+      },
+      "ver": "1.0.22",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "319cb": {
+      "importer": "gltf-material",
+      "uuid": "c56cfe6f-12c3-4ef5-8071-175ec6ae3118@319cb",
+      "displayName": "",
+      "id": "319cb",
+      "name": "citybits_texture.material",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.0.14",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "4b258": {
+      "importer": "gltf-scene",
+      "uuid": "c56cfe6f-12c3-4ef5-8071-175ec6ae3118@4b258",
+      "displayName": "",
+      "id": "4b258",
+      "name": "building_B.prefab",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.0.14",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    }
+  },
+  "userData": {
+    "imageMetas": [
+      {
+        "name": "base_color_texture",
+        "uri": "db://assets/building/fbx (unity)/citybits_texture.png"
+      }
+    ],
+    "fbx": {
+      "smartMaterialEnabled": true
+    },
+    "lods": {
+      "enable": false,
+      "hasBuiltinLOD": false,
+      "options": [
+        {
+          "screenRatio": 0.25,
+          "faceCount": 1
+        },
+        {
+          "screenRatio": 0.125,
+          "faceCount": 0.25
+        },
+        {
+          "screenRatio": 0.01,
+          "faceCount": 0.1
+        }
+      ]
+    },
+    "assetFinder": {
+      "meshes": [
+        "c56cfe6f-12c3-4ef5-8071-175ec6ae3118@35886"
+      ],
+      "skeletons": [],
+      "textures": [
+        "c56cfe6f-12c3-4ef5-8071-175ec6ae3118@7d6ab"
+      ],
+      "materials": [
+        "c56cfe6f-12c3-4ef5-8071-175ec6ae3118@319cb"
+      ],
+      "scenes": [
+        "c56cfe6f-12c3-4ef5-8071-175ec6ae3118@4b258"
+      ]
+    }
+  }
+}
