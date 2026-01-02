@@ -1,5 +1,5 @@
-import { _decorator, Component, Node } from 'cc';
-import { MovementState } from '../Define/Define';
+import { _decorator, Component, Node, ProgressBar } from 'cc';
+import { Energy, MovementState } from '../Define/Define';
 const { ccclass, property } = _decorator;
 
 @ccclass('StaminaManager')
@@ -8,12 +8,23 @@ export class StaminaManager extends Component {
     @property(Node)
     playerNode: Node = null;
 
+    @property(Node)
+    staminaBar: Node = null;
+
+    stamina: number;
+    staminaRegenRate: number = 0.5;
+    
+
+    protected onLoad(): void {
+        this.stamina = Energy.STAMINA;
+    }
+
     start() {
         
     }
     
     update(deltaTime: number) {
-        
+        this.updateStaminaBar(this.getPlayerState(), deltaTime);
     }
 
     getPlayerState():MovementState{
@@ -21,6 +32,46 @@ export class StaminaManager extends Component {
         return this.playerNode.getComponent('PlayerController').currentState;
     }
 
+    updateStaminaBar(state:MovementState, deltaTime:number){
+        switch(state){
+            case MovementState.IDLE:
+                if(this.stamina < Energy.STAMINA){
+                    this.increseStamina(this.staminaRegenRate*deltaTime);
+                }
+                break;
+            case MovementState.RUNNING:
+                this.reduceStamina(Energy.RUN*deltaTime);
+                break;
+            // case MovementState.JUMPING:
+            //     this.reduceStamina(Energy.JUMP);
+                // break;
+            // case MovementState.VAULTING:
+            //     this.reduceStamina(Energy.VAULT);
+                // break;
+        }
+        let scaleX = this.stamina / Energy.STAMINA;
+        this.staminaBar.getComponent(ProgressBar).progress = scaleX;
+    }
+
+    reduceStamina(amount:number){
+        if(this.stamina - amount < 0){
+            this.stamina = 0;
+        } else {
+            this.stamina -= amount;
+        }
+    }
+
+    increseStamina(amount:number){
+        if(this.stamina + amount > Energy.STAMINA){
+            this.stamina = Energy.STAMINA;
+        } else {
+            this.stamina += amount;
+        }
+    }
+
+    getStamina():number{
+        return this.stamina;
+    }
 }
 
 

@@ -15,5 +15,6 @@ export enum MovementState {
     WALKING,
     RUNNING,
     VAULTING,
-    TURNING
+    TURNING,
+    JUMPING
 }

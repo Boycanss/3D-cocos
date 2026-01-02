@@ -1,7 +1,8 @@
 import { _decorator, animation, CapsuleCharacterController, CCBoolean, CCFloat, CharacterController, Collider, Component, easing, Enum, EventKeyboard, Input, input, KeyCode, Layers, log, math, Node, NodeSpace, RigidBody, Tween, tween, Vec3 } from 'cc';
 import { VaultDetector } from './VaultDetector';
-import { MovementState, ObstacleType } from './Define/Define';
+import { Energy, MovementState, ObstacleType } from './Define/Define';
 import { Box } from './Obstacle/Box';
+import { StaminaManager } from './GameManager/StaminaManager';
 const { ccclass, property } = _decorator;
 
 @ccclass('PlayerController')
@@ -15,6 +16,9 @@ export class PlayerController extends Component {
 
     @property(CapsuleCharacterController)
     charController: CapsuleCharacterController;
+
+    @property(StaminaManager)
+    staminaManager: StaminaManager;
 
     @property(CCFloat)
     maxSpeed: number = 5;
@@ -113,12 +117,14 @@ export class PlayerController extends Component {
     }
 
     update(deltaTime: number) {
+        if(this.staminaManager.getStamina() <= 0 && this.currentState == MovementState.RUNNING){
+            this.SetState(MovementState.IDLE);
+        }
         if (this.currentState != MovementState.VAULTING) this.HandleMovement(deltaTime);
     }
 
 
     HandleMovement(deltaTime: number) {
-        
         this.movementDirection.set(0, this.verticalVelocity, 0);
         this.ApplyGravity(deltaTime);
         this.Run(deltaTime);
@@ -130,14 +136,13 @@ export class PlayerController extends Component {
     }
 
     LowVault(obstacle: Node) {
-        console.log("vaulting LowVault");
         this.Animation.setValue('Vault', true);
         const pos = this.node.worldPosition.clone()
         var destination = pos.clone();
         Vec3.scaleAndAdd(destination, pos, this.node.forward, -.75);
         destination.y = obstacle.position.y+.5;
         // console.log(destination);
-        
+        this.staminaManager.reduceStamina(Energy.VAULT);
         tween()
         .target(this.node)
         .delay(.25)
@@ -162,6 +167,7 @@ export class PlayerController extends Component {
     Jump() {
         if(this.currentSpeed == 0) return;
         this.Animation.setValue('Jump', true);
+        this.staminaManager.reduceStamina(Energy.JUMP);
         this.verticalVelocity = 8.5 * (this.currentSpeed / this.maxSpeed);
     }
 
