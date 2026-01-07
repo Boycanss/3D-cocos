@@ -12,6 +12,9 @@ export class StaminaManager extends Component {
     staminaBar: Node = null;
 
     stamina: number;
+    totalUsedStamina: number = 0;
+
+    @property(Number)
     staminaRegenRate: number = 0.5;
     
 
@@ -24,12 +27,9 @@ export class StaminaManager extends Component {
     }
     
     update(deltaTime: number) {
-        this.updateStaminaBar(this.getPlayerState(), deltaTime);
-    }
-
-    getPlayerState():MovementState{
-        if(this.playerNode == null) return;
-        return this.playerNode.getComponent('PlayerController').currentState;
+        if(this.playerNode != null){
+            this.updateStaminaBar(this.playerNode.getComponent('PlayerController').getState(), deltaTime);
+        }
     }
 
     updateStaminaBar(state:MovementState, deltaTime:number){
@@ -58,7 +58,12 @@ export class StaminaManager extends Component {
             this.stamina = 0;
         } else {
             this.stamina -= amount;
+            this.totalUsedStamina += amount;
         }
+    }
+
+    public getTotalUsedStamina():number{
+        return this.totalUsedStamina;
     }
 
     increseStamina(amount:number){

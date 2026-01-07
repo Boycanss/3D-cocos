@@ -12,25 +12,25 @@
     ],
     "_variables": {
       "Float Number": {
-        "__id__": 80
-      },
-      "isRunning": {
-        "__id__": 81
-      },
-      "Jump": {
         "__id__": 82
       },
-      "currentSpeed": {
+      "isRunning": {
         "__id__": 83
       },
-      "hValue": {
+      "Jump": {
         "__id__": 84
       },
-      "isTurning": {
+      "currentSpeed": {
         "__id__": 85
       },
-      "Vault": {
+      "hValue": {
         "__id__": 86
+      },
+      "isTurning": {
+        "__id__": 87
+      },
+      "Vault": {
+        "__id__": 88
       }
     }
   },
@@ -89,28 +89,28 @@
         "__id__": 36
       },
       {
-        "__id__": 39
+        "__id__": 41
       },
       {
-        "__id__": 44
+        "__id__": 46
       },
       {
-        "__id__": 49
+        "__id__": 51
       },
       {
-        "__id__": 54
+        "__id__": 56
       },
       {
-        "__id__": 61
+        "__id__": 63
       },
       {
-        "__id__": 66
+        "__id__": 68
       },
       {
-        "__id__": 71
+        "__id__": 73
       },
       {
-        "__id__": 75
+        "__id__": 77
       }
     ],
     "_entryState": {
@@ -493,19 +493,35 @@
     "to": {
       "__id__": 6
     },
-    "conditions": [],
+    "conditions": [
+      {
+        "__id__": 37
+      }
+    ],
     "destinationStart": 0,
     "relativeDestinationStart": false,
     "startEventBinding": {
-      "__id__": 37
+      "__id__": 39
     },
     "endEventBinding": {
-      "__id__": 38
+      "__id__": 40
     },
     "duration": 0.3,
     "relativeDuration": false,
     "exitConditionEnabled": true,
     "_exitCondition": 1
+  },
+  {
+    "__type__": "cc.animation.UnaryCondition",
+    "operator": 1,
+    "operand": {
+      "__id__": 38
+    }
+  },
+  {
+    "__type__": "cc.animation.BindableBoolean",
+    "variable": "isRunning",
+    "value": false
   },
   {
     "__type__": "cc.animation.AnimationGraphEventBinding",
@@ -526,16 +542,16 @@
     },
     "conditions": [
       {
-        "__id__": 40
+        "__id__": 42
       }
     ],
     "destinationStart": 0,
     "relativeDestinationStart": false,
     "startEventBinding": {
-      "__id__": 42
+      "__id__": 44
     },
     "endEventBinding": {
-      "__id__": 43
+      "__id__": 45
     },
     "duration": 0.3,
     "relativeDuration": false,
@@ -546,7 +562,7 @@
     "__type__": "cc.animation.UnaryCondition",
     "operator": 0,
     "operand": {
-      "__id__": 41
+      "__id__": 43
     }
   },
   {
@@ -573,16 +589,16 @@
     },
     "conditions": [
       {
-        "__id__": 45
+        "__id__": 47
       }
     ],
     "destinationStart": 0,
     "relativeDestinationStart": false,
     "startEventBinding": {
-      "__id__": 47
+      "__id__": 49
     },
     "endEventBinding": {
-      "__id__": 48
+      "__id__": 50
     },
     "duration": 0.3,
     "relativeDuration": false,
@@ -593,7 +609,7 @@
     "__type__": "cc.animation.UnaryCondition",
     "operator": 0,
     "operand": {
-      "__id__": 46
+      "__id__": 48
     }
   },
   {
@@ -620,16 +636,16 @@
     },
     "conditions": [
       {
-        "__id__": 50
+        "__id__": 52
       }
     ],
     "destinationStart": 0,
     "relativeDestinationStart": false,
     "startEventBinding": {
-      "__id__": 52
+      "__id__": 54
     },
     "endEventBinding": {
-      "__id__": 53
+      "__id__": 55
     },
     "duration": 0.1,
     "relativeDuration": false,
@@ -640,7 +656,7 @@
     "__type__": "cc.animation.UnaryCondition",
     "operator": 1,
     "operand": {
-      "__id__": 51
+      "__id__": 53
     }
   },
   {
@@ -667,19 +683,19 @@
     },
     "conditions": [
       {
-        "__id__": 55
+        "__id__": 57
       },
       {
-        "__id__": 57
+        "__id__": 59
       }
     ],
     "destinationStart": 0,
     "relativeDestinationStart": false,
     "startEventBinding": {
-      "__id__": 59
+      "__id__": 61
     },
     "endEventBinding": {
-      "__id__": 60
+      "__id__": 62
     },
     "duration": 0.3,
     "relativeDuration": false,
@@ -690,7 +706,7 @@
     "__type__": "cc.animation.UnaryCondition",
     "operator": 0,
     "operand": {
-      "__id__": 56
+      "__id__": 58
     }
   },
   {
@@ -702,7 +718,7 @@
     "__type__": "cc.animation.UnaryCondition",
     "operator": 1,
     "operand": {
-      "__id__": 58
+      "__id__": 60
     }
   },
   {
@@ -729,16 +745,16 @@
     },
     "conditions": [
       {
-        "__id__": 62
+        "__id__": 64
       }
     ],
     "destinationStart": 0,
     "relativeDestinationStart": false,
     "startEventBinding": {
-      "__id__": 64
+      "__id__": 66
     },
     "endEventBinding": {
-      "__id__": 65
+      "__id__": 67
     },
     "duration": 0.3,
     "relativeDuration": false,
@@ -749,7 +765,7 @@
     "__type__": "cc.animation.UnaryCondition",
     "operator": 1,
     "operand": {
-      "__id__": 63
+      "__id__": 65
     }
   },
   {
@@ -776,16 +792,16 @@
     },
     "conditions": [
       {
-        "__id__": 67
+        "__id__": 69
       }
     ],
     "destinationStart": 0,
     "relativeDestinationStart": false,
     "startEventBinding": {
-      "__id__": 69
+      "__id__": 71
     },
     "endEventBinding": {
-      "__id__": 70
+      "__id__": 72
     },
     "duration": 0.3,
     "relativeDuration": false,
@@ -796,7 +812,7 @@
     "__type__": "cc.animation.UnaryCondition",
     "operator": 0,
     "operand": {
-      "__id__": 68
+      "__id__": 70
     }
   },
   {
@@ -823,16 +839,16 @@
     },
     "conditions": [
       {
-        "__id__": 72
+        "__id__": 74
       }
     ],
     "destinationStart": 0,
     "relativeDestinationStart": false,
     "startEventBinding": {
-      "__id__": 73
+      "__id__": 75
     },
     "endEventBinding": {
-      "__id__": 74
+      "__id__": 76
     },
     "duration": 0.3,
     "relativeDuration": false,
@@ -862,16 +878,16 @@
     },
     "conditions": [
       {
-        "__id__": 76
+        "__id__": 78
       }
     ],
     "destinationStart": 0,
     "relativeDestinationStart": false,
     "startEventBinding": {
-      "__id__": 78
+      "__id__": 80
     },
     "endEventBinding": {
-      "__id__": 79
+      "__id__": 81
     },
     "duration": 0.3,
     "relativeDuration": false,
@@ -882,7 +898,7 @@
     "__type__": "cc.animation.UnaryCondition",
     "operator": 1,
     "operand": {
-      "__id__": 77
+      "__id__": 79
     }
   },
   {

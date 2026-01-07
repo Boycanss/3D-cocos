@@ -51,7 +51,6 @@ export class PlayerController extends Component {
         if(this.currentState == MovementState.VAULTING) return;
         //walk - run
         if (event.keyCode === KeyCode.KEY_W) {
-            this._moveDir.z = 1;
             this.SetState(MovementState.RUNNING);
         }
 
@@ -82,7 +81,6 @@ export class PlayerController extends Component {
 
     onKeyUp(event: EventKeyboard) {
         if (event.keyCode === KeyCode.KEY_W || event.keyCode === KeyCode.KEY_S) {
-            this._moveDir.z = 0;
             this.SetState(MovementState.IDLE);
         }
         if (event.keyCode === KeyCode.KEY_A || event.keyCode === KeyCode.KEY_D) {
@@ -90,21 +88,28 @@ export class PlayerController extends Component {
             this.Animation.setValue('isTurning', false);
         }
     }
-
+    
     SetState(newState: MovementState) {
         this.currentState = newState;
-
+        console.log(newState);
+        
+        
         switch (this.currentState) {
             case MovementState.IDLE:
+                this._moveDir.z = 0;
                 this.Animation.setValue('isRunning', false);
                 break;
             case MovementState.WALKING:
 
                 break;
             case MovementState.RUNNING:
+                this._moveDir.z = 1;
                 this.Animation.setValue('isRunning', true);
                 break;
             case MovementState.VAULTING:
+
+                break;
+            case MovementState.JUMPING:
 
                 break;
             default:
@@ -114,6 +119,11 @@ export class PlayerController extends Component {
 
     start() {
         this.rigidb = this.node.getComponent(RigidBody);
+    }
+
+    
+    public getState():MovementState{
+        return this.currentState;
     }
 
     update(deltaTime: number) {
@@ -166,6 +176,7 @@ export class PlayerController extends Component {
 
     Jump() {
         if(this.currentSpeed == 0) return;
+        this.SetState(MovementState.JUMPING);
         this.Animation.setValue('Jump', true);
         this.staminaManager.reduceStamina(Energy.JUMP);
         this.verticalVelocity = 8.5 * (this.currentSpeed / this.maxSpeed);
@@ -177,7 +188,12 @@ export class PlayerController extends Component {
     }
 
     Run(deltaTime: number) {
-        this.currentSpeed = this.currentState == MovementState.RUNNING ? math.lerp(this.currentSpeed, this.maxSpeed, deltaTime * 1.5) : 0;
+        if(this.currentState == MovementState.RUNNING || this.currentState == MovementState.JUMPING){
+            this.currentSpeed = math.lerp(this.currentSpeed, this.maxSpeed, deltaTime * 1.5);
+        } else {
+            this.currentSpeed = 0;
+        }
+        // this.currentSpeed = this.currentState == MovementState.RUNNING ? math.lerp(this.currentSpeed, this.maxSpeed, deltaTime * 1.5) : 0;
         this.Animation.setValue('currentSpeed', this.currentSpeed / this.maxSpeed);
         const fw = this.node.forward.clone().multiplyScalar(-this.currentSpeed);
         Vec3.add(this.movementDirection, this.movementDirection, fw);
@@ -188,7 +204,12 @@ export class PlayerController extends Component {
         if (this.charController.isGrounded == false) {
             this.verticalVelocity -= .5;
         } else {
-            if (this.verticalVelocity < 0) this.verticalVelocity = -.5;
+            if (this.verticalVelocity < 0) {
+                this.verticalVelocity = -.5;
+                if(this._moveDir.z != 0){
+                    this.SetState(MovementState.RUNNING);
+                }
+            }
         }
     }
 }
