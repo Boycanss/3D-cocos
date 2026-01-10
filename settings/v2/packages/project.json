@@ -19,5 +19,22 @@
       "name": "HighBox",
       "value": 262144
     }
-  ]
+  ],
+  "physics": {
+    "collisionGroups": [
+      {
+        "index": 1,
+        "name": "OBSTACLE"
+      },
+      {
+        "index": 2,
+        "name": "PLANE"
+      }
+    ],
+    "collisionMatrix": {
+      "0": 7,
+      "1": 7,
+      "2": 7
+    }
+  }
 }

@@ -11,10 +11,10 @@ export enum Energy{
 }
 
 export enum MovementState {
-    IDLE,
-    WALKING,
-    RUNNING,
-    VAULTING,
-    TURNING,
-    JUMPING
+    IDLE = "Idle",
+    WALKING = "Walking",
+    RUNNING = "Running",
+    VAULTING = "Vaulting",
+    TURNING = "Turning",
+    JUMPING = "Jumping"
 }

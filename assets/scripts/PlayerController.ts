@@ -91,8 +91,6 @@ export class PlayerController extends Component {
     
     SetState(newState: MovementState) {
         this.currentState = newState;
-        console.log(newState);
-        
         
         switch (this.currentState) {
             case MovementState.IDLE:
@@ -200,7 +198,7 @@ export class PlayerController extends Component {
     }
 
     ApplyGravity(deltaTime: number) {
-        if (this.currentSpeed == MovementState.VAULTING) return;
+        if (this.currentState == MovementState.VAULTING) return;
         if (this.charController.isGrounded == false) {
             this.verticalVelocity -= .5;
         } else {
