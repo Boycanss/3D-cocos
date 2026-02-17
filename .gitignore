@@ -1,0 +1,27 @@
+# Ignore node_modules directory
+node_modules/
+
+# Ignore build and temporary files
+build/
+temp/
+
+# Ignore IDE specific files
+.idea/
+.vscode/
+
+# Ignore logs
+logs/
+
+# Ignore user-specific settings
+*.sublime-project
+*.sublime-workspace
+
+# Ignore OS generated files
+.DS_Store
+Thumbs.db
+
+# Ignore Cocos Creator specific files
+db.json
+project.json
+settings.json
+.aider*

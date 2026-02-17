@@ -1,0 +1,59 @@
+{
+  "__type__": "cc.Mesh",
+  "_name": "",
+  "_objFlags": 0,
+  "__editorExtras__": {},
+  "_native": ".bin",
+  "_struct": {
+    "primitives": [
+      {
+        "primitiveMode": 7,
+        "vertexBundelIndices": [
+          0
+        ],
+        "indexView": {
+          "offset": 2400,
+          "length": 600,
+          "count": 150,
+          "stride": 4
+        }
+      }
+    ],
+    "vertexBundles": [
+      {
+        "view": {
+          "offset": 0,
+          "length": 2400,
+          "count": 100,
+          "stride": 24
+        },
+        "attributes": [
+          {
+            "name": "a_position",
+            "format": 32,
+            "isNormalized": false
+          },
+          {
+            "name": "a_normal",
+            "format": 32,
+            "isNormalized": false
+          }
+        ]
+      }
+    ],
+    "minPosition": {
+      "__type__": "cc.Vec3",
+      "x": -0.440260648727417,
+      "y": -0.008000456728041172,
+      "z": 0.7156690955162048
+    },
+    "maxPosition": {
+      "__type__": "cc.Vec3",
+      "x": -0.34767812490463257,
+      "y": 0.08466997742652893,
+      "z": 0.8429638743400574
+    }
+  },
+  "_hash": 2403502213,
+  "_allowDataAccess": true
+}

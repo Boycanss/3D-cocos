@@ -1,0 +1,1066 @@
+{
+  "ver": "2.3.13",
+  "importer": "gltf",
+  "imported": true,
+  "uuid": "7c4b832c-c286-429e-8964-dd0e0570d134",
+  "files": [],
+  "subMetas": {
+    "12741": {
+      "importer": "gltf-mesh",
+      "uuid": "7c4b832c-c286-429e-8964-dd0e0570d134@12741",
+      "displayName": "",
+      "id": "12741",
+      "name": "Jacket_Dark red_0.mesh",
+      "userData": {
+        "gltfIndex": 0,
+        "triangleCount": 81
+      },
+      "ver": "1.1.1",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "13172": {
+      "importer": "gltf-mesh",
+      "uuid": "7c4b832c-c286-429e-8964-dd0e0570d134@13172",
+      "displayName": "",
+      "id": "13172",
+      "name": "Cylinder_Hair_0.mesh",
+      "userData": {
+        "gltfIndex": 7,
+        "triangleCount": 156
+      },
+      "ver": "1.1.1",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "33405": {
+      "importer": "gltf-mesh",
+      "uuid": "7c4b832c-c286-429e-8964-dd0e0570d134@33405",
+      "displayName": "",
+      "id": "33405",
+      "name": "Legs_Scarf_0.mesh",
+      "userData": {
+        "gltfIndex": 25,
+        "triangleCount": 42
+      },
+      "ver": "1.1.1",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "42876": {
+      "importer": "gltf-mesh",
+      "uuid": "7c4b832c-c286-429e-8964-dd0e0570d134@42876",
+      "displayName": "",
+      "id": "42876",
+      "name": "Cube.004_Scarf_0.mesh",
+      "userData": {
+        "gltfIndex": 6,
+        "triangleCount": 12
+      },
+      "ver": "1.1.1",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "58009": {
+      "importer": "gltf-mesh",
+      "uuid": "7c4b832c-c286-429e-8964-dd0e0570d134@58009",
+      "displayName": "",
+      "id": "58009",
+      "name": " Sword.002_Sword red_0.mesh",
+      "userData": {
+        "gltfIndex": 34,
+        "triangleCount": 84
+      },
+      "ver": "1.1.1",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "70564": {
+      "importer": "gltf-mesh",
+      "uuid": "7c4b832c-c286-429e-8964-dd0e0570d134@70564",
+      "displayName": "",
+      "id": "70564",
+      "name": " Sword.002_Black_0.mesh",
+      "userData": {
+        "gltfIndex": 36,
+        "triangleCount": 24
+      },
+      "ver": "1.1.1",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "98448": {
+      "importer": "gltf-mesh",
+      "uuid": "7c4b832c-c286-429e-8964-dd0e0570d134@98448",
+      "displayName": "",
+      "id": "98448",
+      "name": "Cube.003_Material.003_0.mesh",
+      "userData": {
+        "gltfIndex": 27,
+        "triangleCount": 204
+      },
+      "ver": "1.1.1",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "5a5db": {
+      "importer": "gltf-mesh",
+      "uuid": "7c4b832c-c286-429e-8964-dd0e0570d134@5a5db",
+      "displayName": "",
+      "id": "5a5db",
+      "name": "Jacket_Grey_0.mesh",
+      "userData": {
+        "gltfIndex": 1,
+        "triangleCount": 55
+      },
+      "ver": "1.1.1",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "d085d": {
+      "importer": "gltf-mesh",
+      "uuid": "7c4b832c-c286-429e-8964-dd0e0570d134@d085d",
+      "displayName": "",
+      "id": "d085d",
+      "name": "Jacket_light grey_0.mesh",
+      "userData": {
+        "gltfIndex": 2,
+        "triangleCount": 18
+      },
+      "ver": "1.1.1",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "4cd23": {
+      "importer": "gltf-mesh",
+      "uuid": "7c4b832c-c286-429e-8964-dd0e0570d134@4cd23",
+      "displayName": "",
+      "id": "4cd23",
+      "name": "Jacket_Scarf_0.mesh",
+      "userData": {
+        "gltfIndex": 3,
+        "triangleCount": 34
+      },
+      "ver": "1.1.1",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "1fcc2": {
+      "importer": "gltf-mesh",
+      "uuid": "7c4b832c-c286-429e-8964-dd0e0570d134@1fcc2",
+      "displayName": "",
+      "id": "1fcc2",
+      "name": "Cube.004_Face_0.mesh",
+      "userData": {
+        "gltfIndex": 4,
+        "triangleCount": 96
+      },
+      "ver": "1.1.1",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "c3a34": {
+      "importer": "gltf-mesh",
+      "uuid": "7c4b832c-c286-429e-8964-dd0e0570d134@c3a34",
+      "displayName": "",
+      "id": "c3a34",
+      "name": "Cube.004_Hair_0.mesh",
+      "userData": {
+        "gltfIndex": 5,
+        "triangleCount": 160
+      },
+      "ver": "1.1.1",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "bf12a": {
+      "importer": "gltf-mesh",
+      "uuid": "7c4b832c-c286-429e-8964-dd0e0570d134@bf12a",
+      "displayName": "",
+      "id": "bf12a",
+      "name": "Arm_Grey_0.mesh",
+      "userData": {
+        "gltfIndex": 8,
+        "triangleCount": 136
+      },
+      "ver": "1.1.1",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "4ef09": {
+      "importer": "gltf-mesh",
+      "uuid": "7c4b832c-c286-429e-8964-dd0e0570d134@4ef09",
+      "displayName": "",
+      "id": "4ef09",
+      "name": "Arm_Bandages_0.mesh",
+      "userData": {
+        "gltfIndex": 9,
+        "triangleCount": 36
+      },
+      "ver": "1.1.1",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "daf98": {
+      "importer": "gltf-mesh",
+      "uuid": "7c4b832c-c286-429e-8964-dd0e0570d134@daf98",
+      "displayName": "",
+      "id": "daf98",
+      "name": "Hand_Grey_0.mesh",
+      "userData": {
+        "gltfIndex": 10,
+        "triangleCount": 62
+      },
+      "ver": "1.1.1",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "2c0e8": {
+      "importer": "gltf-mesh",
+      "uuid": "7c4b832c-c286-429e-8964-dd0e0570d134@2c0e8",
+      "displayName": "",
+      "id": "2c0e8",
+      "name": "Hand_Face_0.mesh",
+      "userData": {
+        "gltfIndex": 11,
+        "triangleCount": 50
+      },
+      "ver": "1.1.1",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "a42b1": {
+      "importer": "gltf-mesh",
+      "uuid": "7c4b832c-c286-429e-8964-dd0e0570d134@a42b1",
+      "displayName": "",
+      "id": "a42b1",
+      "name": "Cylinder.001_Bandages_0.mesh",
+      "userData": {
+        "gltfIndex": 12,
+        "triangleCount": 144
+      },
+      "ver": "1.1.1",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "7ba47": {
+      "importer": "gltf-mesh",
+      "uuid": "7c4b832c-c286-429e-8964-dd0e0570d134@7ba47",
+      "displayName": "",
+      "id": "7ba47",
+      "name": "Prosthetic_Metal_0.mesh",
+      "userData": {
+        "gltfIndex": 13,
+        "triangleCount": 344
+      },
+      "ver": "1.1.1",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "38e93": {
+      "importer": "gltf-mesh",
+      "uuid": "7c4b832c-c286-429e-8964-dd0e0570d134@38e93",
+      "displayName": "",
+      "id": "38e93",
+      "name": "Prosthetic_light grey_0.mesh",
+      "userData": {
+        "gltfIndex": 14,
+        "triangleCount": 12
+      },
+      "ver": "1.1.1",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "10e67": {
+      "importer": "gltf-mesh",
+      "uuid": "7c4b832c-c286-429e-8964-dd0e0570d134@10e67",
+      "displayName": "",
+      "id": "10e67",
+      "name": "Prosthetic_Bone_0.mesh",
+      "userData": {
+        "gltfIndex": 15,
+        "triangleCount": 64
+      },
+      "ver": "1.1.1",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "7d538": {
+      "importer": "gltf-mesh",
+      "uuid": "7c4b832c-c286-429e-8964-dd0e0570d134@7d538",
+      "displayName": "",
+      "id": "7d538",
+      "name": "Prosthetic_Scarf_0.mesh",
+      "userData": {
+        "gltfIndex": 16,
+        "triangleCount": 12
+      },
+      "ver": "1.1.1",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "9f661": {
+      "importer": "gltf-mesh",
+      "uuid": "7c4b832c-c286-429e-8964-dd0e0570d134@9f661",
+      "displayName": "",
+      "id": "9f661",
+      "name": "Prosthetic_Bone_light_0.mesh",
+      "userData": {
+        "gltfIndex": 17,
+        "triangleCount": 80
+      },
+      "ver": "1.1.1",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "690ce": {
+      "importer": "gltf-mesh",
+      "uuid": "7c4b832c-c286-429e-8964-dd0e0570d134@690ce",
+      "displayName": "",
+      "id": "690ce",
+      "name": "Cylinder.004_Bandages_0.mesh",
+      "userData": {
+        "gltfIndex": 18,
+        "triangleCount": 336
+      },
+      "ver": "1.1.1",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "d272d": {
+      "importer": "gltf-mesh",
+      "uuid": "7c4b832c-c286-429e-8964-dd0e0570d134@d272d",
+      "displayName": "",
+      "id": "d272d",
+      "name": "Plane_New Coat_0.mesh",
+      "userData": {
+        "gltfIndex": 19,
+        "triangleCount": 324
+      },
+      "ver": "1.1.1",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "03045": {
+      "importer": "gltf-mesh",
+      "uuid": "7c4b832c-c286-429e-8964-dd0e0570d134@03045",
+      "displayName": "",
+      "id": "03045",
+      "name": "Scarf_Scarf_0.mesh",
+      "userData": {
+        "gltfIndex": 20,
+        "triangleCount": 304
+      },
+      "ver": "1.1.1",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "c2293": {
+      "importer": "gltf-mesh",
+      "uuid": "7c4b832c-c286-429e-8964-dd0e0570d134@c2293",
+      "displayName": "",
+      "id": "c2293",
+      "name": "Cube.000_Grey_0.mesh",
+      "userData": {
+        "gltfIndex": 21,
+        "triangleCount": 476
+      },
+      "ver": "1.1.1",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "d068c": {
+      "importer": "gltf-mesh",
+      "uuid": "7c4b832c-c286-429e-8964-dd0e0570d134@d068c",
+      "displayName": "",
+      "id": "d068c",
+      "name": "Legs_Grey_0.mesh",
+      "userData": {
+        "gltfIndex": 22,
+        "triangleCount": 152
+      },
+      "ver": "1.1.1",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "d4c65": {
+      "importer": "gltf-mesh",
+      "uuid": "7c4b832c-c286-429e-8964-dd0e0570d134@d4c65",
+      "displayName": "",
+      "id": "d4c65",
+      "name": "Legs_Pants_0.mesh",
+      "userData": {
+        "gltfIndex": 23,
+        "triangleCount": 102
+      },
+      "ver": "1.1.1",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "cd1fc": {
+      "importer": "gltf-mesh",
+      "uuid": "7c4b832c-c286-429e-8964-dd0e0570d134@cd1fc",
+      "displayName": "",
+      "id": "cd1fc",
+      "name": "Legs_Dark red_0.mesh",
+      "userData": {
+        "gltfIndex": 24,
+        "triangleCount": 52
+      },
+      "ver": "1.1.1",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "e3808": {
+      "importer": "gltf-mesh",
+      "uuid": "7c4b832c-c286-429e-8964-dd0e0570d134@e3808",
+      "displayName": "",
+      "id": "e3808",
+      "name": "Legs_Red_0.mesh",
+      "userData": {
+        "gltfIndex": 26,
+        "triangleCount": 24
+      },
+      "ver": "1.1.1",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "8f80e": {
+      "importer": "gltf-mesh",
+      "uuid": "7c4b832c-c286-429e-8964-dd0e0570d134@8f80e",
+      "displayName": "",
+      "id": "8f80e",
+      "name": "Cylinder.002_Bandages_0.mesh",
+      "userData": {
+        "gltfIndex": 28,
+        "triangleCount": 480
+      },
+      "ver": "1.1.1",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "2a266": {
+      "importer": "gltf-mesh",
+      "uuid": "7c4b832c-c286-429e-8964-dd0e0570d134@2a266",
+      "displayName": "",
+      "id": "2a266",
+      "name": "Cube.002_Bandages_0.mesh",
+      "userData": {
+        "gltfIndex": 29,
+        "triangleCount": 712
+      },
+      "ver": "1.1.1",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "2af99": {
+      "importer": "gltf-mesh",
+      "uuid": "7c4b832c-c286-429e-8964-dd0e0570d134@2af99",
+      "displayName": "",
+      "id": "2af99",
+      "name": " Sword.000_Black_0.mesh",
+      "userData": {
+        "gltfIndex": 30,
+        "triangleCount": 120
+      },
+      "ver": "1.1.1",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "3b5b9": {
+      "importer": "gltf-mesh",
+      "uuid": "7c4b832c-c286-429e-8964-dd0e0570d134@3b5b9",
+      "displayName": "",
+      "id": "3b5b9",
+      "name": " Sword.000_Metal_0.mesh",
+      "userData": {
+        "gltfIndex": 31,
+        "triangleCount": 248
+      },
+      "ver": "1.1.1",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "4b60d": {
+      "importer": "gltf-mesh",
+      "uuid": "7c4b832c-c286-429e-8964-dd0e0570d134@4b60d",
+      "displayName": "",
+      "id": "4b60d",
+      "name": " Sword.000_Bronze_0.mesh",
+      "userData": {
+        "gltfIndex": 32,
+        "triangleCount": 52
+      },
+      "ver": "1.1.1",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "add10": {
+      "importer": "gltf-mesh",
+      "uuid": "7c4b832c-c286-429e-8964-dd0e0570d134@add10",
+      "displayName": "",
+      "id": "add10",
+      "name": "Cube.006_Red_0.mesh",
+      "userData": {
+        "gltfIndex": 33,
+        "triangleCount": 940
+      },
+      "ver": "1.1.1",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "5658d": {
+      "importer": "gltf-mesh",
+      "uuid": "7c4b832c-c286-429e-8964-dd0e0570d134@5658d",
+      "displayName": "",
+      "id": "5658d",
+      "name": " Sword.002_Red Metal_0.mesh",
+      "userData": {
+        "gltfIndex": 35,
+        "triangleCount": 336
+      },
+      "ver": "1.1.1",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "6dcd5": {
+      "importer": "gltf-material",
+      "uuid": "7c4b832c-c286-429e-8964-dd0e0570d134@6dcd5",
+      "displayName": "",
+      "id": "6dcd5",
+      "name": "Dark_red.material",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.0.14",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "862e8": {
+      "importer": "gltf-material",
+      "uuid": "7c4b832c-c286-429e-8964-dd0e0570d134@862e8",
+      "displayName": "",
+      "id": "862e8",
+      "name": "Grey.material",
+      "userData": {
+        "gltfIndex": 1
+      },
+      "ver": "1.0.14",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "234c2": {
+      "importer": "gltf-material",
+      "uuid": "7c4b832c-c286-429e-8964-dd0e0570d134@234c2",
+      "displayName": "",
+      "id": "234c2",
+      "name": "light_grey.material",
+      "userData": {
+        "gltfIndex": 2
+      },
+      "ver": "1.0.14",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "3350f": {
+      "importer": "gltf-material",
+      "uuid": "7c4b832c-c286-429e-8964-dd0e0570d134@3350f",
+      "displayName": "",
+      "id": "3350f",
+      "name": "Scarf.material",
+      "userData": {
+        "gltfIndex": 3
+      },
+      "ver": "1.0.14",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "33f5e": {
+      "importer": "gltf-material",
+      "uuid": "7c4b832c-c286-429e-8964-dd0e0570d134@33f5e",
+      "displayName": "",
+      "id": "33f5e",
+      "name": "Face.material",
+      "userData": {
+        "gltfIndex": 4
+      },
+      "ver": "1.0.14",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "312bf": {
+      "importer": "gltf-material",
+      "uuid": "7c4b832c-c286-429e-8964-dd0e0570d134@312bf",
+      "displayName": "",
+      "id": "312bf",
+      "name": "Hair.material",
+      "userData": {
+        "gltfIndex": 5
+      },
+      "ver": "1.0.14",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "483f1": {
+      "importer": "gltf-material",
+      "uuid": "7c4b832c-c286-429e-8964-dd0e0570d134@483f1",
+      "displayName": "",
+      "id": "483f1",
+      "name": "Bandages.material",
+      "userData": {
+        "gltfIndex": 6
+      },
+      "ver": "1.0.14",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "710bf": {
+      "importer": "gltf-material",
+      "uuid": "7c4b832c-c286-429e-8964-dd0e0570d134@710bf",
+      "displayName": "",
+      "id": "710bf",
+      "name": "Metal.material",
+      "userData": {
+        "gltfIndex": 7
+      },
+      "ver": "1.0.14",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "a1b41": {
+      "importer": "gltf-material",
+      "uuid": "7c4b832c-c286-429e-8964-dd0e0570d134@a1b41",
+      "displayName": "",
+      "id": "a1b41",
+      "name": "Bone.material",
+      "userData": {
+        "gltfIndex": 8
+      },
+      "ver": "1.0.14",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "0271b": {
+      "importer": "gltf-material",
+      "uuid": "7c4b832c-c286-429e-8964-dd0e0570d134@0271b",
+      "displayName": "",
+      "id": "0271b",
+      "name": "Bone_light.material",
+      "userData": {
+        "gltfIndex": 9
+      },
+      "ver": "1.0.14",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "1e763": {
+      "importer": "gltf-material",
+      "uuid": "7c4b832c-c286-429e-8964-dd0e0570d134@1e763",
+      "displayName": "",
+      "id": "1e763",
+      "name": "New_Coat.material",
+      "userData": {
+        "gltfIndex": 10
+      },
+      "ver": "1.0.14",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "e92a3": {
+      "importer": "gltf-material",
+      "uuid": "7c4b832c-c286-429e-8964-dd0e0570d134@e92a3",
+      "displayName": "",
+      "id": "e92a3",
+      "name": "Pants.material",
+      "userData": {
+        "gltfIndex": 11
+      },
+      "ver": "1.0.14",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "222d4": {
+      "importer": "gltf-material",
+      "uuid": "7c4b832c-c286-429e-8964-dd0e0570d134@222d4",
+      "displayName": "",
+      "id": "222d4",
+      "name": "material.material",
+      "userData": {
+        "gltfIndex": 12
+      },
+      "ver": "1.0.14",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "a9549": {
+      "importer": "gltf-material",
+      "uuid": "7c4b832c-c286-429e-8964-dd0e0570d134@a9549",
+      "displayName": "",
+      "id": "a9549",
+      "name": "Material.003.material",
+      "userData": {
+        "gltfIndex": 13
+      },
+      "ver": "1.0.14",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "8f8aa": {
+      "importer": "gltf-material",
+      "uuid": "7c4b832c-c286-429e-8964-dd0e0570d134@8f8aa",
+      "displayName": "",
+      "id": "8f8aa",
+      "name": "Black.material",
+      "userData": {
+        "gltfIndex": 14
+      },
+      "ver": "1.0.14",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "59b9e": {
+      "importer": "gltf-material",
+      "uuid": "7c4b832c-c286-429e-8964-dd0e0570d134@59b9e",
+      "displayName": "",
+      "id": "59b9e",
+      "name": "Bronze.material",
+      "userData": {
+        "gltfIndex": 15
+      },
+      "ver": "1.0.14",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "39beb": {
+      "importer": "gltf-material",
+      "uuid": "7c4b832c-c286-429e-8964-dd0e0570d134@39beb",
+      "displayName": "",
+      "id": "39beb",
+      "name": "Sword_red.material",
+      "userData": {
+        "gltfIndex": 16
+      },
+      "ver": "1.0.14",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "9b607": {
+      "importer": "gltf-material",
+      "uuid": "7c4b832c-c286-429e-8964-dd0e0570d134@9b607",
+      "displayName": "",
+      "id": "9b607",
+      "name": "Red_Metal.material",
+      "userData": {
+        "gltfIndex": 17
+      },
+      "ver": "1.0.14",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "c27a4": {
+      "importer": "gltf-scene",
+      "uuid": "7c4b832c-c286-429e-8964-dd0e0570d134@c27a4",
+      "displayName": "",
+      "id": "c27a4",
+      "name": "low-poly_sekiro.prefab",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.0.14",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    }
+  },
+  "userData": {
+    "imageMetas": [],
+    "lods": {
+      "enable": false,
+      "hasBuiltinLOD": false,
+      "options": [
+        {
+          "screenRatio": 0.25,
+          "faceCount": 1
+        },
+        {
+          "screenRatio": 0.125,
+          "faceCount": 0.25
+        },
+        {
+          "screenRatio": 0.01,
+          "faceCount": 0.1
+        }
+      ]
+    },
+    "assetFinder": {
+      "meshes": [
+        "7c4b832c-c286-429e-8964-dd0e0570d134@12741",
+        "7c4b832c-c286-429e-8964-dd0e0570d134@5a5db",
+        "7c4b832c-c286-429e-8964-dd0e0570d134@d085d",
+        "7c4b832c-c286-429e-8964-dd0e0570d134@4cd23",
+        "7c4b832c-c286-429e-8964-dd0e0570d134@1fcc2",
+        "7c4b832c-c286-429e-8964-dd0e0570d134@c3a34",
+        "7c4b832c-c286-429e-8964-dd0e0570d134@42876",
+        "7c4b832c-c286-429e-8964-dd0e0570d134@13172",
+        "7c4b832c-c286-429e-8964-dd0e0570d134@bf12a",
+        "7c4b832c-c286-429e-8964-dd0e0570d134@4ef09",
+        "7c4b832c-c286-429e-8964-dd0e0570d134@daf98",
+        "7c4b832c-c286-429e-8964-dd0e0570d134@2c0e8",
+        "7c4b832c-c286-429e-8964-dd0e0570d134@a42b1",
+        "7c4b832c-c286-429e-8964-dd0e0570d134@7ba47",
+        "7c4b832c-c286-429e-8964-dd0e0570d134@38e93",
+        "7c4b832c-c286-429e-8964-dd0e0570d134@10e67",
+        "7c4b832c-c286-429e-8964-dd0e0570d134@7d538",
+        "7c4b832c-c286-429e-8964-dd0e0570d134@9f661",
+        "7c4b832c-c286-429e-8964-dd0e0570d134@690ce",
+        "7c4b832c-c286-429e-8964-dd0e0570d134@d272d",
+        "7c4b832c-c286-429e-8964-dd0e0570d134@03045",
+        "7c4b832c-c286-429e-8964-dd0e0570d134@c2293",
+        "7c4b832c-c286-429e-8964-dd0e0570d134@d068c",
+        "7c4b832c-c286-429e-8964-dd0e0570d134@d4c65",
+        "7c4b832c-c286-429e-8964-dd0e0570d134@cd1fc",
+        "7c4b832c-c286-429e-8964-dd0e0570d134@33405",
+        "7c4b832c-c286-429e-8964-dd0e0570d134@e3808",
+        "7c4b832c-c286-429e-8964-dd0e0570d134@98448",
+        "7c4b832c-c286-429e-8964-dd0e0570d134@8f80e",
+        "7c4b832c-c286-429e-8964-dd0e0570d134@2a266",
+        "7c4b832c-c286-429e-8964-dd0e0570d134@2af99",
+        "7c4b832c-c286-429e-8964-dd0e0570d134@3b5b9",
+        "7c4b832c-c286-429e-8964-dd0e0570d134@4b60d",
+        "7c4b832c-c286-429e-8964-dd0e0570d134@add10",
+        "7c4b832c-c286-429e-8964-dd0e0570d134@58009",
+        "7c4b832c-c286-429e-8964-dd0e0570d134@5658d",
+        "7c4b832c-c286-429e-8964-dd0e0570d134@70564"
+      ],
+      "skeletons": [],
+      "textures": [],
+      "materials": [
+        "7c4b832c-c286-429e-8964-dd0e0570d134@6dcd5",
+        "7c4b832c-c286-429e-8964-dd0e0570d134@862e8",
+        "7c4b832c-c286-429e-8964-dd0e0570d134@234c2",
+        "7c4b832c-c286-429e-8964-dd0e0570d134@3350f",
+        "7c4b832c-c286-429e-8964-dd0e0570d134@33f5e",
+        "7c4b832c-c286-429e-8964-dd0e0570d134@312bf",
+        "7c4b832c-c286-429e-8964-dd0e0570d134@483f1",
+        "7c4b832c-c286-429e-8964-dd0e0570d134@710bf",
+        "7c4b832c-c286-429e-8964-dd0e0570d134@a1b41",
+        "7c4b832c-c286-429e-8964-dd0e0570d134@0271b",
+        "7c4b832c-c286-429e-8964-dd0e0570d134@1e763",
+        "7c4b832c-c286-429e-8964-dd0e0570d134@e92a3",
+        "7c4b832c-c286-429e-8964-dd0e0570d134@222d4",
+        "7c4b832c-c286-429e-8964-dd0e0570d134@a9549",
+        "7c4b832c-c286-429e-8964-dd0e0570d134@8f8aa",
+        "7c4b832c-c286-429e-8964-dd0e0570d134@59b9e",
+        "7c4b832c-c286-429e-8964-dd0e0570d134@39beb",
+        "7c4b832c-c286-429e-8964-dd0e0570d134@9b607"
+      ],
+      "scenes": [
+        "7c4b832c-c286-429e-8964-dd0e0570d134@c27a4"
+      ]
+    }
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "__type__": "cc.Material",
+  "_name": "citybits_texture",
+  "_objFlags": 0,
+  "__editorExtras__": {},
+  "_native": "",
+  "_effectAsset": {
+    "__uuid__": "c8f66d17-351a-48da-a12c-0212d28575c4",
+    "__expectedType__": "cc.EffectAsset"
+  },
+  "_techIdx": 0,
+  "_defines": [
+    {
+      "USE_ALBEDO_MAP": true
+    }
+  ],
+  "_states": [
+    {
+      "rasterizerState": {},
+      "blendState": {
+        "targets": [
+          {}
+        ]
+      },
+      "depthStencilState": {}
+    }
+  ],
+  "_props": [
+    {
+      "mainTexture": {
+        "__uuid__": "a301bac8-7f3f-47c9-9f62-819e8f60a2a7@e39f7",
+        "__expectedType__": "cc.Texture2D"
+      },
+      "metallic": 0,
+      "roughness": 0.4000000059604645,
+      "occlusion": 0
+    }
+  ]
+}
