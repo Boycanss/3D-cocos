@@ -179,7 +179,7 @@ export class PlayerController extends Component {
             case MovementState.SLIDING:
                 this._moveDir.z = 0;
                 this.Animation.setValue('isRunning', false);
-                this.Animation.setValue('isSliding', true);
+                this.Animation.setValue('Slide', true);
                 break;
             default:
                 break;
@@ -364,14 +364,14 @@ export class PlayerController extends Component {
         if (this.charController.isGrounded) {
             this.SetState(MovementState.SLIDING);
             this.staminaManager.reduceStamina(Energy.SLIDE);
-            this.Animation.setValue('isSliding', true);
+            this.Animation.setValue('Slide', true);
         }
     }
 
     EndSlide() {
         this.SetState(MovementState.IDLE);
         this.node.setScale(this.node.scale.x, 1.0, this.node.scale.z); // Reset height
-        this.Animation.setValue('isSliding', false);
+        this.Animation.setValue('Slide', false);
     }
 
     protected onDestroy(): void {
