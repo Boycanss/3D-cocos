@@ -324,7 +324,20 @@ export class PlayerController extends Component {
         const endPos = startPos.clone();
         Vec3.scaleAndAdd(endPos, startPos, dashDirection, -this.dashDistance);
         
-        // Perform dash movement
+        // Perform raycast to check for obstacles
+        const physicsSystem = PhysicsSystem.instance;
+        const ray = new geometry.Ray();
+        geometry.Ray.fromPoints(ray, startPos, endPos);
+
+        if (physicsSystem.raycastClosest(ray, Layers.EVERYTHING)) {
+            const hitResult = physicsSystem.raycastClosestResult;
+            // Stop dash at the point of collision
+            this.node.setWorldPosition(hitResult.worldPoint);
+            this.isDashing = false;
+            return;
+        }
+
+        // Perform dash movement if no obstacle is hit
         tween()
             .target(this.node)
             .to(0.1, { worldPosition: endPos })
