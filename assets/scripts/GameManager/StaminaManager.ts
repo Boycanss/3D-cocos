@@ -42,6 +42,9 @@ export class StaminaManager extends Component {
             case MovementState.RUNNING:
                 this.reduceStamina(Energy.RUN*deltaTime);
                 break;
+            case MovementState.WALL_RUNNING:
+                this.reduceStamina(Energy.RUN*deltaTime);
+                break;
             // case MovementState.JUMPING:
             //     this.reduceStamina(Energy.JUMP);
                 // break;
@@ -78,5 +81,4 @@ export class StaminaManager extends Component {
         return this.stamina;
     }
 }
-
 

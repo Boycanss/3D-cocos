@@ -57,6 +57,7 @@ export class PlayerController extends Component {
     isDashing: boolean = false;
     dashCooldownTimer: number = 0;
     isSliding: boolean = false; // New flag for sliding
+    isWallRunning: boolean = false; // New flag for wall running
 
     VaultTween: Tween = new Tween();
 
@@ -181,6 +182,11 @@ export class PlayerController extends Component {
                 this.Animation.setValue('isRunning', false);
                 this.Animation.setValue('Slide', true);
                 break;
+            case MovementState.WALL_RUNNING:
+                this.isWallRunning = true;
+                this._moveDir.z = 1;
+                this.Animation.setValue('isRunning', true);
+                break;
             default:
                 break;
         }
@@ -234,7 +240,7 @@ export class PlayerController extends Component {
             this.dashCooldownTimer -= deltaTime;
         }
 
-        if(this.staminaManager.getStamina() <= 0 && this.currentState == MovementState.RUNNING){
+        if(this.staminaManager.getStamina() <= 0 && (this.currentState == MovementState.RUNNING || this.currentState == MovementState.WALL_RUNNING)){
             this.SetState(MovementState.IDLE);
         }
         if (this.currentState != MovementState.VAULTING && !this.isDashing) this.HandleMovement(deltaTime);
@@ -249,6 +255,12 @@ export class PlayerController extends Component {
             this.currentSpeed = math.lerp(this.currentSpeed, 2.0, deltaTime * this.acceleration); // Reduced max speed
             this.node.setScale(this.node.scale.x, this.slideHeight, this.node.scale.z); // Reduce height
             this.Run(deltaTime); // Call Run to calculate movement direction
+        } else if (this.isWallRunning) {
+            // Wall Run Logic
+            this.currentSpeed = math.lerp(this.currentSpeed, this.maxSpeed, deltaTime * this.acceleration);
+            // Reduce gravity to allow running on walls
+            this.verticalVelocity -= .1; 
+            this.Run(deltaTime);
         } else {
             this.Run(deltaTime);
         }
@@ -305,7 +317,7 @@ export class PlayerController extends Component {
     }
 
     Run(deltaTime: number) {
-        if(this.currentState == MovementState.RUNNING || this.currentState == MovementState.JUMPING){
+        if(this.currentState == MovementState.RUNNING || this.currentState == MovementState.WALL_RUNNING){
             this.currentSpeed = math.lerp(this.currentSpeed, this.maxSpeed, deltaTime * this.acceleration);
         } else {
             this.currentSpeed = 0;
