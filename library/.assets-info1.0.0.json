@@ -2496,7 +2496,7 @@
       "uuid": "ec91e580-1274-43c1-ad6a-53f110374051"
     },
     "D:\\Development\\Cocos_Projects\\Parkour\\assets\\characters\\Female": {
-      "time": 1767002737260.6633,
+      "time": 1771341804476.6204,
       "uuid": "fba7ada0-c238-4601-9c7b-32c9f1cb0208"
     },
     "D:\\Development\\Cocos_Projects\\Parkour\\assets\\internal\\default_skybox": {
@@ -2528,7 +2528,7 @@
       "uuid": "037991ec-d08f-4f52-b213-cc36ed0783c5"
     },
     "D:\\Development\\Cocos_Projects\\Parkour\\assets\\scripts\\PlayerController.ts": {
-      "time": 1771164380254.7795,
+      "time": 1771353862703.5244,
       "uuid": "60600163-aaf3-4ea8-8ca7-ba86d24ad26c"
     },
     "D:\\Development\\Cocos_Projects\\Parkour\\assets\\scripts\\VaultDetector.ts": {
@@ -2536,7 +2536,7 @@
       "uuid": "16ac7090-d232-4f0e-ab94-24e7319701ef"
     },
     "D:\\Development\\Cocos_Projects\\Parkour\\assets\\scripts\\Define\\Define.ts": {
-      "time": 1771145277905.3015,
+      "time": 1771348636985.729,
       "uuid": "bfd20749-df09-426c-b1d2-95e62020f4b2"
     },
     "D:\\Development\\Cocos_Projects\\Parkour\\assets\\scripts\\GameManager\\GameManager.ts": {
@@ -3876,7 +3876,7 @@
       "uuid": "73d55f30-5091-47c7-b402-0f41043404ad"
     },
     "D:\\Development\\Cocos_Projects\\Parkour\\assets\\characters\\Female\\MC_anim_graph.animgraph": {
-      "time": 1767758274024.134,
+      "time": 1771348655406.4382,
       "uuid": "ffa488a3-8f0d-4821-b144-270b0c996364"
     },
     "D:\\Development\\Cocos_Projects\\Parkour\\assets\\characters\\Female\\Orc Idle.fbx": {
@@ -4915,7 +4915,7 @@
       "time": 1770531570008.572
     },
     "D:\\Development\\Cocos_Projects\\Parkour\\assets\\scenes\\game.scene": {
-      "time": 1771309617352.0266,
+      "time": 1771353584049.6892,
       "uuid": "d6bb5eb2-50b1-40e1-be7a-136f4579e51f"
     },
     "D:\\Development\\Cocos_Projects\\Parkour\\assets\\materials\\planeMat.mtl.meta": {
@@ -4987,6 +4987,13 @@
     "D:\\Development\\Cocos_Projects\\Parkour\\assets\\scripts\\Occludable.ts": {
       "time": 1771308029375.1787,
       "uuid": "951d2e8c-6eb5-4b27-9810-4e9f0f1066be"
+    },
+    "D:\\Development\\Cocos_Projects\\Parkour\\assets\\characters\\Female\\Slide.fbx.meta": {
+      "time": 1771349009846.245
+    },
+    "D:\\Development\\Cocos_Projects\\Parkour\\assets\\characters\\Female\\Slide.fbx": {
+      "time": 1771341728403.353,
+      "uuid": "3e2fe608-5533-4473-a6a5-3734a9fb1296"
     }
   },
   "missing": {

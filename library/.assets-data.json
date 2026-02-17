@@ -2977,7 +2977,10 @@
         "7e3db037-28e6-4862-abb4-49fed30b3e2c@18d6f",
         "3d6ebef2-c786-4fd6-8b87-5b0b395b5b61",
         "4aa25d1e-0720-4c0d-a3db-772820d3200e",
-        "54287e33-6419-4743-bd2c-5e25e73ea0d2@c30eb"
+        "54287e33-6419-4743-bd2c-5e25e73ea0d2@c30eb",
+        "d1f5c989-8324-4552-9a98-c5953dc6545c",
+        "8f849c4e-2032-4906-91f0-4b4854b35931",
+        "3e2fe608-5533-4473-a6a5-3734a9fb1296@70aad"
       ]
     },
     "versionCode": 1
@@ -12078,6 +12081,29 @@
   "951d2e8c-6eb5-4b27-9810-4e9f0f1066be": {
     "url": "db://assets/scripts/Occludable.ts",
     "value": {},
+    "versionCode": 1
+  },
+  "3e2fe608-5533-4473-a6a5-3734a9fb1296": {
+    "url": "db://assets/characters/Female/Slide.fbx",
+    "value": {
+      "depends": []
+    },
+    "versionCode": 1
+  },
+  "3e2fe608-5533-4473-a6a5-3734a9fb1296@32872": {
+    "url": "db://assets/characters/Female/Slide.fbx@32872",
+    "value": {
+      "depends": [
+        "3e2fe608-5533-4473-a6a5-3734a9fb1296@70aad"
+      ]
+    },
+    "versionCode": 1
+  },
+  "3e2fe608-5533-4473-a6a5-3734a9fb1296@70aad": {
+    "url": "db://assets/characters/Female/Slide.fbx@70aad",
+    "value": {
+      "depends": []
+    },
     "versionCode": 1
   }
 }

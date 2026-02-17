@@ -12,25 +12,28 @@
     ],
     "_variables": {
       "Float Number": {
-        "__id__": 82
+        "__id__": 98
       },
       "isRunning": {
-        "__id__": 83
+        "__id__": 99
       },
       "Jump": {
-        "__id__": 84
+        "__id__": 100
       },
       "currentSpeed": {
-        "__id__": 85
+        "__id__": 101
       },
       "hValue": {
-        "__id__": 86
+        "__id__": 102
       },
       "isTurning": {
-        "__id__": 87
+        "__id__": 103
       },
       "Vault": {
-        "__id__": 88
+        "__id__": 104
+      },
+      "Slide": {
+        "__id__": 105
       }
     }
   },
@@ -76,41 +79,53 @@
       },
       {
         "__id__": 27
+      },
+      {
+        "__id__": 31
       }
     ],
     "_transitions": [
       {
-        "__id__": 31
-      },
-      {
-        "__id__": 32
+        "__id__": 35
       },
       {
         "__id__": 36
       },
       {
-        "__id__": 41
+        "__id__": 40
       },
       {
-        "__id__": 46
+        "__id__": 45
       },
       {
-        "__id__": 51
+        "__id__": 50
       },
       {
-        "__id__": 56
+        "__id__": 55
       },
       {
-        "__id__": 63
+        "__id__": 60
       },
       {
-        "__id__": 68
+        "__id__": 67
       },
       {
-        "__id__": 73
+        "__id__": 72
       },
       {
         "__id__": 77
+      },
+      {
+        "__id__": 81
+      },
+      {
+        "__id__": 86
+      },
+      {
+        "__id__": 91
+      },
+      {
+        "__id__": 95
       }
     ],
     "_entryState": {
@@ -151,8 +166,8 @@
       "name": "",
       "id": "e39ea16b-f510-426f-88c8-728c6f0c9d9e",
       "clone": null,
-      "centerX": 179.13634886468208,
-      "centerY": -209.7541144103547
+      "centerX": 111.6664693466098,
+      "centerY": -195.2962830850535
     },
     "name": "Any"
   },
@@ -250,8 +265,8 @@
       "name": "Movement",
       "id": "bc07862a-8dd4-4343-8b33-1fea02ad8cb7",
       "clone": null,
-      "centerX": 208.84214381167772,
-      "centerY": -40.842103656969584
+      "centerX": 214.8662401972199,
+      "centerY": 35.061510800861754
     },
     "name": "Movement",
     "_components": [],
@@ -352,8 +367,8 @@
       "name": "Turning",
       "id": "422aa1d7-3c46-45f5-804a-20639a455a8e",
       "clone": null,
-      "centerX": 149.64002761786497,
-      "centerY": 53.75810858352352
+      "centerX": 26.748461352804725,
+      "centerY": 67.0111206317163
     },
     "name": "Turning",
     "_components": [],
@@ -396,8 +411,8 @@
       "name": "Vault",
       "id": "3d6ebef2-c786-4fd6-8b87-5b0b395b5b61",
       "clone": null,
-      "centerX": 58.8043182903869,
-      "centerY": -139.3402094487413
+      "centerX": 29.888655639784474,
+      "centerY": -121.26792029211478
     },
     "name": "Vault",
     "_components": [],
@@ -435,6 +450,50 @@
     "methodName": ""
   },
   {
+    "__type__": "cc.animation.Motion",
+    "__editorExtras__": {
+      "name": "Slide",
+      "id": "d1f5c989-8324-4552-9a98-c5953dc6545c",
+      "clone": null,
+      "centerX": 261.73491255059287,
+      "centerY": -90.0386602562594
+    },
+    "name": "Slide",
+    "_components": [],
+    "motion": {
+      "__id__": 32
+    },
+    "speed": 1,
+    "speedMultiplier": "",
+    "speedMultiplierEnabled": false,
+    "transitionInEventBinding": {
+      "__id__": 33
+    },
+    "transitionOutEventBinding": {
+      "__id__": 34
+    }
+  },
+  {
+    "__type__": "cc.animation.ClipMotion",
+    "__editorExtras__": {
+      "name": "",
+      "id": "8f849c4e-2032-4906-91f0-4b4854b35931",
+      "clone": null
+    },
+    "clip": {
+      "__uuid__": "3e2fe608-5533-4473-a6a5-3734a9fb1296@70aad",
+      "__expectedType__": "cc.AnimationClip"
+    }
+  },
+  {
+    "__type__": "cc.animation.AnimationGraphEventBinding",
+    "methodName": ""
+  },
+  {
+    "__type__": "cc.animation.AnimationGraphEventBinding",
+    "methodName": ""
+  },
+  {
     "__type__": "cc.animation.Transition",
     "__editorExtras__": null,
     "from": {
@@ -456,16 +515,16 @@
     },
     "conditions": [
       {
-        "__id__": 33
+        "__id__": 37
       }
     ],
     "destinationStart": 0,
     "relativeDestinationStart": false,
     "startEventBinding": {
-      "__id__": 34
+      "__id__": 38
     },
     "endEventBinding": {
-      "__id__": 35
+      "__id__": 39
     },
     "duration": 0.3,
     "relativeDuration": false,
@@ -495,16 +554,16 @@
     },
     "conditions": [
       {
-        "__id__": 37
+        "__id__": 41
       }
     ],
     "destinationStart": 0,
     "relativeDestinationStart": false,
     "startEventBinding": {
-      "__id__": 39
+      "__id__": 43
     },
     "endEventBinding": {
-      "__id__": 40
+      "__id__": 44
     },
     "duration": 0.3,
     "relativeDuration": false,
@@ -515,7 +574,7 @@
     "__type__": "cc.animation.UnaryCondition",
     "operator": 1,
     "operand": {
-      "__id__": 38
+      "__id__": 42
     }
   },
   {
@@ -542,16 +601,16 @@
     },
     "conditions": [
       {
-        "__id__": 42
+        "__id__": 46
       }
     ],
     "destinationStart": 0,
     "relativeDestinationStart": false,
     "startEventBinding": {
-      "__id__": 44
+      "__id__": 48
     },
     "endEventBinding": {
-      "__id__": 45
+      "__id__": 49
     },
     "duration": 0.3,
     "relativeDuration": false,
@@ -562,7 +621,7 @@
     "__type__": "cc.animation.UnaryCondition",
     "operator": 0,
     "operand": {
-      "__id__": 43
+      "__id__": 47
     }
   },
   {
@@ -589,16 +648,16 @@
     },
     "conditions": [
       {
-        "__id__": 47
+        "__id__": 51
       }
     ],
     "destinationStart": 0,
     "relativeDestinationStart": false,
     "startEventBinding": {
-      "__id__": 49
+      "__id__": 53
     },
     "endEventBinding": {
-      "__id__": 50
+      "__id__": 54
     },
     "duration": 0.3,
     "relativeDuration": false,
@@ -609,7 +668,7 @@
     "__type__": "cc.animation.UnaryCondition",
     "operator": 0,
     "operand": {
-      "__id__": 48
+      "__id__": 52
     }
   },
   {
@@ -636,16 +695,16 @@
     },
     "conditions": [
       {
-        "__id__": 52
+        "__id__": 56
       }
     ],
     "destinationStart": 0,
     "relativeDestinationStart": false,
     "startEventBinding": {
-      "__id__": 54
+      "__id__": 58
     },
     "endEventBinding": {
-      "__id__": 55
+      "__id__": 59
     },
     "duration": 0.1,
     "relativeDuration": false,
@@ -656,7 +715,7 @@
     "__type__": "cc.animation.UnaryCondition",
     "operator": 1,
     "operand": {
-      "__id__": 53
+      "__id__": 57
     }
   },
   {
@@ -683,19 +742,19 @@
     },
     "conditions": [
       {
-        "__id__": 57
+        "__id__": 61
       },
       {
-        "__id__": 59
+        "__id__": 63
       }
     ],
     "destinationStart": 0,
     "relativeDestinationStart": false,
     "startEventBinding": {
-      "__id__": 61
+      "__id__": 65
     },
     "endEventBinding": {
-      "__id__": 62
+      "__id__": 66
     },
     "duration": 0.3,
     "relativeDuration": false,
@@ -706,7 +765,7 @@
     "__type__": "cc.animation.UnaryCondition",
     "operator": 0,
     "operand": {
-      "__id__": 58
+      "__id__": 62
     }
   },
   {
@@ -718,7 +777,7 @@
     "__type__": "cc.animation.UnaryCondition",
     "operator": 1,
     "operand": {
-      "__id__": 60
+      "__id__": 64
     }
   },
   {
@@ -745,16 +804,16 @@
     },
     "conditions": [
       {
-        "__id__": 64
+        "__id__": 68
       }
     ],
     "destinationStart": 0,
     "relativeDestinationStart": false,
     "startEventBinding": {
-      "__id__": 66
+      "__id__": 70
     },
     "endEventBinding": {
-      "__id__": 67
+      "__id__": 71
     },
     "duration": 0.3,
     "relativeDuration": false,
@@ -765,7 +824,7 @@
     "__type__": "cc.animation.UnaryCondition",
     "operator": 1,
     "operand": {
-      "__id__": 65
+      "__id__": 69
     }
   },
   {
@@ -792,16 +851,16 @@
     },
     "conditions": [
       {
-        "__id__": 69
+        "__id__": 73
       }
     ],
     "destinationStart": 0,
     "relativeDestinationStart": false,
     "startEventBinding": {
-      "__id__": 71
+      "__id__": 75
     },
     "endEventBinding": {
-      "__id__": 72
+      "__id__": 76
     },
     "duration": 0.3,
     "relativeDuration": false,
@@ -812,7 +871,7 @@
     "__type__": "cc.animation.UnaryCondition",
     "operator": 0,
     "operand": {
-      "__id__": 70
+      "__id__": 74
     }
   },
   {
@@ -839,16 +898,16 @@
     },
     "conditions": [
       {
-        "__id__": 74
+        "__id__": 78
       }
     ],
     "destinationStart": 0,
     "relativeDestinationStart": false,
     "startEventBinding": {
-      "__id__": 75
+      "__id__": 79
     },
     "endEventBinding": {
-      "__id__": 76
+      "__id__": 80
     },
     "duration": 0.3,
     "relativeDuration": false,
@@ -878,16 +937,16 @@
     },
     "conditions": [
       {
-        "__id__": 78
+        "__id__": 82
       }
     ],
     "destinationStart": 0,
     "relativeDestinationStart": false,
     "startEventBinding": {
-      "__id__": 80
+      "__id__": 84
     },
     "endEventBinding": {
-      "__id__": 81
+      "__id__": 85
     },
     "duration": 0.3,
     "relativeDuration": false,
@@ -898,13 +957,130 @@
     "__type__": "cc.animation.UnaryCondition",
     "operator": 1,
     "operand": {
-      "__id__": 79
+      "__id__": 83
     }
   },
   {
     "__type__": "cc.animation.BindableBoolean",
     "variable": "isRunning",
     "value": false
+  },
+  {
+    "__type__": "cc.animation.AnimationGraphEventBinding",
+    "methodName": ""
+  },
+  {
+    "__type__": "cc.animation.AnimationGraphEventBinding",
+    "methodName": ""
+  },
+  {
+    "__type__": "cc.animation.AnimationTransition",
+    "__editorExtras__": null,
+    "from": {
+      "__id__": 31
+    },
+    "to": {
+      "__id__": 14
+    },
+    "conditions": [
+      {
+        "__id__": 87
+      }
+    ],
+    "destinationStart": 0,
+    "relativeDestinationStart": false,
+    "startEventBinding": {
+      "__id__": 89
+    },
+    "endEventBinding": {
+      "__id__": 90
+    },
+    "duration": 0.3,
+    "relativeDuration": false,
+    "exitConditionEnabled": true,
+    "_exitCondition": 1
+  },
+  {
+    "__type__": "cc.animation.UnaryCondition",
+    "operator": 0,
+    "operand": {
+      "__id__": 88
+    }
+  },
+  {
+    "__type__": "cc.animation.BindableBoolean",
+    "variable": "isRunning",
+    "value": false
+  },
+  {
+    "__type__": "cc.animation.AnimationGraphEventBinding",
+    "methodName": ""
+  },
+  {
+    "__type__": "cc.animation.AnimationGraphEventBinding",
+    "methodName": ""
+  },
+  {
+    "__type__": "cc.animation.AnimationTransition",
+    "__editorExtras__": null,
+    "from": {
+      "__id__": 14
+    },
+    "to": {
+      "__id__": 31
+    },
+    "conditions": [
+      {
+        "__id__": 92
+      }
+    ],
+    "destinationStart": 0,
+    "relativeDestinationStart": false,
+    "startEventBinding": {
+      "__id__": 93
+    },
+    "endEventBinding": {
+      "__id__": 94
+    },
+    "duration": 0.3,
+    "relativeDuration": false,
+    "exitConditionEnabled": true,
+    "_exitCondition": 1
+  },
+  {
+    "__type__": "cc.animation.TriggerCondition",
+    "trigger": "Slide"
+  },
+  {
+    "__type__": "cc.animation.AnimationGraphEventBinding",
+    "methodName": ""
+  },
+  {
+    "__type__": "cc.animation.AnimationGraphEventBinding",
+    "methodName": ""
+  },
+  {
+    "__type__": "cc.animation.AnimationTransition",
+    "__editorExtras__": null,
+    "from": {
+      "__id__": 31
+    },
+    "to": {
+      "__id__": 6
+    },
+    "conditions": [],
+    "destinationStart": 0,
+    "relativeDestinationStart": false,
+    "startEventBinding": {
+      "__id__": 96
+    },
+    "endEventBinding": {
+      "__id__": 97
+    },
+    "duration": 0.3,
+    "relativeDuration": false,
+    "exitConditionEnabled": true,
+    "_exitCondition": 1
   },
   {
     "__type__": "cc.animation.AnimationGraphEventBinding",
@@ -942,6 +1118,10 @@
     "__type__": "cc.animation.PlainVariable",
     "_type": 1,
     "_value": false
+  },
+  {
+    "__type__": "cc.animation.TriggerVariable",
+    "_flags": 2
   },
   {
     "__type__": "cc.animation.TriggerVariable",

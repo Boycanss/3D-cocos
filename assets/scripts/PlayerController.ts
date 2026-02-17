@@ -363,7 +363,7 @@ export class PlayerController extends Component {
 
     StartSlide() {
         if (this.charController.isGrounded) {
-            this.SetState(MovementState.SLIDING);
+            // this.SetState(MovementState.SLIDING);
             this.staminaManager.reduceStamina(Energy.SLIDE);
             this.Animation.setValue('Slide', true);
         }
