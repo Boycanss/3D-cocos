@@ -105,7 +105,7 @@ export class CameraController extends Component {
                 if (occludable) {
                     occludable.setOccluded(true);
                 } 
-                else if (node.active) {
+                else if (occludable && node.active) {
                     node.active = false;
                 }
                 this._hiddenNodes.add(node);
@@ -142,7 +142,7 @@ export class CameraController extends Component {
                         if (occludable) {
                             occludable.setOccluded(false);
                         } 
-                        else if (!node.active) {
+                        else if (occludable && !node.active) {
                             node.active = true;
                         }
                         this._restoreTimers.delete(node);
