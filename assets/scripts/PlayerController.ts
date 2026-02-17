@@ -42,6 +42,9 @@ export class PlayerController extends Component {
     @property(CCFloat)
     dashCooldown: number = 1;
 
+    @property(CCFloat)
+    slideHeight: number = 0.5; // New property for slide height
+
     currentSpeed: number = 1;
     turnRate: number = 250;
     verticalVelocity: number = 0;
@@ -53,6 +56,7 @@ export class PlayerController extends Component {
     isVaulting: boolean = false;
     isDashing: boolean = false;
     dashCooldownTimer: number = 0;
+    isSliding: boolean = false; // New flag for sliding
 
     VaultTween: Tween = new Tween();
 
@@ -72,7 +76,7 @@ export class PlayerController extends Component {
 
     onKeyDown(event: EventKeyboard) {
 
-        if(this.currentState == MovementState.VAULTING) return;
+        if(this.currentState == MovementState.VAULTING || this.isSliding) return;
         //walk - run
         if (event.keyCode === KeyCode.KEY_W) {
             this.SetState(MovementState.RUNNING);
@@ -105,6 +109,11 @@ export class PlayerController extends Component {
             if (event.keyCode === KeyCode.KEY_E) {
                 this.Dash();
             }
+
+            //slide
+            if (event.keyCode === KeyCode.KEY_S) {
+                this.StartSlide();
+            }
         } else {
             // Allow dash while jumping
             if (event.keyCode === KeyCode.KEY_E) {
@@ -124,6 +133,11 @@ export class PlayerController extends Component {
         if (event.keyCode === KeyCode.KEY_D) {
             this._keyDPressed = false;
             this.updateTurnInput();
+        }
+
+        // End slide when key is released
+        if (event.keyCode === KeyCode.KEY_S && this.isSliding) {
+            this.EndSlide();
         }
     }
 
@@ -162,6 +176,11 @@ export class PlayerController extends Component {
             case MovementState.TURNING:
 
                 break;
+            case MovementState.SLIDING:
+                this._moveDir.z = 0;
+                this.Animation.setValue('isRunning', false);
+                this.Animation.setValue('isSliding', true);
+                break;
             default:
                 break;
         }
@@ -179,7 +198,7 @@ export class PlayerController extends Component {
     private onControllerColliderHit(contact: CharacterControllerContact) {
         // console.log("collided" + contact.collider.node.name);
         
-        if (!this._canTakeDamage || this.currentState === MovementState.VAULTING) return;
+        if (!this._canTakeDamage || this.currentState === MovementState.VAULTING || this.isSliding) return;
 
         const hitNode = contact.collider.node;
         
@@ -225,7 +244,14 @@ export class PlayerController extends Component {
     HandleMovement(deltaTime: number) {
         this.movementDirection.set(0, this.verticalVelocity, 0);
         this.ApplyGravity(deltaTime);
-        this.Run(deltaTime);
+
+        if(this.isSliding){
+            this.currentSpeed = math.lerp(this.currentSpeed, 2.0, deltaTime * this.acceleration); // Reduced max speed
+            this.node.setScale(this.node.scale.x, this.slideHeight, this.node.scale.z); // Reduce height
+        } else {
+            this.Run(deltaTime);
+        }
+
         this.Turn(deltaTime);
 
         if (this.movementDirection.lengthSqr() > 0) {
@@ -273,7 +299,7 @@ export class PlayerController extends Component {
     }
 
     Turn(deltaTime: number) {
-        if (!this.charController.isGrounded) return;
+        if (!this.charController.isGrounded || this.isSliding) return;
         this.node.setRotationFromEuler(0, this.node.eulerAngles.y + (this.turnRate * deltaTime * this._moveDir.x), 0);
     }
 
@@ -290,7 +316,7 @@ export class PlayerController extends Component {
     }
 
     ApplyGravity(deltaTime: number) {
-        if (this.currentState == MovementState.VAULTING) return;
+        if (this.currentState == MovementState.VAULTING || this.isSliding) return;
         if (this.charController.isGrounded == false) {
             this.verticalVelocity -= .5;
         } else {
@@ -304,7 +330,7 @@ export class PlayerController extends Component {
     }
 
     Dash() {
-        if (this.isDashing || this.dashCooldownTimer > 0 || this.currentState === MovementState.VAULTING) return;
+        if (this.isDashing || this.dashCooldownTimer > 0 || this.currentState === MovementState.VAULTING || this.isSliding) return;
         
         if (this.staminaManager.getStamina() < Energy.DASH) return;
         
@@ -332,6 +358,20 @@ export class PlayerController extends Component {
                 this.isDashing = false;
             })
             .start();
+    }
+
+    StartSlide() {
+        if (this.charController.isGrounded) {
+            this.SetState(MovementState.SLIDING);
+            this.staminaManager.reduceStamina(Energy.SLIDE);
+            this.Animation.setValue('isSliding', true);
+        }
+    }
+
+    EndSlide() {
+        this.SetState(MovementState.IDLE);
+        this.node.setScale(this.node.scale.x, 1.0, this.node.scale.z); // Reset height
+        this.Animation.setValue('isSliding', false);
     }
 
     protected onDestroy(): void {

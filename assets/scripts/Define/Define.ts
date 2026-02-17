@@ -8,7 +8,8 @@ export enum Energy{
     RUN = 2,
     JUMP = 10,
     VAULT = 5,
-    DASH = 10
+    DASH = 10,
+    SLIDE = 3
 }
 
 export enum MovementState {
@@ -17,7 +18,8 @@ export enum MovementState {
     RUNNING = "Running",
     VAULTING = "Vaulting",
     TURNING = "Turning",
-    JUMPING = "Jumping"
+    JUMPING = "Jumping",
+    SLIDING = "Sliding"
 }
 
 interface LevelState {
