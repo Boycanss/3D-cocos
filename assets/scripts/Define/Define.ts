@@ -19,7 +19,8 @@ export enum MovementState {
     VAULTING = "Vaulting",
     TURNING = "Turning",
     JUMPING = "Jumping",
-    SLIDING = "Sliding"
+    SLIDING = "Sliding",
+    WALL_RUNNING = "WallRunning"
 }
 
 interface LevelState {
