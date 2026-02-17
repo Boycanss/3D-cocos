@@ -248,6 +248,7 @@ export class PlayerController extends Component {
         if(this.isSliding){
             this.currentSpeed = math.lerp(this.currentSpeed, 2.0, deltaTime * this.acceleration); // Reduced max speed
             this.node.setScale(this.node.scale.x, this.slideHeight, this.node.scale.z); // Reduce height
+            this.Run(deltaTime); // Call Run to calculate movement direction
         } else {
             this.Run(deltaTime);
         }
