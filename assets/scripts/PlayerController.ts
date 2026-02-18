@@ -403,9 +403,9 @@ export class PlayerController extends Component {
         rayRight.origin.copy(this.node.worldPosition);
         rayRight.direction.set(1, 0, 0);
 
-        const hitDown = this.charController.castRay(rayDown);
-        const hitLeft = this.charController.castRay(rayLeft);
-        const hitRight = this.charController.castRay(rayRight);
+        const hitDown = PhysicsSystem.instance.raycastClosest(rayDown);
+        const hitLeft = PhysicsSystem.instance.raycastClosest(rayLeft);
+        const hitRight = PhysicsSystem.instance.raycastClosest(rayRight);
 
         return hitDown && hitLeft && hitRight;
     }
