@@ -46,12 +46,6 @@ export class StaminaManager extends Component {
             case MovementState.WALL_RUNNING:
                 this.reduceStamina(Energy.RUN*deltaTime);
                 break;
-            // case MovementState.JUMPING:
-            //     this.reduceStamina(Energy.JUMP);
-                // break;
-            // case MovementState.VAULTING:
-            //     this.reduceStamina(Energy.VAULT);
-                // break;
         }
         let scaleX = this.stamina / Energy.STAMINA;
         this.staminaBar.getComponent(ProgressBar).progress = scaleX;
@@ -82,4 +76,3 @@ export class StaminaManager extends Component {
         return this.stamina;
     }
 }
-

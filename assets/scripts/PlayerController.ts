@@ -83,8 +83,6 @@ export class PlayerController extends Component {
             this.SetState(MovementState.RUNNING);
         }
 
-        
-
         //turn
         if (event.keyCode === KeyCode.KEY_A) {
             this._keyAPressed = true;
@@ -385,6 +383,26 @@ export class PlayerController extends Component {
         this.SetState(MovementState.IDLE);
         this.node.setScale(this.node.scale.x, 1.0, this.node.scale.z); // Reset height
         this.Animation.setValue('Slide', false);
+    }
+
+    private checkWallContact(): boolean {
+        const rayDown = new geometry.Ray();
+        rayDown.origin.copy(this.node.worldPosition);
+        rayDown.direction.set(0, -1, 0);
+
+        const rayLeft = new geometry.Ray();
+        rayLeft.origin.copy(this.node.worldPosition);
+        rayLeft.direction.set(-1, 0, 0);
+
+        const rayRight = new geometry.Ray();
+        rayRight.origin.copy(this.node.worldPosition);
+        rayRight.direction.set(1, 0, 0);
+
+        const hitDown = this.charController.castRay(rayDown);
+        const hitLeft = this.charController.castRay(rayLeft);
+        const hitRight = this.charController.castRay(rayRight);
+
+        return hitDown && hitLeft && hitRight;
     }
 
     protected onDestroy(): void {
