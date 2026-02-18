@@ -181,9 +181,14 @@ export class PlayerController extends Component {
                 this.Animation.setValue('Slide', true);
                 break;
             case MovementState.WALL_RUNNING:
-                this.isWallRunning = true;
-                this._moveDir.z = 1;
-                this.Animation.setValue('isRunning', true);
+                if (this.checkWallContact() && this.staminaManager.getStamina() >= Energy.RUN) {
+                    this.isWallRunning = true;
+                    this.verticalVelocity -= 0.1; // Reduce gravity to allow running on walls
+                    this.staminaManager.reduceStamina(Energy.RUN);
+                    this.Animation.setValue('isRunning', true);
+                } else {
+                    this.SetState(MovementState.IDLE);
+                }
                 break;
             default:
                 break;
