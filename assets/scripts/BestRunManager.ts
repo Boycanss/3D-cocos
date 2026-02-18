@@ -5,9 +5,11 @@ const { ccclass, property } = _decorator;
 export class BestRunManager extends Component {
     private bestDistance: number = 0;
     private currentDistance: number = 0;
+    private bestTime: number = 0;
     
     onLoad() {
         this.loadBestDistance();
+        this.loadBestTime();
     }
     
     public updateDistance(distance: number) {
@@ -47,5 +49,30 @@ export class BestRunManager extends Component {
         } catch (e) {
             console.error('Failed to load best distance:', e);
         }
+    }
+
+    // New methods for Time
+    public saveBestTime(time: number) {
+        try {
+            sys.localStorage.setItem('bestParkourTime', time.toString());
+        } catch (e) {
+            console.error('Failed to save best time:', e);
+        }
+    }
+    
+    public loadBestTime(): number {
+        try {
+            const saved = sys.localStorage.getItem('bestParkourTime');
+            if (saved) {
+                return parseFloat(saved);
+            }
+        } catch (e) {
+            console.error('Failed to load best time:', e);
+        }
+        return 0;
+    }
+    
+    public getBestTime(): number {
+        return this.bestTime;
     }
 }

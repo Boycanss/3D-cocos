@@ -6,6 +6,7 @@ import { Actor } from '../Actor';
 import { GameLevel, GameLevelState } from '../Define/Define';
 import { MissileManager } from '../Obstacle/MissileManager';
 import { PlayerController } from '../PlayerController';
+import { BestRunManager } from '../BestRunManager';
 const { ccclass, property } = _decorator;
 
 @ccclass('GameManager')
@@ -22,8 +23,12 @@ export class GameManager extends Component {
     @property(Node)
     timeDisplay: Node; // New property for time display
 
+    @property(Node)
+    bestRunDisplay: Node; // New property for best run display
+
     staminaManager: StaminaManager;
     obstacleManager: ObstacleManager;
+    bestRunManager: BestRunManager;
 
     currentTotalStamina: number;
     previousTotalStamina: number = 0;
@@ -42,6 +47,7 @@ export class GameManager extends Component {
     protected onLoad(): void {
         this.staminaManager = this.getComponent(StaminaManager);
         this.obstacleManager = this.getComponent(ObstacleManager);
+        this.bestRunManager = this.getComponent(BestRunManager);
     }
 
     start() {
@@ -55,6 +61,9 @@ export class GameManager extends Component {
                 actor.node.on('actor-dead', this._onActorDead, this);
             }
         }
+        
+        // Load best run display on start
+        this.loadBestRun();
     }
 
     private _onActorDead(actor: Actor) {
@@ -66,6 +75,7 @@ export class GameManager extends Component {
         console.log('Game Over');
         this.isTimerRunning = false;
         this.node.emit('game-over');
+        this.saveBestRun(); // Save best run on game over
     }
 
     onDestroy() {
@@ -107,7 +117,7 @@ export class GameManager extends Component {
         
         const previousThreshold = Math.floor(this.previousTotalStamina / this.energyForObstacle);
         const currentThreshold = Math.floor(this.currentTotalStamina / this.energyForObstacle);
-        this.previousTotalStamina = this.currentTotalStamina;
+        this.previousTotalStamina = currentTotalStamina;
         
         if(currentThreshold > previousThreshold) {
             // Get level-specific obstacle configuration
@@ -192,5 +202,29 @@ export class GameManager extends Component {
     
     public getDifficultyLevel(): GameLevel {
         return this.difficultyLevel;
+    }
+
+    // Best Run Methods
+    private loadBestRun() {
+        if (this.bestRunDisplay) {
+            const label = this.bestRunDisplay.getComponent(Label);
+            if (label) {
+                const bestTime = this.bestRunManager.getBestTime();
+                label.string = `Best Time: ${this.formatTime(bestTime)}`;
+            }
+        }
+    }
+
+    private saveBestRun() {
+        const totalTime = this.getGameTime();
+        this.bestRunManager.saveBestTime(totalTime);
+        this.loadBestRun(); // Update display immediately
+    }
+
+    private formatTime(seconds: number): string {
+        const mins = Math.floor(seconds / 60);
+        const secs = Math.floor(seconds % 60);
+        const ms = Math.floor((seconds % 1) * 100);
+        return `${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}.${ms.toString().padStart(2, '0')}`;
     }
 }
