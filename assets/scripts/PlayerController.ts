@@ -278,8 +278,17 @@ export class PlayerController extends Component {
             // Wall Run Logic
             this.currentSpeed = math.lerp(this.currentSpeed, this.maxSpeed, deltaTime * this.acceleration);
             
-            // Rotate player to face wall normal so it looks like they are running on the wall
-            this.node.lookAt(this.node.position.clone().add(this.node.forward), Vec3.UNIT_Y);
+            // ROTATION LOGIC: Rotate player to face the wall tangent
+            const wallNormal = this.checkWallContact();
+            if (wallNormal) {
+                // Calculate tangent (direction along the wall surface)
+                // Tangent = Normal x Up
+                const tangent = new Vec3();
+                Vec3.cross(wallNormal, Vec3.UNIT_Y, tangent);
+                
+                // Rotate player to look at the tangent direction
+                this.node.lookAt(this.node.position.clone().add(tangent), Vec3.UNIT_Y);
+            }
             
             // Reduce gravity to allow running on walls
             this.verticalVelocity = 0; // Maintain consistent upward movement on wall
@@ -330,19 +339,25 @@ export class PlayerController extends Component {
     Jump() {
         if(this.currentSpeed == 0) return;
 
-        // Wall Run Jump
+        // WALL RUN JUMP LOGIC
         if (this.currentState === MovementState.WALL_RUNNING) {
-            this.SetState(MovementState.JUMPING);
-            this.Animation.setValue('Jump', true);
-            this.staminaManager.reduceStamina(Energy.JUMP);
+            const wallNormal = this.checkWallContact();
+            if (wallNormal) {
+                this.SetState(MovementState.JUMPING);
+                this.Animation.setValue('Jump', true);
+                this.staminaManager.reduceStamina(Energy.JUMP);
 
-            // Jump forward along the wall and up
-            const jumpDir = this.node.forward.clone();
-            jumpDir.y = 1.0;
-            jumpDir.normalize();
-            this.movementDirection.add(jumpDir);
-            this.verticalVelocity = 8.5;
-            return;
+                // Calculate jump direction: Jump away from wall (-Normal) + Up
+                const jumpDir = new Vec3();
+                const negatedNormal = new Vec3();
+                Vec3.negate(negatedNormal, wallNormal);
+                Vec3.add(jumpDir, negatedNormal, Vec3.UNIT_Y);
+                
+                // Apply horizontal jump direction
+                this.movementDirection.add(jumpDir);
+                this.verticalVelocity = 8.5;
+                return;
+            }
         }
 
         // Normal Jump
@@ -436,7 +451,8 @@ export class PlayerController extends Component {
         this.Animation.setValue('Slide', false);
     }
 
-    private checkWallContact(): boolean {
+    // MODIFIED: Now returns the normal vector of the wall hit
+    private checkWallContact(): Vec3 | null {
         const checkDistance = 0.8; // Distance to check for walls
         const playerPos = this.node.worldPosition;
         const playerRight = this.node.right.clone(); // Get right vector based on player orientation
@@ -455,8 +471,11 @@ export class PlayerController extends Component {
         geometry.Ray.fromPoints(rayLeft, playerPos, leftCheckPoint);
         const hitLeft = PhysicsSystem.instance.raycastClosest(rayLeft, 1, checkDistance);
         
-        // A wall is detected if there's a hit on either side
-        return hitRight || hitLeft;
+        // Return the normal of the wall hit (if any)
+        if (hitRight) return hitRight.collider.worldNormal;
+        if (hitLeft) return hitLeft.collider.worldNormal;
+        
+        return null;
     }
 
     protected onDestroy(): void {
