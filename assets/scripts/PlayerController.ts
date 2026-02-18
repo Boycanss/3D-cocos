@@ -117,6 +117,11 @@ export class PlayerController extends Component {
             if (event.keyCode === KeyCode.KEY_E) {
                 this.Dash();
             }
+            
+            // Allow jump while wall running
+            if (event.keyCode === KeyCode.SPACE) {
+                this.Jump();
+            }
         }
     }
 
@@ -272,6 +277,10 @@ export class PlayerController extends Component {
         } else if (this.currentState === MovementState.WALL_RUNNING) {
             // Wall Run Logic
             this.currentSpeed = math.lerp(this.currentSpeed, this.maxSpeed, deltaTime * this.acceleration);
+            
+            // Rotate player to face wall normal so it looks like they are running on the wall
+            this.node.lookAt(this.node.position.clone().add(this.node.forward), Vec3.UNIT_Y);
+            
             // Reduce gravity to allow running on walls
             this.verticalVelocity = 0; // Maintain consistent upward movement on wall
             this.staminaManager.reduceStamina(Energy.RUN * deltaTime); // Continuous stamina cost
@@ -320,6 +329,23 @@ export class PlayerController extends Component {
 
     Jump() {
         if(this.currentSpeed == 0) return;
+
+        // Wall Run Jump
+        if (this.currentState === MovementState.WALL_RUNNING) {
+            this.SetState(MovementState.JUMPING);
+            this.Animation.setValue('Jump', true);
+            this.staminaManager.reduceStamina(Energy.JUMP);
+
+            // Jump forward along the wall and up
+            const jumpDir = this.node.forward.clone();
+            jumpDir.y = 1.0;
+            jumpDir.normalize();
+            this.movementDirection.add(jumpDir);
+            this.verticalVelocity = 8.5;
+            return;
+        }
+
+        // Normal Jump
         this.SetState(MovementState.JUMPING);
         this.Animation.setValue('Jump', true);
         this.staminaManager.reduceStamina(Energy.JUMP);
@@ -327,6 +353,9 @@ export class PlayerController extends Component {
     }
 
     Turn(deltaTime: number) {
+        // Disable turning while wall running to prevent fighting the rotation
+        if (this.currentState === MovementState.WALL_RUNNING) return;
+        
         if (!this.charController.isGrounded || this.isSliding) return;
         this.node.setRotationFromEuler(0, this.node.eulerAngles.y + (this.turnRate * deltaTime * this._moveDir.x), 0);
     }
