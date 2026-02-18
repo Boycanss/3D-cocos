@@ -1,5 +1,6 @@
 import { _decorator, Component, Node, ProgressBar } from 'cc';
 import { Energy, MovementState } from '../Define/Define';
+import { PlayerController } from '../PlayerController';
 const { ccclass, property } = _decorator;
 
 @ccclass('StaminaManager')
@@ -28,7 +29,7 @@ export class StaminaManager extends Component {
     
     update(deltaTime: number) {
         if(this.playerNode != null){
-            this.updateStaminaBar(this.playerNode.getComponent('PlayerController').getState(), deltaTime);
+            this.updateStaminaBar(this.playerNode.getComponent(PlayerController).getState(), deltaTime);
         }
     }
 
