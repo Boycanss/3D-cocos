@@ -1,4 +1,4 @@
-import { _decorator, animation, CapsuleCharacterController, CCBoolean, CCFloat, CharacterController, CharacterControllerContact, Collider, Component, easing, Enum, EventKeyboard, Input, input, KeyCode, Layers, log, math, Node, NodeSpace, RigidBody, Tween, tween, Vec3 } from 'cc';
+import { _decorator, animation, CapsuleCharacterController, CCBoolean, CCFloat, CharacterController, CharacterControllerContact, Collider, Component, easing, Enum, EventKeyboard, Input, input, KeyCode, Layers, geometry, math, Node, NodeSpace, RigidBody, Tween, tween, Vec3 } from 'cc';
 import { VaultDetector } from './VaultDetector';
 import { Energy, MovementState, ObstacleType } from './Define/Define';
 import { Box } from './Obstacle/Box';
