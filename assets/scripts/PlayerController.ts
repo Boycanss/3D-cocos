@@ -1,4 +1,4 @@
-import { _decorator, animation, CapsuleCharacterController, CCBoolean, CCFloat, CharacterController, CharacterControllerContact, Collider, Component, easing, Enum, EventKeyboard, Input, input, KeyCode, Layers, geometry, math, Node, NodeSpace, RigidBody, Tween, tween, Vec3 } from 'cc';
+import { _decorator, animation, CapsuleCharacterController, CCBoolean, CCFloat, CharacterController, CharacterControllerContact, Collider, Component, easing, Enum, EventKeyboard, Input, input, KeyCode, Layers, geometry, math, Node, NodeSpace, PhysicsSystem, RigidBody, Tween, tween, Vec3 } from 'cc';
 import { VaultDetector } from './VaultDetector';
 import { Energy, MovementState, ObstacleType } from './Define/Define';
 import { Box } from './Obstacle/Box';
@@ -22,7 +22,7 @@ export class PlayerController extends Component {
     charController: CapsuleCharacterController;
 
     @property(StaminaManager)
-    staminaManager: StaminaManager;
+    staminaManager: StaminaManager = null;
 
     @property(CCFloat)
     maxSpeed: number = 5;
@@ -57,7 +57,6 @@ export class PlayerController extends Component {
     isDashing: boolean = false;
     dashCooldownTimer: number = 0;
     isSliding: boolean = false; // New flag for sliding
-    isWallRunning: boolean = false; // New flag for wall running
 
     VaultTween: Tween = new Tween();
 
@@ -181,14 +180,9 @@ export class PlayerController extends Component {
                 this.Animation.setValue('Slide', true);
                 break;
             case MovementState.WALL_RUNNING:
-                if (this.checkWallContact() && this.staminaManager.getStamina() >= Energy.RUN) {
-                    this.isWallRunning = true;
-                    this.verticalVelocity -= 0.1; // Reduce gravity to allow running on walls
-                    this.staminaManager.reduceStamina(Energy.RUN);
-                    this.Animation.setValue('isRunning', true);
-                } else {
-                    this.SetState(MovementState.IDLE);
-                }
+                console.log("wall running");
+                
+                this.Animation.setValue('isRunning', true);
                 break;
             default:
                 break;
@@ -254,15 +248,33 @@ export class PlayerController extends Component {
         this.movementDirection.set(0, this.verticalVelocity, 0);
         this.ApplyGravity(deltaTime);
 
+        // Check for wall running conditions (airborne + wall contact + stamina + moving forward)
+        if (this.currentState === MovementState.JUMPING && !this.charController.isGrounded) {
+            if (this.checkWallContact() && this.staminaManager.getStamina() >= Energy.RUN && this.currentSpeed > 0) {
+                console.log(">>> wallrunning");
+                
+                this.SetState(MovementState.WALL_RUNNING);
+            }
+        }
+
+        // Exit wall running if conditions no longer met
+        if (this.currentState === MovementState.WALL_RUNNING) {
+            if (!this.checkWallContact() || this.staminaManager.getStamina() < Energy.RUN || this.charController.isGrounded) {
+                console.log(">>> not wallrunning");
+                this.SetState(MovementState.JUMPING);
+            }
+        }
+
         if(this.isSliding){
             this.currentSpeed = math.lerp(this.currentSpeed, 2.0, deltaTime * this.acceleration); // Reduced max speed
             this.node.setScale(this.node.scale.x, this.slideHeight, this.node.scale.z); // Reduce height
             this.Run(deltaTime); // Call Run to calculate movement direction
-        } else if (this.isWallRunning) {
+        } else if (this.currentState === MovementState.WALL_RUNNING) {
             // Wall Run Logic
             this.currentSpeed = math.lerp(this.currentSpeed, this.maxSpeed, deltaTime * this.acceleration);
             // Reduce gravity to allow running on walls
-            this.verticalVelocity -= .1; 
+            this.verticalVelocity = 0; // Maintain consistent upward movement on wall
+            this.staminaManager.reduceStamina(Energy.RUN * deltaTime); // Continuous stamina cost
             this.Run(deltaTime);
         } else {
             this.Run(deltaTime);
@@ -320,12 +332,17 @@ export class PlayerController extends Component {
     }
 
     Run(deltaTime: number) {
-        if(this.currentState == MovementState.RUNNING || this.currentState == MovementState.WALL_RUNNING){
+        if(this.currentState == MovementState.RUNNING || this.currentState == MovementState.WALL_RUNNING || this.currentState == MovementState.JUMPING){
             this.currentSpeed = math.lerp(this.currentSpeed, this.maxSpeed, deltaTime * this.acceleration);
-        } else {
+        } 
+        // else if (this.currentState == MovementState.JUMPING) {
+        //     // Maintain current speed during jump for forward momentum
+        //     // Speed decays slightly if not running
+        //     this.currentSpeed = math.lerp(this.currentSpeed, 0, deltaTime * 0.8);
+        // } 
+        else {
             this.currentSpeed = 0;
         }
-        // this.currentSpeed = this.currentState == MovementState.RUNNING ? math.lerp(this.currentSpeed, this.maxSpeed, deltaTime * 1.5) : 0;
         this.Animation.setValue('currentSpeed', this.currentSpeed / this.maxSpeed);
         const fw = this.node.forward.clone().multiplyScalar(-this.currentSpeed);
         Vec3.add(this.movementDirection, this.movementDirection, fw);
@@ -391,23 +408,26 @@ export class PlayerController extends Component {
     }
 
     private checkWallContact(): boolean {
-        const rayDown = new geometry.Ray();
-        rayDown.origin.copy(this.node.worldPosition);
-        rayDown.direction.set(0, -1, 0);
-
-        const rayLeft = new geometry.Ray();
-        rayLeft.origin.copy(this.node.worldPosition);
-        rayLeft.direction.set(-1, 0, 0);
-
+        const checkDistance = 0.8; // Distance to check for walls
+        const playerPos = this.node.worldPosition;
+        const playerRight = this.node.right.clone(); // Get right vector based on player orientation
+        
+        // Check right side
         const rayRight = new geometry.Ray();
-        rayRight.origin.copy(this.node.worldPosition);
-        rayRight.direction.set(1, 0, 0);
-
-        const hitDown = PhysicsSystem.instance.raycastClosest(rayDown);
-        const hitLeft = PhysicsSystem.instance.raycastClosest(rayLeft);
-        const hitRight = PhysicsSystem.instance.raycastClosest(rayRight);
-
-        return hitDown && hitLeft && hitRight;
+        const rightCheckPoint = new Vec3();
+        Vec3.scaleAndAdd(rightCheckPoint, playerPos, playerRight, checkDistance);
+        geometry.Ray.fromPoints(rayRight, playerPos, rightCheckPoint);
+        const hitRight = PhysicsSystem.instance.raycastClosest(rayRight, 1, checkDistance);
+        
+        // Check left side
+        const rayLeft = new geometry.Ray();
+        const leftCheckPoint = new Vec3();
+        Vec3.scaleAndAdd(leftCheckPoint, playerPos, playerRight, -checkDistance);
+        geometry.Ray.fromPoints(rayLeft, playerPos, leftCheckPoint);
+        const hitLeft = PhysicsSystem.instance.raycastClosest(rayLeft, 1, checkDistance);
+        
+        // A wall is detected if there's a hit on either side
+        return hitRight || hitLeft;
     }
 
     protected onDestroy(): void {

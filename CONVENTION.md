@@ -1,4 +1,4 @@
-# Cocos Creator 3D Conventions
+# Cocos Creator 3D Conventions and Context
 
 ## Engine Context
 
@@ -16,16 +16,14 @@
 * System logic must be separated from component logic.
 * Use Set<Node> for state tracking.
 * Avoid allocations inside update loops.
-
-## Rendering Rules
-
-* MeshRenderer + material transparency for fading.
-* Cache materials in start().
-* Never clone materials every frame.
+* Never rewrite entire file unless explicitly requested.
+* Prefer minimal diff changes.
 
 ## Response Rules
-
-* Focus only on provided code.
-* Do not rewrite full files unless requested.
-* Suggest minimal modifications when possible.
+* Keep responses short
+* Split work into very small steps.
+* Each response modifies only one logical section.
+* Stop after one completed step.
+* Avoid large rewrites.
 * Suggest the next step.
+* no need to translate it to INDONESIA

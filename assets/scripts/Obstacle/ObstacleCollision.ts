@@ -1,10 +1,10 @@
-import { _decorator, Component, Collider, ICollisionEvent, Node } from 'cc';
+import { _decorator, Component, Collider, ICollisionEvent, Node, CCFloat } from 'cc';
 import { Actor } from '../Actor';
 const { ccclass, property } = _decorator;
 
 @ccclass('ObstacleCollision')
 export class ObstacleCollision extends Component {
-    @property({ type: Number })
+    @property(CCFloat)
     damage: number = 10;
 
     private _lastHitTime: number = 0;

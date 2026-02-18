@@ -117,7 +117,7 @@ export class GameManager extends Component {
         
         const previousThreshold = Math.floor(this.previousTotalStamina / this.energyForObstacle);
         const currentThreshold = Math.floor(this.currentTotalStamina / this.energyForObstacle);
-        this.previousTotalStamina = currentTotalStamina;
+        this.previousTotalStamina = this.currentTotalStamina;
         
         if(currentThreshold > previousThreshold) {
             // Get level-specific obstacle configuration

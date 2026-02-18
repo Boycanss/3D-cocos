@@ -1,4 +1,4 @@
-import { _decorator, Component, find, math, Node, SphereCollider, Vec3 } from 'cc';
+import { _decorator, CCFloat, Component, find, math, Node, SphereCollider, Vec3 } from 'cc';
 const { ccclass, property } = _decorator;
 
 @ccclass('Missile')
@@ -6,10 +6,10 @@ export class Missile extends Component {
     // @property(Node)
     MC:Node;
 
-    @property(Number)
+    @property(CCFloat)
     turnRate: number = 3;
 
-    @property(Number)
+    @property(CCFloat)
     speed: number = 10;
 
     collider: SphereCollider;
