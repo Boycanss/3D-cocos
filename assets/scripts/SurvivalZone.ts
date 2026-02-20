@@ -1,5 +1,6 @@
 import { _decorator, Component, Node, Vec3, Collider, CCFloat } from 'cc';
 import { Actor } from './Actor';
+const { ccclass, property } = _decorator;
 
 @ccclass('SurvivalZone')
 export class SurvivalZone extends Component {

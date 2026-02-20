@@ -1,4 +1,4 @@
-import { _decorator, animation, CapsuleCharacterController, CCBoolean, CCFloat, CharacterController, CharacterControllerContact, Collider, Component, easing, Enum, EventKeyboard, Input, input, KeyCode, Layers, geometry, math, Node, NodeSpace, PhysicsSystem, RigidBody, Tween, tween, Vec3 } from 'cc';
+﻿import { _decorator, animation, CapsuleCharacterController, CCBoolean, CCFloat, CharacterController, CharacterControllerContact, Collider, Component, easing, Enum, EventKeyboard, Input, input, KeyCode, Layers, geometry, math, Node, NodeSpace, PhysicsSystem, RigidBody, Tween, tween, Vec3 } from 'cc';
 import { VaultDetector } from './VaultDetector';
 import { Energy, MovementState, ObstacleType } from './Define/Define';
 import { Box } from './Obstacle/Box';
@@ -45,6 +45,12 @@ export class PlayerController extends Component {
     @property(CCFloat)
     slideHeight: number = 0.5; // New property for slide height
 
+    @property(CCFloat)
+    wallRunLeanAngle: number = 25; // Lean angle (degrees) when wall running
+
+    @property(CCFloat)
+    wallRunLeanSpeed: number = 8; // Speed of lean transition
+
     currentSpeed: number = 1;
     turnRate: number = 250;
     verticalVelocity: number = 0;
@@ -67,6 +73,10 @@ export class PlayerController extends Component {
     // Track which turn keys are pressed
     private _keyAPressed: boolean = false;
     private _keyDPressed: boolean = false;
+
+    // Wall run lean tracking
+    private _wallSide: number = 0; // -1 = left wall, 1 = right wall, 0 = no wall
+    private _currentLeanAngle: number = 0;
 
     protected onLoad(): void {
         this.SetState(MovementState.IDLE);
@@ -116,11 +126,6 @@ export class PlayerController extends Component {
             // Allow dash while jumping
             if (event.keyCode === KeyCode.KEY_E) {
                 this.Dash();
-            }
-            
-            // Allow jump while wall running
-            if (event.keyCode === KeyCode.SPACE) {
-                this.Jump();
             }
         }
     }
@@ -277,24 +282,13 @@ export class PlayerController extends Component {
         } else if (this.currentState === MovementState.WALL_RUNNING) {
             // Wall Run Logic
             this.currentSpeed = math.lerp(this.currentSpeed, this.maxSpeed, deltaTime * this.acceleration);
-            
-            // ROTATION LOGIC: Rotate player to face the wall tangent
-            const wallNormal = this.checkWallContact();
-            if (wallNormal) {
-                // Calculate tangent (direction along the wall surface)
-                // Tangent = Normal x Up
-                const tangent = new Vec3();
-                Vec3.cross(wallNormal, Vec3.UNIT_Y, tangent);
-                
-                // Rotate player to look at the tangent direction
-                this.node.lookAt(this.node.position.clone().add(tangent), Vec3.UNIT_Y);
-            }
-            
             // Reduce gravity to allow running on walls
             this.verticalVelocity = 0; // Maintain consistent upward movement on wall
             this.staminaManager.reduceStamina(Energy.RUN * deltaTime); // Continuous stamina cost
+            this.updateWallRunLean(deltaTime);
             this.Run(deltaTime);
         } else {
+            this.resetWallRunLean(deltaTime);
             this.Run(deltaTime);
         }
 
@@ -338,29 +332,6 @@ export class PlayerController extends Component {
 
     Jump() {
         if(this.currentSpeed == 0) return;
-
-        // WALL RUN JUMP LOGIC
-        if (this.currentState === MovementState.WALL_RUNNING) {
-            const wallNormal = this.checkWallContact();
-            if (wallNormal) {
-                this.SetState(MovementState.JUMPING);
-                this.Animation.setValue('Jump', true);
-                this.staminaManager.reduceStamina(Energy.JUMP);
-
-                // Calculate jump direction: Jump away from wall (-Normal) + Up
-                const jumpDir = new Vec3();
-                const negatedNormal = new Vec3();
-                Vec3.negate(negatedNormal, wallNormal);
-                Vec3.add(jumpDir, negatedNormal, Vec3.UNIT_Y);
-                
-                // Apply horizontal jump direction
-                this.movementDirection.add(jumpDir);
-                this.verticalVelocity = 8.5;
-                return;
-            }
-        }
-
-        // Normal Jump
         this.SetState(MovementState.JUMPING);
         this.Animation.setValue('Jump', true);
         this.staminaManager.reduceStamina(Energy.JUMP);
@@ -368,9 +339,6 @@ export class PlayerController extends Component {
     }
 
     Turn(deltaTime: number) {
-        // Disable turning while wall running to prevent fighting the rotation
-        if (this.currentState === MovementState.WALL_RUNNING) return;
-        
         if (!this.charController.isGrounded || this.isSliding) return;
         this.node.setRotationFromEuler(0, this.node.eulerAngles.y + (this.turnRate * deltaTime * this._moveDir.x), 0);
     }
@@ -451,8 +419,7 @@ export class PlayerController extends Component {
         this.Animation.setValue('Slide', false);
     }
 
-    // MODIFIED: Now returns the normal vector of the wall hit
-    private checkWallContact(): Vec3 | null {
+    private checkWallContact(): boolean {
         const checkDistance = 0.8; // Distance to check for walls
         const playerPos = this.node.worldPosition;
         const playerRight = this.node.right.clone(); // Get right vector based on player orientation
@@ -471,11 +438,40 @@ export class PlayerController extends Component {
         geometry.Ray.fromPoints(rayLeft, playerPos, leftCheckPoint);
         const hitLeft = PhysicsSystem.instance.raycastClosest(rayLeft, 1, checkDistance);
         
-        // Return the normal of the wall hit (if any)
-        if (hitRight) return hitRight.collider.worldNormal;
-        if (hitLeft) return hitLeft.collider.worldNormal;
+        // Track wall side for leaning: right wall = lean right (+Z), left wall = lean left (-Z)
+        if (hitRight) {
+            this._wallSide = 1;
+        } else if (hitLeft) {
+            this._wallSide = -1;
+        } else {
+            this._wallSide = 0;
+        }
         
-        return null;
+        // A wall is detected if there's a hit on either side
+        return hitRight || hitLeft;
+    }
+
+    private updateWallRunLean(deltaTime: number): void {
+        const targetLean = this._wallSide * this.wallRunLeanAngle;
+        this._currentLeanAngle = math.lerp(this._currentLeanAngle, targetLean, deltaTime * this.wallRunLeanSpeed);
+        
+        const yRotation = this.node.eulerAngles.y;
+        this.node.setRotationFromEuler(0, yRotation, this._currentLeanAngle);
+    }
+
+    private resetWallRunLean(deltaTime: number): void {
+        if (Math.abs(this._currentLeanAngle) < 0.5) {
+            if (this._currentLeanAngle !== 0) {
+                this._currentLeanAngle = 0;
+                const yRotation = this.node.eulerAngles.y;
+                this.node.setRotationFromEuler(0, yRotation, 0);
+            }
+            return;
+        }
+        
+        this._currentLeanAngle = math.lerp(this._currentLeanAngle, 0, deltaTime * this.wallRunLeanSpeed);
+        const yRotation = this.node.eulerAngles.y;
+        this.node.setRotationFromEuler(0, yRotation, this._currentLeanAngle);
     }
 
     protected onDestroy(): void {

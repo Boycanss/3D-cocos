@@ -43,8 +43,11 @@ export class StaminaManager extends Component {
             case MovementState.RUNNING:
                 this.reduceStamina(Energy.RUN*deltaTime);
                 break;
+            case MovementState.DASHING:
+                this.reduceStamina(Energy.DASH*deltaTime);
+                break;
             case MovementState.WALL_RUNNING:
-                this.reduceStamina(Energy.RUN*deltaTime);
+                // Stamina drain handled in HandleWallRun; pause regen here
                 break;
         }
         let scaleX = this.stamina / Energy.STAMINA;

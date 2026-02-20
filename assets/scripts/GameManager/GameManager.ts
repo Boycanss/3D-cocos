@@ -7,6 +7,7 @@ import { GameLevel, GameLevelState } from '../Define/Define';
 import { MissileManager } from '../Obstacle/MissileManager';
 import { PlayerController } from '../PlayerController';
 import { BestRunManager } from '../BestRunManager';
+import { SurvivalZoneManager } from './SurvivalZoneManager';
 const { ccclass, property } = _decorator;
 
 @ccclass('GameManager')
@@ -21,10 +22,13 @@ export class GameManager extends Component {
     playerState: Node;
     
     @property(Node)
-    timeDisplay: Node; // New property for time display
+    timeDisplay: Node;
 
     @property(Node)
-    bestRunDisplay: Node; // New property for best run display
+    bestRunDisplay: Node;
+
+    @property(SurvivalZoneManager)
+    survivalZoneManager: SurvivalZoneManager = null;
 
     staminaManager: StaminaManager;
     obstacleManager: ObstacleManager;
@@ -34,26 +38,25 @@ export class GameManager extends Component {
     previousTotalStamina: number = 0;
     currentPlayerState: MovementState;
     
-    // Game timer properties
     private gameTime: number = 0;
     private isTimerRunning: boolean = false;
-    private startTime: number = 0; // To track when the game started
+    private startTime: number = 0;
     
-    // Difficulty system properties
     private difficultyLevel: GameLevel = GameLevel.LEVEL1;
     private lastDifficultyUpdate: number = 0;
-    private difficultyIncreaseInterval: number = 30; // Increase difficulty every 30 seconds
+    private difficultyIncreaseInterval: number = 30;
 
     protected onLoad(): void {
         this.staminaManager = this.getComponent(StaminaManager);
         this.obstacleManager = this.getComponent(ObstacleManager);
         this.bestRunManager = this.getComponent(BestRunManager);
+        this.survivalZoneManager = this.getComponent(SurvivalZoneManager);
     }
 
     start() {
         this.resetTimer();
         this.isTimerRunning = true;
-        this.startTime = Date.now(); // Record start time
+        this.startTime = Date.now();
 
         if (this.playerNode) {
             const actor = this.playerNode.getComponent(Actor);
@@ -61,8 +64,12 @@ export class GameManager extends Component {
                 actor.node.on('actor-dead', this._onActorDead, this);
             }
         }
-        
-        // Load best run display on start
+
+        // Panggil spawnZones dari SurvivalZoneManager
+        if (this.survivalZoneManager) {
+            this.survivalZoneManager.spawnZones();
+        }
+
         this.loadBestRun();
     }
 
@@ -75,7 +82,7 @@ export class GameManager extends Component {
         console.log('Game Over');
         this.isTimerRunning = false;
         this.node.emit('game-over');
-        this.saveBestRun(); // Save best run on game over
+        this.saveBestRun();
     }
 
     onDestroy() {
@@ -88,11 +95,8 @@ export class GameManager extends Component {
     }
 
     update(deltaTime: number) {
-        // Update game timer
         if (this.isTimerRunning) {
             this.gameTime += deltaTime;
-            
-            // Check for difficulty level increase
             this.updateDifficulty();
         }
         
@@ -100,7 +104,6 @@ export class GameManager extends Component {
         this.playerState.getComponent(Label).string = this.currentPlayerState.toString();
         if(this.currentPlayerState != MovementState.IDLE) this.checkStateforObstacle();
         
-        // Update time display
         if (this.timeDisplay) {
             const timeLabel = this.timeDisplay.getComponent(Label);
             if (timeLabel) {
@@ -120,20 +123,15 @@ export class GameManager extends Component {
         this.previousTotalStamina = this.currentTotalStamina;
         
         if(currentThreshold > previousThreshold) {
-            // Get level-specific obstacle configuration
             const levelState = GameLevelState[this.difficultyLevel];
             const obstaclesToSpawn = levelState.boxSpawnAmount || 3;
             
-            // Apply difficulty scaling to obstacle spawning
             this.obstacleManager.spawnObstacles(obstaclesToSpawn);
             
-            // Spawn missiles based on level state
             const missilesToSpawn = levelState.missileAmount || 0;
             if (missilesToSpawn > 0) {
-                // Assuming there's a missile manager component on the game manager node
                 const missileManager = this.node.getComponent(MissileManager);
                 if (missileManager) {
-                    // Pass missile speed to spawnMissiles method
                     const missileSpeed = levelState.missileSpeed || 1;
                     missileManager.spawnMissiles(missilesToSpawn, missileSpeed);
                 }
@@ -144,7 +142,6 @@ export class GameManager extends Component {
         }   
     }
 
-    // Timer methods
     public startTimer() {
         this.isTimerRunning = true;
     }
@@ -174,7 +171,6 @@ export class GameManager extends Component {
         return this.isTimerRunning;
     }
     
-    // Additional timer methods
     public getFormattedTime(): string {
         const minutes = Math.floor(this.gameTime / 60);
         const seconds = Math.floor(this.gameTime % 60);
@@ -182,21 +178,16 @@ export class GameManager extends Component {
         return `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}.${milliseconds.toString().padStart(2, '0')}`;
     }
     
-    // Difficulty system methods
     private updateDifficulty() {
         const timeSinceLastUpdate = this.gameTime - this.lastDifficultyUpdate;
         
         if (timeSinceLastUpdate >= this.difficultyIncreaseInterval) {
-            // Increment difficulty level using the enum
             if (this.difficultyLevel < GameLevel.LEVEL5) {
                 this.difficultyLevel++;
             }
             this.lastDifficultyUpdate = this.gameTime;
             
             console.log(`Difficulty increased to level ${this.difficultyLevel}`);
-            
-            // Optional: Update other game parameters based on difficulty
-            // For example, increase obstacle speed or reduce spawn intervals
         }
     }
     
@@ -204,7 +195,6 @@ export class GameManager extends Component {
         return this.difficultyLevel;
     }
 
-    // Best Run Methods
     private loadBestRun() {
         if (this.bestRunDisplay) {
             const label = this.bestRunDisplay.getComponent(Label);
@@ -218,7 +208,7 @@ export class GameManager extends Component {
     private saveBestRun() {
         const totalTime = this.getGameTime();
         this.bestRunManager.saveBestTime(totalTime);
-        this.loadBestRun(); // Update display immediately
+        this.loadBestRun();
     }
 
     private formatTime(seconds: number): string {

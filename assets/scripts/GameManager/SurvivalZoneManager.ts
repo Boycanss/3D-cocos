@@ -1,5 +1,6 @@
 import { _decorator, Component, Node, Prefab, instantiate, Vec3, randomRange, CCInteger, CCFloat } from 'cc';
-import { SurvivalZone } from './SurvivalZone';
+const { ccclass, property } = _decorator;
+import { SurvivalZone } from '../SurvivalZone';
 
 @ccclass('SurvivalZoneManager')
 export class SurvivalZoneManager extends Component {
