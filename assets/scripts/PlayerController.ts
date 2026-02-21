@@ -77,6 +77,9 @@ export class PlayerController extends Component {
     // Wall run lean tracking
     private _wallSide: number = 0; // -1 = left wall, 1 = right wall, 0 = no wall
     private _currentLeanAngle: number = 0;
+    private _wallNormal: Vec3 = new Vec3(); // Surface normal of the detected wall
+    private _wallRunLockedY: number = 0;    // Y rotation locked once at wall-run start
+    private _wallRunLockedSide: number = 0; // Wall side locked once at wall-run start
 
     protected onLoad(): void {
         this.SetState(MovementState.IDLE);
@@ -191,8 +194,12 @@ export class PlayerController extends Component {
                 break;
             case MovementState.WALL_RUNNING:
                 console.log("wall running");
-                
                 this.Animation.setValue('isRunning', true);
+                // Lock wall side and Y rotation once at wall-run start
+                this._wallRunLockedSide = this._wallSide;
+                this._wallRunLockedY = this.computeWallParallelY();
+                console.log(`[WallRun] LOCKED side=${this._wallRunLockedSide} Y=${this._wallRunLockedY.toFixed(1)}`);
+                this.node.setRotationFromEuler(0, this._wallRunLockedY, this._currentLeanAngle);
                 break;
             default:
                 break;
@@ -266,17 +273,18 @@ export class PlayerController extends Component {
         this.ApplyGravity(deltaTime);
 
         // Check for wall running conditions (airborne + wall contact + stamina + moving forward)
+        // Only enter wall-run once — do NOT call SetState(WALL_RUNNING) every frame
         if (this.currentState === MovementState.JUMPING && !this.charController.isGrounded) {
             if (this.checkWallContact() && this.staminaManager.getStamina() >= Energy.RUN && this.currentSpeed > 0) {
                 console.log(">>> wallrunning");
-                
                 this.SetState(MovementState.WALL_RUNNING);
             }
         }
 
         // Exit wall running if conditions no longer met
+        // Use locked side to check wall contact so _wallSide flip doesn't cause false exits
         if (this.currentState === MovementState.WALL_RUNNING) {
-            if (!this.checkWallContact() || this.staminaManager.getStamina() < Energy.RUN || this.charController.isGrounded) {
+            if (!this.checkWallContactOnSide(this._wallRunLockedSide) || this.staminaManager.getStamina() < Energy.RUN || this.charController.isGrounded) {
                 console.log(">>> not wallrunning");
                 this.SetState(MovementState.JUMPING);
             }
@@ -292,6 +300,8 @@ export class PlayerController extends Component {
             // Reduce gravity to allow running on walls
             this.verticalVelocity = 0; // Maintain consistent upward movement on wall
             this.staminaManager.reduceStamina(Energy.RUN * deltaTime); // Continuous stamina cost
+            // Keep Y locked to wall-parallel direction set at wall-run start
+            this.node.setRotationFromEuler(0, this._wallRunLockedY, this._currentLeanAngle);
             this.updateWallRunLean(deltaTime);
             this.Run(deltaTime);
         } else {
@@ -435,36 +445,90 @@ export class PlayerController extends Component {
         this.Animation.setValue('Slide', false);
     }
 
+    /** Checks wall contact only on the locked side — used during wall-run to avoid side-flip */
+    private checkWallContactOnSide(side: number): boolean {
+        if (side === 0) return false;
+        const checkDistance = 0.8;
+        const playerPos = this.node.worldPosition;
+        const playerRight = this.node.right.clone();
+        const ray = new geometry.Ray();
+        const checkPoint = new Vec3();
+        // side 1 = right wall, side -1 = left wall
+        Vec3.scaleAndAdd(checkPoint, playerPos, playerRight, side * checkDistance);
+        geometry.Ray.fromPoints(ray, playerPos, checkPoint);
+        return PhysicsSystem.instance.raycastClosest(ray, 1, checkDistance);
+    }
+
     private checkWallContact(): boolean {
         const checkDistance = 0.8; // Distance to check for walls
         const playerPos = this.node.worldPosition;
         const playerRight = this.node.right.clone(); // Get right vector based on player orientation
         
-        // Check right side
+        // Check right side — capture normal before next raycast overwrites the result
         const rayRight = new geometry.Ray();
         const rightCheckPoint = new Vec3();
         Vec3.scaleAndAdd(rightCheckPoint, playerPos, playerRight, checkDistance);
         geometry.Ray.fromPoints(rayRight, playerPos, rightCheckPoint);
         const hitRight = PhysicsSystem.instance.raycastClosest(rayRight, 1, checkDistance);
-        
+        const rightNormal = hitRight
+            ? PhysicsSystem.instance.raycastClosestResult.hitNormal.clone()
+            : null;
+
         // Check left side
         const rayLeft = new geometry.Ray();
         const leftCheckPoint = new Vec3();
         Vec3.scaleAndAdd(leftCheckPoint, playerPos, playerRight, -checkDistance);
         geometry.Ray.fromPoints(rayLeft, playerPos, leftCheckPoint);
         const hitLeft = PhysicsSystem.instance.raycastClosest(rayLeft, 1, checkDistance);
-        
+        const leftNormal = hitLeft
+            ? PhysicsSystem.instance.raycastClosestResult.hitNormal.clone()
+            : null;
+
         // Track wall side for leaning: right wall = lean right (+Z), left wall = lean left (-Z)
-        if (hitRight) {
+        if (rightNormal) {
             this._wallSide = 1;
-        } else if (hitLeft) {
+            this._wallNormal.set(rightNormal);
+        } else if (leftNormal) {
             this._wallSide = -1;
+            this._wallNormal.set(leftNormal);
         } else {
             this._wallSide = 0;
+            this._wallNormal.set(Vec3.ZERO);
         }
         
         // A wall is detected if there's a hit on either side
         return hitRight || hitLeft;
+    }
+
+    /**
+     * Computes the Y euler angle that makes the character face parallel to the wall.
+     * Called once when wall-run starts. Uses the wall normal to derive the run direction:
+     *   - cross(wallNormal, worldUp) gives a tangent along the wall surface
+     *   - _wallSide determines which of the two tangent directions to use
+     *   - Left wall  (_wallSide = -1): character runs toward +X world → Y ≈ 0
+     *   - Right wall (_wallSide =  1): character runs toward -X world → Y ≈ 180
+     */
+    private computeWallParallelY(): number {
+        if (this._wallSide === 0) return this.node.eulerAngles.y;
+
+        const normal = this._wallNormal.clone();
+        normal.y = 0;
+        normal.normalize();
+
+        // cross(normal, up) gives one tangent direction along the wall surface
+        const runDir = new Vec3();
+        Vec3.cross(runDir, normal, Vec3.UP);
+        runDir.normalize();
+
+        // Use the locked side (captured at wall-run entry) to determine run direction.
+        // _wallSide = -1 means wall is on the LEFT  → character runs in +runDir
+        // _wallSide =  1 means wall is on the RIGHT → character runs in -runDir
+        if (this._wallSide === -1) {
+            runDir.negative();
+        }
+
+        // Convert to Y euler: atan2(-x, -z) because Cocos forward is -Z
+        return Math.atan2(-runDir.x, -runDir.z) * (180 / Math.PI);
     }
 
     private updateWallRunLean(deltaTime: number): void {
