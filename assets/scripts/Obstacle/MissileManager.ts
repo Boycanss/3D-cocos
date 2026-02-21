@@ -1,4 +1,4 @@
-import { _decorator, Component, Node, Prefab, instantiate, Vec3, Button } from 'cc';
+import { _decorator, Component, Node, Prefab, instantiate, Vec3, Button, CCFloat } from 'cc';
 import { Missile } from './Missile';
 const { ccclass, property } = _decorator;
 
@@ -10,7 +10,7 @@ export class MissileManager extends Component {
     @property(Node)
     mainCharacter: Node;
 
-    @property(Number)
+    @property(CCFloat)
     spawnHeight: number = 5;
 
     private missileCount: number = 0;

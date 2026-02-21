@@ -1,6 +1,5 @@
-import { _decorator, Component, Node, ProgressBar } from 'cc';
+import { _decorator, CCFloat, Component, Node, ProgressBar } from 'cc';
 import { Energy, MovementState } from '../Define/Define';
-import { PlayerController } from '../PlayerController';
 const { ccclass, property } = _decorator;
 
 @ccclass('StaminaManager')
@@ -15,36 +14,42 @@ export class StaminaManager extends Component {
     stamina: number;
     totalUsedStamina: number = 0;
 
-    @property(Number)
+    @property(CCFloat)
     staminaRegenRate: number = 0.5;
-    
+
+    private _getPlayerState: () => MovementState = null;
 
     protected onLoad(): void {
         this.stamina = Energy.STAMINA;
     }
 
     start() {
-        
+
     }
-    
+
+    /** Called by PlayerController to register state getter, avoiding circular import */
+    public registerPlayerStateGetter(getter: () => MovementState): void {
+        this._getPlayerState = getter;
+    }
+
     update(deltaTime: number) {
-        if(this.playerNode != null){
-            this.updateStaminaBar(this.playerNode.getComponent(PlayerController).getState(), deltaTime);
+        if (this._getPlayerState) {
+            this.updateStaminaBar(this._getPlayerState(), deltaTime);
         }
     }
 
-    updateStaminaBar(state:MovementState, deltaTime:number){
-        switch(state){
+    updateStaminaBar(state: MovementState, deltaTime: number) {
+        switch (state) {
             case MovementState.IDLE:
-                if(this.stamina < Energy.STAMINA){
-                    this.increseStamina(this.staminaRegenRate*deltaTime);
+                if (this.stamina < Energy.STAMINA) {
+                    this.increseStamina(this.staminaRegenRate * deltaTime);
                 }
                 break;
             case MovementState.RUNNING:
-                this.reduceStamina(Energy.RUN*deltaTime);
+                this.reduceStamina(Energy.RUN * deltaTime);
                 break;
             case MovementState.DASHING:
-                this.reduceStamina(Energy.DASH*deltaTime);
+                this.reduceStamina(Energy.DASH * deltaTime);
                 break;
             case MovementState.WALL_RUNNING:
                 // Stamina drain handled in HandleWallRun; pause regen here
@@ -54,8 +59,8 @@ export class StaminaManager extends Component {
         this.staminaBar.getComponent(ProgressBar).progress = scaleX;
     }
 
-    reduceStamina(amount:number){
-        if(this.stamina - amount < 0){
+    reduceStamina(amount: number) {
+        if (this.stamina - amount < 0) {
             this.stamina = 0;
         } else {
             this.stamina -= amount;
@@ -63,19 +68,19 @@ export class StaminaManager extends Component {
         }
     }
 
-    public getTotalUsedStamina():number{
+    public getTotalUsedStamina(): number {
         return this.totalUsedStamina;
     }
 
-    increseStamina(amount:number){
-        if(this.stamina + amount > Energy.STAMINA){
+    increseStamina(amount: number) {
+        if (this.stamina + amount > Energy.STAMINA) {
             this.stamina = Energy.STAMINA;
         } else {
             this.stamina += amount;
         }
     }
 
-    getStamina():number{
+    getStamina(): number {
         return this.stamina;
     }
 }

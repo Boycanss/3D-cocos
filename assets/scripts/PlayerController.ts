@@ -2,7 +2,7 @@
 import { VaultDetector } from './VaultDetector';
 import { Energy, MovementState, ObstacleType } from './Define/Define';
 import { Box } from './Obstacle/Box';
-import { Obstacle } from './Obstacle/Obstacle';
+import { GhostEffect } from './Utils/GhostEffect';
 import { Actor } from './Actor';
 import { StaminaManager } from './GameManager/StaminaManager';
 import { ObstacleCollision } from './Obstacle/ObstacleCollision';
@@ -203,9 +203,16 @@ export class PlayerController extends Component {
         this.rigidb = this.node.getComponent(RigidBody);
         this._actor = this.node.getComponent(Actor);
 
+        // Register state getter with StaminaManager to avoid circular import
+        if (this.staminaManager) {
+            this.staminaManager.registerPlayerStateGetter(() => this.getState());
+        }
+
         // Listen for character controller collision
         this.charController.on("onControllerTriggerEnter", this.onControllerColliderHit, this);
 
+        // pemanasan duls
+        this.callGhostEffect();
     }
 
     private onControllerColliderHit(contact: CharacterControllerContact) {
@@ -403,6 +410,15 @@ export class PlayerController extends Component {
                 this.isDashing = false;
             })
             .start();
+
+        this.callGhostEffect(2);
+    }
+
+    callGhostEffect(count: number = 1) {
+        const ghostEffect = this.node.getComponent(GhostEffect);
+        if (ghostEffect) {
+            ghostEffect.create3DGhost(count);
+        }
     }
 
     StartSlide() {
