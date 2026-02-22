@@ -130,6 +130,10 @@ export class PlayerController extends Component {
             if (event.keyCode === KeyCode.KEY_E) {
                 this.Dash();
             }
+
+            if (this.currentState === MovementState.WALL_RUNNING && event.keyCode === KeyCode.SPACE) {
+                this.Jump();
+            }
         }
     }
 
@@ -285,7 +289,6 @@ export class PlayerController extends Component {
         // Use locked side to check wall contact so _wallSide flip doesn't cause false exits
         if (this.currentState === MovementState.WALL_RUNNING) {
             if (!this.checkWallContactOnSide(this._wallRunLockedSide) || this.staminaManager.getStamina() < Energy.RUN || this.charController.isGrounded) {
-                console.log(">>> not wallrunning");
                 this.SetState(MovementState.JUMPING);
             }
         }
@@ -349,10 +352,34 @@ export class PlayerController extends Component {
 
     Jump() {
         if(this.currentSpeed == 0) return;
-        this.SetState(MovementState.JUMPING);
-        this.Animation.setValue('Jump', true);
-        this.staminaManager.reduceStamina(Energy.JUMP);
-        this.verticalVelocity = 8.5 * (this.currentSpeed / this.maxSpeed);
+
+        // Wall Run Jump Logic
+        if (this.currentState === MovementState.WALL_RUNNING) {
+            // Calculate jump direction: exactly perpendicular to the wall (90 degrees away)
+            // Use wall normal to determine the exact perpendicular direction
+            const normal = this._wallNormal.clone();
+            normal.y = 0; // Ignore vertical component
+            normal.normalize();
+
+            // Jump direction is the wall normal (points away from wall surface)
+            const jumpDir = normal.clone();
+            jumpDir.normalize();
+
+            // Rotate character to face jump direction
+            const targetRotation = Math.atan2(jumpDir.x, jumpDir.z) * (180 / Math.PI);
+            this.node.setRotationFromEuler(0, targetRotation, 0);
+
+            this.SetState(MovementState.JUMPING);
+            this.Animation.setValue('Jump', true);
+            this.staminaManager.reduceStamina(Energy.JUMP);
+            this.verticalVelocity = 8.5 * (this.currentSpeed / this.maxSpeed);
+        } else {
+            // Normal Jump Logic
+            this.SetState(MovementState.JUMPING);
+            this.Animation.setValue('Jump', true);
+            this.staminaManager.reduceStamina(Energy.JUMP);
+            this.verticalVelocity = 8.5 * (this.currentSpeed / this.maxSpeed);
+        }
     }
 
     Turn(deltaTime: number) {

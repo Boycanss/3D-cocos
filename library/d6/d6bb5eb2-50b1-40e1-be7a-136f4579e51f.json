@@ -3864,7 +3864,7 @@
     "dashCooldown": 1,
     "slideHeight": 0.5,
     "wallRunLeanAngle": 25,
-    "wallRunLeanSpeed": 5,
+    "wallRunLeanSpeed": 10,
     "_id": "eehvLYSdZBhZRpgJ9ehdxM"
   },
   {
