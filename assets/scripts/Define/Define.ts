@@ -1,6 +1,7 @@
 export enum ObstacleType {
     LOWBOX = 'LowBox',
-    HIGHBOX = 'HighBox' 
+    HIGHBOX = 'HighBox',
+    SLIDEBOX = 'SlideBox',
 }
 
 export enum Energy{

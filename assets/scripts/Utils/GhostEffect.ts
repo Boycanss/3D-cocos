@@ -83,38 +83,17 @@ export class GhostEffect extends Component {
             }
         });
 
-        // Apply ghost material to all renderers (including children)
-        this.applyGhostMaterial(ghost);
-
-        // Fade out and destroy
-        const startAlpha = this.ghostAlpha * 255;
-        tween({ alpha: startAlpha })
-            .to(this.ghostDuration, { alpha: 0 }, {
-                onUpdate: (target: { alpha: number }) => {
-                    this.updateGhostAlpha(ghost, target.alpha);
-                }
-            })
-            .call(() => ghost.destroy())
-            .start();
-    }
-
-    private applyGhostMaterial(node: Node): void {
-        // Apply to this node's renderers
-        const renderers = node.getComponents(MeshRenderer);
-        const skinnedRenderers = node.getComponents(SkinnedMeshRenderer);
+        // Cache all renderers once instead of traversing recursively each frame
+        const allRenderers = this.collectAllRenderers(ghost);
         
-        
-        const allRenderers = [...renderers, ...skinnedRenderers];
-        
+        // Apply ghost material to all cached renderers
         for (const renderer of allRenderers) {
-            renderer.shadowCastingMode = 0; // Disable shadows for ghost
+            renderer.shadowCastingMode = 0;
             const materialCount = renderer.materials.length;
             for (let i = 0; i < materialCount; i++) {
                 if (this.ghostMaterial) {
-                    // Use provided ghost material
                     renderer.setMaterialInstance(this.ghostMaterial, i);
                 } else {
-                    // Modify existing material to be white and transparent
                     const matInstance = renderer.getMaterialInstance(i);
                     if (matInstance) {
                         matInstance.setProperty("mainColor", new Color(255, 255, 255, this.ghostAlpha * 255));
@@ -123,19 +102,41 @@ export class GhostEffect extends Component {
             }
         }
 
-        // Recursively apply to children
-        for (const child of node.children) {
-            this.applyGhostMaterial(child);
-        }
+        // Fade out and destroy
+        const startAlpha = this.ghostAlpha * 255;
+        tween({ alpha: startAlpha })
+            .to(this.ghostDuration, { alpha: 0 }, {
+                onUpdate: (target: { alpha: number }) => {
+                    this.updateGhostAlphaOptimized(allRenderers, target.alpha);
+                }
+            })
+            .call(() => ghost.destroy())
+            .start();
     }
 
-    private updateGhostAlpha(node: Node, alpha: number): void {
-        const renderers = node.getComponents(MeshRenderer);
+    private collectAllRenderers(node: Node): Array<MeshRenderer | SkinnedMeshRenderer> {
+        const renderers: Array<MeshRenderer | SkinnedMeshRenderer> = [];
+        
+        // Collect from this node
+        const meshRenderers = node.getComponents(MeshRenderer);
         const skinnedRenderers = node.getComponents(SkinnedMeshRenderer);
+        renderers.push(...meshRenderers, ...skinnedRenderers);
         
-        const allRenderers = [...renderers, ...skinnedRenderers];
+        // Collect from children (non-recursive helper using queue)
+        const queue = [...node.children];
+        while (queue.length > 0) {
+            const child = queue.shift()!;
+            const childMesh = child.getComponents(MeshRenderer);
+            const childSkinned = child.getComponents(SkinnedMeshRenderer);
+            renderers.push(...childMesh, ...childSkinned);
+            queue.push(...child.children);
+        }
         
-        for (const renderer of allRenderers) {
+        return renderers;
+    }
+
+    private updateGhostAlphaOptimized(renderers: Array<MeshRenderer | SkinnedMeshRenderer>, alpha: number): void {
+        for (const renderer of renderers) {
             const materialCount = renderer.materials.length;
             for (let i = 0; i < materialCount; i++) {
                 const matInstance = renderer.getMaterialInstance(i);
@@ -143,11 +144,6 @@ export class GhostEffect extends Component {
                     matInstance.setProperty("mainColor", new Color(255, 255, 255, alpha));
                 }
             }
-        }
-
-        // Recursively update children
-        for (const child of node.children) {
-            this.updateGhostAlpha(child, alpha);
         }
     }
 

@@ -1,4 +1,4 @@
-﻿import { _decorator, animation, CapsuleCharacterController, CCBoolean, CCFloat, CharacterController, CharacterControllerContact, Collider, Component, easing, Enum, EventKeyboard, Input, input, KeyCode, Layers, geometry, math, Node, NodeSpace, PhysicsSystem, RigidBody, Tween, tween, Vec3 } from 'cc';
+import { _decorator, animation, CapsuleCharacterController, CCBoolean, CCFloat, CharacterController, CharacterControllerContact, Collider, Component, easing, Enum, EventKeyboard, Input, input, KeyCode, Layers, geometry, math, Node, NodeSpace, PhysicsSystem, RigidBody, Tween, tween, Vec3 } from 'cc';
 import { VaultDetector } from './VaultDetector';
 import { Energy, MovementState, ObstacleType } from './Define/Define';
 import { Box } from './Obstacle/Box';
@@ -7,6 +7,7 @@ import { Actor } from './Actor';
 import { StaminaManager } from './GameManager/StaminaManager';
 import { ObstacleCollision } from './Obstacle/ObstacleCollision';
 import { Missile } from './Obstacle/Missile';
+import { SlidingController } from './SlidingController';
 const { ccclass, property } = _decorator;
 
 @ccclass('PlayerController')
@@ -43,9 +44,6 @@ export class PlayerController extends Component {
     dashCooldown: number = 1;
 
     @property(CCFloat)
-    slideHeight: number = 0.5; // New property for slide height
-
-    @property(CCFloat)
     wallRunLeanAngle: number = 25; // Lean angle (degrees) when wall running
 
     @property(CCFloat)
@@ -62,13 +60,13 @@ export class PlayerController extends Component {
     isVaulting: boolean = false;
     isDashing: boolean = false;
     dashCooldownTimer: number = 0;
-    isSliding: boolean = false; // New flag for sliding
 
     VaultTween: Tween = new Tween();
 
     private _actor: Actor;
     private _timeSinceLastHit: number = 0;
     private _canTakeDamage: boolean = true;
+    private _slidingController: SlidingController;
 
     // Track which turn keys are pressed
     private _keyAPressed: boolean = false;
@@ -89,7 +87,14 @@ export class PlayerController extends Component {
 
     onKeyDown(event: EventKeyboard) {
 
-        if(this.currentState == MovementState.VAULTING || this.isSliding) return;
+        if (this.currentState === MovementState.VAULTING) return;
+
+        if (this._slidingController.isSliding) {
+            if (event.keyCode === KeyCode.KEY_E) {
+                this.Dash();
+            }
+            return;
+        }
         //walk - run
         if (event.keyCode === KeyCode.KEY_W) {
             this.SetState(MovementState.RUNNING);
@@ -107,6 +112,8 @@ export class PlayerController extends Component {
         }
 
         if (this.charController.isGrounded) {
+            console.log(this.charController.isGrounded);
+            
             //jump
             if (event.keyCode === KeyCode.SPACE) {
                 this.Jump();
@@ -123,7 +130,7 @@ export class PlayerController extends Component {
 
             //slide
             if (event.keyCode === KeyCode.KEY_S) {
-                this.StartSlide();
+                this._slidingController.startSlide();
             }
         } else {
             // Allow dash while jumping
@@ -150,10 +157,10 @@ export class PlayerController extends Component {
             this.updateTurnInput();
         }
 
-        // End slide when key is released
-        if (event.keyCode === KeyCode.KEY_S && this.isSliding) {
-            this.EndSlide();
-        }
+        // Don't end slide on key release - let animation duration handle it
+        // if (event.keyCode === KeyCode.KEY_S && this._slidingController.isSliding) {
+        //     this._slidingController.endSlide();
+        // }
     }
 
     private updateTurnInput() {
@@ -194,15 +201,14 @@ export class PlayerController extends Component {
             case MovementState.SLIDING:
                 this._moveDir.z = 0;
                 this.Animation.setValue('isRunning', false);
-                this.Animation.setValue('Slide', true);
                 break;
             case MovementState.WALL_RUNNING:
-                console.log("wall running");
+                // console.log("wall running");
                 this.Animation.setValue('isRunning', true);
                 // Lock wall side and Y rotation once at wall-run start
                 this._wallRunLockedSide = this._wallSide;
                 this._wallRunLockedY = this.computeWallParallelY();
-                console.log(`[WallRun] LOCKED side=${this._wallRunLockedSide} Y=${this._wallRunLockedY.toFixed(1)}`);
+                // console.log(`[WallRun] LOCKED side=${this._wallRunLockedSide} Y=${this._wallRunLockedY.toFixed(1)}`);
                 this.node.setRotationFromEuler(0, this._wallRunLockedY, this._currentLeanAngle);
                 break;
             default:
@@ -213,6 +219,7 @@ export class PlayerController extends Component {
     start() {
         this.rigidb = this.node.getComponent(RigidBody);
         this._actor = this.node.getComponent(Actor);
+        this._slidingController = this.node.getComponent(SlidingController);
 
         // Register state getter with StaminaManager to avoid circular import
         if (this.staminaManager) {
@@ -229,7 +236,7 @@ export class PlayerController extends Component {
     private onControllerColliderHit(contact: CharacterControllerContact) {
         // console.log("collided" + contact.collider.node.name);
         
-        if (!this._canTakeDamage || this.currentState === MovementState.VAULTING || this.isSliding) return;
+        if (!this._canTakeDamage || this.currentState === MovementState.VAULTING || this._slidingController.isSliding) return;
 
         const hitNode = contact.collider.node;
         
@@ -265,6 +272,9 @@ export class PlayerController extends Component {
             this.dashCooldownTimer -= deltaTime;
         }
 
+        // Update slide timer - ends slide when animation finishes
+        this._slidingController.updateSlideTimer(deltaTime);
+
         if(this.staminaManager.getStamina() <= 0 && (this.currentState == MovementState.RUNNING || this.currentState == MovementState.WALL_RUNNING)){
             this.SetState(MovementState.IDLE);
         }
@@ -280,7 +290,7 @@ export class PlayerController extends Component {
         // Only enter wall-run once — do NOT call SetState(WALL_RUNNING) every frame
         if (this.currentState === MovementState.JUMPING && !this.charController.isGrounded) {
             if (this.checkWallContact() && this.staminaManager.getStamina() >= Energy.RUN && this.currentSpeed > 0) {
-                console.log(">>> wallrunning");
+                // console.log(">>> wallrunning");
                 this.SetState(MovementState.WALL_RUNNING);
             }
         }
@@ -293,10 +303,13 @@ export class PlayerController extends Component {
             }
         }
 
-        if(this.isSliding){
-            this.currentSpeed = math.lerp(this.currentSpeed, 2.0, deltaTime * this.acceleration); // Reduced max speed
-            this.node.setScale(this.node.scale.x, this.slideHeight, this.node.scale.z); // Reduce height
-            this.Run(deltaTime); // Call Run to calculate movement direction
+        if(this._slidingController.isSliding){
+            // During slide: maintain ground contact and forward momentum
+            this.verticalVelocity = -0.5; // Strong downward velocity to keep grounded and low
+            this.currentSpeed = this._slidingController.handleSlideMovement(this.movementDirection, this.currentSpeed, deltaTime);
+            if (this.isDashing) {
+                this.currentSpeed = math.lerp(this.currentSpeed, this.maxSpeed, deltaTime * this.acceleration);
+            }
         } else if (this.currentState === MovementState.WALL_RUNNING) {
             // Wall Run Logic
             this.currentSpeed = math.lerp(this.currentSpeed, this.maxSpeed, deltaTime * this.acceleration);
@@ -383,7 +396,7 @@ export class PlayerController extends Component {
     }
 
     Turn(deltaTime: number) {
-        if (!this.charController.isGrounded || this.isSliding) return;
+        if (!this.charController.isGrounded || this._slidingController.isSliding) return;
         this.node.setRotationFromEuler(0, this.node.eulerAngles.y + (this.turnRate * deltaTime * this._moveDir.x), 0);
     }
 
@@ -405,7 +418,7 @@ export class PlayerController extends Component {
     }
 
     ApplyGravity(deltaTime: number) {
-        if (this.currentState == MovementState.VAULTING || this.isSliding) return;
+        if (this.currentState == MovementState.VAULTING || this._slidingController.isSliding) return;
         if (this.charController.isGrounded == false) {
             this.verticalVelocity -= .5;
         } else {
@@ -419,7 +432,7 @@ export class PlayerController extends Component {
     }
 
     Dash() {
-        if (this.isDashing || this.dashCooldownTimer > 0 || this.currentState === MovementState.VAULTING || this.isSliding) return;
+        if (this.isDashing || this.dashCooldownTimer > 0 || this.currentState === MovementState.VAULTING) return;
         
         if (this.staminaManager.getStamina() < Energy.DASH) return;
         
@@ -440,13 +453,18 @@ export class PlayerController extends Component {
         Vec3.scaleAndAdd(endPos, startPos, dashDirection, -this.dashDistance);
         
         // Perform dash movement
-        tween()
+        const dashTween = tween()
             .target(this.node)
             .to(0.1, { worldPosition: endPos })
             .call(() => {
                 this.isDashing = false;
-            })
-            .start();
+            });
+
+        if (this._slidingController.isSliding) {
+            this._slidingController.extendSlide();
+        }
+
+        dashTween.start();
 
         this.callGhostEffect(2);
     }
@@ -458,18 +476,12 @@ export class PlayerController extends Component {
         }
     }
 
-    StartSlide() {
-        if (this.charController.isGrounded) {
-            // this.SetState(MovementState.SLIDING);
-            this.staminaManager.reduceStamina(Energy.SLIDE);
-            this.Animation.setValue('Slide', true);
-        }
-    }
-
-    EndSlide() {
-        this.SetState(MovementState.IDLE);
-        this.node.setScale(this.node.scale.x, 1.0, this.node.scale.z); // Reset height
-        this.Animation.setValue('Slide', false);
+    // Helper: return true if the collider's node has a Box component with HIGHBOX type
+    private isHighBoxCollider(collider: Collider | null): boolean {
+        if (!collider || !collider.node) return false;
+        const box = collider.node.getComponent(Box);
+        if (!box) return false;
+        return box.boxType === ObstacleType.HIGHBOX;
     }
 
     /** Checks wall contact only on the locked side — used during wall-run to avoid side-flip */
@@ -483,7 +495,13 @@ export class PlayerController extends Component {
         // side 1 = right wall, side -1 = left wall
         Vec3.scaleAndAdd(checkPoint, playerPos, playerRight, side * checkDistance);
         geometry.Ray.fromPoints(ray, playerPos, checkPoint);
-        return PhysicsSystem.instance.raycastClosest(ray, 1, checkDistance);
+
+        // Raycast and accept only if the hit collider has Box component with HIGHBOX
+        const hit = PhysicsSystem.instance.raycastClosest(ray, 1, checkDistance);
+        if (hit && PhysicsSystem.instance.raycastClosestResult) {
+            return this.isHighBoxCollider(PhysicsSystem.instance.raycastClosestResult.collider);
+        }
+        return false;
     }
 
     private checkWallContact(): boolean {
@@ -497,7 +515,7 @@ export class PlayerController extends Component {
         Vec3.scaleAndAdd(rightCheckPoint, playerPos, playerRight, checkDistance);
         geometry.Ray.fromPoints(rayRight, playerPos, rightCheckPoint);
         const hitRight = PhysicsSystem.instance.raycastClosest(rayRight, 1, checkDistance);
-        const rightNormal = hitRight
+        const rightNormal = (hitRight && this.isHighBoxCollider(PhysicsSystem.instance.raycastClosestResult.collider))
             ? PhysicsSystem.instance.raycastClosestResult.hitNormal.clone()
             : null;
 
@@ -507,7 +525,7 @@ export class PlayerController extends Component {
         Vec3.scaleAndAdd(leftCheckPoint, playerPos, playerRight, -checkDistance);
         geometry.Ray.fromPoints(rayLeft, playerPos, leftCheckPoint);
         const hitLeft = PhysicsSystem.instance.raycastClosest(rayLeft, 1, checkDistance);
-        const leftNormal = hitLeft
+        const leftNormal = (hitLeft && this.isHighBoxCollider(PhysicsSystem.instance.raycastClosestResult.collider))
             ? PhysicsSystem.instance.raycastClosestResult.hitNormal.clone()
             : null;
 

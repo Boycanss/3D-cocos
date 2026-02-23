@@ -24,9 +24,10 @@ export class VaultDetector extends Component {
         const {Ray} = geometry;
         Ray.fromPoints(this._ray, origin, fw);
 
-        if(fis.raycastClosest(this._ray, 1, this.vaultDistance)){
+        if(fis.raycastClosest(this._ray, 1, this.vaultDistance) ){
             this.hitResult = fis.raycastClosestResult.collider.node;
-        } else {
+        } 
+        else {
             this.hitResult = null;
         }
         

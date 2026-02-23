@@ -1,4 +1,4 @@
-import { _decorator, CCFloat, Component, find, math, Node, SphereCollider, Vec3 } from 'cc';
+import { _decorator, CCFloat, Component, find, math, Node, SphereCollider, Vec3, ParticleSystem } from 'cc';
 const { ccclass, property } = _decorator;
 
 @ccclass('Missile')
@@ -12,12 +12,19 @@ export class Missile extends Component {
     @property(CCFloat)
     speed: number = 10;
 
+    @property(CCFloat)
+    maxLifeTime: number = 15; // Max lifetime in seconds to prevent orphaned missiles
+
     collider: SphereCollider;
+    private elapsedTime: number = 0;
+    private isDestroying: boolean = false;
 
     protected onLoad(): void {
         this.collider = this.getComponent(SphereCollider);
         if (this.collider) {
             this.collider.on('onTriggerEnter', this.onTriggerEnter, this);
+        } else {
+            console.warn(`Missile on ${this.node.name} has no SphereCollider`);
         }
     }
 
@@ -33,11 +40,53 @@ export class Missile extends Component {
     private onTriggerEnter(event): void {
         const otherNode = event.otherCollider.node;
         if(!!otherNode){
-            this.node.destroy();
+            this.destroyMissile();
         }
     }
 
+    private destroyMissile(): void {
+        // Prevent multiple destroy calls
+        if (this.isDestroying) return;
+        this.isDestroying = true;
+
+        // Disable all particle systems on this node and children immediately
+        this.disableAllParticles(this.node);
+        
+        // Disable collider to prevent re-triggering
+        if (this.collider) {
+            this.collider.enabled = false;
+        }
+
+        // Disable the component to stop update
+        this.enabled = false;
+
+        // Destroy the node (this is deferred but particles are now disabled)
+        this.node.destroy();
+    }
+
+    private disableAllParticles(node: Node): void {
+        // Disable particle systems on this node
+        const particles = node.getComponents(ParticleSystem);
+        particles.forEach(particle => {
+            particle.stop();
+            particle.enabledInHierarchy && (particle.enabled = false);
+        });
+
+        // Recursively disable on all children
+        node.children.forEach(child => {
+            this.disableAllParticles(child);
+        });
+    }
+
     update(deltaTime: number) {
+        // Safety timeout - destroy if exceeds max lifetime
+        this.elapsedTime += deltaTime;
+        if (this.elapsedTime > this.maxLifeTime) {
+            console.warn(`Missile exceeded max lifetime (${this.maxLifeTime}s), destroying...`);
+            this.destroyMissile();
+            return;
+        }
+
         if (!this.MC) return;
 
         // Calculate direction toward target
