@@ -1,4 +1,4 @@
-import { _decorator, CCFloat, Component, find, math, Node, SphereCollider, Vec3, ParticleSystem } from 'cc';
+import { _decorator, CCFloat, Component, find, math, Node, SphereCollider, Vec3, ParticleSystem, Prefab, instantiate } from 'cc';
 const { ccclass, property } = _decorator;
 
 @ccclass('Missile')
@@ -14,6 +14,9 @@ export class Missile extends Component {
 
     @property(CCFloat)
     maxLifeTime: number = 15; // Max lifetime in seconds to prevent orphaned missiles
+
+    @property(Prefab)
+    blowPrefab: Prefab = null;
 
     collider: SphereCollider;
     private elapsedTime: number = 0;
@@ -48,6 +51,14 @@ export class Missile extends Component {
         // Prevent multiple destroy calls
         if (this.isDestroying) return;
         this.isDestroying = true;
+
+        // Instantiate blow effect at missile position
+        if (this.blowPrefab) {
+            const blowNode = instantiate(this.blowPrefab);
+            blowNode.setWorldPosition(this.node.getWorldPosition());
+            blowNode.setWorldScale(this.node.getWorldScale());
+            this.node.parent.addChild(blowNode);
+        }
 
         // Disable all particle systems on this node and children immediately
         this.disableAllParticles(this.node);

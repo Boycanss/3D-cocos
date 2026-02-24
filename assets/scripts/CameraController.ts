@@ -68,7 +68,12 @@ export class CameraController extends Component {
         while (currentDistance > 0.01) {
             if (physicsSystem.raycastClosest(currentRay, 1, currentDistance)) {
                 const result = physicsSystem.raycastClosestResult;
-                const hitNode = result.collider.node;
+                const hitNode = result.collider?.node;
+                
+                // Skip if node is null or invalid
+                if (!hitNode || !hitNode.isValid) {
+                    break;
+                }
                 
                 // Add to current hits
                 this._currentHits.add(hitNode);
@@ -95,6 +100,9 @@ export class CameraController extends Component {
         
         // 2. UPDATE HIT CONFIRMATION COUNTERS
         for (const node of this._currentHits) {
+            // Skip if node is null or invalid
+            if (!node || !node.isValid) continue;
+            
             const frameCount = (this._hitFrameCounter.get(node) || 0) + 1;
             this._hitFrameCounter.set(node, frameCount);
             
@@ -119,13 +127,20 @@ export class CameraController extends Component {
         
         // 3. CLEAR COUNTERS FOR NODES NO LONGER HIT
         for (const [node, count] of this._hitFrameCounter.entries()) {
-            if (!this._currentHits.has(node)) {
+            if (!node || !node.isValid || !this._currentHits.has(node)) {
                 this._hitFrameCounter.delete(node);
             }
         }
         
         // 4. HANDLE RESTORE (DELAYED)
         for (const node of this._hiddenNodes) {
+            // Skip if node is null or invalid - clean up references
+            if (!node || !node.isValid) {
+                this._hiddenNodes.delete(node);
+                this._restoreTimers.delete(node);
+                continue;
+            }
+            
             // If node is not currently hit
             if (!this._currentHits.has(node)) {
                 // If no restore timer yet, start one

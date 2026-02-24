@@ -236,7 +236,7 @@ export class PlayerController extends Component {
     private onControllerColliderHit(contact: CharacterControllerContact) {
         // console.log("collided" + contact.collider.node.name);
         
-        if (!this._canTakeDamage || this.currentState === MovementState.VAULTING || this._slidingController.isSliding) return;
+        if (!this._canTakeDamage || this.currentState === MovementState.VAULTING) return;
 
         const hitNode = contact.collider.node;
         

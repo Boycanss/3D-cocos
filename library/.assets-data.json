@@ -11881,8 +11881,7 @@
         "0c35afa9-aa8e-4628-8708-d68399b19837@1f97b",
         "0c35afa9-aa8e-4628-8708-d68399b19837@a5f8b",
         "b5b27ab1-e740-4398-b407-848fc2b2c897@6c48a",
-        "620b6bf3-0369-4560-837f-2a2c00b73c26",
-        "1263d74c-8167-4928-91a6-4e2672411f47@17020"
+        "3bb9a1af-5506-4fb5-ae2c-8aad0526e8b4"
       ],
       "dependScripts": [
         "0902572f-859c-4dcc-a20c-bc811bd65200",
@@ -11913,6 +11912,7 @@
         "d6039f0c-53fa-4b13-ace5-6084b4cd05db@b5c4d",
         "d6039f0c-53fa-4b13-ace5-6084b4cd05db@f6ae8",
         "24a704da-2867-446d-8d1a-5e920c75e09d@f9941",
+        "e8dd5bd2-e533-4806-9531-44082fc71e2a@f9941",
         "9fd900dd-221b-4f89-8f2c-fba34243c835@f9941",
         "20835ba4-6145-4fbc-a58a-051ce700aa3e@f9941",
         "544e49d6-3f05-4fa8-9a9e-091f98fc2ce8@f9941",
@@ -11921,6 +11921,7 @@
         "f70bbd61-3168-4225-9106-1fa6855d7b93",
         "1263d74c-8167-4928-91a6-4e2672411f47@2e76e",
         "03f958c8-f519-4401-96dd-856f4d412161",
+        "515b4ce4-1f7f-49fa-8873-edffad913e08@f9941",
         "3830ba9b-21ca-4c50-90bb-e4d2ddd0a58c",
         "501b1307-86bf-4d79-b9ec-c3499a9371ef@2e735",
         "644c98ab-6753-427b-92ad-3245f25cdea4@4b258",
@@ -13093,6 +13094,98 @@
         "ff57ae5a-d931-4908-9227-d2599de5177f@d057f"
       ]
     },
+    "versionCode": 1
+  },
+  "a23f8522-447f-4631-904b-1a62d2415577": {
+    "url": "db://assets/prefabs/blow_effect.prefab",
+    "value": {},
+    "versionCode": 1
+  },
+  "d7a39510-f989-4fbd-84f1-75d9ed16346a": {
+    "url": "db://assets/materials/blowMat.mtl",
+    "value": {
+      "depends": [
+        "c8f66d17-351a-48da-a12c-0212d28575c4"
+      ]
+    },
+    "versionCode": 1
+  },
+  "3bb9a1af-5506-4fb5-ae2c-8aad0526e8b4": {
+    "url": "db://assets/prefabs/Blow.prefab",
+    "value": {
+      "depends": [
+        "d7a39510-f989-4fbd-84f1-75d9ed16346a",
+        "1263d74c-8167-4928-91a6-4e2672411f47@17020"
+      ],
+      "dependScripts": [
+        "1115cc98-b0e8-43c9-bf09-ca6ff69b5e3d"
+      ]
+    },
+    "versionCode": 1
+  },
+  "1115cc98-b0e8-43c9-bf09-ca6ff69b5e3d": {
+    "url": "db://assets/scripts/Obstacle/Blow.ts",
+    "value": {},
+    "versionCode": 1
+  },
+  "0c49c863-2a00-4480-a821-81c88782710f": {
+    "url": "db://assets/UI",
+    "value": {},
+    "versionCode": 1
+  },
+  "e8dd5bd2-e533-4806-9531-44082fc71e2a": {
+    "url": "db://assets/UI/Energy.PNG",
+    "value": {
+      "depends": []
+    },
+    "versionCode": 1
+  },
+  "515b4ce4-1f7f-49fa-8873-edffad913e08": {
+    "url": "db://assets/UI/heart.PNG",
+    "value": {
+      "depends": []
+    },
+    "versionCode": 1
+  },
+  "e8dd5bd2-e533-4806-9531-44082fc71e2a@6c48a": {
+    "url": "db://assets/UI/Energy.PNG@6c48a",
+    "value": {
+      "depends": [
+        "e8dd5bd2-e533-4806-9531-44082fc71e2a"
+      ]
+    },
+    "versionCode": 1
+  },
+  "515b4ce4-1f7f-49fa-8873-edffad913e08@6c48a": {
+    "url": "db://assets/UI/heart.PNG@6c48a",
+    "value": {
+      "depends": [
+        "515b4ce4-1f7f-49fa-8873-edffad913e08"
+      ]
+    },
+    "versionCode": 1
+  },
+  "e8dd5bd2-e533-4806-9531-44082fc71e2a@f9941": {
+    "url": "db://assets/UI/Energy.PNG@f9941",
+    "value": {
+      "depends": [
+        "e8dd5bd2-e533-4806-9531-44082fc71e2a@6c48a"
+      ]
+    },
+    "versionCode": 1
+  },
+  "515b4ce4-1f7f-49fa-8873-edffad913e08@f9941": {
+    "url": "db://assets/UI/heart.PNG@f9941",
+    "value": {
+      "depends": [
+        "515b4ce4-1f7f-49fa-8873-edffad913e08@6c48a"
+      ]
+    },
+    "versionCode": 1
+  },
+  "3258ccd1-72ff-49e4-9e05-894b37cb6e6d": {
+    "url": "db://assets/materials/Road002_1K-JPG.mtlx",
+    "value": {},
     "versionCode": 1
   }
 }

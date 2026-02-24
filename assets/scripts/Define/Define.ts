@@ -41,7 +41,7 @@ export enum GameLevel {
 }
 
 export const GameLevelState: Record<GameLevel, LevelState> = {
-    [GameLevel.LEVEL1]: {boxSpawnAmount: 2, missileAmount: 0 },
+    [GameLevel.LEVEL1]: {boxSpawnAmount: 2, missileAmount: 2 },
     [GameLevel.LEVEL2]: {boxSpawnAmount: 3, missileAmount: 0 },
     [GameLevel.LEVEL3]: {boxSpawnAmount: 4, missileAmount: 1 },
     [GameLevel.LEVEL4]: {boxSpawnAmount: 5, missileAmount: 3, missileSpeed: 2 },
