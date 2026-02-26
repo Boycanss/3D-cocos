@@ -174,6 +174,9 @@ export class PlayerController extends Component {
     }
     
     SetState(newState: MovementState) {
+        // Prevent re-setting the same state to avoid repeated initialization
+        if (this.currentState === newState) return;
+        
         this.currentState = newState;
         
         switch (this.currentState) {
@@ -290,7 +293,6 @@ export class PlayerController extends Component {
         // Only enter wall-run once — do NOT call SetState(WALL_RUNNING) every frame
         if (this.currentState === MovementState.JUMPING && !this.charController.isGrounded) {
             if (this.checkWallContact() && this.staminaManager.getStamina() >= Energy.RUN && this.currentSpeed > 0) {
-                // console.log(">>> wallrunning");
                 this.SetState(MovementState.WALL_RUNNING);
             }
         }
@@ -440,33 +442,66 @@ export class PlayerController extends Component {
         this.staminaManager.reduceStamina(Energy.DASH);
         this.dashCooldownTimer = this.dashCooldown;
         
-        // Store current position
-        const startPos = this.node.worldPosition.clone();
-        
         // Calculate dash direction (forward)
         const dashDirection = this.node.forward.clone();
         dashDirection.y = 0;
         dashDirection.normalize();
         
-        // Calculate end position
-        const endPos = startPos.clone();
-        Vec3.scaleAndAdd(endPos, startPos, dashDirection, -this.dashDistance);
-        
-        // Perform dash movement
-        const dashTween = tween()
-            .target(this.node)
-            .to(0.1, { worldPosition: endPos })
-            .call(() => {
-                this.isDashing = false;
-            });
+        // Perform dash using CharacterController.move() with collision detection
+        this.performDashWithCollision(dashDirection);
 
         if (this._slidingController.isSliding) {
             this._slidingController.extendSlide();
         }
 
-        dashTween.start();
-
         this.callGhostEffect(2);
+    }
+
+    private performDashWithCollision(direction: Vec3): void {
+        const dashSpeed = this.dashDistance / 0.1; // Speed to cover dashDistance in 0.1 seconds
+        const stepCount = 10; // Number of steps for smooth dash
+        const stepDistance = this.dashDistance / stepCount;
+        const stepDuration = 0.01; // 0.1 seconds / 10 steps
+        
+        let currentStep = 0;
+        
+        // Use schedule to perform dash in small steps with collision detection
+        this.schedule(() => {
+            if (currentStep >= stepCount) {
+                this.isDashing = false;
+                this.unschedule(this.dashStepCallback);
+                return;
+            }
+            
+            // Calculate movement for this step
+            const moveVec = direction.clone().multiplyScalar(-stepDistance);
+            
+            // Check if path is clear using raycast
+            const ray = new geometry.Ray();
+            const startPos = this.node.worldPosition.clone();
+            const endPos = startPos.clone().add(moveVec);
+            geometry.Ray.fromPoints(ray, startPos, endPos);
+            
+            // Raycast to check for obstacles
+            const hit = PhysicsSystem.instance.raycastClosest(ray, 1, stepDistance);
+            
+            if (hit && PhysicsSystem.instance.raycastClosestResult) {
+                // Hit a wall - stop dash immediately
+                this.isDashing = false;
+                this.unschedule(this.dashStepCallback);
+                return;
+            }
+            
+            // Safe to move - use CharacterController for proper collision
+            moveVec.y = 0; // Keep on same vertical level
+            this.charController.move(moveVec);
+            
+            currentStep++;
+        }, stepDuration, stepCount, 0, 'dashStepCallback');
+    }
+    
+    private dashStepCallback() {
+        // Named callback for schedule/unschedule
     }
 
     callGhostEffect(count: number = 1) {

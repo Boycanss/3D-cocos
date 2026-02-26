@@ -2456,11 +2456,11 @@
       "uuid": "30e4a8c1-b484-4f7f-9c6e-a46c246ef1ce"
     },
     "D:\\Development\\Cocos_Projects\\Parkour\\assets\\materials": {
-      "time": 1771954290168.764,
+      "time": 1772127595578.5513,
       "uuid": "e2b8196d-00f6-490f-b075-27be673b5f43"
     },
     "D:\\Development\\Cocos_Projects\\Parkour\\assets\\prefabs": {
-      "time": 1771946680939.125,
+      "time": 1772128084569.0706,
       "uuid": "4ddd068f-c06e-401f-b58d-e734224506fc"
     },
     "D:\\Development\\Cocos_Projects\\Parkour\\assets\\scenes": {
@@ -2649,7 +2649,7 @@
       "uuid": "85b1d93f-b72f-4734-ae47-fe402600d949"
     },
     "D:\\Development\\Cocos_Projects\\Parkour\\assets\\prefabs\\Obstacle.prefab": {
-      "time": 1770566633402.3335,
+      "time": 1772127533631.139,
       "uuid": "02c41827-876b-4787-9cca-d8b1afe8aeca"
     },
     "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\fbx\\base.fbx": {
@@ -4904,7 +4904,7 @@
       "time": 1770531570008.572
     },
     "D:\\Development\\Cocos_Projects\\Parkour\\assets\\scenes\\game.scene": {
-      "time": 1771956502958.9497,
+      "time": 1772131055432.8933,
       "uuid": "d6bb5eb2-50b1-40e1-be7a-136f4579e51f"
     },
     "D:\\Development\\Cocos_Projects\\Parkour\\assets\\materials\\planeMat.mtl.meta": {
@@ -5023,14 +5023,14 @@
       "time": 1771832006815.151
     },
     "D:\\Development\\Cocos_Projects\\Parkour\\assets\\scripts\\SlidingController.ts": {
-      "time": 1771870692155.2896,
+      "time": 1772038991014.8435,
       "uuid": "0a1c2f11-f15b-42fb-b2ba-5e4bcb99e50a"
     },
     "D:\\Development\\Cocos_Projects\\Parkour\\assets\\scripts\\PlayerController.ts.meta": {
       "time": 1771833072752.0723
     },
     "D:\\Development\\Cocos_Projects\\Parkour\\assets\\scripts\\PlayerController.ts": {
-      "time": 1771956464891.652,
+      "time": 1772130759539.5422,
       "uuid": "9efe28dc-23fa-441b-b69b-fc1a2b74676f"
     },
     "D:\\Development\\Cocos_Projects\\Parkour\\assets\\animations.meta": {
@@ -5081,6 +5081,230 @@
     "D:\\Development\\Cocos_Projects\\Parkour\\assets\\UI\\heart.PNG": {
       "time": 1771952616282.345,
       "uuid": "515b4ce4-1f7f-49fa-8873-edffad913e08"
+    },
+    "D:\\Development\\Cocos_Projects\\Parkour\\assets\\materials\\Lava.meta": {
+      "time": 1772125205583.2925
+    },
+    "D:\\Development\\Cocos_Projects\\Parkour\\assets\\materials\\Lava": {
+      "time": 1772125205585.3264,
+      "uuid": "12313eac-eb4b-4a2a-bb55-af01579b4484"
+    },
+    "D:\\Development\\Cocos_Projects\\Parkour\\assets\\materials\\Lava\\ArtStation - Luc Chamerlat - How to create a simple stylised lava using Substance Designer.url.meta": {
+      "time": 1772125205617.9058
+    },
+    "D:\\Development\\Cocos_Projects\\Parkour\\assets\\materials\\Lava\\Lava.sbs.meta": {
+      "time": 1772125205617.9058
+    },
+    "D:\\Development\\Cocos_Projects\\Parkour\\assets\\materials\\Lava\\Lava_3DviewState.sbsscn.meta": {
+      "time": 1772125205618.9028
+    },
+    "D:\\Development\\Cocos_Projects\\Parkour\\assets\\materials\\Lava\\Readme.txt.meta": {
+      "time": 1772125205620.9062
+    },
+    "D:\\Development\\Cocos_Projects\\Parkour\\assets\\materials\\Lava\\Lava.sbs": {
+      "time": 1772125170257.1597,
+      "uuid": "61fd54d7-159b-479a-a119-ef54f201252b"
+    },
+    "D:\\Development\\Cocos_Projects\\Parkour\\assets\\materials\\Lava\\ArtStation - Luc Chamerlat - How to create a simple stylised lava using Substance Designer.url": {
+      "time": 1772125170249.9485,
+      "uuid": "a4b61dc7-741c-4eb9-86ae-63e7583b1156"
+    },
+    "D:\\Development\\Cocos_Projects\\Parkour\\assets\\materials\\Lava\\Lava_3DviewState.sbsscn": {
+      "time": 1772125170262.6675,
+      "uuid": "11d745c4-67e3-4283-8773-e35390274040"
+    },
+    "D:\\Development\\Cocos_Projects\\Parkour\\assets\\materials\\Lava\\Readme.txt": {
+      "time": 1772125170266.6675,
+      "uuid": "683f8cf1-1ace-4ccc-bf65-27d53e614551"
+    },
+    "D:\\Development\\Cocos_Projects\\Parkour\\assets\\materials\\Lava005_1K-JPG.meta": {
+      "time": 1772125380693.1777
+    },
+    "D:\\Development\\Cocos_Projects\\Parkour\\assets\\materials\\Lava005_1K-JPG": {
+      "time": 1772125394705.9788,
+      "uuid": "e6c6b376-f205-4e6b-9186-988585ee38ea"
+    },
+    "D:\\Development\\Cocos_Projects\\Parkour\\assets\\materials\\Lava005_1K-JPG\\Lava005.png.meta": {
+      "time": 1772125380793.8567
+    },
+    "D:\\Development\\Cocos_Projects\\Parkour\\assets\\materials\\Lava005_1K-JPG\\Lava005_1K-JPG.blend.meta": {
+      "time": 1772125380739.6484
+    },
+    "D:\\Development\\Cocos_Projects\\Parkour\\assets\\materials\\Lava005_1K-JPG\\Lava005_1K-JPG.mtlx.meta": {
+      "time": 1772125380731.6472
+    },
+    "D:\\Development\\Cocos_Projects\\Parkour\\assets\\materials\\Lava005_1K-JPG\\Lava005_1K-JPG.tres.meta": {
+      "time": 1772125380738.6467
+    },
+    "D:\\Development\\Cocos_Projects\\Parkour\\assets\\materials\\Lava005_1K-JPG\\Lava005_1K-JPG.usdc.meta": {
+      "time": 1772125380731.6472
+    },
+    "D:\\Development\\Cocos_Projects\\Parkour\\assets\\materials\\Lava005_1K-JPG\\Lava005_1K-JPG_Color.jpg.meta": {
+      "time": 1772125854588.3977
+    },
+    "D:\\Development\\Cocos_Projects\\Parkour\\assets\\materials\\Lava005_1K-JPG\\Lava005_1K-JPG_Displacement.jpg.meta": {
+      "time": 1772125380762.0776
+    },
+    "D:\\Development\\Cocos_Projects\\Parkour\\assets\\materials\\Lava005_1K-JPG\\Lava005_1K-JPG_Emission.jpg.meta": {
+      "time": 1772125380771.8452
+    },
+    "D:\\Development\\Cocos_Projects\\Parkour\\assets\\materials\\Lava005_1K-JPG\\Lava005_1K-JPG_NormalDX.jpg.meta": {
+      "time": 1772125380772.845
+    },
+    "D:\\Development\\Cocos_Projects\\Parkour\\assets\\materials\\Lava005_1K-JPG\\Lava005_1K-JPG_NormalGL.jpg.meta": {
+      "time": 1772125380801.3638
+    },
+    "D:\\Development\\Cocos_Projects\\Parkour\\assets\\materials\\Lava005_1K-JPG\\Lava005_1K-JPG_Roughness.jpg.meta": {
+      "time": 1772125380798.8533
+    },
+    "D:\\Development\\Cocos_Projects\\Parkour\\assets\\materials\\Lava005_1K-JPG\\Lava005_1K-JPG.mtlx": {
+      "time": 1772125342251.0032,
+      "uuid": "4e314817-5685-4fa6-b7f5-51a470fb6fc2"
+    },
+    "D:\\Development\\Cocos_Projects\\Parkour\\assets\\materials\\Lava005_1K-JPG\\Lava005_1K-JPG.usdc": {
+      "time": 1772125342164.8315,
+      "uuid": "9247f969-8108-46da-8453-4029a1bddb37"
+    },
+    "D:\\Development\\Cocos_Projects\\Parkour\\assets\\materials\\Lava005_1K-JPG\\Lava005_1K-JPG.tres": {
+      "time": 1772125342254.1296,
+      "uuid": "767814e8-3a82-4b7c-b470-6524fafcb4fe"
+    },
+    "D:\\Development\\Cocos_Projects\\Parkour\\assets\\materials\\Lava005_1K-JPG\\Lava005_1K-JPG.blend": {
+      "time": 1772125342246.9846,
+      "uuid": "b2ace196-1432-45ce-9938-7c735eff573c"
+    },
+    "D:\\Development\\Cocos_Projects\\Parkour\\assets\\materials\\Lava005_1K-JPG\\Lava005_1K-JPG_Displacement.jpg": {
+      "time": 1772125342190.9583,
+      "uuid": "e6193a47-8eec-4138-ac70-8205b046cdb2"
+    },
+    "D:\\Development\\Cocos_Projects\\Parkour\\assets\\materials\\Lava005_1K-JPG\\Lava005_1K-JPG_Color.jpg": {
+      "time": 1772125342181.425,
+      "uuid": "97443602-d928-428a-8d81-89a223be2a01"
+    },
+    "D:\\Development\\Cocos_Projects\\Parkour\\assets\\materials\\Lava005_1K-JPG\\Lava005_1K-JPG_Emission.jpg": {
+      "time": 1772125342203.5388,
+      "uuid": "b6ca6228-ab70-4975-bf1c-449fea4ee6fc"
+    },
+    "D:\\Development\\Cocos_Projects\\Parkour\\assets\\materials\\Lava005_1K-JPG\\Lava005_1K-JPG_NormalDX.jpg": {
+      "time": 1772125342217.0742,
+      "uuid": "d0f92fe4-8fd6-4849-b11d-5ddb927cdf4a"
+    },
+    "D:\\Development\\Cocos_Projects\\Parkour\\assets\\materials\\Lava005_1K-JPG\\Lava005.png": {
+      "time": 1772125342259.1296,
+      "uuid": "ffaaecc4-b195-4413-bbaf-bf854528f974"
+    },
+    "D:\\Development\\Cocos_Projects\\Parkour\\assets\\materials\\Lava005_1K-JPG\\Lava005_1K-JPG_Roughness.jpg": {
+      "time": 1772125342237.4414,
+      "uuid": "411ba920-b4f7-4e63-967b-61628acaeaeb"
+    },
+    "D:\\Development\\Cocos_Projects\\Parkour\\assets\\materials\\Lava005_1K-JPG\\Lava005_1K-JPG_NormalGL.jpg": {
+      "time": 1772125342231.4292,
+      "uuid": "395baf41-f501-40d8-912a-ea58358d282f"
+    },
+    "D:\\Development\\Cocos_Projects\\Parkour\\assets\\materials\\Lava005_1K-JPG\\Lavamat.mtl.meta": {
+      "time": 1772125394716.4873
+    },
+    "D:\\Development\\Cocos_Projects\\Parkour\\assets\\materials\\Lava005_1K-JPG\\Lavamat.mtl": {
+      "time": 1772125688370.6282,
+      "uuid": "ba33e018-2572-4ba2-80b9-9a36c68f22bd"
+    },
+    "D:\\Development\\Cocos_Projects\\Parkour\\assets\\materials\\PaintedPlaster015_1K-JPG.meta": {
+      "time": 1772127595579.5703
+    },
+    "D:\\Development\\Cocos_Projects\\Parkour\\assets\\materials\\PaintedPlaster015_1K-JPG": {
+      "time": 1772127649489.7107,
+      "uuid": "7ac54cde-ded1-475a-9293-f79e81ffdc7e"
+    },
+    "D:\\Development\\Cocos_Projects\\Parkour\\assets\\materials\\PaintedPlaster015_1K-JPG\\PaintedPlaster015.png.meta": {
+      "time": 1772127595655.296
+    },
+    "D:\\Development\\Cocos_Projects\\Parkour\\assets\\materials\\PaintedPlaster015_1K-JPG\\PaintedPlaster015_1K-JPG.blend.meta": {
+      "time": 1772127595612.2312
+    },
+    "D:\\Development\\Cocos_Projects\\Parkour\\assets\\materials\\PaintedPlaster015_1K-JPG\\PaintedPlaster015_1K-JPG.mtlx.meta": {
+      "time": 1772127595605.2217
+    },
+    "D:\\Development\\Cocos_Projects\\Parkour\\assets\\materials\\PaintedPlaster015_1K-JPG\\PaintedPlaster015_1K-JPG.tres.meta": {
+      "time": 1772127595604.2153
+    },
+    "D:\\Development\\Cocos_Projects\\Parkour\\assets\\materials\\PaintedPlaster015_1K-JPG\\PaintedPlaster015_1K-JPG.usdc.meta": {
+      "time": 1772127595606.23
+    },
+    "D:\\Development\\Cocos_Projects\\Parkour\\assets\\materials\\PaintedPlaster015_1K-JPG\\PaintedPlaster015_1K-JPG_AmbientOcclusion.jpg.meta": {
+      "time": 1772127595626.568
+    },
+    "D:\\Development\\Cocos_Projects\\Parkour\\assets\\materials\\PaintedPlaster015_1K-JPG\\PaintedPlaster015_1K-JPG_Color.jpg.meta": {
+      "time": 1772127595629.5652
+    },
+    "D:\\Development\\Cocos_Projects\\Parkour\\assets\\materials\\PaintedPlaster015_1K-JPG\\PaintedPlaster015_1K-JPG_Displacement.jpg.meta": {
+      "time": 1772127595634.098
+    },
+    "D:\\Development\\Cocos_Projects\\Parkour\\assets\\materials\\PaintedPlaster015_1K-JPG\\PaintedPlaster015_1K-JPG_NormalDX.jpg.meta": {
+      "time": 1772127595647.7295
+    },
+    "D:\\Development\\Cocos_Projects\\Parkour\\assets\\materials\\PaintedPlaster015_1K-JPG\\PaintedPlaster015_1K-JPG_NormalGL.jpg.meta": {
+      "time": 1772127595658.6826
+    },
+    "D:\\Development\\Cocos_Projects\\Parkour\\assets\\materials\\PaintedPlaster015_1K-JPG\\PaintedPlaster015_1K-JPG_Roughness.jpg.meta": {
+      "time": 1772127595658.6826
+    },
+    "D:\\Development\\Cocos_Projects\\Parkour\\assets\\materials\\PaintedPlaster015_1K-JPG\\PaintedPlaster015_1K-JPG.tres": {
+      "time": 1772127583675.8752,
+      "uuid": "58b5f152-9df3-4add-b140-eb4eae63ebd2"
+    },
+    "D:\\Development\\Cocos_Projects\\Parkour\\assets\\materials\\PaintedPlaster015_1K-JPG\\PaintedPlaster015_1K-JPG.mtlx": {
+      "time": 1772127583670.3665,
+      "uuid": "cef0e018-9fca-4069-8d94-0c38027b67b3"
+    },
+    "D:\\Development\\Cocos_Projects\\Parkour\\assets\\materials\\PaintedPlaster015_1K-JPG\\PaintedPlaster015_1K-JPG.usdc": {
+      "time": 1772127583587.627,
+      "uuid": "d4178e60-bb0b-4dd7-ba66-eaf2222067a1"
+    },
+    "D:\\Development\\Cocos_Projects\\Parkour\\assets\\materials\\PaintedPlaster015_1K-JPG\\PaintedPlaster015_1K-JPG.blend": {
+      "time": 1772127583665.386,
+      "uuid": "d2edc89b-0ced-4eb1-a9b5-1495690e5f05"
+    },
+    "D:\\Development\\Cocos_Projects\\Parkour\\assets\\materials\\PaintedPlaster015_1K-JPG\\PaintedPlaster015_1K-JPG_AmbientOcclusion.jpg": {
+      "time": 1772127583603.6848,
+      "uuid": "e51dac8c-8a75-45c9-9868-058766c75559"
+    },
+    "D:\\Development\\Cocos_Projects\\Parkour\\assets\\materials\\PaintedPlaster015_1K-JPG\\PaintedPlaster015_1K-JPG_Color.jpg": {
+      "time": 1772127583612.7139,
+      "uuid": "45a38cce-2220-4d2e-9f6e-dea5ac2b7433"
+    },
+    "D:\\Development\\Cocos_Projects\\Parkour\\assets\\materials\\PaintedPlaster015_1K-JPG\\PaintedPlaster015_1K-JPG_Displacement.jpg": {
+      "time": 1772127583618.8645,
+      "uuid": "3ec80f78-7853-4b90-bb0f-dad89b617d48"
+    },
+    "D:\\Development\\Cocos_Projects\\Parkour\\assets\\materials\\PaintedPlaster015_1K-JPG\\PaintedPlaster015_1K-JPG_NormalDX.jpg": {
+      "time": 1772127583632.4546,
+      "uuid": "14eac737-bc05-4eac-899b-a718126c7a1e"
+    },
+    "D:\\Development\\Cocos_Projects\\Parkour\\assets\\materials\\PaintedPlaster015_1K-JPG\\PaintedPlaster015.png": {
+      "time": 1772127583682.2913,
+      "uuid": "aca95286-d3be-467d-8c74-636e05c0d9c5"
+    },
+    "D:\\Development\\Cocos_Projects\\Parkour\\assets\\materials\\PaintedPlaster015_1K-JPG\\PaintedPlaster015_1K-JPG_Roughness.jpg": {
+      "time": 1772127583654.8164,
+      "uuid": "0cff863e-c1c5-40af-b959-6fcc37e980cd"
+    },
+    "D:\\Development\\Cocos_Projects\\Parkour\\assets\\materials\\PaintedPlaster015_1K-JPG\\PaintedPlaster015_1K-JPG_NormalGL.jpg": {
+      "time": 1772127583648.0884,
+      "uuid": "3707ab03-f599-4779-9840-0604b8a4fc09"
+    },
+    "D:\\Development\\Cocos_Projects\\Parkour\\assets\\materials\\PaintedPlaster015_1K-JPG\\WallMat.mtl.meta": {
+      "time": 1772127649534.1016
+    },
+    "D:\\Development\\Cocos_Projects\\Parkour\\assets\\materials\\PaintedPlaster015_1K-JPG\\WallMat.mtl": {
+      "time": 1772129643454.0215,
+      "uuid": "968bd0b5-1000-4535-83c0-ed57af2a714b"
+    },
+    "D:\\Development\\Cocos_Projects\\Parkour\\assets\\prefabs\\HighCube_WALL.prefab.meta": {
+      "time": 1772128084586.0645
+    },
+    "D:\\Development\\Cocos_Projects\\Parkour\\assets\\prefabs\\HighCube_WALL.prefab": {
+      "time": 1772128084585.0654,
+      "uuid": "2d85af6d-265d-4d5f-8823-7bd745b9d9c3"
     }
   },
   "missing": {
@@ -6673,6 +6897,21 @@
       "path": "D:\\Development\\Cocos_Projects\\Parkour\\assets\\materials\\Road002_1K-JPG.mtlx",
       "time": 1771954207205.556,
       "removeTime": 1771954290168
+    },
+    "2da53a9d-dcd4-497e-8be4-f3e7bf5bd614": {
+      "path": "D:\\Development\\Cocos_Projects\\Parkour\\assets\\materials\\Lava005_1K-JPG.mtlx",
+      "time": 1772124542421.6355,
+      "removeTime": 1772124557249
+    },
+    "40aa8464-0c29-4b63-be24-1de1202d2a49": {
+      "path": "D:\\Development\\Cocos_Projects\\Parkour\\assets\\materials\\Lava005_1K-JPG.tres",
+      "time": 1772124542425.6562,
+      "removeTime": 1772124557360
+    },
+    "00687c5d-22ca-4b04-aa52-1e2f7d132c16": {
+      "path": "D:\\Development\\Cocos_Projects\\Parkour\\assets\\materials\\Lava005_1K-JPG.usdc",
+      "time": 1772124542417.131,
+      "removeTime": 1772124557361
     }
   }
 }

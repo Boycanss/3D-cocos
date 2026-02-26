@@ -11828,7 +11828,7 @@
     "url": "db://assets/prefabs/Obstacle.prefab",
     "value": {
       "depends": [
-        "85b1d93f-b72f-4734-ae47-fe402600d949",
+        "85733467-4b84-41ed-b41f-2f8b2474d691@82338",
         "1263d74c-8167-4928-91a6-4e2672411f47@a804a"
       ],
       "dependScripts": [
@@ -11937,6 +11937,7 @@
         "9c28149e-8358-4b8f-9744-8a4e75b8016a@dfda3",
         "620b6bf3-0369-4560-837f-2a2c00b73c26",
         "1263d74c-8167-4928-91a6-4e2672411f47@a804a",
+        "2d85af6d-265d-4d5f-8823-7bd745b9d9c3",
         "d032ac98-05e1-4090-88bb-eb640dcb5fc1@b47c0",
         "6f01cf7f-81bf-4a7e-bd5d-0afc19696480@b47c0"
       ],
@@ -13186,6 +13187,439 @@
   "3258ccd1-72ff-49e4-9e05-894b37cb6e6d": {
     "url": "db://assets/materials/Road002_1K-JPG.mtlx",
     "value": {},
+    "versionCode": 1
+  },
+  "2da53a9d-dcd4-497e-8be4-f3e7bf5bd614": {
+    "url": "db://assets/materials/Lava005_1K-JPG.mtlx",
+    "value": {},
+    "versionCode": 1
+  },
+  "40aa8464-0c29-4b63-be24-1de1202d2a49": {
+    "url": "db://assets/materials/Lava005_1K-JPG.tres",
+    "value": {},
+    "versionCode": 1
+  },
+  "00687c5d-22ca-4b04-aa52-1e2f7d132c16": {
+    "url": "db://assets/materials/Lava005_1K-JPG.usdc",
+    "value": {},
+    "versionCode": 1
+  },
+  "12313eac-eb4b-4a2a-bb55-af01579b4484": {
+    "url": "db://assets/materials/Lava",
+    "value": {},
+    "versionCode": 1
+  },
+  "683f8cf1-1ace-4ccc-bf65-27d53e614551": {
+    "url": "db://assets/materials/Lava/Readme.txt",
+    "value": {
+      "depends": []
+    },
+    "versionCode": 1
+  },
+  "a4b61dc7-741c-4eb9-86ae-63e7583b1156": {
+    "url": "db://assets/materials/Lava/ArtStation - Luc Chamerlat - How to create a simple stylised lava using Substance Designer.url",
+    "value": {
+      "depends": []
+    },
+    "versionCode": 1
+  },
+  "61fd54d7-159b-479a-a119-ef54f201252b": {
+    "url": "db://assets/materials/Lava/Lava.sbs",
+    "value": {
+      "depends": []
+    },
+    "versionCode": 1
+  },
+  "11d745c4-67e3-4283-8773-e35390274040": {
+    "url": "db://assets/materials/Lava/Lava_3DviewState.sbsscn",
+    "value": {
+      "depends": []
+    },
+    "versionCode": 1
+  },
+  "e6c6b376-f205-4e6b-9186-988585ee38ea": {
+    "url": "db://assets/materials/Lava005_1K-JPG",
+    "value": {},
+    "versionCode": 1
+  },
+  "ffaaecc4-b195-4413-bbaf-bf854528f974": {
+    "url": "db://assets/materials/Lava005_1K-JPG/Lava005.png",
+    "value": {
+      "depends": []
+    },
+    "versionCode": 1
+  },
+  "b2ace196-1432-45ce-9938-7c735eff573c": {
+    "url": "db://assets/materials/Lava005_1K-JPG/Lava005_1K-JPG.blend",
+    "value": {
+      "depends": []
+    },
+    "versionCode": 1
+  },
+  "4e314817-5685-4fa6-b7f5-51a470fb6fc2": {
+    "url": "db://assets/materials/Lava005_1K-JPG/Lava005_1K-JPG.mtlx",
+    "value": {
+      "depends": []
+    },
+    "versionCode": 1
+  },
+  "767814e8-3a82-4b7c-b470-6524fafcb4fe": {
+    "url": "db://assets/materials/Lava005_1K-JPG/Lava005_1K-JPG.tres",
+    "value": {
+      "depends": []
+    },
+    "versionCode": 1
+  },
+  "9247f969-8108-46da-8453-4029a1bddb37": {
+    "url": "db://assets/materials/Lava005_1K-JPG/Lava005_1K-JPG.usdc",
+    "value": {
+      "depends": []
+    },
+    "versionCode": 1
+  },
+  "97443602-d928-428a-8d81-89a223be2a01": {
+    "url": "db://assets/materials/Lava005_1K-JPG/Lava005_1K-JPG_Color.jpg",
+    "value": {
+      "depends": []
+    },
+    "versionCode": 1
+  },
+  "e6193a47-8eec-4138-ac70-8205b046cdb2": {
+    "url": "db://assets/materials/Lava005_1K-JPG/Lava005_1K-JPG_Displacement.jpg",
+    "value": {
+      "depends": []
+    },
+    "versionCode": 1
+  },
+  "b6ca6228-ab70-4975-bf1c-449fea4ee6fc": {
+    "url": "db://assets/materials/Lava005_1K-JPG/Lava005_1K-JPG_Emission.jpg",
+    "value": {
+      "depends": []
+    },
+    "versionCode": 1
+  },
+  "d0f92fe4-8fd6-4849-b11d-5ddb927cdf4a": {
+    "url": "db://assets/materials/Lava005_1K-JPG/Lava005_1K-JPG_NormalDX.jpg",
+    "value": {
+      "depends": []
+    },
+    "versionCode": 1
+  },
+  "e6193a47-8eec-4138-ac70-8205b046cdb2@6c48a": {
+    "url": "db://assets/materials/Lava005_1K-JPG/Lava005_1K-JPG_Displacement.jpg@6c48a",
+    "value": {
+      "depends": [
+        "e6193a47-8eec-4138-ac70-8205b046cdb2"
+      ]
+    },
+    "versionCode": 1
+  },
+  "395baf41-f501-40d8-912a-ea58358d282f": {
+    "url": "db://assets/materials/Lava005_1K-JPG/Lava005_1K-JPG_NormalGL.jpg",
+    "value": {
+      "depends": []
+    },
+    "versionCode": 1
+  },
+  "97443602-d928-428a-8d81-89a223be2a01@6c48a": {
+    "url": "db://assets/materials/Lava005_1K-JPG/Lava005_1K-JPG_Color.jpg@6c48a",
+    "value": {
+      "depends": [
+        "97443602-d928-428a-8d81-89a223be2a01"
+      ]
+    },
+    "versionCode": 1
+  },
+  "411ba920-b4f7-4e63-967b-61628acaeaeb": {
+    "url": "db://assets/materials/Lava005_1K-JPG/Lava005_1K-JPG_Roughness.jpg",
+    "value": {
+      "depends": []
+    },
+    "versionCode": 1
+  },
+  "b6ca6228-ab70-4975-bf1c-449fea4ee6fc@6c48a": {
+    "url": "db://assets/materials/Lava005_1K-JPG/Lava005_1K-JPG_Emission.jpg@6c48a",
+    "value": {
+      "depends": [
+        "b6ca6228-ab70-4975-bf1c-449fea4ee6fc"
+      ]
+    },
+    "versionCode": 1
+  },
+  "d0f92fe4-8fd6-4849-b11d-5ddb927cdf4a@6c48a": {
+    "url": "db://assets/materials/Lava005_1K-JPG/Lava005_1K-JPG_NormalDX.jpg@6c48a",
+    "value": {
+      "depends": [
+        "d0f92fe4-8fd6-4849-b11d-5ddb927cdf4a"
+      ]
+    },
+    "versionCode": 1
+  },
+  "ffaaecc4-b195-4413-bbaf-bf854528f974@6c48a": {
+    "url": "db://assets/materials/Lava005_1K-JPG/Lava005.png@6c48a",
+    "value": {
+      "depends": [
+        "ffaaecc4-b195-4413-bbaf-bf854528f974"
+      ]
+    },
+    "versionCode": 1
+  },
+  "411ba920-b4f7-4e63-967b-61628acaeaeb@6c48a": {
+    "url": "db://assets/materials/Lava005_1K-JPG/Lava005_1K-JPG_Roughness.jpg@6c48a",
+    "value": {
+      "depends": [
+        "411ba920-b4f7-4e63-967b-61628acaeaeb"
+      ]
+    },
+    "versionCode": 1
+  },
+  "395baf41-f501-40d8-912a-ea58358d282f@6c48a": {
+    "url": "db://assets/materials/Lava005_1K-JPG/Lava005_1K-JPG_NormalGL.jpg@6c48a",
+    "value": {
+      "depends": [
+        "395baf41-f501-40d8-912a-ea58358d282f"
+      ]
+    },
+    "versionCode": 1
+  },
+  "ba33e018-2572-4ba2-80b9-9a36c68f22bd": {
+    "url": "db://assets/materials/Lava005_1K-JPG/Lavamat.mtl",
+    "value": {
+      "depends": [
+        "c8f66d17-351a-48da-a12c-0212d28575c4",
+        "ffaaecc4-b195-4413-bbaf-bf854528f974@6c48a",
+        "97443602-d928-428a-8d81-89a223be2a01@6c48a",
+        "e6193a47-8eec-4138-ac70-8205b046cdb2@6c48a",
+        "411ba920-b4f7-4e63-967b-61628acaeaeb@6c48a",
+        "b6ca6228-ab70-4975-bf1c-449fea4ee6fc@6c48a"
+      ]
+    },
+    "versionCode": 1
+  },
+  "97443602-d928-428a-8d81-89a223be2a01@b47c0": {
+    "url": "db://assets/materials/Lava005_1K-JPG/Lava005_1K-JPG_Color.jpg@b47c0",
+    "value": {
+      "depends": [
+        "97443602-d928-428a-8d81-89a223be2a01@b47c0@e9a6d",
+        "97443602-d928-428a-8d81-89a223be2a01@b47c0@40c10",
+        "97443602-d928-428a-8d81-89a223be2a01@b47c0@8fd34",
+        "97443602-d928-428a-8d81-89a223be2a01@b47c0@74afd",
+        "97443602-d928-428a-8d81-89a223be2a01@b47c0@bb97f",
+        "97443602-d928-428a-8d81-89a223be2a01@b47c0@7d38f"
+      ]
+    },
+    "versionCode": 1
+  },
+  "97443602-d928-428a-8d81-89a223be2a01@b47c0@74afd": {
+    "url": "db://assets/materials/Lava005_1K-JPG/Lava005_1K-JPG_Color.jpg@b47c0@74afd",
+    "value": {
+      "depends": []
+    },
+    "versionCode": 1
+  },
+  "97443602-d928-428a-8d81-89a223be2a01@b47c0@8fd34": {
+    "url": "db://assets/materials/Lava005_1K-JPG/Lava005_1K-JPG_Color.jpg@b47c0@8fd34",
+    "value": {
+      "depends": []
+    },
+    "versionCode": 1
+  },
+  "97443602-d928-428a-8d81-89a223be2a01@b47c0@bb97f": {
+    "url": "db://assets/materials/Lava005_1K-JPG/Lava005_1K-JPG_Color.jpg@b47c0@bb97f",
+    "value": {
+      "depends": []
+    },
+    "versionCode": 1
+  },
+  "97443602-d928-428a-8d81-89a223be2a01@b47c0@7d38f": {
+    "url": "db://assets/materials/Lava005_1K-JPG/Lava005_1K-JPG_Color.jpg@b47c0@7d38f",
+    "value": {
+      "depends": []
+    },
+    "versionCode": 1
+  },
+  "97443602-d928-428a-8d81-89a223be2a01@b47c0@e9a6d": {
+    "url": "db://assets/materials/Lava005_1K-JPG/Lava005_1K-JPG_Color.jpg@b47c0@e9a6d",
+    "value": {
+      "depends": []
+    },
+    "versionCode": 1
+  },
+  "97443602-d928-428a-8d81-89a223be2a01@b47c0@40c10": {
+    "url": "db://assets/materials/Lava005_1K-JPG/Lava005_1K-JPG_Color.jpg@b47c0@40c10",
+    "value": {
+      "depends": []
+    },
+    "versionCode": 1
+  },
+  "7ac54cde-ded1-475a-9293-f79e81ffdc7e": {
+    "url": "db://assets/materials/PaintedPlaster015_1K-JPG",
+    "value": {},
+    "versionCode": 1
+  },
+  "aca95286-d3be-467d-8c74-636e05c0d9c5": {
+    "url": "db://assets/materials/PaintedPlaster015_1K-JPG/PaintedPlaster015.png",
+    "value": {
+      "depends": []
+    },
+    "versionCode": 1
+  },
+  "d2edc89b-0ced-4eb1-a9b5-1495690e5f05": {
+    "url": "db://assets/materials/PaintedPlaster015_1K-JPG/PaintedPlaster015_1K-JPG.blend",
+    "value": {
+      "depends": []
+    },
+    "versionCode": 1
+  },
+  "cef0e018-9fca-4069-8d94-0c38027b67b3": {
+    "url": "db://assets/materials/PaintedPlaster015_1K-JPG/PaintedPlaster015_1K-JPG.mtlx",
+    "value": {
+      "depends": []
+    },
+    "versionCode": 1
+  },
+  "58b5f152-9df3-4add-b140-eb4eae63ebd2": {
+    "url": "db://assets/materials/PaintedPlaster015_1K-JPG/PaintedPlaster015_1K-JPG.tres",
+    "value": {
+      "depends": []
+    },
+    "versionCode": 1
+  },
+  "d4178e60-bb0b-4dd7-ba66-eaf2222067a1": {
+    "url": "db://assets/materials/PaintedPlaster015_1K-JPG/PaintedPlaster015_1K-JPG.usdc",
+    "value": {
+      "depends": []
+    },
+    "versionCode": 1
+  },
+  "e51dac8c-8a75-45c9-9868-058766c75559": {
+    "url": "db://assets/materials/PaintedPlaster015_1K-JPG/PaintedPlaster015_1K-JPG_AmbientOcclusion.jpg",
+    "value": {
+      "depends": []
+    },
+    "versionCode": 1
+  },
+  "45a38cce-2220-4d2e-9f6e-dea5ac2b7433": {
+    "url": "db://assets/materials/PaintedPlaster015_1K-JPG/PaintedPlaster015_1K-JPG_Color.jpg",
+    "value": {
+      "depends": []
+    },
+    "versionCode": 1
+  },
+  "3ec80f78-7853-4b90-bb0f-dad89b617d48": {
+    "url": "db://assets/materials/PaintedPlaster015_1K-JPG/PaintedPlaster015_1K-JPG_Displacement.jpg",
+    "value": {
+      "depends": []
+    },
+    "versionCode": 1
+  },
+  "14eac737-bc05-4eac-899b-a718126c7a1e": {
+    "url": "db://assets/materials/PaintedPlaster015_1K-JPG/PaintedPlaster015_1K-JPG_NormalDX.jpg",
+    "value": {
+      "depends": []
+    },
+    "versionCode": 1
+  },
+  "e51dac8c-8a75-45c9-9868-058766c75559@6c48a": {
+    "url": "db://assets/materials/PaintedPlaster015_1K-JPG/PaintedPlaster015_1K-JPG_AmbientOcclusion.jpg@6c48a",
+    "value": {
+      "depends": [
+        "e51dac8c-8a75-45c9-9868-058766c75559"
+      ]
+    },
+    "versionCode": 1
+  },
+  "3707ab03-f599-4779-9840-0604b8a4fc09": {
+    "url": "db://assets/materials/PaintedPlaster015_1K-JPG/PaintedPlaster015_1K-JPG_NormalGL.jpg",
+    "value": {
+      "depends": []
+    },
+    "versionCode": 1
+  },
+  "45a38cce-2220-4d2e-9f6e-dea5ac2b7433@6c48a": {
+    "url": "db://assets/materials/PaintedPlaster015_1K-JPG/PaintedPlaster015_1K-JPG_Color.jpg@6c48a",
+    "value": {
+      "depends": [
+        "45a38cce-2220-4d2e-9f6e-dea5ac2b7433"
+      ]
+    },
+    "versionCode": 1
+  },
+  "0cff863e-c1c5-40af-b959-6fcc37e980cd": {
+    "url": "db://assets/materials/PaintedPlaster015_1K-JPG/PaintedPlaster015_1K-JPG_Roughness.jpg",
+    "value": {
+      "depends": []
+    },
+    "versionCode": 1
+  },
+  "3ec80f78-7853-4b90-bb0f-dad89b617d48@6c48a": {
+    "url": "db://assets/materials/PaintedPlaster015_1K-JPG/PaintedPlaster015_1K-JPG_Displacement.jpg@6c48a",
+    "value": {
+      "depends": [
+        "3ec80f78-7853-4b90-bb0f-dad89b617d48"
+      ]
+    },
+    "versionCode": 1
+  },
+  "14eac737-bc05-4eac-899b-a718126c7a1e@6c48a": {
+    "url": "db://assets/materials/PaintedPlaster015_1K-JPG/PaintedPlaster015_1K-JPG_NormalDX.jpg@6c48a",
+    "value": {
+      "depends": [
+        "14eac737-bc05-4eac-899b-a718126c7a1e"
+      ]
+    },
+    "versionCode": 1
+  },
+  "aca95286-d3be-467d-8c74-636e05c0d9c5@6c48a": {
+    "url": "db://assets/materials/PaintedPlaster015_1K-JPG/PaintedPlaster015.png@6c48a",
+    "value": {
+      "depends": [
+        "aca95286-d3be-467d-8c74-636e05c0d9c5"
+      ]
+    },
+    "versionCode": 1
+  },
+  "0cff863e-c1c5-40af-b959-6fcc37e980cd@6c48a": {
+    "url": "db://assets/materials/PaintedPlaster015_1K-JPG/PaintedPlaster015_1K-JPG_Roughness.jpg@6c48a",
+    "value": {
+      "depends": [
+        "0cff863e-c1c5-40af-b959-6fcc37e980cd"
+      ]
+    },
+    "versionCode": 1
+  },
+  "3707ab03-f599-4779-9840-0604b8a4fc09@6c48a": {
+    "url": "db://assets/materials/PaintedPlaster015_1K-JPG/PaintedPlaster015_1K-JPG_NormalGL.jpg@6c48a",
+    "value": {
+      "depends": [
+        "3707ab03-f599-4779-9840-0604b8a4fc09"
+      ]
+    },
+    "versionCode": 1
+  },
+  "968bd0b5-1000-4535-83c0-ed57af2a714b": {
+    "url": "db://assets/materials/PaintedPlaster015_1K-JPG/WallMat.mtl",
+    "value": {
+      "depends": [
+        "c8f66d17-351a-48da-a12c-0212d28575c4",
+        "3ec80f78-7853-4b90-bb0f-dad89b617d48@6c48a",
+        "0cff863e-c1c5-40af-b959-6fcc37e980cd@6c48a"
+      ]
+    },
+    "versionCode": 1
+  },
+  "2d85af6d-265d-4d5f-8823-7bd745b9d9c3": {
+    "url": "db://assets/prefabs/HighCube_WALL.prefab",
+    "value": {
+      "depends": [
+        "968bd0b5-1000-4535-83c0-ed57af2a714b",
+        "1263d74c-8167-4928-91a6-4e2672411f47@a804a"
+      ],
+      "dependScripts": [
+        "951d2e8c-6eb5-4b27-9810-4e9f0f1066be",
+        "7979a3fa-3bfb-4a44-85d3-11780222cc84"
+      ]
+    },
     "versionCode": 1
   }
 }

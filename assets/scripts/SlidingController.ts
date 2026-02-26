@@ -1,4 +1,4 @@
-import { _decorator, animation, CapsuleCharacterController, CCFloat, Component, geometry, math, PhysicsSystem, Vec3, Node } from 'cc';
+import { _decorator, animation, CapsuleCharacterController, CCFloat, Component, geometry, math, PhysicsSystem, Vec3, Node, tween } from 'cc';
 import { Energy, MovementState, ObstacleType } from './Define/Define';
 import { StaminaManager } from './GameManager/StaminaManager';
 import { PlayerController } from './PlayerController';
@@ -25,6 +25,12 @@ export class SlidingController extends Component {
 
     @property(CCFloat)
     offsetY: number = 0.1;
+
+    @property(CCFloat)
+    miniDashDistance: number = 1.5; // Distance for mini dash boost
+
+    @property(CCFloat)
+    miniDashDuration: number = 0.15; // Duration of mini dash
     
     // Callback so PlayerController can react to slide state changes
     public onSlideStart: (() => void) | null = null;
@@ -36,6 +42,7 @@ export class SlidingController extends Component {
     private _slideStartTime: number = 0;
     private _slideDuration: number = 0;
     private _disabledColliders: Array<{collider: any, box: Box}> = [];
+    private _isMiniDashing: boolean = false;
 
     start() {
         // Get references from PlayerController on the same node
@@ -60,7 +67,7 @@ export class SlidingController extends Component {
         // Cast ray from head position to detect SLIDEBOX colliders
         this.detectAndDisableSlideBoxes();
 
-        console.log(`[Slide Start] Duration: ${this._slideDuration}s, Disabled colliders: ${this._disabledColliders.length}`);
+        // console.log(`[Slide Start] Duration: ${this._slideDuration}s, Disabled colliders: ${this._disabledColliders.length}`);
 
         if (this.onSlideStart) this.onSlideStart();
     }
@@ -105,7 +112,7 @@ export class SlidingController extends Component {
         const ray = new geometry.Ray();
         geometry.Ray.fromPoints(ray, headPos, rayEnd);
         
-        console.log(`[Slide] Ray from (${headPos.x.toFixed(2)}, ${headPos.y.toFixed(2)}, ${headPos.z.toFixed(2)}) to (${rayEnd.x.toFixed(2)}, ${rayEnd.y.toFixed(2)}, ${rayEnd.z.toFixed(2)})`);
+        // console.log(`[Slide] Ray from (${headPos.x.toFixed(2)}, ${headPos.y.toFixed(2)}, ${headPos.z.toFixed(2)}) to (${rayEnd.x.toFixed(2)}, ${rayEnd.y.toFixed(2)}, ${rayEnd.z.toFixed(2)})`);
         
         // Raycast to find SLIDEBOX colliders
         const fis = PhysicsSystem.instance;
@@ -115,17 +122,49 @@ export class SlidingController extends Component {
             
             if (collider && collider.node) {
                 const box = collider.node.getComponent(Box);
-                console.log(`[Slide] Hit: ${collider.node.name}, Box: ${box ? 'yes' : 'no'}, Type: ${box ? box.boxType : 'N/A'}`);
+                // console.log(`[Slide] Hit: ${collider.node.name}, Box: ${box ? 'yes' : 'no'}, Type: ${box ? box.boxType : 'N/A'}`);
                 
                 if (box && box.boxType === ObstacleType.SLIDEBOX) {
+                    this.miniDash();
                     collider.enabled = false;
                     this._disabledColliders.push({ collider, box });
-                    console.log(`[Slide] Disabled SLIDEBOX: ${collider.node.name}`);
+                    // console.log(`[Slide] Disabled SLIDEBOX: ${collider.node.name}`);
                 }
             }
         } else {
-            console.log(`[Slide] No colliders hit by ray`);
+            // console.log(`[Slide] No colliders hit by ray`);
         }
+    }
+
+    /**
+     * Performs a mini dash boost while sliding - shorter and less powerful than regular dash
+     */
+    private miniDash(): void {
+        if (this._isMiniDashing) return;
+        
+        this._isMiniDashing = true;
+        
+        // Store current position
+        const startPos = this.node.worldPosition.clone();
+        
+        // Calculate dash direction (forward)
+        const dashDirection = this.node.forward.clone();
+        dashDirection.y = 0;
+        dashDirection.normalize();
+        
+        // Calculate end position
+        const endPos = startPos.clone();
+        Vec3.scaleAndAdd(endPos, startPos, dashDirection, -this.miniDashDistance);
+        
+        // Perform mini dash movement
+        tween(this.node)
+            .to(this.miniDashDuration, { worldPosition: endPos })
+            .call(() => {
+                this._isMiniDashing = false;
+            })
+            .start();
+        
+        console.log(`[Slide] Mini dash boost!`);
     }
 
     /**
@@ -135,7 +174,7 @@ export class SlidingController extends Component {
         for (const item of this._disabledColliders) {
             if (item.collider) {
                 item.collider.enabled = true;
-                console.log(`[Slide] Re-enabled SLIDEBOX: ${item.collider.node.name}`);
+                // console.log(`[Slide] Re-enabled SLIDEBOX: ${item.collider.node.name}`);
             }
         }
         this._disabledColliders = [];
