@@ -112,8 +112,6 @@ export class PlayerController extends Component {
         }
 
         if (this.charController.isGrounded) {
-            console.log(this.charController.isGrounded);
-            
             //jump
             if (event.keyCode === KeyCode.SPACE) {
                 this.Jump();
@@ -237,11 +235,21 @@ export class PlayerController extends Component {
     }
 
     private onControllerColliderHit(contact: CharacterControllerContact) {
-        // console.log("collided" + contact.collider.node.name);
+        console.log("PlayerController: Collided with " + contact.collider.node.name);
         
-        if (!this._canTakeDamage || this.currentState === MovementState.VAULTING) return;
-
         const hitNode = contact.collider.node;
+        
+        // Check for Flag collision first
+        const Flag = hitNode.getComponent('Flag');
+        if (Flag) {
+            console.log("PlayerController: Hit a Flag!");
+            // Trigger the flag's collection through its own method
+            hitNode.emit('player-collision', this);
+            return;
+        }
+        
+        // Handle obstacle damage
+        if (!this._canTakeDamage || this.currentState === MovementState.VAULTING) return;
         
         const obstacle = hitNode.getComponent(ObstacleCollision);
         if (obstacle && this._actor) {

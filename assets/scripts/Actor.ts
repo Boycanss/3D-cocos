@@ -74,7 +74,7 @@ export class Actor extends Component {
 
     takeDamage(amount: number) {
         if (this.isDead) return;
-        console.log(">>> TAKE DAMAGE: "+ amount);
+        // console.log(">>> TAKE DAMAGE: "+ amount);
         
         const dmg = Math.max(0, amount);
         this.currentHp -= dmg;

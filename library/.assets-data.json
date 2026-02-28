@@ -11921,6 +11921,11 @@
         "f70bbd61-3168-4225-9106-1fa6855d7b93",
         "1263d74c-8167-4928-91a6-4e2672411f47@2e76e",
         "03f958c8-f519-4401-96dd-856f4d412161",
+        "a5d6225e-17bf-4326-85d8-e2546fee29f1",
+        "620b6bf3-0369-4560-837f-2a2c00b73c26",
+        "1263d74c-8167-4928-91a6-4e2672411f47@a804a",
+        "2d85af6d-265d-4d5f-8823-7bd745b9d9c3",
+        "57295f3e-5c11-4482-b55f-103cc70fe228@f9941",
         "515b4ce4-1f7f-49fa-8873-edffad913e08@f9941",
         "3830ba9b-21ca-4c50-90bb-e4d2ddd0a58c",
         "501b1307-86bf-4d79-b9ec-c3499a9371ef@2e735",
@@ -11935,9 +11940,6 @@
         "b0fe8a36-9165-4e72-9982-9a0e8a8b3604@73d57",
         "51c4de5c-3f74-4c31-89d5-d1f57e619a8b@2bcf1",
         "9c28149e-8358-4b8f-9744-8a4e75b8016a@dfda3",
-        "620b6bf3-0369-4560-837f-2a2c00b73c26",
-        "1263d74c-8167-4928-91a6-4e2672411f47@a804a",
-        "2d85af6d-265d-4d5f-8823-7bd745b9d9c3",
         "d032ac98-05e1-4090-88bb-eb640dcb5fc1@b47c0",
         "6f01cf7f-81bf-4a7e-bd5d-0afc19696480@b47c0"
       ],
@@ -11950,12 +11952,16 @@
         "ba2a64af-1824-487f-b01f-30090023736e",
         "ac694d14-e582-48cf-b38d-41f18617f603",
         "abc5961d-74ba-4a70-9ee3-0cbe6450deec",
+        "5eb5de5a-87f7-49b2-838d-366a916d85ba",
+        "7979a3fa-3bfb-4a44-85d3-11780222cc84",
+        "18f00877-5c55-49ca-8604-9a849d62cd23",
+        "d9009df3-dd2e-4907-bfa2-6f088627cafa",
         "16ac7090-d232-4f0e-ab94-24e7319701ef",
         "56429271-fa41-4390-a8e8-684c3019467f",
         "951d2e8c-6eb5-4b27-9810-4e9f0f1066be",
         "9efe28dc-23fa-441b-b69b-fc1a2b74676f",
         "0a1c2f11-f15b-42fb-b2ba-5e4bcb99e50a",
-        "7979a3fa-3bfb-4a44-85d3-11780222cc84"
+        "634f6872-9a20-417c-96c8-a1d758cafe00"
       ]
     },
     "versionCode": 1
@@ -11964,7 +11970,8 @@
     "url": "db://assets/materials/planeMat.mtl",
     "value": {
       "depends": [
-        "c8f66d17-351a-48da-a12c-0212d28575c4"
+        "c8f66d17-351a-48da-a12c-0212d28575c4",
+        "bf725145-7253-403c-be24-6881018608f1@6c48a"
       ]
     },
     "versionCode": 1
@@ -13619,6 +13626,389 @@
         "951d2e8c-6eb5-4b27-9810-4e9f0f1066be",
         "7979a3fa-3bfb-4a44-85d3-11780222cc84"
       ]
+    },
+    "versionCode": 1
+  },
+  "9d60951d-9c73-426a-be22-5b05fca27379": {
+    "url": "db://assets/materials/Tiles052_1K-JPG",
+    "value": {},
+    "versionCode": 1
+  },
+  "e3a7c828-6182-4d27-bda8-31e61b43aadc": {
+    "url": "db://assets/materials/Tiles052_1K-JPG/Tiles052.png",
+    "value": {
+      "depends": []
+    },
+    "versionCode": 1
+  },
+  "4ed07927-057d-4c5f-af34-031d5a14929e": {
+    "url": "db://assets/materials/Tiles052_1K-JPG/Tiles052_1K-JPG.blend",
+    "value": {
+      "depends": []
+    },
+    "versionCode": 1
+  },
+  "fa605608-502c-4c04-8e2d-22bbb10f3942": {
+    "url": "db://assets/materials/Tiles052_1K-JPG/Tiles052_1K-JPG.mtlx",
+    "value": {
+      "depends": []
+    },
+    "versionCode": 1
+  },
+  "564257dd-be1e-41d7-9d9c-91d8d5f7fc64": {
+    "url": "db://assets/materials/Tiles052_1K-JPG/Tiles052_1K-JPG.tres",
+    "value": {
+      "depends": []
+    },
+    "versionCode": 1
+  },
+  "c224869f-a817-4ea8-9d54-b420fa221315": {
+    "url": "db://assets/materials/Tiles052_1K-JPG/Tiles052_1K-JPG.usdc",
+    "value": {
+      "depends": []
+    },
+    "versionCode": 1
+  },
+  "bf725145-7253-403c-be24-6881018608f1": {
+    "url": "db://assets/materials/Tiles052_1K-JPG/Tiles052_1K-JPG_Color.jpg",
+    "value": {
+      "depends": []
+    },
+    "versionCode": 1
+  },
+  "48ab8be3-90e4-4126-b93c-b9cdd66aa9e5": {
+    "url": "db://assets/materials/Tiles052_1K-JPG/Tiles052_1K-JPG_Displacement.jpg",
+    "value": {
+      "depends": []
+    },
+    "versionCode": 1
+  },
+  "0e78a844-d148-4e41-a62c-d0bb246d664f": {
+    "url": "db://assets/materials/Tiles052_1K-JPG/Tiles052_1K-JPG_NormalDX.jpg",
+    "value": {
+      "depends": []
+    },
+    "versionCode": 1
+  },
+  "3bf6bd10-9ef3-4919-82c9-24d31c524914": {
+    "url": "db://assets/materials/Tiles052_1K-JPG/Tiles052_1K-JPG_NormalGL.jpg",
+    "value": {
+      "depends": []
+    },
+    "versionCode": 1
+  },
+  "48ab8be3-90e4-4126-b93c-b9cdd66aa9e5@6c48a": {
+    "url": "db://assets/materials/Tiles052_1K-JPG/Tiles052_1K-JPG_Displacement.jpg@6c48a",
+    "value": {
+      "depends": [
+        "48ab8be3-90e4-4126-b93c-b9cdd66aa9e5"
+      ]
+    },
+    "versionCode": 1
+  },
+  "d95ed804-c45b-4eca-b87d-0100d876b505": {
+    "url": "db://assets/materials/Tiles052_1K-JPG/Tiles052_1K-JPG_Roughness.jpg",
+    "value": {
+      "depends": []
+    },
+    "versionCode": 1
+  },
+  "bf725145-7253-403c-be24-6881018608f1@6c48a": {
+    "url": "db://assets/materials/Tiles052_1K-JPG/Tiles052_1K-JPG_Color.jpg@6c48a",
+    "value": {
+      "depends": [
+        "bf725145-7253-403c-be24-6881018608f1"
+      ]
+    },
+    "versionCode": 1
+  },
+  "0e78a844-d148-4e41-a62c-d0bb246d664f@6c48a": {
+    "url": "db://assets/materials/Tiles052_1K-JPG/Tiles052_1K-JPG_NormalDX.jpg@6c48a",
+    "value": {
+      "depends": [
+        "0e78a844-d148-4e41-a62c-d0bb246d664f"
+      ]
+    },
+    "versionCode": 1
+  },
+  "e3a7c828-6182-4d27-bda8-31e61b43aadc@6c48a": {
+    "url": "db://assets/materials/Tiles052_1K-JPG/Tiles052.png@6c48a",
+    "value": {
+      "depends": [
+        "e3a7c828-6182-4d27-bda8-31e61b43aadc"
+      ]
+    },
+    "versionCode": 1
+  },
+  "3bf6bd10-9ef3-4919-82c9-24d31c524914@6c48a": {
+    "url": "db://assets/materials/Tiles052_1K-JPG/Tiles052_1K-JPG_NormalGL.jpg@6c48a",
+    "value": {
+      "depends": [
+        "3bf6bd10-9ef3-4919-82c9-24d31c524914"
+      ]
+    },
+    "versionCode": 1
+  },
+  "d95ed804-c45b-4eca-b87d-0100d876b505@6c48a": {
+    "url": "db://assets/materials/Tiles052_1K-JPG/Tiles052_1K-JPG_Roughness.jpg@6c48a",
+    "value": {
+      "depends": [
+        "d95ed804-c45b-4eca-b87d-0100d876b505"
+      ]
+    },
+    "versionCode": 1
+  },
+  "266dfc63-c4d8-4877-9d69-028a611b0e6d": {
+    "url": "db://assets/scripts/Collectible/Flag.ts",
+    "value": {},
+    "versionCode": 1
+  },
+  "634f6872-9a20-417c-96c8-a1d758cafe00": {
+    "url": "db://assets/scripts/Collectible/FlagBuffManager.ts",
+    "value": {},
+    "versionCode": 1
+  },
+  "5eb5de5a-87f7-49b2-838d-366a916d85ba": {
+    "url": "db://assets/scripts/GameManager/FlagManager.ts",
+    "value": {},
+    "versionCode": 1
+  },
+  "25e6ab2e-1b3b-4d41-8f8d-b2df6b66fbc2": {
+    "url": "db://assets/scripts/Collectible",
+    "value": {},
+    "versionCode": 1
+  },
+  "d9627cc2-dcfe-452e-adef-5089c87ebf42": {
+    "url": "db://assets/scripts/Collectible/README_FLAG_SYSTEM.md",
+    "value": {
+      "depends": []
+    },
+    "versionCode": 1
+  },
+  "55d94c14-3a6f-4880-94e7-f4c41a437149": {
+    "url": "db://assets/scripts/Collectible/SETUP_GUIDE.md",
+    "value": {
+      "depends": []
+    },
+    "versionCode": 1
+  },
+  "d95bca93-06b8-4084-828a-c09bdb914026": {
+    "url": "db://assets/building/flags.fbx",
+    "value": {},
+    "versionCode": 1
+  },
+  "d95bca93-06b8-4084-828a-c09bdb914026@08c68": {
+    "url": "db://assets/building/flags.fbx@08c68",
+    "value": {
+      "depends": []
+    },
+    "versionCode": 1
+  },
+  "d95bca93-06b8-4084-828a-c09bdb914026@2ba06": {
+    "url": "db://assets/building/flags.fbx@2ba06",
+    "value": {
+      "depends": []
+    },
+    "versionCode": 1
+  },
+  "d95bca93-06b8-4084-828a-c09bdb914026@e2349": {
+    "url": "db://assets/building/flags.fbx@e2349",
+    "value": {
+      "depends": []
+    },
+    "versionCode": 1
+  },
+  "d95bca93-06b8-4084-828a-c09bdb914026@16ef1": {
+    "url": "db://assets/building/flags.fbx@16ef1",
+    "value": {
+      "depends": [
+        "f648964e-8d32-41fc-9ac9-7a1e714dd17b"
+      ]
+    },
+    "versionCode": 1
+  },
+  "d95bca93-06b8-4084-828a-c09bdb914026@c7ace": {
+    "url": "db://assets/building/flags.fbx@c7ace",
+    "value": {
+      "depends": [
+        "f648964e-8d32-41fc-9ac9-7a1e714dd17b"
+      ]
+    },
+    "versionCode": 1
+  },
+  "d95bca93-06b8-4084-828a-c09bdb914026@e6570": {
+    "url": "db://assets/building/flags.fbx@e6570",
+    "value": {
+      "depends": [
+        "d95bca93-06b8-4084-828a-c09bdb914026@16ef1",
+        "d95bca93-06b8-4084-828a-c09bdb914026@08c68",
+        "d95bca93-06b8-4084-828a-c09bdb914026@2ba06",
+        "d95bca93-06b8-4084-828a-c09bdb914026@c7ace",
+        "d95bca93-06b8-4084-828a-c09bdb914026@e2349"
+      ]
+    },
+    "versionCode": 1
+  },
+  "31d55d01-e893-4fff-af9d-20ba5f6ca2f8": {
+    "url": "db://assets/building/checkpoint.fbx",
+    "value": {},
+    "versionCode": 1
+  },
+  "31d55d01-e893-4fff-af9d-20ba5f6ca2f8@b21be": {
+    "url": "db://assets/building/checkpoint.fbx@b21be",
+    "value": {
+      "depends": []
+    },
+    "versionCode": 1
+  },
+  "31d55d01-e893-4fff-af9d-20ba5f6ca2f8@0602a": {
+    "url": "db://assets/building/checkpoint.fbx@0602a",
+    "value": {
+      "depends": [
+        "f648964e-8d32-41fc-9ac9-7a1e714dd17b"
+      ]
+    },
+    "versionCode": 1
+  },
+  "31d55d01-e893-4fff-af9d-20ba5f6ca2f8@1c365": {
+    "url": "db://assets/building/checkpoint.fbx@1c365",
+    "value": {
+      "depends": [
+        "31d55d01-e893-4fff-af9d-20ba5f6ca2f8@0602a",
+        "31d55d01-e893-4fff-af9d-20ba5f6ca2f8@b21be"
+      ]
+    },
+    "versionCode": 1
+  },
+  "90def452-b739-41bf-bdb9-78d8a6765b25": {
+    "url": "db://assets/prefabs/checkpoint.prefab",
+    "value": {},
+    "versionCode": 1
+  },
+  "a5d6225e-17bf-4326-85d8-e2546fee29f1": {
+    "url": "db://assets/prefabs/Flag.prefab",
+    "value": {
+      "depends": [
+        "e93427f3-eb5e-477e-b3f4-bdf53e7ab3ea",
+        "1263d74c-8167-4928-91a6-4e2672411f47@38fd2"
+      ],
+      "dependScripts": [
+        "266dfc63-c4d8-4877-9d69-028a611b0e6d"
+      ]
+    },
+    "versionCode": 1
+  },
+  "e93427f3-eb5e-477e-b3f4-bdf53e7ab3ea": {
+    "url": "db://assets/materials/flagMat.mtl",
+    "value": {
+      "depends": [
+        "c8f66d17-351a-48da-a12c-0212d28575c4"
+      ]
+    },
+    "versionCode": 1
+  },
+  "0422d2f9-59d0-483a-9998-a6c9605f5149": {
+    "url": "db://assets/scripts/UI/FlagDistanceDisplay.ts",
+    "value": {},
+    "versionCode": 1
+  },
+  "d9009df3-dd2e-4907-bfa2-6f088627cafa": {
+    "url": "db://assets/scripts/UI/FlagIndicator.ts",
+    "value": {},
+    "versionCode": 1
+  },
+  "32aba315-03d3-4cb2-b0ec-5598becdfcb9": {
+    "url": "db://assets/UI/offscreen-arrow.png",
+    "value": {},
+    "versionCode": 1
+  },
+  "7721cf96-8d8a-47df-baee-034e4a5d30d2": {
+    "url": "db://assets/scripts/UI/README_FLAG_INDICATOR.md",
+    "value": {
+      "depends": []
+    },
+    "versionCode": 1
+  },
+  "32aba315-03d3-4cb2-b0ec-5598becdfcb9@6c48a": {
+    "url": "db://assets/UI/offscreen-arrow.png@6c48a",
+    "value": {
+      "depends": [
+        "32aba315-03d3-4cb2-b0ec-5598becdfcb9"
+      ]
+    },
+    "versionCode": 1
+  },
+  "32aba315-03d3-4cb2-b0ec-5598becdfcb9@f9941": {
+    "url": "db://assets/UI/offscreen-arrow.png@f9941",
+    "value": {
+      "depends": [
+        "32aba315-03d3-4cb2-b0ec-5598becdfcb9@6c48a"
+      ]
+    },
+    "versionCode": 1
+  },
+  "57295f3e-5c11-4482-b55f-103cc70fe228": {
+    "url": "db://assets/UI/arrow.png",
+    "value": {
+      "depends": []
+    },
+    "versionCode": 1
+  },
+  "57295f3e-5c11-4482-b55f-103cc70fe228@6c48a": {
+    "url": "db://assets/UI/arrow.png@6c48a",
+    "value": {
+      "depends": [
+        "57295f3e-5c11-4482-b55f-103cc70fe228"
+      ]
+    },
+    "versionCode": 1
+  },
+  "57295f3e-5c11-4482-b55f-103cc70fe228@f9941": {
+    "url": "db://assets/UI/arrow.png@f9941",
+    "value": {
+      "depends": [
+        "57295f3e-5c11-4482-b55f-103cc70fe228@6c48a"
+      ]
+    },
+    "versionCode": 1
+  },
+  "b055bf43-58c0-4aab-9c00-46cfb0fc908e": {
+    "url": "db://assets/scripts/Collectible/FLAG_COLLISION_TROUBLESHOOTING.md",
+    "value": {
+      "depends": []
+    },
+    "versionCode": 1
+  },
+  "95a7a49b-3247-4fbc-b2d4-9d84c9aefe25": {
+    "url": "db://assets/scripts/Collectible/CHARACTER_CONTROLLER_COLLISION_FIX.md",
+    "value": {
+      "depends": []
+    },
+    "versionCode": 1
+  },
+  "18f00877-5c55-49ca-8604-9a849d62cd23": {
+    "url": "db://assets/scripts/GameManager/ScoreManager.ts",
+    "value": {},
+    "versionCode": 1
+  },
+  "b901a57f-1412-457a-a170-3b9b7309f439": {
+    "url": "db://assets/scripts/GameManager/SCORING_SETUP_GUIDE.md",
+    "value": {
+      "depends": []
+    },
+    "versionCode": 1
+  },
+  "9b04ffe4-b6c4-407b-a3b6-3f9a8a4fc4d4": {
+    "url": "db://assets/scripts/GameManager/SCORING_SYSTEM_ANALYSIS.md",
+    "value": {
+      "depends": []
+    },
+    "versionCode": 1
+  },
+  "e4e92a97-8800-4f4c-9581-e15ef5e73b1f": {
+    "url": "db://assets/scripts/GameManager/FIXES_APPLIED.md",
+    "value": {
+      "depends": []
     },
     "versionCode": 1
   }

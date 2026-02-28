@@ -2444,7 +2444,7 @@
       "uuid": "85b1d93f-b72f-4734-ae47-fe402600d949"
     },
     "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building": {
-      "time": 1766990960586.3135,
+      "time": 1772261023708.133,
       "uuid": "81d50f9f-a51b-4fd7-a42c-73482e588b57"
     },
     "D:\\Development\\Cocos_Projects\\Parkour\\assets\\characters": {
@@ -2456,11 +2456,11 @@
       "uuid": "30e4a8c1-b484-4f7f-9c6e-a46c246ef1ce"
     },
     "D:\\Development\\Cocos_Projects\\Parkour\\assets\\materials": {
-      "time": 1772127595578.5513,
+      "time": 1772261364734.9224,
       "uuid": "e2b8196d-00f6-490f-b075-27be673b5f43"
     },
     "D:\\Development\\Cocos_Projects\\Parkour\\assets\\prefabs": {
-      "time": 1772128084569.0706,
+      "time": 1772261745101.3015,
       "uuid": "4ddd068f-c06e-401f-b58d-e734224506fc"
     },
     "D:\\Development\\Cocos_Projects\\Parkour\\assets\\scenes": {
@@ -2468,7 +2468,7 @@
       "uuid": "9eb0fbf7-3a05-4a19-b37b-975d216d2400"
     },
     "D:\\Development\\Cocos_Projects\\Parkour\\assets\\scripts": {
-      "time": 1771956856562.4097,
+      "time": 1772214745065.325,
       "uuid": "e6ac4f96-5911-4322-adf8-7a1bcfc4c3b1"
     },
     "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\fbx": {
@@ -2504,7 +2504,7 @@
       "uuid": "c241f0be-bb6e-4a8c-a99f-b016d64cbe12"
     },
     "D:\\Development\\Cocos_Projects\\Parkour\\assets\\scripts\\GameManager": {
-      "time": 1771659039829.4644,
+      "time": 1772299199516.3538,
       "uuid": "42786bcf-3137-4f6f-aab2-0fd4915c9b71"
     },
     "D:\\Development\\Cocos_Projects\\Parkour\\assets\\scripts\\Obstacle": {
@@ -2512,7 +2512,7 @@
       "uuid": "ff0cdd31-e530-4f32-9cdf-c4c522d5d7c9"
     },
     "D:\\Development\\Cocos_Projects\\Parkour\\assets\\scripts\\UI": {
-      "time": 1770629576527.6755,
+      "time": 1772263166416.1208,
       "uuid": "e2059748-a345-4ff0-92e9-4374f1b546d4"
     },
     "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\KayKit_City_Builder_Bits_1.0_FREE\\Assets": {
@@ -2520,7 +2520,7 @@
       "uuid": "4f699fe4-6d1d-4582-a27c-fddccad7cdca"
     },
     "D:\\Development\\Cocos_Projects\\Parkour\\assets\\scripts\\Actor.ts": {
-      "time": 1770566705650.4026,
+      "time": 1772179948940.4048,
       "uuid": "037991ec-d08f-4f52-b213-cc36ed0783c5"
     },
     "D:\\Development\\Cocos_Projects\\Parkour\\assets\\scripts\\VaultDetector.ts": {
@@ -2528,15 +2528,15 @@
       "uuid": "16ac7090-d232-4f0e-ab94-24e7319701ef"
     },
     "D:\\Development\\Cocos_Projects\\Parkour\\assets\\scripts\\Define\\Define.ts": {
-      "time": 1771948088327.7007,
+      "time": 1772304546389.9102,
       "uuid": "bfd20749-df09-426c-b1d2-95e62020f4b2"
     },
     "D:\\Development\\Cocos_Projects\\Parkour\\assets\\scripts\\GameManager\\GameManager.ts": {
-      "time": 1771519234520.3945,
+      "time": 1772214785772.6008,
       "uuid": "51b0151d-ce02-432c-b3bf-cf9723445299"
     },
     "D:\\Development\\Cocos_Projects\\Parkour\\assets\\scripts\\GameManager\\StaminaManager.ts": {
-      "time": 1771659098525.7773,
+      "time": 1772214819052.7188,
       "uuid": "3ad6fc5e-571b-4409-90cf-bc12dfc9339e"
     },
     "D:\\Development\\Cocos_Projects\\Parkour\\assets\\scripts\\Obstacle\\Box.ts": {
@@ -4904,14 +4904,14 @@
       "time": 1770531570008.572
     },
     "D:\\Development\\Cocos_Projects\\Parkour\\assets\\scenes\\game.scene": {
-      "time": 1772131055432.8933,
+      "time": 1772304070924.762,
       "uuid": "d6bb5eb2-50b1-40e1-be7a-136f4579e51f"
     },
     "D:\\Development\\Cocos_Projects\\Parkour\\assets\\materials\\planeMat.mtl.meta": {
       "time": 1770531663905.8018
     },
     "D:\\Development\\Cocos_Projects\\Parkour\\assets\\materials\\planeMat.mtl": {
-      "time": 1770537695316.9512,
+      "time": 1772212905860.9148,
       "uuid": "f70bbd61-3168-4225-9106-1fa6855d7b93"
     },
     "D:\\Development\\Cocos_Projects\\Parkour\\assets\\scripts\\GameManager\\ObstacleManager.ts.meta": {
@@ -5030,7 +5030,7 @@
       "time": 1771833072752.0723
     },
     "D:\\Development\\Cocos_Projects\\Parkour\\assets\\scripts\\PlayerController.ts": {
-      "time": 1772130759539.5422,
+      "time": 1772296005752.8057,
       "uuid": "9efe28dc-23fa-441b-b69b-fc1a2b74676f"
     },
     "D:\\Development\\Cocos_Projects\\Parkour\\assets\\animations.meta": {
@@ -5065,21 +5065,21 @@
       "time": 1771952926774.099
     },
     "D:\\Development\\Cocos_Projects\\Parkour\\assets\\UI": {
-      "time": 1771952926775.1,
+      "time": 1772264783024.899,
       "uuid": "0c49c863-2a00-4480-a821-81c88782710f"
     },
     "D:\\Development\\Cocos_Projects\\Parkour\\assets\\UI\\Energy.PNG.meta": {
-      "time": 1771952969051.0376
+      "time": 1772265238212.7715
     },
     "D:\\Development\\Cocos_Projects\\Parkour\\assets\\UI\\heart.PNG.meta": {
-      "time": 1771952969052.0364
+      "time": 1772265238218.33
     },
     "D:\\Development\\Cocos_Projects\\Parkour\\assets\\UI\\Energy.PNG": {
-      "time": 1771952659857.9937,
+      "time": 1772265211302.501,
       "uuid": "e8dd5bd2-e533-4806-9531-44082fc71e2a"
     },
     "D:\\Development\\Cocos_Projects\\Parkour\\assets\\UI\\heart.PNG": {
-      "time": 1771952616282.345,
+      "time": 1772265211310.016,
       "uuid": "515b4ce4-1f7f-49fa-8873-edffad913e08"
     },
     "D:\\Development\\Cocos_Projects\\Parkour\\assets\\materials\\Lava.meta": {
@@ -5305,6 +5305,209 @@
     "D:\\Development\\Cocos_Projects\\Parkour\\assets\\prefabs\\HighCube_WALL.prefab": {
       "time": 1772128084585.0654,
       "uuid": "2d85af6d-265d-4d5f-8823-7bd745b9d9c3"
+    },
+    "D:\\Development\\Cocos_Projects\\Parkour\\assets\\materials\\Tiles052_1K-JPG.meta": {
+      "time": 1772212681965.4287
+    },
+    "D:\\Development\\Cocos_Projects\\Parkour\\assets\\materials\\Tiles052_1K-JPG": {
+      "time": 1772212681969.8481,
+      "uuid": "9d60951d-9c73-426a-be22-5b05fca27379"
+    },
+    "D:\\Development\\Cocos_Projects\\Parkour\\assets\\materials\\Tiles052_1K-JPG\\Tiles052.png.meta": {
+      "time": 1772212682051.179
+    },
+    "D:\\Development\\Cocos_Projects\\Parkour\\assets\\materials\\Tiles052_1K-JPG\\Tiles052_1K-JPG.blend.meta": {
+      "time": 1772212681997.398
+    },
+    "D:\\Development\\Cocos_Projects\\Parkour\\assets\\materials\\Tiles052_1K-JPG\\Tiles052_1K-JPG.mtlx.meta": {
+      "time": 1772212682018.4395
+    },
+    "D:\\Development\\Cocos_Projects\\Parkour\\assets\\materials\\Tiles052_1K-JPG\\Tiles052_1K-JPG.tres.meta": {
+      "time": 1772212681997.398
+    },
+    "D:\\Development\\Cocos_Projects\\Parkour\\assets\\materials\\Tiles052_1K-JPG\\Tiles052_1K-JPG.usdc.meta": {
+      "time": 1772212681997.398
+    },
+    "D:\\Development\\Cocos_Projects\\Parkour\\assets\\materials\\Tiles052_1K-JPG\\Tiles052_1K-JPG_Color.jpg.meta": {
+      "time": 1772212682027.963
+    },
+    "D:\\Development\\Cocos_Projects\\Parkour\\assets\\materials\\Tiles052_1K-JPG\\Tiles052_1K-JPG_Displacement.jpg.meta": {
+      "time": 1772212682025.961
+    },
+    "D:\\Development\\Cocos_Projects\\Parkour\\assets\\materials\\Tiles052_1K-JPG\\Tiles052_1K-JPG_NormalDX.jpg.meta": {
+      "time": 1772212682035.483
+    },
+    "D:\\Development\\Cocos_Projects\\Parkour\\assets\\materials\\Tiles052_1K-JPG\\Tiles052_1K-JPG_NormalGL.jpg.meta": {
+      "time": 1772212682060.8794
+    },
+    "D:\\Development\\Cocos_Projects\\Parkour\\assets\\materials\\Tiles052_1K-JPG\\Tiles052_1K-JPG_Roughness.jpg.meta": {
+      "time": 1772212682061.9282
+    },
+    "D:\\Development\\Cocos_Projects\\Parkour\\assets\\materials\\Tiles052_1K-JPG\\Tiles052_1K-JPG.tres": {
+      "time": 1772212653292.7883,
+      "uuid": "564257dd-be1e-41d7-9d9c-91d8d5f7fc64"
+    },
+    "D:\\Development\\Cocos_Projects\\Parkour\\assets\\materials\\Tiles052_1K-JPG\\Tiles052_1K-JPG.blend": {
+      "time": 1772212653284.2815,
+      "uuid": "4ed07927-057d-4c5f-af34-031d5a14929e"
+    },
+    "D:\\Development\\Cocos_Projects\\Parkour\\assets\\materials\\Tiles052_1K-JPG\\Tiles052_1K-JPG.usdc": {
+      "time": 1772212653217.662,
+      "uuid": "c224869f-a817-4ea8-9d54-b420fa221315"
+    },
+    "D:\\Development\\Cocos_Projects\\Parkour\\assets\\materials\\Tiles052_1K-JPG\\Tiles052_1K-JPG.mtlx": {
+      "time": 1772212653287.282,
+      "uuid": "fa605608-502c-4c04-8e2d-22bbb10f3942"
+    },
+    "D:\\Development\\Cocos_Projects\\Parkour\\assets\\materials\\Tiles052_1K-JPG\\Tiles052_1K-JPG_Displacement.jpg": {
+      "time": 1772212653239.3228,
+      "uuid": "48ab8be3-90e4-4126-b93c-b9cdd66aa9e5"
+    },
+    "D:\\Development\\Cocos_Projects\\Parkour\\assets\\materials\\Tiles052_1K-JPG\\Tiles052_1K-JPG_Color.jpg": {
+      "time": 1772212653232.6804,
+      "uuid": "bf725145-7253-403c-be24-6881018608f1"
+    },
+    "D:\\Development\\Cocos_Projects\\Parkour\\assets\\materials\\Tiles052_1K-JPG\\Tiles052_1K-JPG_NormalDX.jpg": {
+      "time": 1772212653254.088,
+      "uuid": "0e78a844-d148-4e41-a62c-d0bb246d664f"
+    },
+    "D:\\Development\\Cocos_Projects\\Parkour\\assets\\materials\\Tiles052_1K-JPG\\Tiles052.png": {
+      "time": 1772212653298.9387,
+      "uuid": "e3a7c828-6182-4d27-bda8-31e61b43aadc"
+    },
+    "D:\\Development\\Cocos_Projects\\Parkour\\assets\\materials\\Tiles052_1K-JPG\\Tiles052_1K-JPG_NormalGL.jpg": {
+      "time": 1772212653267.2112,
+      "uuid": "3bf6bd10-9ef3-4919-82c9-24d31c524914"
+    },
+    "D:\\Development\\Cocos_Projects\\Parkour\\assets\\materials\\Tiles052_1K-JPG\\Tiles052_1K-JPG_Roughness.jpg": {
+      "time": 1772212653273.7195,
+      "uuid": "d95ed804-c45b-4eca-b87d-0100d876b505"
+    },
+    "D:\\Development\\Cocos_Projects\\Parkour\\assets\\scripts\\Collectible.meta": {
+      "time": 1772214745105.5864
+    },
+    "D:\\Development\\Cocos_Projects\\Parkour\\assets\\scripts\\Collectible\\Flag.ts.meta": {
+      "time": 1772214745109.8562
+    },
+    "D:\\Development\\Cocos_Projects\\Parkour\\assets\\scripts\\Collectible\\FlagBuffManager.ts.meta": {
+      "time": 1772214745109.8562
+    },
+    "D:\\Development\\Cocos_Projects\\Parkour\\assets\\scripts\\GameManager\\FlagManager.ts.meta": {
+      "time": 1772214745109.8562
+    },
+    "D:\\Development\\Cocos_Projects\\Parkour\\assets\\scripts\\Collectible": {
+      "time": 1772296116598.7483,
+      "uuid": "25e6ab2e-1b3b-4d41-8f8d-b2df6b66fbc2"
+    },
+    "D:\\Development\\Cocos_Projects\\Parkour\\assets\\scripts\\Collectible\\Flag.ts": {
+      "time": 1772305312464.2961,
+      "uuid": "266dfc63-c4d8-4877-9d69-028a611b0e6d"
+    },
+    "D:\\Development\\Cocos_Projects\\Parkour\\assets\\scripts\\Collectible\\FlagBuffManager.ts": {
+      "time": 1772214366340.6667,
+      "uuid": "634f6872-9a20-417c-96c8-a1d758cafe00"
+    },
+    "D:\\Development\\Cocos_Projects\\Parkour\\assets\\scripts\\GameManager\\FlagManager.ts": {
+      "time": 1772304281718.9358,
+      "uuid": "5eb5de5a-87f7-49b2-838d-366a916d85ba"
+    },
+    "D:\\Development\\Cocos_Projects\\Parkour\\assets\\scripts\\Collectible\\README_FLAG_SYSTEM.md.meta": {
+      "time": 1772214745137.9182
+    },
+    "D:\\Development\\Cocos_Projects\\Parkour\\assets\\scripts\\Collectible\\README_FLAG_SYSTEM.md": {
+      "time": 1772216838854.2576,
+      "uuid": "d9627cc2-dcfe-452e-adef-5089c87ebf42"
+    },
+    "D:\\Development\\Cocos_Projects\\Parkour\\assets\\scripts\\Collectible\\SETUP_GUIDE.md.meta": {
+      "time": 1772217294124.2039
+    },
+    "D:\\Development\\Cocos_Projects\\Parkour\\assets\\scripts\\Collectible\\SETUP_GUIDE.md": {
+      "time": 1772217261143.526,
+      "uuid": "55d94c14-3a6f-4880-94e7-f4c41a437149"
+    },
+    "D:\\Development\\Cocos_Projects\\Parkour\\assets\\prefabs\\Flag.prefab.meta": {
+      "time": 1772261283812.0042
+    },
+    "D:\\Development\\Cocos_Projects\\Parkour\\assets\\prefabs\\Flag.prefab": {
+      "time": 1772305614760.5432,
+      "uuid": "a5d6225e-17bf-4326-85d8-e2546fee29f1"
+    },
+    "D:\\Development\\Cocos_Projects\\Parkour\\assets\\materials\\flagMat.mtl.meta": {
+      "time": 1772261364764.6714
+    },
+    "D:\\Development\\Cocos_Projects\\Parkour\\assets\\materials\\flagMat.mtl": {
+      "time": 1772261535632.5742,
+      "uuid": "e93427f3-eb5e-477e-b3f4-bdf53e7ab3ea"
+    },
+    "D:\\Development\\Cocos_Projects\\Parkour\\assets\\scripts\\UI\\FlagDistanceDisplay.ts.meta": {
+      "time": 1772263166415.1367
+    },
+    "D:\\Development\\Cocos_Projects\\Parkour\\assets\\scripts\\UI\\FlagIndicator.ts.meta": {
+      "time": 1772263166415.1367
+    },
+    "D:\\Development\\Cocos_Projects\\Parkour\\assets\\scripts\\UI\\FlagDistanceDisplay.ts": {
+      "time": 1772262785787.6309,
+      "uuid": "0422d2f9-59d0-483a-9998-a6c9605f5149"
+    },
+    "D:\\Development\\Cocos_Projects\\Parkour\\assets\\scripts\\UI\\FlagIndicator.ts": {
+      "time": 1772263825889.8318,
+      "uuid": "d9009df3-dd2e-4907-bfa2-6f088627cafa"
+    },
+    "D:\\Development\\Cocos_Projects\\Parkour\\assets\\scripts\\UI\\README_FLAG_INDICATOR.md.meta": {
+      "time": 1772263166443.6328
+    },
+    "D:\\Development\\Cocos_Projects\\Parkour\\assets\\scripts\\UI\\README_FLAG_INDICATOR.md": {
+      "time": 1772262786301.1262,
+      "uuid": "7721cf96-8d8a-47df-baee-034e4a5d30d2"
+    },
+    "D:\\Development\\Cocos_Projects\\Parkour\\assets\\UI\\arrow.png.meta": {
+      "time": 1772293802763.4873
+    },
+    "D:\\Development\\Cocos_Projects\\Parkour\\assets\\UI\\arrow.png": {
+      "time": 1772293786044.088,
+      "uuid": "57295f3e-5c11-4482-b55f-103cc70fe228"
+    },
+    "D:\\Development\\Cocos_Projects\\Parkour\\assets\\scripts\\Collectible\\FLAG_COLLISION_TROUBLESHOOTING.md.meta": {
+      "time": 1772295446026.9973
+    },
+    "D:\\Development\\Cocos_Projects\\Parkour\\assets\\scripts\\Collectible\\FLAG_COLLISION_TROUBLESHOOTING.md": {
+      "time": 1772295420364.1973,
+      "uuid": "b055bf43-58c0-4aab-9c00-46cfb0fc908e"
+    },
+    "D:\\Development\\Cocos_Projects\\Parkour\\assets\\scripts\\Collectible\\CHARACTER_CONTROLLER_COLLISION_FIX.md.meta": {
+      "time": 1772296116620.756
+    },
+    "D:\\Development\\Cocos_Projects\\Parkour\\assets\\scripts\\Collectible\\CHARACTER_CONTROLLER_COLLISION_FIX.md": {
+      "time": 1772296083537.3206,
+      "uuid": "95a7a49b-3247-4fbc-b2d4-9d84c9aefe25"
+    },
+    "D:\\Development\\Cocos_Projects\\Parkour\\assets\\scripts\\GameManager\\ScoreManager.ts.meta": {
+      "time": 1772297977318.2256
+    },
+    "D:\\Development\\Cocos_Projects\\Parkour\\assets\\scripts\\GameManager\\ScoreManager.ts": {
+      "time": 1772297964658.7737,
+      "uuid": "18f00877-5c55-49ca-8604-9a849d62cd23"
+    },
+    "D:\\Development\\Cocos_Projects\\Parkour\\assets\\scripts\\GameManager\\SCORING_SETUP_GUIDE.md.meta": {
+      "time": 1772297977344.536
+    },
+    "D:\\Development\\Cocos_Projects\\Parkour\\assets\\scripts\\GameManager\\SCORING_SYSTEM_ANALYSIS.md.meta": {
+      "time": 1772297977344.536
+    },
+    "D:\\Development\\Cocos_Projects\\Parkour\\assets\\scripts\\GameManager\\SCORING_SETUP_GUIDE.md": {
+      "time": 1772297955029.3115,
+      "uuid": "b901a57f-1412-457a-a170-3b9b7309f439"
+    },
+    "D:\\Development\\Cocos_Projects\\Parkour\\assets\\scripts\\GameManager\\SCORING_SYSTEM_ANALYSIS.md": {
+      "time": 1772297570409.689,
+      "uuid": "9b04ffe4-b6c4-407b-a3b6-3f9a8a4fc4d4"
+    },
+    "D:\\Development\\Cocos_Projects\\Parkour\\assets\\scripts\\GameManager\\FIXES_APPLIED.md.meta": {
+      "time": 1772299199538.3538
+    },
+    "D:\\Development\\Cocos_Projects\\Parkour\\assets\\scripts\\GameManager\\FIXES_APPLIED.md": {
+      "time": 1772299119133.7922,
+      "uuid": "e4e92a97-8800-4f4c-9581-e15ef5e73b1f"
     }
   },
   "missing": {
@@ -6912,6 +7115,26 @@
       "path": "D:\\Development\\Cocos_Projects\\Parkour\\assets\\materials\\Lava005_1K-JPG.usdc",
       "time": 1772124542417.131,
       "removeTime": 1772124557361
+    },
+    "d95bca93-06b8-4084-828a-c09bdb914026": {
+      "path": "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\flags.fbx",
+      "time": 1772259184716.0664,
+      "removeTime": 1772259566050
+    },
+    "31d55d01-e893-4fff-af9d-20ba5f6ca2f8": {
+      "path": "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\checkpoint.fbx",
+      "time": 1772260924266.9565,
+      "removeTime": 1772261023708
+    },
+    "90def452-b739-41bf-bdb9-78d8a6765b25": {
+      "path": "D:\\Development\\Cocos_Projects\\Parkour\\assets\\prefabs\\checkpoint.prefab",
+      "time": 1772260961877.7603,
+      "removeTime": 1772261745101
+    },
+    "32aba315-03d3-4cb2-b0ec-5598becdfcb9": {
+      "path": "D:\\Development\\Cocos_Projects\\Parkour\\assets\\UI\\offscreen-arrow.png",
+      "time": 1772263162899.8052,
+      "removeTime": 1772263673498
     }
   }
 }

@@ -1,0 +1,42 @@
+{
+  "ver": "1.0.27",
+  "importer": "image",
+  "imported": true,
+  "uuid": "d95ed804-c45b-4eca-b87d-0100d876b505",
+  "files": [
+    ".jpg",
+    ".json"
+  ],
+  "subMetas": {
+    "6c48a": {
+      "importer": "texture",
+      "uuid": "d95ed804-c45b-4eca-b87d-0100d876b505@6c48a",
+      "displayName": "Tiles052_1K-JPG_Roughness",
+      "id": "6c48a",
+      "name": "texture",
+      "userData": {
+        "wrapModeS": "repeat",
+        "wrapModeT": "repeat",
+        "minfilter": "linear",
+        "magfilter": "linear",
+        "mipfilter": "none",
+        "anisotropy": 0,
+        "isUuid": true,
+        "imageUuidOrDatabaseUri": "d95ed804-c45b-4eca-b87d-0100d876b505",
+        "visible": false
+      },
+      "ver": "1.0.22",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    }
+  },
+  "userData": {
+    "hasAlpha": false,
+    "type": "texture",
+    "fixAlphaTransparencyArtifacts": false,
+    "redirect": "d95ed804-c45b-4eca-b87d-0100d876b505@6c48a"
+  }
+}
