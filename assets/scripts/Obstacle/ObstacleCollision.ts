@@ -1,5 +1,6 @@
-import { _decorator, Component, Collider, ICollisionEvent, Node, CCFloat } from 'cc';
+import { _decorator, Component, Collider, ICollisionEvent, Node, CCFloat, find } from 'cc';
 import { Actor } from '../Actor';
+import { Stats } from '../Utils/Stats';
 const { ccclass, property } = _decorator;
 
 @ccclass('ObstacleCollision')
@@ -9,11 +10,18 @@ export class ObstacleCollision extends Component {
 
     private _lastHitTime: number = 0;
     private _hitCooldown: number = 0.5; // Prevent multiple hits in quick succession
+    private _statsDisplay: Stats = null;
 
     start() {
         const collider = this.node.getComponent(Collider);
         if (collider) {
             collider.on('onTriggerEnter', this.onTriggerEnter, this);
+        }
+
+        // Find Stats display in the scene
+        const statsNode = find('Canvas/Stats');
+        if (statsNode) {
+            this._statsDisplay = statsNode.getComponent(Stats);
         }
     }
 
@@ -28,6 +36,11 @@ export class ObstacleCollision extends Component {
                 actor.takeDamage(this.damage);
                 this._lastHitTime = currentTime;
                 console.log(`Obstacle hit ${otherNode.name} for ${this.damage} damage`);
+
+                // Show stat display for damage
+                if (this._statsDisplay) {
+                    this._statsDisplay.displayStatChange('health', -this.damage);
+                }
             }
         }
     }

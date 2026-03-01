@@ -349,7 +349,7 @@ export class PlayerController extends Component {
         Vec3.scaleAndAdd(destination, pos, this.node.forward, -.75);
         destination.y = obstacle.position.y+.5;
         // console.log(destination);
-        this.staminaManager.reduceStamina(Energy.VAULT);
+        this.staminaManager.reduceStamina(Energy.VAULT, true); // Show stat display
         tween()
         .target(this.node)
         .delay(.25)
@@ -394,13 +394,13 @@ export class PlayerController extends Component {
 
             this.SetState(MovementState.JUMPING);
             this.Animation.setValue('Jump', true);
-            this.staminaManager.reduceStamina(Energy.JUMP);
+            this.staminaManager.reduceStamina(Energy.JUMP, true); // Show stat display
             this.verticalVelocity = 8.5 * (this.currentSpeed / this.maxSpeed);
         } else {
             // Normal Jump Logic
             this.SetState(MovementState.JUMPING);
             this.Animation.setValue('Jump', true);
-            this.staminaManager.reduceStamina(Energy.JUMP);
+            this.staminaManager.reduceStamina(Energy.JUMP, true); // Show stat display
             this.verticalVelocity = 8.5 * (this.currentSpeed / this.maxSpeed);
         }
     }
@@ -447,7 +447,7 @@ export class PlayerController extends Component {
         if (this.staminaManager.getStamina() < Energy.DASH) return;
         
         this.isDashing = true;
-        this.staminaManager.reduceStamina(Energy.DASH);
+        this.staminaManager.reduceStamina(Energy.DASH, true); // Show stat display
         this.dashCooldownTimer = this.dashCooldown;
         
         // Calculate dash direction (forward)

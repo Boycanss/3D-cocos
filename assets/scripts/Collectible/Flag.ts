@@ -171,10 +171,15 @@ export class Flag extends Component {
     private collectFlag(player: PlayerController): void {
         this._isCollected = true;
 
+        console.log(`Flag: Collecting Level ${this._flagLevel} flag...`);
+
         // Get buff manager from player
         const buffManager = player.node.getComponent(FlagBuffManager);
         if (buffManager) {
+            console.log('Flag: FlagBuffManager found, applying buff...');
             buffManager.applyFlagBuff(this._flagLevel);
+        } else {
+            console.warn('Flag: FlagBuffManager NOT found on player node!');
         }
 
         // Notify ScoreManager about flag collection (ScoreManager is on GameManager, not player)

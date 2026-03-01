@@ -11917,6 +11917,9 @@
         "20835ba4-6145-4fbc-a58a-051ce700aa3e@f9941",
         "544e49d6-3f05-4fa8-9a9e-091f98fc2ce8@f9941",
         "951249e0-9f16-456d-8b85-a6ca954da16b@f9941",
+        "855e075d-86fd-4ee2-b436-c794cdae8d96",
+        "7f6579ae-9308-4851-88b9-df2277b49a69@f9941",
+        "db601b46-c20d-4188-955e-552b8a68729c@f9941",
         "02c41827-876b-4787-9cca-d8b1afe8aeca",
         "f70bbd61-3168-4225-9106-1fa6855d7b93",
         "1263d74c-8167-4928-91a6-4e2672411f47@2e76e",
@@ -11949,6 +11952,7 @@
         "037991ec-d08f-4f52-b213-cc36ed0783c5",
         "51b0151d-ce02-432c-b3bf-cf9723445299",
         "3ad6fc5e-571b-4409-90cf-bc12dfc9339e",
+        "6be86a26-10fc-4a5e-b265-c544bd0962ba",
         "ba2a64af-1824-487f-b01f-30090023736e",
         "ac694d14-e582-48cf-b38d-41f18617f603",
         "abc5961d-74ba-4a70-9ee3-0cbe6450deec",
@@ -14009,6 +14013,167 @@
     "url": "db://assets/scripts/GameManager/FIXES_APPLIED.md",
     "value": {
       "depends": []
+    },
+    "versionCode": 1
+  },
+  "d84250ef-ca42-4873-a44a-147e1d38daff": {
+    "url": "db://assets/scripts/Define/BALANCE_GUIDE.md",
+    "value": {
+      "depends": []
+    },
+    "versionCode": 1
+  },
+  "e90e78ad-96c3-4618-b5d6-2bafb1d17384": {
+    "url": "db://assets/scripts/Define/STAMINA_BALANCE.md",
+    "value": {
+      "depends": []
+    },
+    "versionCode": 1
+  },
+  "01d668c8-f19d-405a-a167-93588526d04a": {
+    "url": "db://assets/scripts/Collectible/FLAG_RESTORATION_GUIDE.md",
+    "value": {
+      "depends": []
+    },
+    "versionCode": 1
+  },
+  "bf19aade-43e0-416f-963b-b9c75138bbcc": {
+    "url": "db://assets/scripts/Collectible/RESTORATION_TROUBLESHOOTING.md",
+    "value": {
+      "depends": []
+    },
+    "versionCode": 1
+  },
+  "0f79f605-37b2-40ef-aad5-cc4fb0f9ea1c": {
+    "url": "db://assets/scripts/UI/UPPER_INFO_SETUP.md",
+    "value": {},
+    "versionCode": 1
+  },
+  "9a942c46-c39a-49a5-98db-94f56757d7c0": {
+    "url": "db://assets/prefabs/Stats.prefab",
+    "value": {},
+    "versionCode": 1
+  },
+  "b76d588e-9a2c-441f-97af-b0c7dcdb4720": {
+    "url": "db://assets/scripts/UI/StatChangeDisplay.ts",
+    "value": {},
+    "versionCode": 1
+  },
+  "181d6786-7125-4bb8-8a7c-8a13e525257e": {
+    "url": "db://assets/prefabs/stats.prefab",
+    "value": {},
+    "versionCode": 1
+  },
+  "5e618363-6245-4881-9768-7bbdb4d9a14a": {
+    "url": "db://assets/prefabs/stats.prefab",
+    "value": {},
+    "versionCode": 1
+  },
+  "ebe24955-6963-4c4a-9194-0d8cc6164c3d": {
+    "url": "db://assets/prefabs/Stats_.prefab",
+    "value": {},
+    "versionCode": 1
+  },
+  "56900fd0-a846-4558-926c-e0cbe92eed99": {
+    "url": "db://assets/scripts/UI/FloatingStatDisplay.ts",
+    "value": {},
+    "versionCode": 1
+  },
+  "25c01830-885c-4163-8298-503fc31f243f": {
+    "url": "db://assets/scripts/UI/BILLBOARD_EXPLANATION.md",
+    "value": {
+      "depends": []
+    },
+    "versionCode": 1
+  },
+  "59203b69-a23f-4d28-a9b0-3552dddc722f": {
+    "url": "db://assets/scripts/UI/INTEGRATION_EXAMPLES.md",
+    "value": {
+      "depends": []
+    },
+    "versionCode": 1
+  },
+  "a5c5078b-a608-4cec-926d-f3648a12894f": {
+    "url": "db://assets/scripts/UI/README_FLOATING_STATS.md",
+    "value": {
+      "depends": []
+    },
+    "versionCode": 1
+  },
+  "86563c7f-f0b9-468d-9c90-63777a651cfa": {
+    "url": "db://assets/scripts/UI/SETUP_FLOATING_STATS.md",
+    "value": {
+      "depends": []
+    },
+    "versionCode": 1
+  },
+  "41602c15-786f-492d-b98c-edf07a4d1324": {
+    "url": "db://assets/scripts/UI/FloatingStatDisplay.ts",
+    "value": {},
+    "versionCode": 1
+  },
+  "6be86a26-10fc-4a5e-b265-c544bd0962ba": {
+    "url": "db://assets/scripts/Utils/Stats.ts",
+    "value": {},
+    "versionCode": 1
+  },
+  "855e075d-86fd-4ee2-b436-c794cdae8d96": {
+    "url": "db://assets/prefabs/Stats.prefab",
+    "value": {
+      "depends": [
+        "57520716-48c8-4a19-8acf-41c9f8777fb0@f9941"
+      ],
+      "dependScripts": []
+    },
+    "versionCode": 1
+  },
+  "db601b46-c20d-4188-955e-552b8a68729c": {
+    "url": "db://assets/UI/Energy-small.png",
+    "value": {
+      "depends": []
+    },
+    "versionCode": 1
+  },
+  "7f6579ae-9308-4851-88b9-df2277b49a69": {
+    "url": "db://assets/UI/heart-small.png",
+    "value": {
+      "depends": []
+    },
+    "versionCode": 1
+  },
+  "db601b46-c20d-4188-955e-552b8a68729c@6c48a": {
+    "url": "db://assets/UI/Energy-small.png@6c48a",
+    "value": {
+      "depends": [
+        "db601b46-c20d-4188-955e-552b8a68729c"
+      ]
+    },
+    "versionCode": 1
+  },
+  "7f6579ae-9308-4851-88b9-df2277b49a69@6c48a": {
+    "url": "db://assets/UI/heart-small.png@6c48a",
+    "value": {
+      "depends": [
+        "7f6579ae-9308-4851-88b9-df2277b49a69"
+      ]
+    },
+    "versionCode": 1
+  },
+  "db601b46-c20d-4188-955e-552b8a68729c@f9941": {
+    "url": "db://assets/UI/Energy-small.png@f9941",
+    "value": {
+      "depends": [
+        "db601b46-c20d-4188-955e-552b8a68729c@6c48a"
+      ]
+    },
+    "versionCode": 1
+  },
+  "7f6579ae-9308-4851-88b9-df2277b49a69@f9941": {
+    "url": "db://assets/UI/heart-small.png@f9941",
+    "value": {
+      "depends": [
+        "7f6579ae-9308-4851-88b9-df2277b49a69@6c48a"
+      ]
     },
     "versionCode": 1
   }

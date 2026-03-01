@@ -1,5 +1,6 @@
-import { _decorator, CCFloat, Component, Node, ProgressBar } from 'cc';
+import { _decorator, CCFloat, Component, Node, ProgressBar, find } from 'cc';
 import { Energy, MovementState } from '../Define/Define';
+import { Stats } from '../Utils/Stats';
 const { ccclass, property } = _decorator;
 
 @ccclass('StaminaManager')
@@ -11,20 +12,33 @@ export class StaminaManager extends Component {
     @property(Node)
     staminaBar: Node = null;
 
+    @property({ type: Stats, tooltip: 'Stats display component (auto-finds if not assigned)' })
+    statsDisplay: Stats = null;
+
     stamina: number;
     totalUsedStamina: number = 0;
-
-    @property(CCFloat)
-    staminaRegenRate: number = 0.5;
+    staminaRegenRate: number;
 
     private _getPlayerState: () => MovementState = null;
 
     protected onLoad(): void {
         this.stamina = Energy.STAMINA;
+        this.staminaRegenRate = Energy.STAMINA_REGEN_RATE;
     }
 
     start() {
-
+        // Auto-find Stats display if not assigned
+        if (!this.statsDisplay) {
+            const statsNode = find('Canvas/Stats');
+            if (statsNode) {
+                this.statsDisplay = statsNode.getComponent(Stats);
+                if (this.statsDisplay) {
+                    console.log('StaminaManager: Auto-found Stats display');
+                }
+            } else {
+                console.warn('StaminaManager: Stats node not found at Canvas/Stats');
+            }
+        }
     }
 
     /** Called by PlayerController to register state getter, avoiding circular import */
@@ -59,12 +73,22 @@ export class StaminaManager extends Component {
         this.staminaBar.getComponent(ProgressBar).progress = scaleX;
     }
 
-    reduceStamina(amount: number) {
+    reduceStamina(amount: number, showDisplay: boolean = false) {
         if (this.stamina - amount < 0) {
             this.stamina = 0;
         } else {
             this.stamina -= amount;
             this.totalUsedStamina += amount;
+
+            // Show stat display if requested (for significant actions only)
+            if (showDisplay) {
+                if (this.statsDisplay) {
+                    console.log(`StaminaManager: Showing stat change: -${amount}`);
+                    this.statsDisplay.displayStatChange('stamina', -amount);
+                } else {
+                    console.warn('StaminaManager: statsDisplay is null, cannot show stat change');
+                }
+            }
         }
     }
 

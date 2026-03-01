@@ -4,14 +4,31 @@ export enum ObstacleType {
     SLIDEBOX = 'SlideBox',
 }
 
+// Floating Stat Display Colors
+export enum StatDisplayColor {
+    // Light blue for increases (health/stamina gain)
+    INCREASE_R = 100,
+    INCREASE_G = 200,
+    INCREASE_B = 255,
+    
+    // Red for decreases (damage/stamina loss)
+    DECREASE_R = 255,
+    DECREASE_G = 80,
+    DECREASE_B = 80,
+}
+
+// Energy/Stamina costs - Fine-tuned for balanced gameplay
 export enum Energy{
-    STAMINA = 10000000,
-    RUN = 2,
-    JUMP = 10,
-    VAULT = 5,
-    DASH = 10,
-    SLIDE = 3,
-    WALL_RUN = 3
+    STAMINA = 100,          
+    RUN = 1.5,              
+    JUMP = 8,               
+    VAULT = 6,              
+    DASH = 12,              
+    SLIDE = 4,              
+    WALL_RUN = 2.5,         
+    
+    // Stamina regeneration
+    STAMINA_REGEN_RATE = 1.5  
 }
 
 export enum MovementState {
@@ -40,12 +57,32 @@ export enum GameLevel {
     LEVEL5 = 5
 }
 
+// Difficulty progression - Fine-tuned for gradual challenge increase
 export const GameLevelState: Record<GameLevel, LevelState> = {
-    [GameLevel.LEVEL1]: {boxSpawnAmount: 2, missileAmount: 0 },
-    [GameLevel.LEVEL2]: {boxSpawnAmount: 3, missileAmount: 0 },
-    [GameLevel.LEVEL3]: {boxSpawnAmount: 4, missileAmount: 1 },
-    [GameLevel.LEVEL4]: {boxSpawnAmount: 5, missileAmount: 3, missileSpeed: 2 },
-    [GameLevel.LEVEL5]: {boxSpawnAmount: 6, missileAmount: 5, missileSpeed: 3 },
+    [GameLevel.LEVEL1]: {
+        boxSpawnAmount: 2,      // Easy start - few obstacles
+        missileAmount: 0        // No missiles - learn mechanics
+    },
+    [GameLevel.LEVEL2]: {
+        boxSpawnAmount: 3,      // More obstacles
+        missileAmount: 1,       // Introduce missiles (reduced from 0)
+        missileSpeed: 1.0       // Slow missiles to learn dodging
+    },
+    [GameLevel.LEVEL3]: {
+        boxSpawnAmount: 4,      // Moderate obstacles
+        missileAmount: 2,       // More missiles (increased from 1)
+        missileSpeed: 1.5       // Faster missiles
+    },
+    [GameLevel.LEVEL4]: {
+        boxSpawnAmount: 5,      // Many obstacles
+        missileAmount: 3,       // Multiple missiles
+        missileSpeed: 2.0       // Fast missiles
+    },
+    [GameLevel.LEVEL5]: {
+        boxSpawnAmount: 6,      // Maximum obstacles
+        missileAmount: 4,       // Many missiles (reduced from 5 for balance)
+        missileSpeed: 2.5       // Very fast missiles (reduced from 3)
+    },
 };
 
 // Flag System
@@ -58,39 +95,56 @@ export enum FlagLevel {
 }
 
 export interface FlagBenefits {
-    scoreMultiplier: number;
-    speedBoost: number;
-    staminaReduction: number;
-    regenBoost: number;
-    dashCooldownReduction: number;
-    invincibilityDuration: number;
-    duration: number;
+    scoreMultiplier: number;        // Score multiplier (1.0 = normal, 2.0 = double)
+    speedBoost: number;             // Speed boost percentage (0.1 = 10% faster)
+    staminaReduction: number;       // Stamina cost reduction (0.2 = 20% less stamina used)
+    regenBoost: number;             // Stamina regen boost (0.5 = 50% faster regen)
+    dashCooldownReduction: number;  // Dash cooldown reduction (0.25 = 25% faster cooldown)
+    invincibilityDuration: number;  // Seconds of invincibility (0 = none)
+    duration: number;               // How long the buff lasts in seconds
+    healthRestore: number;          // Instant health restoration on collection
+    staminaRestore: number;         // Instant stamina restoration on collection
 }
 
-// Scoring System
+// Flag Restoration Values - Instant rewards on collection
+export enum FlagRestoration {
+    HEALTH_LEVEL_1 = 2,    
+    HEALTH_LEVEL_2 = 5,    
+    HEALTH_LEVEL_3 = 15,    
+    HEALTH_LEVEL_4 = 30,    
+    HEALTH_LEVEL_5 = 50,   
+    
+    STAMINA_LEVEL_1 = 10,   
+    STAMINA_LEVEL_2 = 15,   
+    STAMINA_LEVEL_3 = 22,   
+    STAMINA_LEVEL_4 = 35,   
+    STAMINA_LEVEL_5 = 55,  
+}
+
+// Scoring System - Fine-tuned for rewarding skilled play
 export enum ScoreValues {
-    // Continuous Actions (per second)
-    SURVIVAL = 1,
-    RUNNING = 2,
-    WALL_RUNNING = 5,
+    // Continuous Actions (per second) - Passive income
+    SURVIVAL = 1,           
+    RUNNING = 3,            
+    WALL_RUNNING = 8,       
     
-    // Single Actions
-    JUMP = 3,
-    SLIDE = 7,
-    DASH = 8,
-    VAULT = 10,
+    // Single Actions - Parkour moves
+    JUMP = 5,               
+    SLIDE = 10,             
+    DASH = 12,              
+    VAULT = 15,             
     
-    // Flag Collection
-    FLAG_LEVEL_1 = 50,
-    FLAG_LEVEL_2 = 100,
-    FLAG_LEVEL_3 = 200,
-    FLAG_LEVEL_4 = 350,
-    FLAG_LEVEL_5 = 500,
+    // Flag Collection - Major rewards scale with difficulty
+    FLAG_LEVEL_1 = 100,     
+    FLAG_LEVEL_2 = 200,     
+    FLAG_LEVEL_3 = 400,     
+    FLAG_LEVEL_4 = 700,     
+    FLAG_LEVEL_5 = 1000,    
     
-    // Penalties
-    DAMAGE_TAKEN = -20,
-    OBSTACLE_HIT = -15,
-    MISSILE_HIT = -30,
-    SURVIVAL_ZONE_HIT = -50,
-    IDLE_PENALTY = -5,  // per second after idle threshold
+    // Penalties - Balanced to hurt but not devastate
+    DAMAGE_TAKEN = -25,     
+    OBSTACLE_HIT = -20,    
+    MISSILE_HIT = -40,      
+    SURVIVAL_ZONE_HIT = -60,
+    IDLE_PENALTY = -3,      
 }

@@ -240,43 +240,44 @@ export class FlagManager extends Component {
         // Sort by distance (farthest first)
         boxesWithDistance.sort((a, b) => b.distance - a.distance);
 
-        // Select box based on level
-        // Level 1: closest 20% of boxes
-        // Level 2: 20-40%
-        // Level 3: 40-60%
-        // Level 4: 60-80%
-        // Level 5: farthest 20% of boxes
+        // Select box based on level with MORE VARIATION
         const totalBoxes = boxesWithDistance.length;
-        const segmentSize = Math.max(1, Math.floor(totalBoxes / 5));
         
         let startIndex: number;
         let endIndex: number;
 
         switch (level) {
             case FlagLevel.LEVEL1:
-                // Closest boxes (last 20%)
-                startIndex = Math.max(0, totalBoxes - segmentSize);
+                // Closest 30% of boxes (increased from 20% for more variety)
+                const closestSegment = Math.max(2, Math.floor(totalBoxes * 0.3));
+                startIndex = Math.max(0, totalBoxes - closestSegment);
                 endIndex = totalBoxes;
                 break;
             case FlagLevel.LEVEL2:
-                // 20-40% from farthest
-                startIndex = Math.max(0, totalBoxes - segmentSize * 2);
-                endIndex = Math.max(0, totalBoxes - segmentSize);
+                // 30-60% from farthest (wider range)
+                const lv2Segment = Math.max(2, Math.floor(totalBoxes * 0.3));
+                startIndex = Math.max(0, totalBoxes - lv2Segment * 2);
+                endIndex = Math.max(0, totalBoxes - lv2Segment);
                 break;
             case FlagLevel.LEVEL3:
-                // 40-60% (middle)
-                startIndex = Math.max(0, totalBoxes - segmentSize * 3);
-                endIndex = Math.max(0, totalBoxes - segmentSize * 2);
+                // Middle 40% (40-60% range, wider)
+                const lv3Start = Math.max(0, Math.floor(totalBoxes * 0.4));
+                const lv3End = Math.min(totalBoxes, Math.floor(totalBoxes * 0.6));
+                startIndex = lv3Start;
+                endIndex = lv3End;
                 break;
             case FlagLevel.LEVEL4:
-                // 60-80% from farthest
-                startIndex = Math.max(0, totalBoxes - segmentSize * 4);
-                endIndex = Math.max(0, totalBoxes - segmentSize * 3);
+                // Far 40% (20-60% from farthest, much wider)
+                const lv4End = Math.min(totalBoxes, Math.floor(totalBoxes * 0.6));
+                const lv4Start = Math.max(0, Math.floor(totalBoxes * 0.2));
+                startIndex = lv4Start;
+                endIndex = lv4End;
                 break;
             case FlagLevel.LEVEL5:
-                // Farthest boxes (first 20%)
+                // Farthest 50% of boxes (increased from 20% for MUCH more variety)
+                const lv5Segment = Math.max(3, Math.floor(totalBoxes * 0.5));
                 startIndex = 0;
-                endIndex = Math.min(segmentSize, totalBoxes);
+                endIndex = Math.min(lv5Segment, totalBoxes);
                 break;
             default:
                 startIndex = 0;
@@ -289,9 +290,15 @@ export class FlagManager extends Component {
         }
         endIndex = Math.min(endIndex, totalBoxes);
 
+        console.log(`FlagManager: Level ${level} selection range: ${startIndex}-${endIndex} (${endIndex - startIndex} boxes available)`);
+
         // Randomly select from the range
         const selectedIndex = startIndex + Math.floor(Math.random() * (endIndex - startIndex));
-        return boxesWithDistance[selectedIndex].node;
+        const selectedBox = boxesWithDistance[selectedIndex].node;
+        
+        console.log(`FlagManager: Selected box at index ${selectedIndex}, distance ${boxesWithDistance[selectedIndex].distance.toFixed(1)}m`);
+        
+        return selectedBox;
     }
 
     /**

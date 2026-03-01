@@ -1,5 +1,6 @@
-import { _decorator, Component, Node, Vec3, Collider, CCFloat } from 'cc';
+import { _decorator, Component, Node, Vec3, Collider, CCFloat, find } from 'cc';
 import { Actor } from './Actor';
+import { Stats } from './Utils/Stats';
 const { ccclass, property } = _decorator;
 
 @ccclass('SurvivalZone')
@@ -13,11 +14,19 @@ export class SurvivalZone extends Component {
     @property(CCFloat)
     damage: number = 10;
 
+    private _statsDisplay: Stats = null;
+
     start() {
         // Ensure collider is active
         const collider = this.node.getComponent(Collider);
         if (collider) {
             collider.enabled = true;
+        }
+
+        // Find Stats display in the scene
+        const statsNode = find('Canvas/Stats');
+        if (statsNode) {
+            this._statsDisplay = statsNode.getComponent(Stats);
         }
     }
 
@@ -40,6 +49,11 @@ export class SurvivalZone extends Component {
         const actor = other.node.getComponent(Actor);
         if (actor) {
             actor.takeDamage(this.damage);
+
+            // Show stat display for damage
+            if (this._statsDisplay) {
+                this._statsDisplay.displayStatChange('health', -this.damage);
+            }
         }
     }
 }

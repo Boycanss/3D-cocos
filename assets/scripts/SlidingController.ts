@@ -58,7 +58,7 @@ export class SlidingController extends Component {
 
         this.isSliding = true;
         this._slideStartTime = 0;
-        this._playerController.staminaManager.reduceStamina(Energy.SLIDE);
+        this._playerController.staminaManager.reduceStamina(Energy.SLIDE, true); // Show stat display
         this._playerController.Animation.setValue('Slide', true);
 
         // Use the configured slide duration

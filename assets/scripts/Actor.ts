@@ -1,4 +1,5 @@
-import { _decorator, Component, Node, CCInteger, CCFloat, ProgressBar } from 'cc';
+import { _decorator, Component, Node, CCInteger, CCFloat, ProgressBar, find } from 'cc';
+import { Stats } from './Utils/Stats';
 const { ccclass, property } = _decorator;
 
 @ccclass('Actor')
@@ -26,10 +27,24 @@ export class Actor extends Component {
     private _timeSinceDamage: number = 0;
     private _regenActive: boolean = false;
     private _healthBar: ProgressBar;
+    private _statsDisplay: Stats = null;
 
     start() {
         if (this.currentHp > this.maxHp) this.currentHp = this.maxHp;
         this._initHealthBar();
+
+        // Find Stats display in the scene
+        const statsNode = find('UI/Stats');
+        if (statsNode) {
+            this._statsDisplay = statsNode.getComponent(Stats);
+            if (this._statsDisplay) {
+                console.log('Actor: Stats display found successfully');
+            } else {
+                console.error('Actor: Stats node found but no Stats component!');
+            }
+        } else {
+            console.error('Actor: Stats node not found at Canvas/Stats');
+        }
     }
 
     private _initHealthBar() {
@@ -74,11 +89,21 @@ export class Actor extends Component {
 
     takeDamage(amount: number) {
         if (this.isDead) return;
-        // console.log(">>> TAKE DAMAGE: "+ amount);
+        console.log(">>> TAKE DAMAGE: "+ amount);
         
         const dmg = Math.max(0, amount);
         this.currentHp -= dmg;
         this._updateHealthBar();
+
+        // Show stat display for damage
+        console.log(`Actor: takeDamage called, dmg=${dmg}, _statsDisplay=${this._statsDisplay ? 'found' : 'null'}`);
+        if (this._statsDisplay && dmg > 0) {
+            console.log(`Actor: Calling displayStatChange for health: -${dmg}`);
+            this._statsDisplay.displayStatChange('health', -dmg);
+        } else if (!this._statsDisplay) {
+            console.error('Actor: _statsDisplay is null! Cannot show health damage.');
+        }
+
         if (this.currentHp <= 0) {
             this.currentHp = 0;
             this._onDeath();
@@ -88,12 +113,18 @@ export class Actor extends Component {
         }
     }
 
-    heal(amount: number) {
+    heal(amount: number, showDisplay: boolean = false) {
         if (this.isDead) return;
         const healAmt = Math.max(0, amount);
         this.currentHp += healAmt;
         if (this.currentHp > this.maxHp) this.currentHp = this.maxHp;
         this._updateHealthBar();
+
+        // Show stat display for healing if requested
+        if (showDisplay && this._statsDisplay && healAmt > 0) {
+            console.log(`Actor: Showing health heal: +${healAmt}`);
+            this._statsDisplay.displayStatChange('health', healAmt);
+        }
     }
 
     revive(hp?: number) {

@@ -1,5 +1,5 @@
 import { _decorator, Component, Node } from 'cc';
-import { FlagLevel, FlagBenefits } from '../Define/Define';
+import { FlagLevel, FlagBenefits, FlagRestoration } from '../Define/Define';
 import { PlayerController } from '../PlayerController';
 import { StaminaManager } from '../GameManager/StaminaManager';
 import { Actor } from '../Actor';
@@ -34,8 +34,15 @@ export class FlagBuffManager extends Component {
 
     start() {
         this._playerController = this.node.getComponent(PlayerController);
-        this._staminaManager = this.node.getComponent(StaminaManager);
         this._actor = this.node.getComponent(Actor);
+        
+        // Get StaminaManager from PlayerController (it's on GameManager, not Player)
+        if (this._playerController && this._playerController.staminaManager) {
+            this._staminaManager = this._playerController.staminaManager;
+            console.log('FlagBuffManager: StaminaManager found via PlayerController');
+        } else {
+            console.warn('FlagBuffManager: StaminaManager not found! Stamina restoration will not work.');
+        }
 
         // Store original values
         if (this._playerController) {
@@ -81,6 +88,9 @@ export class FlagBuffManager extends Component {
         // Get benefits for this flag level
         const benefits = this.getFlagBenefits(level);
 
+        // Apply instant restoration (health and stamina)
+        this.applyInstantRestoration(benefits);
+
         // Create new buff
         this._activeBuff = {
             level: level,
@@ -109,7 +119,9 @@ export class FlagBuffManager extends Component {
                     regenBoost: 0,
                     dashCooldownReduction: 0,
                     invincibilityDuration: 0,
-                    duration: 10
+                    duration: 10,
+                    healthRestore: FlagRestoration.HEALTH_LEVEL_1,
+                    staminaRestore: FlagRestoration.STAMINA_LEVEL_1
                 };
             case FlagLevel.LEVEL2:
                 return {
@@ -119,7 +131,9 @@ export class FlagBuffManager extends Component {
                     regenBoost: 0,
                     dashCooldownReduction: 0,
                     invincibilityDuration: 0,
-                    duration: 12
+                    duration: 12,
+                    healthRestore: FlagRestoration.HEALTH_LEVEL_2,
+                    staminaRestore: FlagRestoration.STAMINA_LEVEL_2
                 };
             case FlagLevel.LEVEL3:
                 return {
@@ -129,7 +143,9 @@ export class FlagBuffManager extends Component {
                     regenBoost: 0.25,
                     dashCooldownReduction: 0,
                     invincibilityDuration: 0,
-                    duration: 15
+                    duration: 15,
+                    healthRestore: FlagRestoration.HEALTH_LEVEL_3,
+                    staminaRestore: FlagRestoration.STAMINA_LEVEL_3
                 };
             case FlagLevel.LEVEL4:
                 return {
@@ -139,7 +155,9 @@ export class FlagBuffManager extends Component {
                     regenBoost: 0.50,
                     dashCooldownReduction: 0.25,
                     invincibilityDuration: 0,
-                    duration: 18
+                    duration: 18,
+                    healthRestore: FlagRestoration.HEALTH_LEVEL_4,
+                    staminaRestore: FlagRestoration.STAMINA_LEVEL_4
                 };
             case FlagLevel.LEVEL5:
                 return {
@@ -149,7 +167,9 @@ export class FlagBuffManager extends Component {
                     regenBoost: 0.75,
                     dashCooldownReduction: 0.50,
                     invincibilityDuration: 2.0,
-                    duration: 20
+                    duration: 20,
+                    healthRestore: FlagRestoration.HEALTH_LEVEL_5,
+                    staminaRestore: FlagRestoration.STAMINA_LEVEL_5
                 };
             default:
                 return {
@@ -159,8 +179,51 @@ export class FlagBuffManager extends Component {
                     regenBoost: 0,
                     dashCooldownReduction: 0,
                     invincibilityDuration: 0,
-                    duration: 10
+                    duration: 10,
+                    healthRestore: 0,
+                    staminaRestore: 0
                 };
+        }
+    }
+
+    /**
+     * Apply instant restoration (health and stamina)
+     */
+    private applyInstantRestoration(benefits: FlagBenefits): void {
+        console.log(`FlagBuffManager: Applying instant restoration...`);
+        console.log(`FlagBuffManager: Health to restore: ${benefits.healthRestore}`);
+        console.log(`FlagBuffManager: Stamina to restore: ${benefits.staminaRestore}`);
+        
+        // Restore health
+        if (this._actor && benefits.healthRestore > 0) {
+            const healthBefore = this._actor.currentHp;
+            console.log(`FlagBuffManager: Actor found. HP before: ${healthBefore}`);
+            this._actor.heal(benefits.healthRestore, true); // Show stat display
+            const healthAfter = this._actor.currentHp;
+            const actualHealed = healthAfter - healthBefore;
+            console.log(`FlagBuffManager: ✅ Restored ${actualHealed} HP (${healthBefore} → ${healthAfter})`);
+        } else if (!this._actor) {
+            console.warn('FlagBuffManager: ❌ Actor component not found!');
+        }
+
+        // Restore stamina
+        if (this._staminaManager && benefits.staminaRestore > 0) {
+            const staminaBefore = this._staminaManager.getStamina();
+            console.log(`FlagBuffManager: StaminaManager found. Stamina before: ${staminaBefore.toFixed(1)}`);
+            
+            // Restore stamina and show stat display
+            this._staminaManager.increseStamina(benefits.staminaRestore);
+            const staminaAfter = this._staminaManager.getStamina();
+            const actualRestored = staminaAfter - staminaBefore;
+            
+            // Manually show stat display for stamina restoration
+            if (this._staminaManager.statsDisplay && actualRestored > 0) {
+                this._staminaManager.statsDisplay.displayStatChange('stamina', actualRestored);
+            }
+            
+            console.log(`FlagBuffManager: ✅ Restored ${actualRestored.toFixed(1)} Stamina (${staminaBefore.toFixed(1)} → ${staminaAfter.toFixed(1)})`);
+        } else if (!this._staminaManager) {
+            console.warn('FlagBuffManager: ❌ StaminaManager component not found!');
         }
     }
 
@@ -277,6 +340,8 @@ export class FlagBuffManager extends Component {
      */
     private logBuffDetails(benefits: FlagBenefits): void {
         console.log('=== Flag Buff Details ===');
+        console.log(`Health Restore: +${benefits.healthRestore} HP`);
+        console.log(`Stamina Restore: +${benefits.staminaRestore} Energy`);
         console.log(`Score Multiplier: ${benefits.scoreMultiplier}x`);
         console.log(`Speed Boost: +${(benefits.speedBoost * 100).toFixed(0)}%`);
         console.log(`Stamina Reduction: -${(benefits.staminaReduction * 100).toFixed(0)}%`);
