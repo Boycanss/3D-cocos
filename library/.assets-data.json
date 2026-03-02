@@ -11925,10 +11925,11 @@
         "1263d74c-8167-4928-91a6-4e2672411f47@2e76e",
         "03f958c8-f519-4401-96dd-856f4d412161",
         "a5d6225e-17bf-4326-85d8-e2546fee29f1",
-        "620b6bf3-0369-4560-837f-2a2c00b73c26",
+        "db3e8997-5b56-4e70-be6d-be6a68731579",
         "1263d74c-8167-4928-91a6-4e2672411f47@a804a",
         "2d85af6d-265d-4d5f-8823-7bd745b9d9c3",
-        "57295f3e-5c11-4482-b55f-103cc70fe228@f9941",
+        "620b6bf3-0369-4560-837f-2a2c00b73c26",
+        "edc21680-62df-444e-b987-932fc1018722@f9941",
         "515b4ce4-1f7f-49fa-8873-edffad913e08@f9941",
         "3830ba9b-21ca-4c50-90bb-e4d2ddd0a58c",
         "501b1307-86bf-4d79-b9ec-c3499a9371ef@2e735",
@@ -11975,7 +11976,7 @@
     "value": {
       "depends": [
         "c8f66d17-351a-48da-a12c-0212d28575c4",
-        "bf725145-7253-403c-be24-6881018608f1@6c48a"
+        "d95ed804-c45b-4eca-b87d-0100d876b505@6c48a"
       ]
     },
     "versionCode": 1
@@ -13613,7 +13614,7 @@
     "value": {
       "depends": [
         "c8f66d17-351a-48da-a12c-0212d28575c4",
-        "3ec80f78-7853-4b90-bb0f-dad89b617d48@6c48a",
+        "754a48f0-b6d8-4eb3-b605-ac7110bc341e@6c48a",
         "0cff863e-c1c5-40af-b959-6fcc37e980cd@6c48a"
       ]
     },
@@ -14173,6 +14174,536 @@
     "value": {
       "depends": [
         "7f6579ae-9308-4851-88b9-df2277b49a69@6c48a"
+      ]
+    },
+    "versionCode": 1
+  },
+  "edc21680-62df-444e-b987-932fc1018722": {
+    "url": "db://assets/UI/arrow_arrow.png",
+    "value": {
+      "depends": []
+    },
+    "versionCode": 1
+  },
+  "edc21680-62df-444e-b987-932fc1018722@6c48a": {
+    "url": "db://assets/UI/arrow_arrow.png@6c48a",
+    "value": {
+      "depends": [
+        "edc21680-62df-444e-b987-932fc1018722"
+      ]
+    },
+    "versionCode": 1
+  },
+  "edc21680-62df-444e-b987-932fc1018722@f9941": {
+    "url": "db://assets/UI/arrow_arrow.png@f9941",
+    "value": {
+      "depends": [
+        "edc21680-62df-444e-b987-932fc1018722@6c48a"
+      ]
+    },
+    "versionCode": 1
+  },
+  "7e92cda6-9ef9-4cbe-8c1d-6cea46b9a985": {
+    "url": "db://assets/obstacles/besi",
+    "value": {},
+    "versionCode": 1
+  },
+  "e99ded0e-846c-45ea-8982-1f418b409384": {
+    "url": "db://assets/obstacles/Spikeball",
+    "value": {},
+    "versionCode": 1
+  },
+  "e7c6a625-11dd-46c5-873c-7f4247dde8cc": {
+    "url": "db://assets/obstacles/besi/source",
+    "value": {},
+    "versionCode": 1
+  },
+  "749a6398-9a67-4f6d-a3e9-a32c609b4eef": {
+    "url": "db://assets/obstacles/besi/textures",
+    "value": {},
+    "versionCode": 1
+  },
+  "bec6a876-3b49-4017-aeb3-897b06fef4da": {
+    "url": "db://assets/obstacles/Spikeball/source",
+    "value": {},
+    "versionCode": 1
+  },
+  "cf407212-9d99-4131-ab14-a7091c929e93": {
+    "url": "db://assets/obstacles/Spikeball/textures",
+    "value": {},
+    "versionCode": 1
+  },
+  "fdf39279-b445-48aa-90b6-7d16fcc7bc50": {
+    "url": "db://assets/obstacles/besi/source/ouriço theco.fbx",
+    "value": {},
+    "versionCode": 1
+  },
+  "d627ad70-ac23-43d5-81a9-c5308a272fb1": {
+    "url": "db://assets/obstacles/Spikeball/source/spikeballs_all.fbx",
+    "value": {},
+    "versionCode": 1
+  },
+  "d3169eb8-c220-403d-9cd1-efc19b94a7c3": {
+    "url": "db://assets/obstacles/besi/textures/blinn3SG_AO.jpeg",
+    "value": {},
+    "versionCode": 1
+  },
+  "ba7ff0af-dd6e-4a36-bfff-441f4b16dae0": {
+    "url": "db://assets/obstacles/besi/textures/Metal_Rusted.jpg",
+    "value": {},
+    "versionCode": 1
+  },
+  "ba7ff0af-dd6e-4a36-bfff-441f4b16dae0@6c48a": {
+    "url": "db://assets/obstacles/besi/textures/Metal_Rusted.jpg@6c48a",
+    "value": {
+      "depends": [
+        "ba7ff0af-dd6e-4a36-bfff-441f4b16dae0"
+      ]
+    },
+    "versionCode": 1
+  },
+  "a55e2b08-59e6-4740-bee4-352c29a3178b": {
+    "url": "db://assets/obstacles/Spikeball/textures/spikeBalls_AO.png",
+    "value": {},
+    "versionCode": 1
+  },
+  "d3169eb8-c220-403d-9cd1-efc19b94a7c3@6c48a": {
+    "url": "db://assets/obstacles/besi/textures/blinn3SG_AO.jpeg@6c48a",
+    "value": {
+      "depends": [
+        "d3169eb8-c220-403d-9cd1-efc19b94a7c3"
+      ]
+    },
+    "versionCode": 1
+  },
+  "a1645dba-b137-4bc9-a9a5-8586ca5ad079": {
+    "url": "db://assets/obstacles/Spikeball/textures/spikeBalls_BaseColor.png",
+    "value": {},
+    "versionCode": 1
+  },
+  "a55e2b08-59e6-4740-bee4-352c29a3178b@6c48a": {
+    "url": "db://assets/obstacles/Spikeball/textures/spikeBalls_AO.png@6c48a",
+    "value": {
+      "depends": [
+        "a55e2b08-59e6-4740-bee4-352c29a3178b"
+      ]
+    },
+    "versionCode": 1
+  },
+  "464662b9-0931-491f-8df5-691c74f297a0": {
+    "url": "db://assets/obstacles/Spikeball/textures/spikeBalls_Metallic.png",
+    "value": {},
+    "versionCode": 1
+  },
+  "a1645dba-b137-4bc9-a9a5-8586ca5ad079@6c48a": {
+    "url": "db://assets/obstacles/Spikeball/textures/spikeBalls_BaseColor.png@6c48a",
+    "value": {
+      "depends": [
+        "a1645dba-b137-4bc9-a9a5-8586ca5ad079"
+      ]
+    },
+    "versionCode": 1
+  },
+  "03eefb7b-f77b-4f21-89b3-86f55a9b2f31": {
+    "url": "db://assets/obstacles/Spikeball/textures/spikeBalls_Normal.png",
+    "value": {},
+    "versionCode": 1
+  },
+  "464662b9-0931-491f-8df5-691c74f297a0@6c48a": {
+    "url": "db://assets/obstacles/Spikeball/textures/spikeBalls_Metallic.png@6c48a",
+    "value": {
+      "depends": [
+        "464662b9-0931-491f-8df5-691c74f297a0"
+      ]
+    },
+    "versionCode": 1
+  },
+  "69520939-c2be-4671-b455-35e794196bef": {
+    "url": "db://assets/obstacles/Spikeball/textures/spikeBalls_Roughness.png",
+    "value": {},
+    "versionCode": 1
+  },
+  "03eefb7b-f77b-4f21-89b3-86f55a9b2f31@6c48a": {
+    "url": "db://assets/obstacles/Spikeball/textures/spikeBalls_Normal.png@6c48a",
+    "value": {
+      "depends": [
+        "03eefb7b-f77b-4f21-89b3-86f55a9b2f31"
+      ]
+    },
+    "versionCode": 1
+  },
+  "69520939-c2be-4671-b455-35e794196bef@6c48a": {
+    "url": "db://assets/obstacles/Spikeball/textures/spikeBalls_Roughness.png@6c48a",
+    "value": {
+      "depends": [
+        "69520939-c2be-4671-b455-35e794196bef"
+      ]
+    },
+    "versionCode": 1
+  },
+  "fdf39279-b445-48aa-90b6-7d16fcc7bc50@58865": {
+    "url": "db://assets/obstacles/besi/source/ouriço theco.fbx@58865",
+    "value": {
+      "depends": []
+    },
+    "versionCode": 1
+  },
+  "fdf39279-b445-48aa-90b6-7d16fcc7bc50@80254": {
+    "url": "db://assets/obstacles/besi/source/ouriço theco.fbx@80254",
+    "value": {
+      "depends": [
+        "f648964e-8d32-41fc-9ac9-7a1e714dd17b"
+      ]
+    },
+    "versionCode": 1
+  },
+  "fdf39279-b445-48aa-90b6-7d16fcc7bc50@b21be": {
+    "url": "db://assets/obstacles/besi/source/ouriço theco.fbx@b21be",
+    "value": {
+      "depends": []
+    },
+    "versionCode": 1
+  },
+  "fdf39279-b445-48aa-90b6-7d16fcc7bc50@2d68c": {
+    "url": "db://assets/obstacles/besi/source/ouriço theco.fbx@2d68c",
+    "value": {
+      "depends": []
+    },
+    "versionCode": 1
+  },
+  "fdf39279-b445-48aa-90b6-7d16fcc7bc50@4a35a": {
+    "url": "db://assets/obstacles/besi/source/ouriço theco.fbx@4a35a",
+    "value": {
+      "depends": []
+    },
+    "versionCode": 1
+  },
+  "fdf39279-b445-48aa-90b6-7d16fcc7bc50@813f7": {
+    "url": "db://assets/obstacles/besi/source/ouriço theco.fbx@813f7",
+    "value": {
+      "depends": []
+    },
+    "versionCode": 1
+  },
+  "fdf39279-b445-48aa-90b6-7d16fcc7bc50@4e7b3": {
+    "url": "db://assets/obstacles/besi/source/ouriço theco.fbx@4e7b3",
+    "value": {
+      "depends": []
+    },
+    "versionCode": 1
+  },
+  "fdf39279-b445-48aa-90b6-7d16fcc7bc50@104a0": {
+    "url": "db://assets/obstacles/besi/source/ouriço theco.fbx@104a0",
+    "value": {
+      "depends": []
+    },
+    "versionCode": 1
+  },
+  "fdf39279-b445-48aa-90b6-7d16fcc7bc50@e4a47": {
+    "url": "db://assets/obstacles/besi/source/ouriço theco.fbx@e4a47",
+    "value": {
+      "depends": []
+    },
+    "versionCode": 1
+  },
+  "fdf39279-b445-48aa-90b6-7d16fcc7bc50@e486f": {
+    "url": "db://assets/obstacles/besi/source/ouriço theco.fbx@e486f",
+    "value": {
+      "depends": []
+    },
+    "versionCode": 1
+  },
+  "fdf39279-b445-48aa-90b6-7d16fcc7bc50@5d26e": {
+    "url": "db://assets/obstacles/besi/source/ouriço theco.fbx@5d26e",
+    "value": {
+      "depends": []
+    },
+    "versionCode": 1
+  },
+  "fdf39279-b445-48aa-90b6-7d16fcc7bc50@946eb": {
+    "url": "db://assets/obstacles/besi/source/ouriço theco.fbx@946eb",
+    "value": {
+      "depends": []
+    },
+    "versionCode": 1
+  },
+  "fdf39279-b445-48aa-90b6-7d16fcc7bc50@09c86": {
+    "url": "db://assets/obstacles/besi/source/ouriço theco.fbx@09c86",
+    "value": {
+      "depends": []
+    },
+    "versionCode": 1
+  },
+  "fdf39279-b445-48aa-90b6-7d16fcc7bc50@dff3d": {
+    "url": "db://assets/obstacles/besi/source/ouriço theco.fbx@dff3d",
+    "value": {
+      "depends": []
+    },
+    "versionCode": 1
+  },
+  "fdf39279-b445-48aa-90b6-7d16fcc7bc50@024cf": {
+    "url": "db://assets/obstacles/besi/source/ouriço theco.fbx@024cf",
+    "value": {
+      "depends": []
+    },
+    "versionCode": 1
+  },
+  "fdf39279-b445-48aa-90b6-7d16fcc7bc50@73fd1": {
+    "url": "db://assets/obstacles/besi/source/ouriço theco.fbx@73fd1",
+    "value": {
+      "depends": []
+    },
+    "versionCode": 1
+  },
+  "fdf39279-b445-48aa-90b6-7d16fcc7bc50@284a4": {
+    "url": "db://assets/obstacles/besi/source/ouriço theco.fbx@284a4",
+    "value": {
+      "depends": []
+    },
+    "versionCode": 1
+  },
+  "fdf39279-b445-48aa-90b6-7d16fcc7bc50@23c09": {
+    "url": "db://assets/obstacles/besi/source/ouriço theco.fbx@23c09",
+    "value": {
+      "depends": []
+    },
+    "versionCode": 1
+  },
+  "fdf39279-b445-48aa-90b6-7d16fcc7bc50@34c07": {
+    "url": "db://assets/obstacles/besi/source/ouriço theco.fbx@34c07",
+    "value": {
+      "depends": []
+    },
+    "versionCode": 1
+  },
+  "fdf39279-b445-48aa-90b6-7d16fcc7bc50@4e1f8": {
+    "url": "db://assets/obstacles/besi/source/ouriço theco.fbx@4e1f8",
+    "value": {
+      "depends": []
+    },
+    "versionCode": 1
+  },
+  "fdf39279-b445-48aa-90b6-7d16fcc7bc50@b0cb0": {
+    "url": "db://assets/obstacles/besi/source/ouriço theco.fbx@b0cb0",
+    "value": {
+      "depends": []
+    },
+    "versionCode": 1
+  },
+  "fdf39279-b445-48aa-90b6-7d16fcc7bc50@aa0d1": {
+    "url": "db://assets/obstacles/besi/source/ouriço theco.fbx@aa0d1",
+    "value": {
+      "depends": []
+    },
+    "versionCode": 1
+  },
+  "d627ad70-ac23-43d5-81a9-c5308a272fb1@75d50": {
+    "url": "db://assets/obstacles/Spikeball/source/spikeballs_all.fbx@75d50",
+    "value": {
+      "depends": []
+    },
+    "versionCode": 1
+  },
+  "fdf39279-b445-48aa-90b6-7d16fcc7bc50@82eae": {
+    "url": "db://assets/obstacles/besi/source/ouriço theco.fbx@82eae",
+    "value": {
+      "depends": [
+        "fdf39279-b445-48aa-90b6-7d16fcc7bc50@80254",
+        "fdf39279-b445-48aa-90b6-7d16fcc7bc50@b21be",
+        "fdf39279-b445-48aa-90b6-7d16fcc7bc50@58865",
+        "fdf39279-b445-48aa-90b6-7d16fcc7bc50@2d68c",
+        "fdf39279-b445-48aa-90b6-7d16fcc7bc50@4a35a",
+        "fdf39279-b445-48aa-90b6-7d16fcc7bc50@813f7",
+        "fdf39279-b445-48aa-90b6-7d16fcc7bc50@4e7b3",
+        "fdf39279-b445-48aa-90b6-7d16fcc7bc50@104a0",
+        "fdf39279-b445-48aa-90b6-7d16fcc7bc50@e4a47",
+        "fdf39279-b445-48aa-90b6-7d16fcc7bc50@e486f",
+        "fdf39279-b445-48aa-90b6-7d16fcc7bc50@5d26e",
+        "fdf39279-b445-48aa-90b6-7d16fcc7bc50@946eb",
+        "fdf39279-b445-48aa-90b6-7d16fcc7bc50@09c86",
+        "fdf39279-b445-48aa-90b6-7d16fcc7bc50@dff3d",
+        "fdf39279-b445-48aa-90b6-7d16fcc7bc50@024cf",
+        "fdf39279-b445-48aa-90b6-7d16fcc7bc50@73fd1",
+        "fdf39279-b445-48aa-90b6-7d16fcc7bc50@284a4",
+        "fdf39279-b445-48aa-90b6-7d16fcc7bc50@23c09",
+        "fdf39279-b445-48aa-90b6-7d16fcc7bc50@34c07",
+        "fdf39279-b445-48aa-90b6-7d16fcc7bc50@4e1f8",
+        "fdf39279-b445-48aa-90b6-7d16fcc7bc50@b0cb0",
+        "fdf39279-b445-48aa-90b6-7d16fcc7bc50@aa0d1"
+      ]
+    },
+    "versionCode": 1
+  },
+  "d627ad70-ac23-43d5-81a9-c5308a272fb1@e980e": {
+    "url": "db://assets/obstacles/Spikeball/source/spikeballs_all.fbx@e980e",
+    "value": {
+      "depends": []
+    },
+    "versionCode": 1
+  },
+  "d627ad70-ac23-43d5-81a9-c5308a272fb1@bd4fd": {
+    "url": "db://assets/obstacles/Spikeball/source/spikeballs_all.fbx@bd4fd",
+    "value": {
+      "depends": []
+    },
+    "versionCode": 1
+  },
+  "d627ad70-ac23-43d5-81a9-c5308a272fb1@3a007": {
+    "url": "db://assets/obstacles/Spikeball/source/spikeballs_all.fbx@3a007",
+    "value": {
+      "depends": [
+        "f648964e-8d32-41fc-9ac9-7a1e714dd17b"
+      ]
+    },
+    "versionCode": 1
+  },
+  "d627ad70-ac23-43d5-81a9-c5308a272fb1@543b4": {
+    "url": "db://assets/obstacles/Spikeball/source/spikeballs_all.fbx@543b4",
+    "value": {
+      "depends": [
+        "d627ad70-ac23-43d5-81a9-c5308a272fb1@3a007",
+        "d627ad70-ac23-43d5-81a9-c5308a272fb1@75d50",
+        "d627ad70-ac23-43d5-81a9-c5308a272fb1@e980e",
+        "d627ad70-ac23-43d5-81a9-c5308a272fb1@bd4fd"
+      ]
+    },
+    "versionCode": 1
+  },
+  "386fea10-d783-4c1a-a9ad-64a2f1f45a37": {
+    "url": "db://assets/prefabs/Besi.prefab",
+    "value": {},
+    "versionCode": 1
+  },
+  "db3e8997-5b56-4e70-be6d-be6a68731579": {
+    "url": "db://assets/materials/Lowmat.mtl",
+    "value": {
+      "depends": [
+        "c8f66d17-351a-48da-a12c-0212d28575c4",
+        "92c9f778-426a-4dff-9501-7c951233abbc@6c48a"
+      ]
+    },
+    "versionCode": 1
+  },
+  "4b834bd7-b7f6-4d6e-b6c2-7cfc06bfae74": {
+    "url": "db://assets/UI/Tiles052_1K-JPG_Roughness.jpg",
+    "value": {
+      "depends": []
+    },
+    "versionCode": 1
+  },
+  "4b834bd7-b7f6-4d6e-b6c2-7cfc06bfae74@6c48a": {
+    "url": "db://assets/UI/Tiles052_1K-JPG_Roughness.jpg@6c48a",
+    "value": {
+      "depends": [
+        "4b834bd7-b7f6-4d6e-b6c2-7cfc06bfae74"
+      ]
+    },
+    "versionCode": 1
+  },
+  "c1d366f6-26a2-42fa-8d2d-0c6060fd9843": {
+    "url": "db://assets/materials/3206.jpg",
+    "value": {
+      "depends": []
+    },
+    "versionCode": 1
+  },
+  "4802e53d-9d2e-4a1a-9206-99b408f9da14": {
+    "url": "db://assets/materials/License free.txt",
+    "value": {
+      "depends": []
+    },
+    "versionCode": 1
+  },
+  "1c51db0d-bff3-49c6-a4c4-1c2675654635": {
+    "url": "db://assets/materials/License premium.txt",
+    "value": {
+      "depends": []
+    },
+    "versionCode": 1
+  },
+  "c1d366f6-26a2-42fa-8d2d-0c6060fd9843@6c48a": {
+    "url": "db://assets/materials/3206.jpg@6c48a",
+    "value": {
+      "depends": [
+        "c1d366f6-26a2-42fa-8d2d-0c6060fd9843"
+      ]
+    },
+    "versionCode": 1
+  },
+  "f1f7eb2e-88b6-42f1-8023-337e39ced034": {
+    "url": "db://assets/UI/Minimalist_tile.png",
+    "value": {},
+    "versionCode": 1
+  },
+  "f1f7eb2e-88b6-42f1-8023-337e39ced034@6c48a": {
+    "url": "db://assets/UI/Minimalist_tile.png@6c48a",
+    "value": {
+      "depends": [
+        "f1f7eb2e-88b6-42f1-8023-337e39ced034"
+      ]
+    },
+    "versionCode": 1
+  },
+  "92c9f778-426a-4dff-9501-7c951233abbc": {
+    "url": "db://assets/materials/Minimalist_tile.png",
+    "value": {
+      "depends": []
+    },
+    "versionCode": 1
+  },
+  "92c9f778-426a-4dff-9501-7c951233abbc@6c48a": {
+    "url": "db://assets/materials/Minimalist_tile.png@6c48a",
+    "value": {
+      "depends": [
+        "92c9f778-426a-4dff-9501-7c951233abbc"
+      ]
+    },
+    "versionCode": 1
+  },
+  "754a48f0-b6d8-4eb3-b605-ac7110bc341e": {
+    "url": "db://assets/materials/floor-tile.png",
+    "value": {
+      "depends": []
+    },
+    "versionCode": 1
+  },
+  "754a48f0-b6d8-4eb3-b605-ac7110bc341e@6c48a": {
+    "url": "db://assets/materials/floor-tile.png@6c48a",
+    "value": {
+      "depends": [
+        "754a48f0-b6d8-4eb3-b605-ac7110bc341e"
+      ]
+    },
+    "versionCode": 1
+  },
+  "e4fd58f0-328b-4d85-9986-94e36379a271": {
+    "url": "db://assets/materials/tile_tile_tile.png",
+    "value": {
+      "depends": []
+    },
+    "versionCode": 1
+  },
+  "e4fd58f0-328b-4d85-9986-94e36379a271@6c48a": {
+    "url": "db://assets/materials/tile_tile_tile.png@6c48a",
+    "value": {
+      "depends": [
+        "e4fd58f0-328b-4d85-9986-94e36379a271"
+      ]
+    },
+    "versionCode": 1
+  },
+  "147db250-8bf6-4d08-9fc4-59469a40702a": {
+    "url": "db://assets/materials/Minimalist 4x4 floor.png",
+    "value": {
+      "depends": []
+    },
+    "versionCode": 1
+  },
+  "147db250-8bf6-4d08-9fc4-59469a40702a@6c48a": {
+    "url": "db://assets/materials/Minimalist 4x4 floor.png@6c48a",
+    "value": {
+      "depends": [
+        "147db250-8bf6-4d08-9fc4-59469a40702a"
       ]
     },
     "versionCode": 1

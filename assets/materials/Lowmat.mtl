@@ -1,6 +1,6 @@
 {
   "__type__": "cc.Material",
-  "_name": "WallMat",
+  "_name": "",
   "_objFlags": 0,
   "__editorExtras__": {},
   "_native": "",
@@ -81,15 +81,18 @@
         "__type__": "cc.Vec4",
         "x": 0.5,
         "y": 0.5,
-        "z": 0.5,
+        "z": 0,
         "w": 0
       },
-      "mainTexture": {
-        "__uuid__": "754a48f0-b6d8-4eb3-b605-ac7110bc341e@6c48a",
-        "__expectedType__": "cc.Texture2D"
+      "mainColor": {
+        "__type__": "cc.Color",
+        "r": 226,
+        "g": 226,
+        "b": 226,
+        "a": 255
       },
-      "emissiveMap": {
-        "__uuid__": "0cff863e-c1c5-40af-b959-6fcc37e980cd@6c48a",
+      "mainTexture": {
+        "__uuid__": "92c9f778-426a-4dff-9501-7c951233abbc@6c48a",
         "__expectedType__": "cc.Texture2D"
       }
     },

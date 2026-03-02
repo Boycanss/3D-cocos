@@ -277,7 +277,7 @@ export class ScoreManager extends Component {
      */
     private updateScoreDisplay(): void {
         if (this.scoreLabel) {
-            this.scoreLabel.string = `Score: ${Math.floor(this._currentScore)}`;
+            this.scoreLabel.string = `${Math.floor(this._currentScore)}`;
         }
 
         if (this.multiplierLabel) {

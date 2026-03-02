@@ -323,6 +323,7 @@ export class FlagManager extends Component {
             case GameLevel.LEVEL3: return FlagLevel.LEVEL3;
             case GameLevel.LEVEL4: return FlagLevel.LEVEL4;
             case GameLevel.LEVEL5: return FlagLevel.LEVEL5;
+            // case GameLevel.LEVEL6: return FlagLevel.LEVEL6;
             default: 
                 console.warn(`FlagManager: Unknown difficulty level ${difficultyLevel}, defaulting to Level 1`);
                 return FlagLevel.LEVEL1;

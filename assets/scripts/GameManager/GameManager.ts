@@ -25,6 +25,9 @@ export class GameManager extends Component {
     timeDisplay: Node;
 
     @property(Node)
+    levelDisplay: Node;
+
+    @property(Node)
     bestRunDisplay: Node;
 
     @property(SurvivalZoneManager)
@@ -45,6 +48,10 @@ export class GameManager extends Component {
     private difficultyLevel: GameLevel = GameLevel.LEVEL1;
     private lastDifficultyUpdate: number = 0;
     private difficultyIncreaseInterval: number = 30;
+    
+    // Auto-missile system
+    private lastAutoMissileTime: number = 0;
+    private currentAutoMissileInterval: number = 15; // Start with Level 1 interval
 
     protected onLoad(): void {
         this.staminaManager = this.getComponent(StaminaManager);
@@ -98,6 +105,7 @@ export class GameManager extends Component {
         if (this.isTimerRunning) {
             this.gameTime += deltaTime;
             this.updateDifficulty();
+            this.updateAutoMissiles();
         }
         
         this.currentPlayerState = this.playerNode.getComponent(PlayerController).getState();
@@ -111,6 +119,14 @@ export class GameManager extends Component {
                 const seconds = Math.floor(this.gameTime % 60);
                 const milliseconds = Math.floor((this.gameTime % 1) * 100);
                 timeLabel.string = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}.${milliseconds.toString().padStart(2, '0')}`;
+            }
+        }
+
+        // Update level display
+        if (this.levelDisplay) {
+            const levelLabel = this.levelDisplay.getComponent(Label);
+            if (levelLabel) {
+                levelLabel.string = `Level: ${this.difficultyLevel}`;
             }
         }
     }
@@ -154,11 +170,25 @@ export class GameManager extends Component {
         this.gameTime = 0;
         this.difficultyLevel = GameLevel.LEVEL1;
         this.lastDifficultyUpdate = 0;
+        this.difficultyIncreaseInterval = 30; // Reset to initial interval
+        
+        // Reset auto-missile system
+        this.lastAutoMissileTime = 0;
+        this.currentAutoMissileInterval = 15; // Reset to Level 1 interval
+        
         this.isTimerRunning = false;
         if (this.timeDisplay) {
             const timeLabel = this.timeDisplay.getComponent(Label);
             if (timeLabel) {
                 timeLabel.string = '00:00.00';
+            }
+        }
+        
+        // Reset level display
+        if (this.levelDisplay) {
+            const levelLabel = this.levelDisplay.getComponent(Label);
+            if (levelLabel) {
+                levelLabel.string = 'Level: 1';
             }
         }
     }
@@ -182,12 +212,52 @@ export class GameManager extends Component {
         const timeSinceLastUpdate = this.gameTime - this.lastDifficultyUpdate;
         
         if (timeSinceLastUpdate >= this.difficultyIncreaseInterval) {
-            if (this.difficultyLevel < GameLevel.LEVEL5) {
+            if (this.difficultyLevel < GameLevel.LEVEL6) {
                 this.difficultyLevel++;
+                this.lastDifficultyUpdate = this.gameTime;
+                
+                // Update interval for next level - progressively longer survival requirements
+                this.difficultyIncreaseInterval = this.getDifficultyInterval(this.difficultyLevel);
+                
+                // Update auto-missile interval for new difficulty level
+                const levelState = GameLevelState[this.difficultyLevel];
+                this.currentAutoMissileInterval = levelState.autoMissileInterval || 15;
+                
+                console.log(`Difficulty increased to level ${this.difficultyLevel}, next interval: ${this.difficultyIncreaseInterval}s, auto-missile interval: ${this.currentAutoMissileInterval}s`);
             }
-            this.lastDifficultyUpdate = this.gameTime;
-            
-            console.log(`Difficulty increased to level ${this.difficultyLevel}`);
+        }
+    }
+
+    private updateAutoMissiles() {
+        const timeSinceLastAutoMissile = this.gameTime - this.lastAutoMissileTime;
+        
+        if (timeSinceLastAutoMissile >= this.currentAutoMissileInterval) {
+            this.spawnAutoMissiles();
+            this.lastAutoMissileTime = this.gameTime;
+        }
+    }
+
+    private spawnAutoMissiles() {
+        const levelState = GameLevelState[this.difficultyLevel];
+        const missileCount = levelState.autoMissileCount || 1;
+        const missileSpeed = levelState.autoMissileSpeed || 1.0;
+        
+        const missileManager = this.node.getComponent(MissileManager);
+        if (missileManager) {
+            missileManager.spawnMissiles(missileCount, missileSpeed);
+            console.log(`Auto-spawned ${missileCount} missiles at speed ${missileSpeed} (Level ${this.difficultyLevel})`);
+        }
+    }
+
+    private getDifficultyInterval(level: GameLevel): number {
+        switch (level) {
+            case GameLevel.LEVEL1: return 30;  // 30s to reach Level 2
+            case GameLevel.LEVEL2: return 45;  // 45s to reach Level 3 (75s total)
+            case GameLevel.LEVEL3: return 60;  // 60s to reach Level 4 (135s total)
+            case GameLevel.LEVEL4: return 75;  // 75s to reach Level 5 (210s total)
+            case GameLevel.LEVEL5: return 90;  // 90s to reach Level 6 (300s total)
+            case GameLevel.LEVEL6: return 120; // Stay at Level 6 (ultimate endurance test)
+            default: return 30;
         }
     }
     

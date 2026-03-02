@@ -47,6 +47,9 @@ interface LevelState {
     boxSpawnAmount?: number;
     missileAmount?: number;
     missileSpeed?: number;
+    autoMissileInterval?: number;  // Time between auto-deployed missiles (seconds)
+    autoMissileSpeed?: number;     // Speed of auto-deployed missiles
+    autoMissileCount?: number;     // Number of missiles per auto-deployment
 }
 
 export enum GameLevel {
@@ -54,34 +57,58 @@ export enum GameLevel {
     LEVEL2 = 2,
     LEVEL3 = 3,
     LEVEL4 = 4,
-    LEVEL5 = 5
+    LEVEL5 = 5,
+    LEVEL6 = 6
 }
 
 // Difficulty progression - Fine-tuned for gradual challenge increase
 export const GameLevelState: Record<GameLevel, LevelState> = {
     [GameLevel.LEVEL1]: {
         boxSpawnAmount: 2,      // Easy start - few obstacles
-        missileAmount: 0        // No missiles - learn mechanics
+        missileAmount: 0,       // No missiles - learn mechanics
+        autoMissileInterval: 15, // Auto missile every 15 seconds
+        autoMissileSpeed: 0.8,  // Slow auto missiles
+        autoMissileCount: 1     // Single missile
     },
     [GameLevel.LEVEL2]: {
         boxSpawnAmount: 3,      // More obstacles
         missileAmount: 1,       // Introduce missiles (reduced from 0)
-        missileSpeed: 1.0       // Slow missiles to learn dodging
+        missileSpeed: 1.0,      // Slow missiles to learn dodging
+        autoMissileInterval: 12, // More frequent auto missiles
+        autoMissileSpeed: 1.0,  // Slightly faster auto missiles
+        autoMissileCount: 1     // Single missile
     },
     [GameLevel.LEVEL3]: {
         boxSpawnAmount: 4,      // Moderate obstacles
         missileAmount: 2,       // More missiles (increased from 1)
-        missileSpeed: 1.5       // Faster missiles
+        missileSpeed: 1.5,      // Faster missiles
+        autoMissileInterval: 10, // Even more frequent
+        autoMissileSpeed: 1.3,  // Faster auto missiles
+        autoMissileCount: 1     // Single missile
     },
     [GameLevel.LEVEL4]: {
         boxSpawnAmount: 5,      // Many obstacles
         missileAmount: 3,       // Multiple missiles
-        missileSpeed: 2.0       // Fast missiles
+        missileSpeed: 2.0,      // Fast missiles
+        autoMissileInterval: 8,  // High frequency
+        autoMissileSpeed: 1.6,  // Fast auto missiles
+        autoMissileCount: 2     // Double missiles
     },
     [GameLevel.LEVEL5]: {
         boxSpawnAmount: 6,      // Maximum obstacles
         missileAmount: 4,       // Many missiles (reduced from 5 for balance)
-        missileSpeed: 2.5       // Very fast missiles (reduced from 3)
+        missileSpeed: 2.5,      // Very fast missiles (reduced from 3)
+        autoMissileInterval: 6,  // Very frequent
+        autoMissileSpeed: 2.0,  // Very fast auto missiles
+        autoMissileCount: 2     // Double missiles
+    },
+    [GameLevel.LEVEL6]: {
+        boxSpawnAmount: 7,      // Expert level obstacle density
+        missileAmount: 5,       // Maximum missiles for expert players
+        missileSpeed: 3.0,      // Fastest missiles - requires mastery
+        autoMissileInterval: 4,  // Extremely frequent - constant pressure
+        autoMissileSpeed: 2.5,  // Extremely fast auto missiles
+        autoMissileCount: 3     // Triple missile barrage
     },
 };
 

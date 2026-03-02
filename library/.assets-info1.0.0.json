@@ -2390,10 +2390,6 @@
     "D:\\Cocos_Projects\\Parkour\\assets\\scripts\\UI\\upperInfo.ts.meta": {
       "time": 1767002183320.6091
     },
-    "D:\\Cocos_Projects\\Parkour\\assets\\scripts\\UI\\upperInfo.ts": {
-      "time": 1767002224639.778,
-      "uuid": "68f31a35-26ea-4e77-9204-b178524c5210"
-    },
     "D:\\Cocos_Projects\\Parkour\\assets\\characters\\Female\\JUMPv2.fbx.meta": {
       "time": 1767003077723.0002
     },
@@ -2456,11 +2452,11 @@
       "uuid": "30e4a8c1-b484-4f7f-9c6e-a46c246ef1ce"
     },
     "D:\\Development\\Cocos_Projects\\Parkour\\assets\\materials": {
-      "time": 1772261364734.9224,
+      "time": 1772478906348.9978,
       "uuid": "e2b8196d-00f6-490f-b075-27be673b5f43"
     },
     "D:\\Development\\Cocos_Projects\\Parkour\\assets\\prefabs": {
-      "time": 1772388329462.8564,
+      "time": 1772470055832.8,
       "uuid": "4ddd068f-c06e-401f-b58d-e734224506fc"
     },
     "D:\\Development\\Cocos_Projects\\Parkour\\assets\\scenes": {
@@ -2528,11 +2524,11 @@
       "uuid": "16ac7090-d232-4f0e-ab94-24e7319701ef"
     },
     "D:\\Development\\Cocos_Projects\\Parkour\\assets\\scripts\\Define\\Define.ts": {
-      "time": 1772380419585.6096,
+      "time": 1772479733801.1348,
       "uuid": "bfd20749-df09-426c-b1d2-95e62020f4b2"
     },
     "D:\\Development\\Cocos_Projects\\Parkour\\assets\\scripts\\GameManager\\GameManager.ts": {
-      "time": 1772214785772.6008,
+      "time": 1772479834881.1372,
       "uuid": "51b0151d-ce02-432c-b3bf-cf9723445299"
     },
     "D:\\Development\\Cocos_Projects\\Parkour\\assets\\scripts\\GameManager\\StaminaManager.ts": {
@@ -4897,14 +4893,14 @@
       "time": 1770531570008.572
     },
     "D:\\Development\\Cocos_Projects\\Parkour\\assets\\scenes\\game.scene": {
-      "time": 1772390438113.6975,
+      "time": 1772480114990.1028,
       "uuid": "d6bb5eb2-50b1-40e1-be7a-136f4579e51f"
     },
     "D:\\Development\\Cocos_Projects\\Parkour\\assets\\materials\\planeMat.mtl.meta": {
       "time": 1770531663905.8018
     },
     "D:\\Development\\Cocos_Projects\\Parkour\\assets\\materials\\planeMat.mtl": {
-      "time": 1772212905860.9148,
+      "time": 1772477394493.2783,
       "uuid": "f70bbd61-3168-4225-9106-1fa6855d7b93"
     },
     "D:\\Development\\Cocos_Projects\\Parkour\\assets\\scripts\\GameManager\\ObstacleManager.ts.meta": {
@@ -4939,15 +4935,8 @@
       "time": 1770630845481.2468
     },
     "D:\\Development\\Cocos_Projects\\Parkour\\assets\\obstacles": {
-      "time": 1770630845482.246,
+      "time": 1772470085014.8408,
       "uuid": "a17b6b78-ec52-43d2-ae57-bb545340a866"
-    },
-    "D:\\Development\\Cocos_Projects\\Parkour\\assets\\obstacles\\missile.fbx.meta": {
-      "time": 1770630845761.5774
-    },
-    "D:\\Development\\Cocos_Projects\\Parkour\\assets\\obstacles\\missile.fbx": {
-      "time": 1770630770095.2573,
-      "uuid": "0c35afa9-aa8e-4628-8708-d68399b19837"
     },
     "D:\\Development\\Cocos_Projects\\Parkour\\assets\\scripts\\BestRunManager.ts": {
       "time": 1771422518466.0283,
@@ -5058,7 +5047,7 @@
       "time": 1771952926774.099
     },
     "D:\\Development\\Cocos_Projects\\Parkour\\assets\\UI": {
-      "time": 1772388939810.2815,
+      "time": 1772478206971.521,
       "uuid": "0c49c863-2a00-4480-a821-81c88782710f"
     },
     "D:\\Development\\Cocos_Projects\\Parkour\\assets\\UI\\Energy.PNG.meta": {
@@ -5289,7 +5278,7 @@
       "time": 1772127649534.1016
     },
     "D:\\Development\\Cocos_Projects\\Parkour\\assets\\materials\\PaintedPlaster015_1K-JPG\\WallMat.mtl": {
-      "time": 1772129643454.0215,
+      "time": 1772479215539.2412,
       "uuid": "968bd0b5-1000-4535-83c0-ed57af2a714b"
     },
     "D:\\Development\\Cocos_Projects\\Parkour\\assets\\prefabs\\HighCube_WALL.prefab.meta": {
@@ -5303,7 +5292,7 @@
       "time": 1772212681965.4287
     },
     "D:\\Development\\Cocos_Projects\\Parkour\\assets\\materials\\Tiles052_1K-JPG": {
-      "time": 1772212681969.8481,
+      "time": 1772474210508.3242,
       "uuid": "9d60951d-9c73-426a-be22-5b05fca27379"
     },
     "D:\\Development\\Cocos_Projects\\Parkour\\assets\\materials\\Tiles052_1K-JPG\\Tiles052.png.meta": {
@@ -5373,7 +5362,7 @@
       "uuid": "3bf6bd10-9ef3-4919-82c9-24d31c524914"
     },
     "D:\\Development\\Cocos_Projects\\Parkour\\assets\\materials\\Tiles052_1K-JPG\\Tiles052_1K-JPG_Roughness.jpg": {
-      "time": 1772212653273.7195,
+      "time": 1772474171259.515,
       "uuid": "d95ed804-c45b-4eca-b87d-0100d876b505"
     },
     "D:\\Development\\Cocos_Projects\\Parkour\\assets\\scripts\\Collectible.meta": {
@@ -5401,7 +5390,7 @@
       "uuid": "634f6872-9a20-417c-96c8-a1d758cafe00"
     },
     "D:\\Development\\Cocos_Projects\\Parkour\\assets\\scripts\\GameManager\\FlagManager.ts": {
-      "time": 1772344562432.0928,
+      "time": 1772470513313.1548,
       "uuid": "5eb5de5a-87f7-49b2-838d-366a916d85ba"
     },
     "D:\\Development\\Cocos_Projects\\Parkour\\assets\\scripts\\Collectible\\README_FLAG_SYSTEM.md.meta": {
@@ -5478,7 +5467,7 @@
       "time": 1772297977318.2256
     },
     "D:\\Development\\Cocos_Projects\\Parkour\\assets\\scripts\\GameManager\\ScoreManager.ts": {
-      "time": 1772297964658.7737,
+      "time": 1772470550437.0415,
       "uuid": "18f00877-5c55-49ca-8604-9a849d62cd23"
     },
     "D:\\Development\\Cocos_Projects\\Parkour\\assets\\scripts\\GameManager\\SCORING_SETUP_GUIDE.md.meta": {
@@ -5583,7 +5572,7 @@
       "time": 1772388329476.8787
     },
     "D:\\Development\\Cocos_Projects\\Parkour\\assets\\prefabs\\Stats.prefab": {
-      "time": 1772390237934.1045,
+      "time": 1772472588175.1355,
       "uuid": "855e075d-86fd-4ee2-b436-c794cdae8d96"
     },
     "D:\\Development\\Cocos_Projects\\Parkour\\assets\\UI\\Energy-small.png.meta": {
@@ -5599,6 +5588,83 @@
     "D:\\Development\\Cocos_Projects\\Parkour\\assets\\UI\\heart-small.png": {
       "time": 1772388922410.275,
       "uuid": "7f6579ae-9308-4851-88b9-df2277b49a69"
+    },
+    "D:\\Development\\Cocos_Projects\\Parkour\\assets\\UI\\arrow_arrow.png.meta": {
+      "time": 1772460613458.6472
+    },
+    "D:\\Development\\Cocos_Projects\\Parkour\\assets\\UI\\arrow_arrow.png": {
+      "time": 1772460611921.2524,
+      "uuid": "edc21680-62df-444e-b987-932fc1018722"
+    },
+    "D:\\Development\\Cocos_Projects\\Parkour\\assets\\obstacles\\missile.fbx.meta": {
+      "time": 1770630845761.5774
+    },
+    "D:\\Development\\Cocos_Projects\\Parkour\\assets\\obstacles\\missile.fbx": {
+      "time": 1770630770095.2573,
+      "uuid": "0c35afa9-aa8e-4628-8708-d68399b19837"
+    },
+    "D:\\Development\\Cocos_Projects\\Parkour\\assets\\materials\\Lowmat.mtl.meta": {
+      "time": 1772472745260.8232
+    },
+    "D:\\Development\\Cocos_Projects\\Parkour\\assets\\materials\\Lowmat.mtl": {
+      "time": 1772479259920.9646,
+      "uuid": "db3e8997-5b56-4e70-be6d-be6a68731579"
+    },
+    "D:\\Development\\Cocos_Projects\\Parkour\\assets\\UI\\Tiles052_1K-JPG_Roughness.jpg.meta": {
+      "time": 1772474275194.4653
+    },
+    "D:\\Development\\Cocos_Projects\\Parkour\\assets\\UI\\Tiles052_1K-JPG_Roughness.jpg": {
+      "time": 1772474171259.515,
+      "uuid": "4b834bd7-b7f6-4d6e-b6c2-7cfc06bfae74"
+    },
+    "D:\\Development\\Cocos_Projects\\Parkour\\assets\\materials\\3206.jpg.meta": {
+      "time": 1772476116775.178
+    },
+    "D:\\Development\\Cocos_Projects\\Parkour\\assets\\materials\\License free.txt.meta": {
+      "time": 1772476116725.9321
+    },
+    "D:\\Development\\Cocos_Projects\\Parkour\\assets\\materials\\License premium.txt.meta": {
+      "time": 1772476116725.9321
+    },
+    "D:\\Development\\Cocos_Projects\\Parkour\\assets\\materials\\License free.txt": {
+      "time": 1772476056025.1343,
+      "uuid": "4802e53d-9d2e-4a1a-9206-99b408f9da14"
+    },
+    "D:\\Development\\Cocos_Projects\\Parkour\\assets\\materials\\License premium.txt": {
+      "time": 1772476056027.136,
+      "uuid": "1c51db0d-bff3-49c6-a4c4-1c2675654635"
+    },
+    "D:\\Development\\Cocos_Projects\\Parkour\\assets\\materials\\3206.jpg": {
+      "time": 1772476102459.2246,
+      "uuid": "c1d366f6-26a2-42fa-8d2d-0c6060fd9843"
+    },
+    "D:\\Development\\Cocos_Projects\\Parkour\\assets\\materials\\Minimalist_tile.png.meta": {
+      "time": 1772476608297.568
+    },
+    "D:\\Development\\Cocos_Projects\\Parkour\\assets\\materials\\Minimalist_tile.png": {
+      "time": 1772476452368.001,
+      "uuid": "92c9f778-426a-4dff-9501-7c951233abbc"
+    },
+    "D:\\Development\\Cocos_Projects\\Parkour\\assets\\materials\\floor-tile.png.meta": {
+      "time": 1772476827600.6775
+    },
+    "D:\\Development\\Cocos_Projects\\Parkour\\assets\\materials\\floor-tile.png": {
+      "time": 1772476815775.8816,
+      "uuid": "754a48f0-b6d8-4eb3-b605-ac7110bc341e"
+    },
+    "D:\\Development\\Cocos_Projects\\Parkour\\assets\\materials\\tile_tile_tile.png.meta": {
+      "time": 1772478211608.3113
+    },
+    "D:\\Development\\Cocos_Projects\\Parkour\\assets\\materials\\tile_tile_tile.png": {
+      "time": 1772478196016.2976,
+      "uuid": "e4fd58f0-328b-4d85-9986-94e36379a271"
+    },
+    "D:\\Development\\Cocos_Projects\\Parkour\\assets\\materials\\Minimalist 4x4 floor.png.meta": {
+      "time": 1772478906384.542
+    },
+    "D:\\Development\\Cocos_Projects\\Parkour\\assets\\materials\\Minimalist 4x4 floor.png": {
+      "time": 1772478899673.704,
+      "uuid": "147db250-8bf6-4d08-9fc4-59469a40702a"
     }
   },
   "missing": {
@@ -7248,9 +7314,9 @@
       "removeTime": 1772351109074
     },
     "68f31a35-26ea-4e77-9204-b178524c5210": {
-      "path": "D:\\Development\\Cocos_Projects\\Parkour\\assets\\scripts\\UI\\upperInfo.ts",
-      "time": 1772350988595.0625,
-      "removeTime": 1772351122568
+      "path": "D:\\Cocos_Projects\\Parkour\\assets\\scripts\\UI\\upperInfo.ts",
+      "time": 1767002224639.778,
+      "removeTime": 1772459551990
     },
     "0f79f605-37b2-40ef-aad5-cc4fb0f9ea1c": {
       "path": "D:\\Development\\Cocos_Projects\\Parkour\\assets\\scripts\\UI\\UPPER_INFO_SETUP.md",
@@ -7261,6 +7327,96 @@
       "path": "D:\\Development\\Cocos_Projects\\Parkour\\assets\\scripts\\UI\\FloatingStatDisplay.ts",
       "time": 1772380356276.666,
       "removeTime": 1772380799067
+    },
+    "0c35afa9-aa8e-4628-8708-d68399b19837": {
+      "path": "D:\\Development\\Cocos_Projects\\Parkour\\assets\\obstacles\\besi\\missile.fbx",
+      "time": 1770630770095.2573,
+      "removeTime": 1772469917642
+    },
+    "386fea10-d783-4c1a-a9ad-64a2f1f45a37": {
+      "path": "D:\\Development\\Cocos_Projects\\Parkour\\assets\\prefabs\\Besi.prefab",
+      "time": 1772469985793.8323,
+      "removeTime": 1772470055832
+    },
+    "7e92cda6-9ef9-4cbe-8c1d-6cea46b9a985": {
+      "path": "D:\\Development\\Cocos_Projects\\Parkour\\assets\\obstacles\\besi",
+      "time": 1772469917641.3008,
+      "removeTime": 1772470085015
+    },
+    "e99ded0e-846c-45ea-8982-1f418b409384": {
+      "path": "D:\\Development\\Cocos_Projects\\Parkour\\assets\\obstacles\\Spikeball",
+      "time": 1772469872642.338,
+      "removeTime": 1772470085015
+    },
+    "e7c6a625-11dd-46c5-873c-7f4247dde8cc": {
+      "path": "D:\\Development\\Cocos_Projects\\Parkour\\assets\\obstacles\\besi\\source",
+      "time": 1772469872694.2407,
+      "removeTime": 1772470085015
+    },
+    "749a6398-9a67-4f6d-a3e9-a32c609b4eef": {
+      "path": "D:\\Development\\Cocos_Projects\\Parkour\\assets\\obstacles\\besi\\textures",
+      "time": 1772469872695.2397,
+      "removeTime": 1772470085015
+    },
+    "bec6a876-3b49-4017-aeb3-897b06fef4da": {
+      "path": "D:\\Development\\Cocos_Projects\\Parkour\\assets\\obstacles\\Spikeball\\source",
+      "time": 1772469872695.2397,
+      "removeTime": 1772470085015
+    },
+    "cf407212-9d99-4131-ab14-a7091c929e93": {
+      "path": "D:\\Development\\Cocos_Projects\\Parkour\\assets\\obstacles\\Spikeball\\textures",
+      "time": 1772469872696.24,
+      "removeTime": 1772470085015
+    },
+    "fdf39279-b445-48aa-90b6-7d16fcc7bc50": {
+      "path": "D:\\Development\\Cocos_Projects\\Parkour\\assets\\obstacles\\besi\\source\\ouriço theco.fbx",
+      "time": 1772469806651.987,
+      "removeTime": 1772470085015
+    },
+    "d3169eb8-c220-403d-9cd1-efc19b94a7c3": {
+      "path": "D:\\Development\\Cocos_Projects\\Parkour\\assets\\obstacles\\besi\\textures\\blinn3SG_AO.jpeg",
+      "time": 1772469806666.5342,
+      "removeTime": 1772470085015
+    },
+    "ba7ff0af-dd6e-4a36-bfff-441f4b16dae0": {
+      "path": "D:\\Development\\Cocos_Projects\\Parkour\\assets\\obstacles\\besi\\textures\\Metal_Rusted.jpg",
+      "time": 1772469806663.5144,
+      "removeTime": 1772470085015
+    },
+    "d627ad70-ac23-43d5-81a9-c5308a272fb1": {
+      "path": "D:\\Development\\Cocos_Projects\\Parkour\\assets\\obstacles\\Spikeball\\source\\spikeballs_all.fbx",
+      "time": 1772469835232.465,
+      "removeTime": 1772470085015
+    },
+    "a55e2b08-59e6-4740-bee4-352c29a3178b": {
+      "path": "D:\\Development\\Cocos_Projects\\Parkour\\assets\\obstacles\\Spikeball\\textures\\spikeBalls_AO.png",
+      "time": 1772469835257.9902,
+      "removeTime": 1772470085015
+    },
+    "a1645dba-b137-4bc9-a9a5-8586ca5ad079": {
+      "path": "D:\\Development\\Cocos_Projects\\Parkour\\assets\\obstacles\\Spikeball\\textures\\spikeBalls_BaseColor.png",
+      "time": 1772469835276.5186,
+      "removeTime": 1772470085015
+    },
+    "464662b9-0931-491f-8df5-691c74f297a0": {
+      "path": "D:\\Development\\Cocos_Projects\\Parkour\\assets\\obstacles\\Spikeball\\textures\\spikeBalls_Metallic.png",
+      "time": 1772469835243.979,
+      "removeTime": 1772470085015
+    },
+    "03eefb7b-f77b-4f21-89b3-86f55a9b2f31": {
+      "path": "D:\\Development\\Cocos_Projects\\Parkour\\assets\\obstacles\\Spikeball\\textures\\spikeBalls_Normal.png",
+      "time": 1772469835265.994,
+      "removeTime": 1772470085015
+    },
+    "69520939-c2be-4671-b455-35e794196bef": {
+      "path": "D:\\Development\\Cocos_Projects\\Parkour\\assets\\obstacles\\Spikeball\\textures\\spikeBalls_Roughness.png",
+      "time": 1772469835250.4856,
+      "removeTime": 1772470085015
+    },
+    "f1f7eb2e-88b6-42f1-8023-337e39ced034": {
+      "path": "D:\\Development\\Cocos_Projects\\Parkour\\assets\\UI\\Minimalist_tile.png",
+      "time": 1772476452368.001,
+      "removeTime": 1772476608269
     }
   }
 }
