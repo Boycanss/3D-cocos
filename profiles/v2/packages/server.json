@@ -1,4 +1,7 @@
 {
   "__version__": "1.0.0",
-  "server_port": 7456
+  "server_port": 7456,
+  "https": {
+    "enable": false
+  }
 }

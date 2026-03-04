@@ -43,6 +43,52 @@ export enum MovementState {
     WALL_RUNNING = "WallRunning"
 }
 
+// Platform Detection
+export enum PlatformType {
+    DESKTOP = "Desktop",
+    MOBILE = "Mobile",
+    WEB = "Web"
+}
+
+export class PlatformUtils {
+    private static _currentPlatform: PlatformType | null = null;
+
+    public static getCurrentPlatform(): PlatformType {
+        if (this._currentPlatform !== null) {
+            return this._currentPlatform;
+        }
+
+        // Check if running on mobile
+        if (typeof window !== 'undefined' && window.navigator) {
+            const userAgent = window.navigator.userAgent.toLowerCase();
+            const isMobile = /android|webos|iphone|ipad|ipod|blackberry|iemobile|opera mini/i.test(userAgent);
+            
+            if (isMobile) {
+                this._currentPlatform = PlatformType.MOBILE;
+                return this._currentPlatform;
+            }
+        }
+
+        // Check for touch support
+        if (typeof window !== 'undefined' && 'ontouchstart' in window) {
+            this._currentPlatform = PlatformType.MOBILE;
+            return this._currentPlatform;
+        }
+
+        // Default to desktop
+        this._currentPlatform = PlatformType.DESKTOP;
+        return this._currentPlatform;
+    }
+
+    public static isMobile(): boolean {
+        return this.getCurrentPlatform() === PlatformType.MOBILE;
+    }
+
+    public static isDesktop(): boolean {
+        return this.getCurrentPlatform() === PlatformType.DESKTOP;
+    }
+}
+
 interface LevelState {
     boxSpawnAmount?: number;
     missileAmount?: number;

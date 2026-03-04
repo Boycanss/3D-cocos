@@ -35,7 +35,7 @@ export class ObstacleCollision extends Component {
             if (currentTime - this._lastHitTime >= this._hitCooldown * 1000) {
                 actor.takeDamage(this.damage);
                 this._lastHitTime = currentTime;
-                console.log(`Obstacle hit ${otherNode.name} for ${this.damage} damage`);
+                // console.log(`Obstacle hit ${otherNode.name} for ${this.damage} damage`);
 
                 // Show stat display for damage
                 if (this._statsDisplay) {

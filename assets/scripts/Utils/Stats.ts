@@ -1,7 +1,5 @@
 import { _decorator, Component, Camera, Vec3, Node, UITransform, Label, Sprite, SpriteFrame, Color, tween, UIOpacity, Prefab, instantiate } from 'cc';
 import { StatDisplayColor } from '../Define/Define';
-import { Actor } from '../Actor';
-import { StaminaManager } from '../GameManager/StaminaManager';
 const { ccclass, property } = _decorator;
 
 @ccclass('Stats')
@@ -69,13 +67,13 @@ export class Stats extends Component {
             return;
         }
 
-        // Get initial values
-        const actor = this.target.getComponent(Actor);
+        // Get initial values using string component names to avoid circular imports
+        const actor = this.target.getComponent('Actor');
         if (actor) {
             this._previousHealth = actor.currentHp;
         }
 
-        const staminaManager = this.target.getComponent(StaminaManager);
+        const staminaManager = this.target.getComponent('StaminaManager');
         if (staminaManager) {
             this._previousStamina = staminaManager.stamina;
         }
@@ -113,16 +111,16 @@ export class Stats extends Component {
      * @param change The amount changed (positive or negative)
      */
     public showStatChange(statType: 'health' | 'stamina', change: number): void {
-        console.log(`Stats: showStatChange called - type: ${statType}, change: ${change}`);
+        // console.log(`Stats: showStatChange called - type: ${statType}, change: ${change}`);
         
         if (Math.abs(change) < this.minChangeThreshold) {
-            console.log(`Stats: Change ${change} below threshold ${this.minChangeThreshold}, skipping`);
+            // console.log(`Stats: Change ${change} below threshold ${this.minChangeThreshold}, skipping`);
             return;
         }
 
         const displayNode = this._createStatDisplay(statType, change);
         if (displayNode) {
-            console.log(`Stats: Display node created successfully`);
+            // console.log(`Stats: Display node created successfully`);
             this._activeDisplays.push(displayNode);
             this._repositionDisplays();
             this._animateDisplay(displayNode);
@@ -140,7 +138,7 @@ export class Stats extends Component {
             return null;
         }
 
-        console.log(`Stats: Instantiating prefab for ${statType} change: ${change}`);
+        // console.log(`Stats: Instantiating prefab for ${statType} change: ${change}`);
 
         // Instantiate the prefab
         const displayNode = instantiate(this.statsPrefab);
@@ -148,7 +146,7 @@ export class Stats extends Component {
         displayNode.setParent(this.node.parent); // Add to same parent as Stats node
         displayNode.setPosition(this.node.position.clone());
 
-        console.log(`Stats: Display node parent: ${this.node.parent?.name}, position: ${this.node.position}`);
+        // console.log(`Stats: Display node parent: ${this.node.parent?.name}, position: ${this.node.position}`);
 
         // Find Icon and Value children in the instantiated prefab
         const iconNode = displayNode.getChildByName('Icon');

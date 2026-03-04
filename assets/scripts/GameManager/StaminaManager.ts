@@ -83,10 +83,10 @@ export class StaminaManager extends Component {
             // Show stat display if requested (for significant actions only)
             if (showDisplay) {
                 if (this.statsDisplay) {
-                    console.log(`StaminaManager: Showing stat change: -${amount}`);
+                    // console.log(`StaminaManager: Showing stat change: -${amount}`);
                     this.statsDisplay.displayStatChange('stamina', -amount);
                 } else {
-                    console.warn('StaminaManager: statsDisplay is null, cannot show stat change');
+                    // console.warn('StaminaManager: statsDisplay is null, cannot show stat change');
                 }
             }
         }

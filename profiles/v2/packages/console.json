@@ -4,7 +4,8 @@
     "filterType": "warn",
     "filterTypes": [
       "warn",
-      "error"
+      "error",
+      "log"
     ]
   }
 }

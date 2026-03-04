@@ -38,7 +38,7 @@ export class Actor extends Component {
         if (statsNode) {
             this._statsDisplay = statsNode.getComponent(Stats);
             if (this._statsDisplay) {
-                console.log('Actor: Stats display found successfully');
+                // console.log('Actor: Stats display found successfully');
             } else {
                 console.error('Actor: Stats node found but no Stats component!');
             }
@@ -89,19 +89,19 @@ export class Actor extends Component {
 
     takeDamage(amount: number) {
         if (this.isDead) return;
-        console.log(">>> TAKE DAMAGE: "+ amount);
+        // console.log(">>> TAKE DAMAGE: "+ amount);
         
         const dmg = Math.max(0, amount);
         this.currentHp -= dmg;
         this._updateHealthBar();
 
         // Show stat display for damage
-        console.log(`Actor: takeDamage called, dmg=${dmg}, _statsDisplay=${this._statsDisplay ? 'found' : 'null'}`);
+        // console.log(`Actor: takeDamage called, dmg=${dmg}, _statsDisplay=${this._statsDisplay ? 'found' : 'null'}`);
         if (this._statsDisplay && dmg > 0) {
-            console.log(`Actor: Calling displayStatChange for health: -${dmg}`);
+            // console.log(`Actor: Calling displayStatChange for health: -${dmg}`);
             this._statsDisplay.displayStatChange('health', -dmg);
         } else if (!this._statsDisplay) {
-            console.error('Actor: _statsDisplay is null! Cannot show health damage.');
+            // console.error('Actor: _statsDisplay is null! Cannot show health damage.');
         }
 
         if (this.currentHp <= 0) {
@@ -122,7 +122,7 @@ export class Actor extends Component {
 
         // Show stat display for healing if requested
         if (showDisplay && this._statsDisplay && healAmt > 0) {
-            console.log(`Actor: Showing health heal: +${healAmt}`);
+            // console.log(`Actor: Showing health heal: +${healAmt}`);
             this._statsDisplay.displayStatChange('health', healAmt);
         }
     }

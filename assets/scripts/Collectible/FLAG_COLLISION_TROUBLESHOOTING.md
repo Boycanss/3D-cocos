@@ -54,11 +54,11 @@ If your flag isn't being collected when the player touches it, follow this check
 // Add this to Flag.start() to debug collider size
 const collider = this.node.getComponent(Collider);
 if (collider) {
-    console.log(`Flag Collider Type: ${collider.constructor.name}`);
+    // console.log(`Flag Collider Type: ${collider.constructor.name}`);
     if (collider instanceof BoxCollider) {
-        console.log(`Flag Box Size: ${collider.size}`);
+        // console.log(`Flag Box Size: ${collider.size}`);
     } else if (collider instanceof SphereCollider) {
-        console.log(`Flag Sphere Radius: ${collider.radius}`);
+        // console.log(`Flag Sphere Radius: ${collider.radius}`);
     }
 }
 ```

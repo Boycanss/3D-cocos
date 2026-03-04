@@ -102,8 +102,8 @@ export class FlagBuffManager extends Component {
         // Apply buff effects
         this.applyBuffEffects(benefits);
 
-        console.log(`FlagBuffManager: Applied Level ${level} buff for ${benefits.duration}s`);
-        this.logBuffDetails(benefits);
+        // console.log(`FlagBuffManager: Applied Level ${level} buff for ${benefits.duration}s`);
+        // this.logBuffDetails(benefits);
     }
 
     /**
@@ -190,18 +190,18 @@ export class FlagBuffManager extends Component {
      * Apply instant restoration (health and stamina)
      */
     private applyInstantRestoration(benefits: FlagBenefits): void {
-        console.log(`FlagBuffManager: Applying instant restoration...`);
-        console.log(`FlagBuffManager: Health to restore: ${benefits.healthRestore}`);
-        console.log(`FlagBuffManager: Stamina to restore: ${benefits.staminaRestore}`);
+        // console.log(`FlagBuffManager: Applying instant restoration...`);
+        // console.log(`FlagBuffManager: Health to restore: ${benefits.healthRestore}`);
+        // console.log(`FlagBuffManager: Stamina to restore: ${benefits.staminaRestore}`);
         
         // Restore health
         if (this._actor && benefits.healthRestore > 0) {
             const healthBefore = this._actor.currentHp;
-            console.log(`FlagBuffManager: Actor found. HP before: ${healthBefore}`);
+            // console.log(`FlagBuffManager: Actor found. HP before: ${healthBefore}`);
             this._actor.heal(benefits.healthRestore, true); // Show stat display
             const healthAfter = this._actor.currentHp;
             const actualHealed = healthAfter - healthBefore;
-            console.log(`FlagBuffManager: ✅ Restored ${actualHealed} HP (${healthBefore} → ${healthAfter})`);
+            // console.log(`FlagBuffManager: ✅ Restored ${actualHealed} HP (${healthBefore} → ${healthAfter})`);
         } else if (!this._actor) {
             console.warn('FlagBuffManager: ❌ Actor component not found!');
         }
@@ -209,7 +209,7 @@ export class FlagBuffManager extends Component {
         // Restore stamina
         if (this._staminaManager && benefits.staminaRestore > 0) {
             const staminaBefore = this._staminaManager.getStamina();
-            console.log(`FlagBuffManager: StaminaManager found. Stamina before: ${staminaBefore.toFixed(1)}`);
+            // console.log(`FlagBuffManager: StaminaManager found. Stamina before: ${staminaBefore.toFixed(1)}`);
             
             // Restore stamina and show stat display
             this._staminaManager.increseStamina(benefits.staminaRestore);
@@ -221,7 +221,7 @@ export class FlagBuffManager extends Component {
                 this._staminaManager.statsDisplay.displayStatChange('stamina', actualRestored);
             }
             
-            console.log(`FlagBuffManager: ✅ Restored ${actualRestored.toFixed(1)} Stamina (${staminaBefore.toFixed(1)} → ${staminaAfter.toFixed(1)})`);
+            // console.log(`FlagBuffManager: ✅ Restored ${actualRestored.toFixed(1)} Stamina (${staminaBefore.toFixed(1)} → ${staminaAfter.toFixed(1)})`);
         } else if (!this._staminaManager) {
             console.warn('FlagBuffManager: ❌ StaminaManager component not found!');
         }
@@ -271,7 +271,7 @@ export class FlagBuffManager extends Component {
     private removeBuff(): void {
         if (!this._activeBuff) return;
 
-        console.log(`FlagBuffManager: Buff expired (Level ${this._activeBuff.level})`);
+        // console.log(`FlagBuffManager: Buff expired (Level ${this._activeBuff.level})`);
 
         // Restore original values
         if (this._playerController) {

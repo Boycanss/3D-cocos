@@ -165,7 +165,7 @@ export class ScoreManager extends Component {
             this.awardPoints(ScoreValues.DAMAGE_TAKEN);
             this.resetCombo();
             this._hasTakenDamage = true;
-            console.log(`ScoreManager: Damage taken (${damageTaken}), penalty applied`);
+            // console.log(`ScoreManager: Damage taken (${damageTaken}), penalty applied`);
         }
         this._previousHP = actor.currentHp;
     }
@@ -227,7 +227,7 @@ export class ScoreManager extends Component {
 
         this.awardPoints(points);
         this.addCombo();
-        console.log(`ScoreManager: Flag Level ${flagLevel} collected! +${points} points`);
+        // console.log(`ScoreManager: Flag Level ${flagLevel} collected! +${points} points`);
     }
 
     /**
@@ -254,7 +254,7 @@ export class ScoreManager extends Component {
      */
     private resetCombo(): void {
         if (this._comboCount > 0) {
-            console.log(`ScoreManager: Combo broken! (${this._comboCount} actions)`);
+            // console.log(`ScoreManager: Combo broken! (${this._comboCount} actions)`);
         }
         this._comboCount = 0;
         this._comboMultiplier = 1.0;

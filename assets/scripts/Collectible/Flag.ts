@@ -32,7 +32,7 @@ export class Flag extends Component {
         const collider = this.node.getComponent(Collider);
         if (collider) {
             collider.on('onTriggerEnter', this.onTriggerEnter, this);
-            console.log(`Flag: Collider found and listener attached. IsTrigger: ${collider.isTrigger}`);
+            // console.log(`Flag: Collider found and listener attached. IsTrigger: ${collider.isTrigger}`);
         } else {
             console.warn('Flag: No Collider component found on flag node!');
         }
@@ -127,7 +127,7 @@ export class Flag extends Component {
      * Handle collision from CharacterController (via event)
      */
     private onPlayerCollision(player: PlayerController): void {
-        console.log(`Flag: onPlayerCollision called. IsCollected: ${this._isCollected}`);
+        // console.log(`Flag: onPlayerCollision called. IsCollected: ${this._isCollected}`);
         
         if (this._isCollected) return;
         
@@ -141,12 +141,12 @@ export class Flag extends Component {
      * Handle collision with player (fallback for regular colliders)
      */
     private onTriggerEnter(event: ITriggerEvent): void {
-        console.log(`Flag: onTriggerEnter called. IsCollected: ${this._isCollected}`);
+        // console.log(`Flag: onTriggerEnter called. IsCollected: ${this._isCollected}`);
         
         if (this._isCollected) return;
 
         const otherNode = event.otherCollider.node;
-        console.log(`Flag: Collided with node: ${otherNode.name}`);
+        // console.log(`Flag: Collided with node: ${otherNode.name}`);
         
         // Check if the colliding node is the player or has PlayerController
         let player = otherNode.getComponent(PlayerController);
@@ -154,14 +154,14 @@ export class Flag extends Component {
         // If not found, check parent node (in case CharacterController is on parent)
         if (!player && otherNode.parent) {
             player = otherNode.parent.getComponent(PlayerController);
-            console.log(`Flag: Checking parent node: ${otherNode.parent.name}`);
+            // console.log(`Flag: Checking parent node: ${otherNode.parent.name}`);
         }
         
         if (player) {
             console.log(">>>>>> Flag Collected via Trigger!");
             this.collectFlag(player);
         } else {
-            console.log(`Flag: No PlayerController found on ${otherNode.name} or its parent`);
+            // console.log(`Flag: No PlayerController found on ${otherNode.name} or its parent`);
         }
     }
 
@@ -171,7 +171,7 @@ export class Flag extends Component {
     private collectFlag(player: PlayerController): void {
         this._isCollected = true;
 
-        console.log(`Flag: Collecting Level ${this._flagLevel} flag...`);
+        // console.log(`Flag: Collecting Level ${this._flagLevel} flag...`);
 
         // Get buff manager from player
         const buffManager = player.node.getComponent(FlagBuffManager);
@@ -189,7 +189,7 @@ export class Flag extends Component {
         // Play collection animation
         this.playCollectionAnimation();
 
-        console.log(`Flag Level ${this._flagLevel} collected!`);
+        // console.log(`Flag Level ${this._flagLevel} collected!`);
     }
 
     /**

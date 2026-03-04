@@ -53,7 +53,7 @@ export class FlagManager extends Component {
         // Debug: Check if we can get GameManager
         const gameManager = this.node.getComponent(GameManager);
         if (gameManager) {
-            console.log(`FlagManager: GameManager found. Current difficulty: ${gameManager.getDifficultyLevel()}`);
+            // console.log(`FlagManager: GameManager found. Current difficulty: ${gameManager.getDifficultyLevel()}`);
         } else {
             console.warn('FlagManager: GameManager component not found on same node!');
         }
@@ -79,7 +79,7 @@ export class FlagManager extends Component {
             this._spawnTimer += deltaTime;
             
             if (this._spawnTimer >= this.spawnInterval) {
-                console.log(`FlagManager: Timer reached ${this.spawnInterval}s, attempting to spawn flag...`);
+                // console.log(`FlagManager: Timer reached ${this.spawnInterval}s, attempting to spawn flag...`);
                 this.spawnFlag();
                 this._spawnTimer = 0;
             }
@@ -206,7 +206,7 @@ export class FlagManager extends Component {
         this._previousLowBox = selectedLowBox;
 
         const distance = Vec3.distance(this.playerNode.getWorldPosition(), lowBoxPos);
-        console.log(`FlagManager: Spawned Level ${flagLevel} flag on LowBox "${selectedLowBox.name}" at distance ${distance.toFixed(1)}m`);
+        // console.log(`FlagManager: Spawned Level ${flagLevel} flag on LowBox "${selectedLowBox.name}" at distance ${distance.toFixed(1)}m`);
     }
 
     /**
@@ -223,7 +223,7 @@ export class FlagManager extends Component {
         let availableBoxes = this._lowBoxNodes;
         if (this._previousLowBox && this._lowBoxNodes.length > 1) {
             availableBoxes = this._lowBoxNodes.filter(box => box !== this._previousLowBox);
-            console.log(`FlagManager: Filtered out previous box. Available: ${availableBoxes.length}/${this._lowBoxNodes.length}`);
+            // console.log(`FlagManager: Filtered out previous box. Available: ${availableBoxes.length}/${this._lowBoxNodes.length}`);
         }
 
         if (availableBoxes.length === 0) {
@@ -290,13 +290,13 @@ export class FlagManager extends Component {
         }
         endIndex = Math.min(endIndex, totalBoxes);
 
-        console.log(`FlagManager: Level ${level} selection range: ${startIndex}-${endIndex} (${endIndex - startIndex} boxes available)`);
+        // console.log(`FlagManager: Level ${level} selection range: ${startIndex}-${endIndex} (${endIndex - startIndex} boxes available)`);
 
         // Randomly select from the range
         const selectedIndex = startIndex + Math.floor(Math.random() * (endIndex - startIndex));
         const selectedBox = boxesWithDistance[selectedIndex].node;
         
-        console.log(`FlagManager: Selected box at index ${selectedIndex}, distance ${boxesWithDistance[selectedIndex].distance.toFixed(1)}m`);
+        // console.log(`FlagManager: Selected box at index ${selectedIndex}, distance ${boxesWithDistance[selectedIndex].distance.toFixed(1)}m`);
         
         return selectedBox;
     }
@@ -314,7 +314,7 @@ export class FlagManager extends Component {
         }
 
         const difficultyLevel = gameManager.getDifficultyLevel();
-        console.log(`FlagManager: Current difficulty is ${difficultyLevel}, spawning flag level ${difficultyLevel}`);
+        // console.log(`FlagManager: Current difficulty is ${difficultyLevel}, spawning flag level ${difficultyLevel}`);
         
         // Map GameLevel to FlagLevel (they have the same values)
         switch (difficultyLevel) {
@@ -360,7 +360,7 @@ export class FlagManager extends Component {
         const scoreManager = this.node.getComponent(ScoreManager);
         if (scoreManager) {
             scoreManager.awardFlagPoints(flagLevel);
-            console.log(`FlagManager: Notified ScoreManager about Level ${flagLevel} flag collection`);
+            // console.log(`FlagManager: Notified ScoreManager about Level ${flagLevel} flag collection`);
         } else {
             console.warn('FlagManager: ScoreManager not found on GameManager node');
         }

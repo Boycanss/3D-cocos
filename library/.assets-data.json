@@ -11930,6 +11930,12 @@
         "2d85af6d-265d-4d5f-8823-7bd745b9d9c3",
         "620b6bf3-0369-4560-837f-2a2c00b73c26",
         "edc21680-62df-444e-b987-932fc1018722@f9941",
+        "f755871c-cf09-495a-aed4-770f0f74712e@f9941",
+        "1595f7a0-d3e7-487a-84b5-3959510f7353@f9941",
+        "77e36af9-f742-4d88-a7fb-3f590316784b@f9941",
+        "85186c22-3207-420b-a9ae-4810cdbe2805@f9941",
+        "f12a23c4-b924-4322-a260-3d982428f1e8@f9941",
+        "7da0cfa1-525d-49c2-90e1-475b879d3bdf@f9941",
         "515b4ce4-1f7f-49fa-8873-edffad913e08@f9941",
         "3830ba9b-21ca-4c50-90bb-e4d2ddd0a58c",
         "501b1307-86bf-4d79-b9ec-c3499a9371ef@2e735",
@@ -11961,10 +11967,13 @@
         "7979a3fa-3bfb-4a44-85d3-11780222cc84",
         "18f00877-5c55-49ca-8604-9a849d62cd23",
         "d9009df3-dd2e-4907-bfa2-6f088627cafa",
+        "ace22a7c-a2bd-49fd-b2d6-d9d24ae04032",
+        "60e8b730-4ef4-406f-82b0-e66d5642893c",
         "16ac7090-d232-4f0e-ab94-24e7319701ef",
         "56429271-fa41-4390-a8e8-684c3019467f",
         "951d2e8c-6eb5-4b27-9810-4e9f0f1066be",
         "9efe28dc-23fa-441b-b69b-fc1a2b74676f",
+        "ef53e97b-bd72-4010-bed8-1664208273cd",
         "0a1c2f11-f15b-42fb-b2ba-5e4bcb99e50a",
         "634f6872-9a20-417c-96c8-a1d758cafe00"
       ]
@@ -14704,6 +14713,298 @@
     "value": {
       "depends": [
         "147db250-8bf6-4d08-9fc4-59469a40702a"
+      ]
+    },
+    "versionCode": 1
+  },
+  "13dc0407-7864-44a1-95a8-63414fbf2936": {
+    "url": "db://assets/scripts/PlayerControllerUnified.ts",
+    "value": {},
+    "versionCode": 1
+  },
+  "ace22a7c-a2bd-49fd-b2d6-d9d24ae04032": {
+    "url": "db://assets/scripts/Touch/TouchButton.ts",
+    "value": {},
+    "versionCode": 1
+  },
+  "ef53e97b-bd72-4010-bed8-1664208273cd": {
+    "url": "db://assets/scripts/Touch/TouchControlManager.ts",
+    "value": {},
+    "versionCode": 1
+  },
+  "60e8b730-4ef4-406f-82b0-e66d5642893c": {
+    "url": "db://assets/scripts/Touch/VirtualJoystick.ts",
+    "value": {},
+    "versionCode": 1
+  },
+  "2895e4bb-d711-4a9a-8e5a-7e83c01e7754": {
+    "url": "db://assets/scripts/Touch",
+    "value": {},
+    "versionCode": 1
+  },
+  "04b837ef-3b45-433a-beac-c037f149b9cd": {
+    "url": "db://assets/scripts/Touch/README.md",
+    "value": {
+      "depends": []
+    },
+    "versionCode": 1
+  },
+  "eeada7e9-ef31-46db-8645-dcfc7dad1134": {
+    "url": "db://assets/UI/control",
+    "value": {},
+    "versionCode": 1
+  },
+  "c967e3ee-3fef-4014-a36e-cd3154154815": {
+    "url": "db://assets/UI/control/dash.png",
+    "value": {
+      "depends": []
+    },
+    "versionCode": 1
+  },
+  "85186c22-3207-420b-a9ae-4810cdbe2805": {
+    "url": "db://assets/UI/control/jump.png",
+    "value": {
+      "depends": []
+    },
+    "versionCode": 1
+  },
+  "48e2ee04-87f2-4b32-ba2a-0f9ca56a0a03": {
+    "url": "db://assets/UI/control/slide.png",
+    "value": {
+      "depends": []
+    },
+    "versionCode": 1
+  },
+  "baaedb22-0bd4-48b4-8320-16d1fd076260": {
+    "url": "db://assets/UI/control/vault.png",
+    "value": {
+      "depends": []
+    },
+    "versionCode": 1
+  },
+  "8a5f2d91-5e36-42cf-9f8a-c2055eff87f9": {
+    "url": "db://assets/UI/control/vjoy.png",
+    "value": {
+      "depends": []
+    },
+    "versionCode": 1
+  },
+  "85186c22-3207-420b-a9ae-4810cdbe2805@6c48a": {
+    "url": "db://assets/UI/control/jump.png@6c48a",
+    "value": {
+      "depends": [
+        "85186c22-3207-420b-a9ae-4810cdbe2805"
+      ]
+    },
+    "versionCode": 1
+  },
+  "baaedb22-0bd4-48b4-8320-16d1fd076260@6c48a": {
+    "url": "db://assets/UI/control/vault.png@6c48a",
+    "value": {
+      "depends": [
+        "baaedb22-0bd4-48b4-8320-16d1fd076260"
+      ]
+    },
+    "versionCode": 1
+  },
+  "c967e3ee-3fef-4014-a36e-cd3154154815@6c48a": {
+    "url": "db://assets/UI/control/dash.png@6c48a",
+    "value": {
+      "depends": [
+        "c967e3ee-3fef-4014-a36e-cd3154154815"
+      ]
+    },
+    "versionCode": 1
+  },
+  "48e2ee04-87f2-4b32-ba2a-0f9ca56a0a03@6c48a": {
+    "url": "db://assets/UI/control/slide.png@6c48a",
+    "value": {
+      "depends": [
+        "48e2ee04-87f2-4b32-ba2a-0f9ca56a0a03"
+      ]
+    },
+    "versionCode": 1
+  },
+  "8a5f2d91-5e36-42cf-9f8a-c2055eff87f9@6c48a": {
+    "url": "db://assets/UI/control/vjoy.png@6c48a",
+    "value": {
+      "depends": [
+        "8a5f2d91-5e36-42cf-9f8a-c2055eff87f9"
+      ]
+    },
+    "versionCode": 1
+  },
+  "c967e3ee-3fef-4014-a36e-cd3154154815@f9941": {
+    "url": "db://assets/UI/control/dash.png@f9941",
+    "value": {
+      "depends": [
+        "c967e3ee-3fef-4014-a36e-cd3154154815@6c48a"
+      ]
+    },
+    "versionCode": 1
+  },
+  "baaedb22-0bd4-48b4-8320-16d1fd076260@f9941": {
+    "url": "db://assets/UI/control/vault.png@f9941",
+    "value": {
+      "depends": [
+        "baaedb22-0bd4-48b4-8320-16d1fd076260@6c48a"
+      ]
+    },
+    "versionCode": 1
+  },
+  "8a5f2d91-5e36-42cf-9f8a-c2055eff87f9@f9941": {
+    "url": "db://assets/UI/control/vjoy.png@f9941",
+    "value": {
+      "depends": [
+        "8a5f2d91-5e36-42cf-9f8a-c2055eff87f9@6c48a"
+      ]
+    },
+    "versionCode": 1
+  },
+  "85186c22-3207-420b-a9ae-4810cdbe2805@f9941": {
+    "url": "db://assets/UI/control/jump.png@f9941",
+    "value": {
+      "depends": [
+        "85186c22-3207-420b-a9ae-4810cdbe2805@6c48a"
+      ]
+    },
+    "versionCode": 1
+  },
+  "48e2ee04-87f2-4b32-ba2a-0f9ca56a0a03@f9941": {
+    "url": "db://assets/UI/control/slide.png@f9941",
+    "value": {
+      "depends": [
+        "48e2ee04-87f2-4b32-ba2a-0f9ca56a0a03@6c48a"
+      ]
+    },
+    "versionCode": 1
+  },
+  "eeb9a68a-ed54-4a25-a501-05be1b52aca6": {
+    "url": "db://assets/UI/Smaller-control",
+    "value": {},
+    "versionCode": 1
+  },
+  "77e36af9-f742-4d88-a7fb-3f590316784b": {
+    "url": "db://assets/UI/Smaller-control/dash.png",
+    "value": {
+      "depends": []
+    },
+    "versionCode": 1
+  },
+  "0e05d3a9-90bb-44e7-8925-a96733314705": {
+    "url": "db://assets/UI/Smaller-control/jump.png",
+    "value": {
+      "depends": []
+    },
+    "versionCode": 1
+  },
+  "1595f7a0-d3e7-487a-84b5-3959510f7353": {
+    "url": "db://assets/UI/Smaller-control/slide.png",
+    "value": {
+      "depends": []
+    },
+    "versionCode": 1
+  },
+  "f755871c-cf09-495a-aed4-770f0f74712e": {
+    "url": "db://assets/UI/Smaller-control/vault.png",
+    "value": {
+      "depends": []
+    },
+    "versionCode": 1
+  },
+  "7da0cfa1-525d-49c2-90e1-475b879d3bdf": {
+    "url": "db://assets/UI/Smaller-control/vjoy.png",
+    "value": {
+      "depends": []
+    },
+    "versionCode": 1
+  },
+  "77e36af9-f742-4d88-a7fb-3f590316784b@6c48a": {
+    "url": "db://assets/UI/Smaller-control/dash.png@6c48a",
+    "value": {
+      "depends": [
+        "77e36af9-f742-4d88-a7fb-3f590316784b"
+      ]
+    },
+    "versionCode": 1
+  },
+  "f755871c-cf09-495a-aed4-770f0f74712e@6c48a": {
+    "url": "db://assets/UI/Smaller-control/vault.png@6c48a",
+    "value": {
+      "depends": [
+        "f755871c-cf09-495a-aed4-770f0f74712e"
+      ]
+    },
+    "versionCode": 1
+  },
+  "1595f7a0-d3e7-487a-84b5-3959510f7353@6c48a": {
+    "url": "db://assets/UI/Smaller-control/slide.png@6c48a",
+    "value": {
+      "depends": [
+        "1595f7a0-d3e7-487a-84b5-3959510f7353"
+      ]
+    },
+    "versionCode": 1
+  },
+  "0e05d3a9-90bb-44e7-8925-a96733314705@6c48a": {
+    "url": "db://assets/UI/Smaller-control/jump.png@6c48a",
+    "value": {
+      "depends": [
+        "0e05d3a9-90bb-44e7-8925-a96733314705"
+      ]
+    },
+    "versionCode": 1
+  },
+  "7da0cfa1-525d-49c2-90e1-475b879d3bdf@6c48a": {
+    "url": "db://assets/UI/Smaller-control/vjoy.png@6c48a",
+    "value": {
+      "depends": [
+        "7da0cfa1-525d-49c2-90e1-475b879d3bdf"
+      ]
+    },
+    "versionCode": 1
+  },
+  "0e05d3a9-90bb-44e7-8925-a96733314705@f9941": {
+    "url": "db://assets/UI/Smaller-control/jump.png@f9941",
+    "value": {
+      "depends": [
+        "0e05d3a9-90bb-44e7-8925-a96733314705@6c48a"
+      ]
+    },
+    "versionCode": 1
+  },
+  "1595f7a0-d3e7-487a-84b5-3959510f7353@f9941": {
+    "url": "db://assets/UI/Smaller-control/slide.png@f9941",
+    "value": {
+      "depends": [
+        "1595f7a0-d3e7-487a-84b5-3959510f7353@6c48a"
+      ]
+    },
+    "versionCode": 1
+  },
+  "77e36af9-f742-4d88-a7fb-3f590316784b@f9941": {
+    "url": "db://assets/UI/Smaller-control/dash.png@f9941",
+    "value": {
+      "depends": [
+        "77e36af9-f742-4d88-a7fb-3f590316784b@6c48a"
+      ]
+    },
+    "versionCode": 1
+  },
+  "f755871c-cf09-495a-aed4-770f0f74712e@f9941": {
+    "url": "db://assets/UI/Smaller-control/vault.png@f9941",
+    "value": {
+      "depends": [
+        "f755871c-cf09-495a-aed4-770f0f74712e@6c48a"
+      ]
+    },
+    "versionCode": 1
+  },
+  "7da0cfa1-525d-49c2-90e1-475b879d3bdf@f9941": {
+    "url": "db://assets/UI/Smaller-control/vjoy.png@f9941",
+    "value": {
+      "depends": [
+        "7da0cfa1-525d-49c2-90e1-475b879d3bdf@6c48a"
       ]
     },
     "versionCode": 1

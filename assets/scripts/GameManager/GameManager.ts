@@ -223,7 +223,7 @@ export class GameManager extends Component {
                 const levelState = GameLevelState[this.difficultyLevel];
                 this.currentAutoMissileInterval = levelState.autoMissileInterval || 15;
                 
-                console.log(`Difficulty increased to level ${this.difficultyLevel}, next interval: ${this.difficultyIncreaseInterval}s, auto-missile interval: ${this.currentAutoMissileInterval}s`);
+                // console.log(`Difficulty increased to level ${this.difficultyLevel}, next interval: ${this.difficultyIncreaseInterval}s, auto-missile interval: ${this.currentAutoMissileInterval}s`);
             }
         }
     }
@@ -245,7 +245,7 @@ export class GameManager extends Component {
         const missileManager = this.node.getComponent(MissileManager);
         if (missileManager) {
             missileManager.spawnMissiles(missileCount, missileSpeed);
-            console.log(`Auto-spawned ${missileCount} missiles at speed ${missileSpeed} (Level ${this.difficultyLevel})`);
+            // console.log(`Auto-spawned ${missileCount} missiles at speed ${missileSpeed} (Level ${this.difficultyLevel})`);
         }
     }
 

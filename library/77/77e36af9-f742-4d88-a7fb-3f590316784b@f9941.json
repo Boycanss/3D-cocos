@@ -1,0 +1,90 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "dash",
+    "atlas": "",
+    "rect": {
+      "x": 0,
+      "y": 0,
+      "width": 72,
+      "height": 55
+    },
+    "offset": {
+      "x": 0,
+      "y": 0
+    },
+    "originalSize": {
+      "width": 72,
+      "height": 55
+    },
+    "rotated": false,
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "vertices": {
+      "rawPosition": [
+        -36,
+        -27.5,
+        0,
+        36,
+        -27.5,
+        0,
+        -36,
+        27.5,
+        0,
+        36,
+        27.5,
+        0
+      ],
+      "indexes": [
+        0,
+        1,
+        2,
+        2,
+        1,
+        3
+      ],
+      "uv": [
+        0,
+        55,
+        72,
+        55,
+        0,
+        0,
+        72,
+        0
+      ],
+      "nuv": [
+        0,
+        0,
+        1,
+        0,
+        0,
+        1,
+        1,
+        1
+      ],
+      "minPos": {
+        "x": -36,
+        "y": -27.5,
+        "z": 0
+      },
+      "maxPos": {
+        "x": 36,
+        "y": 27.5,
+        "z": 0
+      }
+    },
+    "texture": "77e36af9-f742-4d88-a7fb-3f590316784b@6c48a",
+    "packable": true,
+    "pixelsToUnit": 100,
+    "pivot": {
+      "x": 0.5,
+      "y": 0.5
+    },
+    "meshType": 0
+  }
+}
