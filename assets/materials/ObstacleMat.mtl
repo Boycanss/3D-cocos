@@ -10,9 +10,7 @@
   },
   "_techIdx": 0,
   "_defines": [
-    {
-      "USE_ALBEDO_MAP": true
-    },
+    {},
     {},
     {},
     {},
@@ -79,23 +77,30 @@
     {
       "tilingOffset": {
         "__type__": "cc.Vec4",
-        "x": 4,
-        "y": 4,
+        "x": 0.3,
+        "y": 0.3,
         "z": 0,
         "w": 0
       },
       "mainColor": {
         "__type__": "cc.Color",
-        "r": 111,
-        "g": 88,
-        "b": 88,
+        "r": 255,
+        "g": 173,
+        "b": 0,
         "a": 255
       },
       "roughness": 1,
-      "metallic": 0.232,
-      "specularIntensity": 0.384,
+      "normalStrength": 0,
       "mainTexture": {
-        "__uuid__": "d95ed804-c45b-4eca-b87d-0100d876b505@6c48a",
+        "__uuid__": "411ba920-b4f7-4e63-967b-61628acaeaeb@6c48a",
+        "__expectedType__": "cc.Texture2D"
+      },
+      "normalMap": {
+        "__uuid__": "e6193a47-8eec-4138-ac70-8205b046cdb2@6c48a",
+        "__expectedType__": "cc.Texture2D"
+      },
+      "emissiveMap": {
+        "__uuid__": "b6ca6228-ab70-4975-bf1c-449fea4ee6fc@6c48a",
         "__expectedType__": "cc.Texture2D"
       }
     },

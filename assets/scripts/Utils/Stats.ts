@@ -1,5 +1,7 @@
 import { _decorator, Component, Camera, Vec3, Node, UITransform, Label, Sprite, SpriteFrame, Color, tween, UIOpacity, Prefab, instantiate } from 'cc';
 import { StatDisplayColor } from '../Define/Define';
+import { Actor } from '../Actor';
+import { StaminaManager } from '../GameManager/StaminaManager';
 const { ccclass, property } = _decorator;
 
 @ccclass('Stats')
@@ -68,12 +70,12 @@ export class Stats extends Component {
         }
 
         // Get initial values using string component names to avoid circular imports
-        const actor = this.target.getComponent('Actor');
+        const actor = this.target.getComponent(Actor);
         if (actor) {
             this._previousHealth = actor.currentHp;
         }
 
-        const staminaManager = this.target.getComponent('StaminaManager');
+        const staminaManager = this.target.getComponent(StaminaManager);
         if (staminaManager) {
             this._previousStamina = staminaManager.stamina;
         }

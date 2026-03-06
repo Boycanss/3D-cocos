@@ -47,7 +47,7 @@ export class Missile extends Component {
         }
     }
 
-    private destroyMissile(): void {
+    public destroyMissile(): void {
         // Prevent multiple destroy calls
         if (this.isDestroying) return;
         this.isDestroying = true;

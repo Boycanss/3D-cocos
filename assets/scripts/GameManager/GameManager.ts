@@ -62,7 +62,8 @@ export class GameManager extends Component {
 
     start() {
         this.resetTimer();
-        this.isTimerRunning = true;
+        // Don't start timer automatically - let GameFlowManager control this
+        this.isTimerRunning = false;
         this.startTime = Date.now();
 
         if (this.playerNode) {

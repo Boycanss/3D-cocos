@@ -11828,7 +11828,7 @@
     "url": "db://assets/prefabs/Obstacle.prefab",
     "value": {
       "depends": [
-        "85733467-4b84-41ed-b41f-2f8b2474d691@82338",
+        "ddf4bc95-1e7d-4260-a1be-e1550c475d9d",
         "1263d74c-8167-4928-91a6-4e2672411f47@a804a"
       ],
       "dependScripts": [
@@ -11911,6 +11911,9 @@
         "d6039f0c-53fa-4b13-ace5-6084b4cd05db@6b9be",
         "d6039f0c-53fa-4b13-ace5-6084b4cd05db@b5c4d",
         "d6039f0c-53fa-4b13-ace5-6084b4cd05db@f6ae8",
+        "a841b40c-8f1a-4cfa-8437-fc8890995f8b",
+        "5af56d08-c724-4f96-8fef-d0696fe75a27@f9941",
+        "4c375813-8170-414c-a69c-6f59f65ddf2b@f9941",
         "24a704da-2867-446d-8d1a-5e920c75e09d@f9941",
         "e8dd5bd2-e533-4806-9531-44082fc71e2a@f9941",
         "9fd900dd-221b-4f89-8f2c-fba34243c835@f9941",
@@ -11950,6 +11953,7 @@
         "b0fe8a36-9165-4e72-9982-9a0e8a8b3604@73d57",
         "51c4de5c-3f74-4c31-89d5-d1f57e619a8b@2bcf1",
         "9c28149e-8358-4b8f-9744-8a4e75b8016a@dfda3",
+        "d809f4d6-a522-4004-8532-a7b642242c5a",
         "d032ac98-05e1-4090-88bb-eb640dcb5fc1@b47c0",
         "6f01cf7f-81bf-4a7e-bd5d-0afc19696480@b47c0"
       ],
@@ -11957,6 +11961,7 @@
         "36747630-c567-47f2-9301-d52d6e2a71bf",
         "CC3eba29-7abb-723a-f7ab-ae275e2277e8",
         "037991ec-d08f-4f52-b213-cc36ed0783c5",
+        "9cc60821-255c-4af0-978a-bb9b6f9cb9e6",
         "51b0151d-ce02-432c-b3bf-cf9723445299",
         "3ad6fc5e-571b-4409-90cf-bc12dfc9339e",
         "6be86a26-10fc-4a5e-b265-c544bd0962ba",
@@ -11966,6 +11971,8 @@
         "5eb5de5a-87f7-49b2-838d-366a916d85ba",
         "7979a3fa-3bfb-4a44-85d3-11780222cc84",
         "18f00877-5c55-49ca-8604-9a849d62cd23",
+        "8c15810c-2675-40e7-bef1-dcb943454df9",
+        "d68deee4-b984-4069-a3be-e98e6a6a8d7f",
         "d9009df3-dd2e-4907-bfa2-6f088627cafa",
         "ace22a7c-a2bd-49fd-b2d6-d9d24ae04032",
         "60e8b730-4ef4-406f-82b0-e66d5642893c",
@@ -15005,6 +15012,155 @@
     "value": {
       "depends": [
         "7da0cfa1-525d-49c2-90e1-475b879d3bdf@6c48a"
+      ]
+    },
+    "versionCode": 1
+  },
+  "d809f4d6-a522-4004-8532-a7b642242c5a": {
+    "url": "db://assets/materials/basePlanemat.mtl",
+    "value": {
+      "depends": [
+        "c8f66d17-351a-48da-a12c-0212d28575c4"
+      ]
+    },
+    "versionCode": 1
+  },
+  "aa501010-3ef9-476c-b1f1-fefb9cbfe695": {
+    "url": "db://assets/scripts/GameManager/GameFlowManager.ts",
+    "value": {},
+    "versionCode": 1
+  },
+  "8c15810c-2675-40e7-bef1-dcb943454df9": {
+    "url": "db://assets/scripts/GameManager/PlayerPlacementHandler.ts",
+    "value": {},
+    "versionCode": 1
+  },
+  "9cc60821-255c-4af0-978a-bb9b6f9cb9e6": {
+    "url": "db://assets/scripts/UI/StartScreenUI.ts",
+    "value": {},
+    "versionCode": 1
+  },
+  "4268e3c2-bcbb-412f-a6d5-e313c4a39844": {
+    "url": "db://assets/scripts/GameManager/GAME_FLOW_SETUP_GUIDE.md",
+    "value": {
+      "depends": []
+    },
+    "versionCode": 1
+  },
+  "5af56d08-c724-4f96-8fef-d0696fe75a27": {
+    "url": "db://assets/UI/playBtn.png",
+    "value": {
+      "depends": []
+    },
+    "versionCode": 1
+  },
+  "5af56d08-c724-4f96-8fef-d0696fe75a27@6c48a": {
+    "url": "db://assets/UI/playBtn.png@6c48a",
+    "value": {
+      "depends": [
+        "5af56d08-c724-4f96-8fef-d0696fe75a27"
+      ]
+    },
+    "versionCode": 1
+  },
+  "5af56d08-c724-4f96-8fef-d0696fe75a27@f9941": {
+    "url": "db://assets/UI/playBtn.png@f9941",
+    "value": {
+      "depends": [
+        "5af56d08-c724-4f96-8fef-d0696fe75a27@6c48a"
+      ]
+    },
+    "versionCode": 1
+  },
+  "8b21312a-daa8-416a-a770-ad63cb69d5dc": {
+    "url": "db://assets/UI/AYOlogo.png",
+    "value": {
+      "depends": []
+    },
+    "versionCode": 1
+  },
+  "8b21312a-daa8-416a-a770-ad63cb69d5dc@6c48a": {
+    "url": "db://assets/UI/AYOlogo.png@6c48a",
+    "value": {
+      "depends": [
+        "8b21312a-daa8-416a-a770-ad63cb69d5dc"
+      ]
+    },
+    "versionCode": 1
+  },
+  "8b21312a-daa8-416a-a770-ad63cb69d5dc@f9941": {
+    "url": "db://assets/UI/AYOlogo.png@f9941",
+    "value": {
+      "depends": [
+        "8b21312a-daa8-416a-a770-ad63cb69d5dc@6c48a"
+      ]
+    },
+    "versionCode": 1
+  },
+  "4c375813-8170-414c-a69c-6f59f65ddf2b": {
+    "url": "db://assets/UI/AYOlogo_smaller.png",
+    "value": {
+      "depends": []
+    },
+    "versionCode": 1
+  },
+  "4c375813-8170-414c-a69c-6f59f65ddf2b@6c48a": {
+    "url": "db://assets/UI/AYOlogo_smaller.png@6c48a",
+    "value": {
+      "depends": [
+        "4c375813-8170-414c-a69c-6f59f65ddf2b"
+      ]
+    },
+    "versionCode": 1
+  },
+  "4c375813-8170-414c-a69c-6f59f65ddf2b@f9941": {
+    "url": "db://assets/UI/AYOlogo_smaller.png@f9941",
+    "value": {
+      "depends": [
+        "4c375813-8170-414c-a69c-6f59f65ddf2b@6c48a"
+      ]
+    },
+    "versionCode": 1
+  },
+  "9667f652-bbed-4a5b-a7ac-7450c7402d95": {
+    "url": "db://assets/scripts/SCENE_SETUP_CHECKLIST.md",
+    "value": {
+      "depends": []
+    },
+    "versionCode": 1
+  },
+  "d68deee4-b984-4069-a3be-e98e6a6a8d7f": {
+    "url": "db://assets/scripts/GameManager/SimpleGameFlowManager.ts",
+    "value": {},
+    "versionCode": 1
+  },
+  "517f0960-77da-47d0-830b-4b4ecf56f89c": {
+    "url": "db://assets/scripts/QUICK_SETUP_INSTRUCTIONS.md",
+    "value": {
+      "depends": []
+    },
+    "versionCode": 1
+  },
+  "a841b40c-8f1a-4cfa-8437-fc8890995f8b": {
+    "url": "db://assets/prefabs/CircleMC.prefab",
+    "value": {
+      "depends": [
+        "620b6bf3-0369-4560-837f-2a2c00b73c26",
+        "1263d74c-8167-4928-91a6-4e2672411f47@38fd2",
+        "1263d74c-8167-4928-91a6-4e2672411f47@40ece"
+      ],
+      "dependScripts": []
+    },
+    "versionCode": 1
+  },
+  "ddf4bc95-1e7d-4260-a1be-e1550c475d9d": {
+    "url": "db://assets/materials/ObstacleMat.mtl",
+    "value": {
+      "depends": [
+        "c8f66d17-351a-48da-a12c-0212d28575c4",
+        "411ba920-b4f7-4e63-967b-61628acaeaeb@6c48a",
+        "e6193a47-8eec-4138-ac70-8205b046cdb2@6c48a",
+        "b6ca6228-ab70-4975-bf1c-449fea4ee6fc@6c48a"
       ]
     },
     "versionCode": 1

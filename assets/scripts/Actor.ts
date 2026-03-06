@@ -33,17 +33,10 @@ export class Actor extends Component {
         if (this.currentHp > this.maxHp) this.currentHp = this.maxHp;
         this._initHealthBar();
 
-        // Find Stats display in the scene
-        const statsNode = find('UI/Stats');
+        // Find Stats display in the scene - try multiple possible paths
+        let statsNode = find('UI/Gameplay_UI/Stats');
         if (statsNode) {
             this._statsDisplay = statsNode.getComponent(Stats);
-            if (this._statsDisplay) {
-                // console.log('Actor: Stats display found successfully');
-            } else {
-                console.error('Actor: Stats node found but no Stats component!');
-            }
-        } else {
-            console.error('Actor: Stats node not found at Canvas/Stats');
         }
     }
 
@@ -96,12 +89,12 @@ export class Actor extends Component {
         this._updateHealthBar();
 
         // Show stat display for damage
-        // console.log(`Actor: takeDamage called, dmg=${dmg}, _statsDisplay=${this._statsDisplay ? 'found' : 'null'}`);
+        console.log(`Actor: takeDamage called, dmg=${dmg}, _statsDisplay=${this._statsDisplay ? 'found' : 'null'}`);
         if (this._statsDisplay && dmg > 0) {
-            // console.log(`Actor: Calling displayStatChange for health: -${dmg}`);
+            console.log(`Actor: Calling displayStatChange for health: -${dmg}`);
             this._statsDisplay.displayStatChange('health', -dmg);
         } else if (!this._statsDisplay) {
-            // console.error('Actor: _statsDisplay is null! Cannot show health damage.');
+            console.error('Actor: _statsDisplay is null! Cannot show health damage.');
         }
 
         if (this.currentHp <= 0) {
@@ -133,6 +126,32 @@ export class Actor extends Component {
         this._timeSinceDamage = 0;
         this._regenActive = false;
         this._updateHealthBar();
+    }
+
+    private _findStatsRecursively(node: Node): void {
+        // Check if this node has Stats component
+        const stats = node.getComponent(Stats);
+        if (stats) {
+            console.log(`Actor: Found Stats component on node: ${node.name}, path: ${this._getNodePath(node)}`);
+            this._statsDisplay = stats;
+            return;
+        }
+        
+        // Check children
+        for (const child of node.children) {
+            this._findStatsRecursively(child);
+            if (this._statsDisplay) return; // Stop once found
+        }
+    }
+    
+    private _getNodePath(node: Node): string {
+        const path: string[] = [];
+        let current = node;
+        while (current) {
+            path.unshift(current.name);
+            current = current.parent;
+        }
+        return path.join('/');
     }
 
     private _onDeath() {

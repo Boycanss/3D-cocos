@@ -283,8 +283,9 @@ export class PlayerController extends Component {
         const obstacle = hitNode.getComponent(ObstacleCollision);
         if (obstacle && this._actor) {
             this._actor.takeDamage(obstacle.damage);
-            if(hitNode.getComponent(Missile)){
-                hitNode.destroy();
+            const missile = hitNode.getComponent(Missile);
+            if(missile){
+                missile.destroyMissile(); // Call missile's destroy method to show blow effect
             }
             this._canTakeDamage = false;
             this._timeSinceLastHit = 0;
