@@ -1,6 +1,6 @@
 import { _decorator, CCFloat, CCInteger, Component, instantiate, Node, Prefab, Vec3 } from 'cc';
 import { Flag } from '../Collectible/Flag';
-import { FlagLevel, GameLevel, ObstacleType } from '../Define/Define';
+import { FlagLevel, GameLevel, ObstacleType, Timing } from '../Define/Define';
 import { Box } from '../Obstacle/Box';
 import { GameManager } from './GameManager';
 import { ScoreManager } from './ScoreManager';
@@ -21,7 +21,7 @@ export class FlagManager extends Component {
     flagHeightOffset: number = 2.0; // Height above the LowBox
 
     @property(CCFloat)
-    spawnInterval: number = 15.0; // Seconds between flag spawns
+    spawnInterval: number = Timing.FLAG_SPAWN_INTERVAL; // Seconds between flag spawns
 
     @property(CCInteger)
     minLowBoxesRequired: number = 3; // Minimum LowBoxes needed before spawning flags
@@ -31,25 +31,25 @@ export class FlagManager extends Component {
     private _lowBoxNodes: Node[] = []; // Array to store all LowBox nodes
     private _flagWeights: Map<FlagLevel, number> = new Map();
     private _previousLowBox: Node = null; // Track the previous LowBox to avoid spawning on same box
+    private _gameStarted: boolean = false; // Track if game has started
 
     protected onLoad(): void {
         // Set spawn weights for each flag level (higher = more common)
-        this._flagWeights.set(FlagLevel.LEVEL1, 40); // 40% chance
-        this._flagWeights.set(FlagLevel.LEVEL2, 30); // 30% chance
-        this._flagWeights.set(FlagLevel.LEVEL3, 15); // 15% chance
+        this._flagWeights.set(FlagLevel.LEVEL1, 35); // 35% chance
+        this._flagWeights.set(FlagLevel.LEVEL2, 25); // 25% chance
+        this._flagWeights.set(FlagLevel.LEVEL3, 20); // 20% chance
         this._flagWeights.set(FlagLevel.LEVEL4, 10); // 10% chance
-        this._flagWeights.set(FlagLevel.LEVEL5, 5);  // 5% chance
+        this._flagWeights.set(FlagLevel.LEVEL5, 7);  // 7% chance
+        this._flagWeights.set(FlagLevel.LEVEL6, 3);  // 3% chance - rarest
     }
 
     start() {
         // Clear any existing flags on start
         this._currentFlag = null;
+        this._gameStarted = false;
         
-        // Spawn initial flag after a short delay
-        this.scheduleOnce(() => {
-            this.spawnFlag();
-        }, 5.0);
-
+        // DON'T spawn initial flag automatically - wait for game to start
+        
         // Debug: Check if we can get GameManager
         const gameManager = this.node.getComponent(GameManager);
         if (gameManager) {
@@ -60,6 +60,9 @@ export class FlagManager extends Component {
     }
 
     update(deltaTime: number) {
+        // Only update if game has started
+        if (!this._gameStarted) return;
+
         // Update LowBox array (scan for new obstacles)
         this.updateLowBoxArray();
 
@@ -73,8 +76,9 @@ export class FlagManager extends Component {
         }
 
         // Only spawn a new flag if:
-        // 1. No current flag exists (was collected or destroyed)
-        // 2. Enough LowBoxes are available
+        // 1. Game has started
+        // 2. No current flag exists (was collected or destroyed)
+        // 3. Enough LowBoxes are available
         if (!this._currentFlag && this._lowBoxNodes.length >= this.minLowBoxesRequired) {
             this._spawnTimer += deltaTime;
             
@@ -279,6 +283,12 @@ export class FlagManager extends Component {
                 startIndex = 0;
                 endIndex = Math.min(lv5Segment, totalBoxes);
                 break;
+            case FlagLevel.LEVEL6:
+                // Expert level - Farthest 30% of boxes (most challenging placement)
+                const lv6Segment = Math.max(2, Math.floor(totalBoxes * 0.3));
+                startIndex = 0;
+                endIndex = Math.min(lv6Segment, totalBoxes);
+                break;
             default:
                 startIndex = 0;
                 endIndex = totalBoxes;
@@ -323,7 +333,7 @@ export class FlagManager extends Component {
             case GameLevel.LEVEL3: return FlagLevel.LEVEL3;
             case GameLevel.LEVEL4: return FlagLevel.LEVEL4;
             case GameLevel.LEVEL5: return FlagLevel.LEVEL5;
-            // case GameLevel.LEVEL6: return FlagLevel.LEVEL6;
+            case GameLevel.LEVEL6: return FlagLevel.LEVEL6;
             default: 
                 console.warn(`FlagManager: Unknown difficulty level ${difficultyLevel}, defaulting to Level 1`);
                 return FlagLevel.LEVEL1;
@@ -446,6 +456,43 @@ export class FlagManager extends Component {
      */
     public refreshLowBoxArray(): void {
         this.updateLowBoxArray();
+    }
+
+    /**
+     * Start flag spawning (call when game starts)
+     */
+    public startFlagSpawning(): void {
+        this._gameStarted = true;
+        this._spawnTimer = 0;
+        
+        // Spawn initial flag after a short delay
+        this.scheduleOnce(() => {
+            if (this._gameStarted) { // Double check game is still running
+                this.spawnFlag();
+            }
+        }, Timing.FLAG_INITIAL_DELAY);
+        
+        console.log("🚩 Flag spawning started");
+    }
+
+    /**
+     * Stop flag spawning (call when game ends or resets)
+     */
+    public stopFlagSpawning(): void {
+        this._gameStarted = false;
+        this._spawnTimer = 0;
+        this.clearCurrentFlag();
+        console.log("🚩 Flag spawning stopped and current flag cleared");
+    }
+
+    /**
+     * Reset flag manager to initial state
+     */
+    public resetFlagManager(): void {
+        this.stopFlagSpawning();
+        this._previousLowBox = null;
+        this._lowBoxNodes = [];
+        console.log("🚩 FlagManager reset");
     }
 
     protected onDestroy(): void {

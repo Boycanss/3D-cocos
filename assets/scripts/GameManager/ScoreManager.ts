@@ -1,5 +1,5 @@
 import { _decorator, CCFloat, Component, Label, Node } from 'cc';
-import { MovementState, ScoreValues } from '../Define/Define';
+import { MovementState, ScoreValues, Health, Timing } from '../Define/Define';
 import { PlayerController } from '../PlayerController';
 import { FlagBuffManager } from '../Collectible/FlagBuffManager';
 import { Actor } from '../Actor';
@@ -20,7 +20,7 @@ export class ScoreManager extends Component {
     comboLabel: Label = null;
 
     @property(CCFloat)
-    idleThreshold: number = 3.0; // Seconds before idle penalty kicks in
+    idleThreshold: number = Timing.IDLE_THRESHOLD; // Seconds before idle penalty kicks in
 
     @property(CCFloat)
     speedBonusThreshold: number = 0.8; // 80% of max speed for bonus
@@ -30,12 +30,12 @@ export class ScoreManager extends Component {
     private _comboMultiplier: number = 1.0;
     private _idleTimer: number = 0;
     private _previousState: MovementState = MovementState.IDLE;
-    private _previousHP: number = 100;
+    private _previousHP: number = Health.MAX_HP;
     private _hasTakenDamage: boolean = false;
 
     // Track actions for combo
     private _lastActionTime: number = 0;
-    private _comboResetDelay: number = 2.0; // Seconds before combo resets
+    private _comboResetDelay: number = Timing.COMBO_RESET_DELAY; // Seconds before combo resets
 
     start() {
         if (this.playerNode) {
@@ -223,6 +223,7 @@ export class ScoreManager extends Component {
             case 3: points = ScoreValues.FLAG_LEVEL_3; break;
             case 4: points = ScoreValues.FLAG_LEVEL_4; break;
             case 5: points = ScoreValues.FLAG_LEVEL_5; break;
+            case 6: points = ScoreValues.FLAG_LEVEL_6; break;
         }
 
         this.awardPoints(points);
@@ -334,6 +335,7 @@ export class ScoreManager extends Component {
         this._comboMultiplier = 1.0;
         this._hasTakenDamage = false;
         this._idleTimer = 0;
+        this._previousHP = Health.MAX_HP; // Reset to defined constant
         this.updateScoreDisplay();
     }
 

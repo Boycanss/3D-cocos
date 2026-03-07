@@ -11912,14 +11912,16 @@
         "d6039f0c-53fa-4b13-ace5-6084b4cd05db@b5c4d",
         "d6039f0c-53fa-4b13-ace5-6084b4cd05db@f6ae8",
         "a841b40c-8f1a-4cfa-8437-fc8890995f8b",
+        "485f47c4-44b6-418a-91a9-c558183ce922@f9941",
         "5af56d08-c724-4f96-8fef-d0696fe75a27@f9941",
         "4c375813-8170-414c-a69c-6f59f65ddf2b@f9941",
-        "24a704da-2867-446d-8d1a-5e920c75e09d@f9941",
-        "e8dd5bd2-e533-4806-9531-44082fc71e2a@f9941",
-        "9fd900dd-221b-4f89-8f2c-fba34243c835@f9941",
+        "4b834bd7-b7f6-4d6e-b6c2-7cfc06bfae74@f9941",
         "20835ba4-6145-4fbc-a58a-051ce700aa3e@f9941",
         "544e49d6-3f05-4fa8-9a9e-091f98fc2ce8@f9941",
         "951249e0-9f16-456d-8b85-a6ca954da16b@f9941",
+        "24a704da-2867-446d-8d1a-5e920c75e09d@f9941",
+        "e8dd5bd2-e533-4806-9531-44082fc71e2a@f9941",
+        "9fd900dd-221b-4f89-8f2c-fba34243c835@f9941",
         "855e075d-86fd-4ee2-b436-c794cdae8d96",
         "7f6579ae-9308-4851-88b9-df2277b49a69@f9941",
         "db601b46-c20d-4188-955e-552b8a68729c@f9941",
@@ -11962,6 +11964,7 @@
         "CC3eba29-7abb-723a-f7ab-ae275e2277e8",
         "037991ec-d08f-4f52-b213-cc36ed0783c5",
         "9cc60821-255c-4af0-978a-bb9b6f9cb9e6",
+        "27ca4fad-1d51-4fb8-932e-f887bebbfb08",
         "51b0151d-ce02-432c-b3bf-cf9723445299",
         "3ad6fc5e-571b-4409-90cf-bc12dfc9339e",
         "6be86a26-10fc-4a5e-b265-c544bd0962ba",
@@ -15161,6 +15164,57 @@
         "411ba920-b4f7-4e63-967b-61628acaeaeb@6c48a",
         "e6193a47-8eec-4138-ac70-8205b046cdb2@6c48a",
         "b6ca6228-ab70-4975-bf1c-449fea4ee6fc@6c48a"
+      ]
+    },
+    "versionCode": 1
+  },
+  "485f47c4-44b6-418a-91a9-c558183ce922": {
+    "url": "db://assets/UI/bubble_small.png",
+    "value": {
+      "depends": []
+    },
+    "versionCode": 1
+  },
+  "485f47c4-44b6-418a-91a9-c558183ce922@6c48a": {
+    "url": "db://assets/UI/bubble_small.png@6c48a",
+    "value": {
+      "depends": [
+        "485f47c4-44b6-418a-91a9-c558183ce922"
+      ]
+    },
+    "versionCode": 1
+  },
+  "485f47c4-44b6-418a-91a9-c558183ce922@f9941": {
+    "url": "db://assets/UI/bubble_small.png@f9941",
+    "value": {
+      "depends": [
+        "485f47c4-44b6-418a-91a9-c558183ce922@6c48a"
+      ]
+    },
+    "versionCode": 1
+  },
+  "3a710143-c0bd-4ccc-9a0b-f1d8b9fcdba6": {
+    "url": "db://assets/scripts/GameManager/AchievementManager.ts",
+    "value": {},
+    "versionCode": 1
+  },
+  "27ca4fad-1d51-4fb8-932e-f887bebbfb08": {
+    "url": "db://assets/scripts/UI/GameOverUI.ts",
+    "value": {},
+    "versionCode": 1
+  },
+  "8ea25a0a-09b9-4014-84dc-9acdab689c7a": {
+    "url": "db://assets/scripts/GAME_OVER_UI_SETUP.md",
+    "value": {
+      "depends": []
+    },
+    "versionCode": 1
+  },
+  "4b834bd7-b7f6-4d6e-b6c2-7cfc06bfae74@f9941": {
+    "url": "db://assets/UI/Tiles052_1K-JPG_Roughness.jpg@f9941",
+    "value": {
+      "depends": [
+        "4b834bd7-b7f6-4d6e-b6c2-7cfc06bfae74@6c48a"
       ]
     },
     "versionCode": 1

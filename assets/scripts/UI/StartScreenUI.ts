@@ -185,7 +185,7 @@ export class StartScreenUI extends Component {
         
         // Update instruction text
         if (isDragging) {
-            this.updateInstructionText("Release to place character", new Color(255, 255, 0));
+            this.updateInstructionText("Release to place character", new Color(0, 0, 0));
         } else {
             this.updateInstructionText("Drag the character to your desired starting position");
         }
@@ -202,7 +202,7 @@ export class StartScreenUI extends Component {
         if (color) {
             this.instructionLabel.color = color;
         } else {
-            this.instructionLabel.color = new Color(255, 255, 255); // Default white
+            this.instructionLabel.color = new Color(0, 0, 0);
         }
         
         // Animate text change

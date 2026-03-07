@@ -31,6 +31,39 @@ export enum Energy{
     STAMINA_REGEN_RATE = 1.5  
 }
 
+// Health system constants
+export enum Health {
+    MAX_HP = 100,           // Maximum health points
+    REGEN_RATE = 5.0,       // HP per second when regenerating
+    REGEN_DELAY = 3.0       // Seconds after damage before regen starts
+}
+
+// Physics constants for movement
+export enum Physics {
+    JUMP_VELOCITY_BASE = 8.5,       // Base jump velocity multiplier
+    JUMP_VELOCITY_MIN = 6.0,        // Minimum jump velocity
+    GRAVITY = 0.5,                  // Gravity force
+    SLIDE_DOWNWARD_VELOCITY = -0.5, // Downward velocity during slide
+    WALL_RUN_VELOCITY = 0,          // Vertical velocity during wall run
+    GROUNDED_VELOCITY = -0.5        // Velocity when grounded
+}
+
+// Damage system constants
+export enum Damage {
+    OBSTACLE_DAMAGE = 10,           // Standard obstacle damage
+    MISSILE_DAMAGE = 25,            // Missile damage
+    SURVIVAL_ZONE_DAMAGE = 15       // Survival zone damage per second
+}
+
+// Timing constants
+export enum Timing {
+    FLAG_SPAWN_INTERVAL = 15.0,     // Seconds between flag spawns
+    FLAG_INITIAL_DELAY = 5.0,       // Initial delay before first flag spawn
+    DAMAGE_COOLDOWN = 0.05,         // Seconds between damage hits
+    COMBO_RESET_DELAY = 2.0,        // Seconds before combo resets
+    IDLE_THRESHOLD = 3.0            // Seconds before idle penalty
+}
+
 export enum MovementState {
     IDLE = "Idle",
     WALKING = "Walking",
@@ -164,7 +197,8 @@ export enum FlagLevel {
     LEVEL2 = 2,
     LEVEL3 = 3,
     LEVEL4 = 4,
-    LEVEL5 = 5
+    LEVEL5 = 5,
+    LEVEL6 = 6
 }
 
 export interface FlagBenefits {
@@ -186,12 +220,14 @@ export enum FlagRestoration {
     HEALTH_LEVEL_3 = 15,    
     HEALTH_LEVEL_4 = 30,    
     HEALTH_LEVEL_5 = 50,   
+    HEALTH_LEVEL_6 = 75,   // Expert level - maximum health restoration
     
     STAMINA_LEVEL_1 = 10,   
     STAMINA_LEVEL_2 = 15,   
     STAMINA_LEVEL_3 = 22,   
     STAMINA_LEVEL_4 = 35,   
     STAMINA_LEVEL_5 = 55,  
+    STAMINA_LEVEL_6 = 80,  // Expert level - maximum stamina restoration
 }
 
 // Scoring System - Fine-tuned for rewarding skilled play
@@ -212,7 +248,8 @@ export enum ScoreValues {
     FLAG_LEVEL_2 = 200,     
     FLAG_LEVEL_3 = 400,     
     FLAG_LEVEL_4 = 700,     
-    FLAG_LEVEL_5 = 1000,    
+    FLAG_LEVEL_5 = 1000,
+    FLAG_LEVEL_6 = 1500,    // Expert level - maximum score reward    
     
     // Penalties - Balanced to hurt but not devastate
     DAMAGE_TAKEN = -25,     

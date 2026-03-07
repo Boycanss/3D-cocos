@@ -1,6 +1,6 @@
 import { _decorator, animation, CapsuleCharacterController, CCBoolean, CCFloat, CharacterController, CharacterControllerContact, Collider, Component, easing, Enum, EventKeyboard, Input, input, KeyCode, Layers, geometry, math, Node, NodeSpace, PhysicsSystem, RigidBody, Tween, tween, Vec3 } from 'cc';
 import { VaultDetector } from './VaultDetector';
-import { Energy, MovementState, ObstacleType, PlatformUtils } from './Define/Define';
+import { Energy, MovementState, ObstacleType, PlatformUtils, Physics, Timing } from './Define/Define';
 import { Box } from './Obstacle/Box';
 import { GhostEffect } from './Utils/GhostEffect';
 import { Actor } from './Actor';
@@ -36,7 +36,7 @@ export class PlayerController extends Component {
     jumpheight: number = 1;
 
     @property(CCFloat)
-    damageCooldown: number = .05;  // Seconds between damage hits
+    damageCooldown: number = Timing.DAMAGE_COOLDOWN;  // Seconds between damage hits
 
     @property(CCFloat)
     acceleration: number = 1.5;
@@ -235,13 +235,12 @@ export class PlayerController extends Component {
                 this.Animation.setValue('isRunning', false);
                 break;
             case MovementState.WALL_RUNNING:
-                // console.log("wall running");
                 this.Animation.setValue('isRunning', true);
                 // Lock wall side and Y rotation once at wall-run start
                 this._wallRunLockedSide = this._wallSide;
                 this._wallRunLockedY = this.computeWallParallelY();
-                // console.log(`[WallRun] LOCKED side=${this._wallRunLockedSide} Y=${this._wallRunLockedY.toFixed(1)}`);
                 this.node.setRotationFromEuler(0, this._wallRunLockedY, this._currentLeanAngle);
+                console.log("🏃‍♂️ Wall running started!");
                 break;
             default:
                 break;
@@ -390,7 +389,7 @@ export class PlayerController extends Component {
 
         if(this._slidingController.isSliding){
             // During slide: maintain ground contact and forward momentum
-            this.verticalVelocity = -0.5; // Strong downward velocity to keep grounded and low
+            this.verticalVelocity = Physics.SLIDE_DOWNWARD_VELOCITY; // Strong downward velocity to keep grounded and low
             this.currentSpeed = this._slidingController.handleSlideMovement(this.movementDirection, this.currentSpeed, deltaTime);
             if (this.isDashing) {
                 this.currentSpeed = math.lerp(this.currentSpeed, this.maxSpeed, deltaTime * this.acceleration);
@@ -399,8 +398,8 @@ export class PlayerController extends Component {
             // Wall Run Logic
             this.currentSpeed = math.lerp(this.currentSpeed, this.maxSpeed, deltaTime * this.acceleration);
             // Reduce gravity to allow running on walls
-            this.verticalVelocity = 0; // Maintain consistent upward movement on wall
-            this.staminaManager.reduceStamina(Energy.RUN * deltaTime); // Continuous stamina cost
+            this.verticalVelocity = Physics.WALL_RUN_VELOCITY; // Maintain consistent upward movement on wall
+            this.staminaManager.reduceStamina(Energy.WALL_RUN * deltaTime); // Continuous stamina cost
             // Keep Y locked to wall-parallel direction set at wall-run start
             this.node.setRotationFromEuler(0, this._wallRunLockedY, this._currentLeanAngle);
             this.updateWallRunLean(deltaTime);
@@ -452,37 +451,32 @@ export class PlayerController extends Component {
         // Prevent jump spam - only allow jump when grounded or wall running
         if (this.currentState === MovementState.JUMPING) return;
         
-        // Wall Run Jump Logic - SAME FOR BOTH MOBILE AND PC
+        // Wall Run Jump Logic - keep original but with immediate rotation
         if (this.currentState === MovementState.WALL_RUNNING) {
-            console.log("🏃‍♂️ Wall running jump triggered!", this._isMobile ? "(Mobile)" : "(PC)");
+            console.log("🏃‍♂️ Wall running jump triggered!");
             
-            // Calculate jump direction: exactly perpendicular to the wall (90 degrees away)
-            // Use wall normal to determine the exact perpendicular direction
+            // Calculate jump direction perpendicular to wall
             const normal = this._wallNormal.clone();
-            normal.y = 0; // Ignore vertical component
+            normal.y = 0;
             normal.normalize();
 
             // Jump direction is the wall normal (points away from wall surface)
             const jumpDir = normal.clone();
             jumpDir.normalize();
 
-            // Rotate character to face jump direction
+            // Rotate character to face jump direction IMMEDIATELY
             const targetRotation = Math.atan2(jumpDir.x, jumpDir.z) * (180 / Math.PI);
             this.node.setRotationFromEuler(0, targetRotation, 0);
 
             this.SetState(MovementState.JUMPING);
             this.Animation.setValue('Jump', true);
-            this.staminaManager.reduceStamina(Energy.JUMP, true); // Show stat display
+            this.staminaManager.reduceStamina(Energy.JUMP, true);
             
-            // Use consistent jump velocity for wall running jumps (same for mobile and PC)
-            this.verticalVelocity = 8.5 * (this.currentSpeed / this.maxSpeed);
-            
-            // Ensure minimum jump velocity for wall running jumps
-            if (this.verticalVelocity < 6.0) {
-                this.verticalVelocity = 6.0;
+            this.verticalVelocity = Physics.JUMP_VELOCITY_BASE * (this.currentSpeed / this.maxSpeed);
+            if (this.verticalVelocity < Physics.JUMP_VELOCITY_MIN) {
+                this.verticalVelocity = Physics.JUMP_VELOCITY_MIN;
             }
             
-            console.log("🏃‍♂️ Wall jump velocity:", this.verticalVelocity, "Speed:", this.currentSpeed);
             return;
         }
         
@@ -505,11 +499,11 @@ export class PlayerController extends Component {
         this.staminaManager.reduceStamina(Energy.JUMP, true); // Show stat display
         
         // Use consistent jump velocity calculation for both platforms
-        this.verticalVelocity = 8.5 * (this.currentSpeed / this.maxSpeed);
+        this.verticalVelocity = Physics.JUMP_VELOCITY_BASE * (this.currentSpeed / this.maxSpeed);
         
         // Ensure minimum jump velocity for both platforms
-        if (this.verticalVelocity < 6.0) {
-            this.verticalVelocity = 6.0;
+        if (this.verticalVelocity < Physics.JUMP_VELOCITY_MIN) {
+            this.verticalVelocity = Physics.JUMP_VELOCITY_MIN;
         }
         
         // For mobile: ensure forward momentum for wall running (but don't change PC behavior)
@@ -552,10 +546,10 @@ export class PlayerController extends Component {
     ApplyGravity(deltaTime: number) {
         if (this.currentState == MovementState.VAULTING || this._slidingController.isSliding) return;
         if (this.charController.isGrounded == false) {
-            this.verticalVelocity -= .5;
+            this.verticalVelocity -= Physics.GRAVITY;
         } else {
             if (this.verticalVelocity < 0) {
-                this.verticalVelocity = -.5;
+                this.verticalVelocity = Physics.GROUNDED_VELOCITY;
                 if(this._moveDir.z != 0){
                     this.SetState(MovementState.RUNNING);
                 }
@@ -732,6 +726,8 @@ export class PlayerController extends Component {
         
         return wallDetected;
     }
+
+
 
     /**
      * Computes the Y euler angle that makes the character face parallel to the wall.

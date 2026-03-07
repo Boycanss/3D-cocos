@@ -171,6 +171,18 @@ export class FlagBuffManager extends Component {
                     healthRestore: FlagRestoration.HEALTH_LEVEL_5,
                     staminaRestore: FlagRestoration.STAMINA_LEVEL_5
                 };
+            case FlagLevel.LEVEL6:
+                return {
+                    scoreMultiplier: 4.0,      // Maximum score multiplier
+                    speedBoost: 0.35,          // Maximum speed boost (35%)
+                    staminaReduction: 0.50,    // Maximum stamina reduction (50%)
+                    regenBoost: 1.0,           // Double stamina regeneration
+                    dashCooldownReduction: 0.60, // Maximum dash cooldown reduction (60%)
+                    invincibilityDuration: 3.0,  // Extended invincibility (3 seconds)
+                    duration: 25,              // Longest duration (25 seconds)
+                    healthRestore: FlagRestoration.HEALTH_LEVEL_6,
+                    staminaRestore: FlagRestoration.STAMINA_LEVEL_6
+                };
             default:
                 return {
                     scoreMultiplier: 1.0,

@@ -126,4 +126,16 @@ export class ObstacleManager extends Component {
             }
         }
     }
+
+    /**
+     * Clear all spawned obstacles
+     */
+    clearObstacles(): void {
+        // Destroy all child obstacles
+        const childrenToDestroy = [...this.node.children];
+        childrenToDestroy.forEach(child => {
+            child.destroy();
+        });
+        console.log(`🧹 Cleared ${childrenToDestroy.length} obstacles`);
+    }
 }

@@ -1,7 +1,7 @@
 import { _decorator, Component, Camera, Vec3, Node, UITransform, Label, Sprite, SpriteFrame, Color, tween, UIOpacity, Prefab, instantiate } from 'cc';
 import { StatDisplayColor } from '../Define/Define';
-import { Actor } from '../Actor';
 import { StaminaManager } from '../GameManager/StaminaManager';
+import { Actor } from '../Actor';
 const { ccclass, property } = _decorator;
 
 @ccclass('Stats')
@@ -103,8 +103,10 @@ export class Stats extends Component {
         // UI origin depends on parent's anchor point
         const uiX = screenPos.x - (parentSize.width * parentAnchor.x);
         const uiY = screenPos.y - (parentSize.height * parentAnchor.y);
+        const randOffsetX = Math.random() * 110 + 170; // Random offset for variation
+        const randOffsetY = Math.random() * 200 + 250; // Random offset for variation
 
-        this.node.setPosition(uiX + 175, uiY + 250, 0); // offset x 175 and y 250
+        this.node.setPosition(uiX + randOffsetX, uiY + randOffsetY, 0); // offset x 175 and y 250
     }
 
     /**

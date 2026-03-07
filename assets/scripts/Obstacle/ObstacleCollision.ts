@@ -1,16 +1,16 @@
 import { _decorator, Component, Collider, ICollisionEvent, Node, CCFloat, find } from 'cc';
 import { Actor } from '../Actor';
-import { Stats } from '../Utils/Stats';
+import { Damage } from '../Define/Define';
 const { ccclass, property } = _decorator;
 
 @ccclass('ObstacleCollision')
 export class ObstacleCollision extends Component {
     @property(CCFloat)
-    damage: number = 10;
+    damage: number = Damage.OBSTACLE_DAMAGE;
 
     private _lastHitTime: number = 0;
     private _hitCooldown: number = 0.5; // Prevent multiple hits in quick succession
-    private _statsDisplay: Stats = null;
+    private _statsDisplay: Component = null;
 
     start() {
         const collider = this.node.getComponent(Collider);
@@ -19,9 +19,9 @@ export class ObstacleCollision extends Component {
         }
 
         // Find Stats display in the scene
-        const statsNode = find('Canvas/Stats');
+        const statsNode = find('UI/Gameplay_UI/Stats');
         if (statsNode) {
-            this._statsDisplay = statsNode.getComponent(Stats);
+            this._statsDisplay = statsNode.getComponent('Stats');
         }
     }
 
@@ -39,7 +39,7 @@ export class ObstacleCollision extends Component {
 
                 // Show stat display for damage
                 if (this._statsDisplay) {
-                    this._statsDisplay.displayStatChange('health', -this.damage);
+                    (this._statsDisplay as any).displayStatChange('health', -this.damage);
                 }
             }
         }

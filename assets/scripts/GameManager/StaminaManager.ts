@@ -1,6 +1,5 @@
 import { _decorator, CCFloat, Component, Node, ProgressBar, find } from 'cc';
 import { Energy, MovementState } from '../Define/Define';
-import { Stats } from '../Utils/Stats';
 const { ccclass, property } = _decorator;
 
 @ccclass('StaminaManager')
@@ -12,8 +11,8 @@ export class StaminaManager extends Component {
     @property(Node)
     staminaBar: Node = null;
 
-    @property({ type: Stats, tooltip: 'Stats display component (auto-finds if not assigned)' })
-    statsDisplay: Stats = null;
+    @property({ type: Component, tooltip: 'Stats display component (auto-finds if not assigned)' })
+    statsDisplay: Component = null;
 
     stamina: number;
     totalUsedStamina: number = 0;
@@ -29,14 +28,14 @@ export class StaminaManager extends Component {
     start() {
         // Auto-find Stats display if not assigned
         if (!this.statsDisplay) {
-            const statsNode = find('Canvas/Stats');
+            const statsNode = find('UI/Gameplay_UI/Stats');
             if (statsNode) {
-                this.statsDisplay = statsNode.getComponent(Stats);
+                this.statsDisplay = statsNode.getComponent('Stats');
                 if (this.statsDisplay) {
                     console.log('StaminaManager: Auto-found Stats display');
                 }
             } else {
-                console.warn('StaminaManager: Stats node not found at Canvas/Stats');
+                console.warn('StaminaManager: Stats node not found at UI/Gameplay_UI/Stats');
             }
         }
     }
@@ -84,7 +83,7 @@ export class StaminaManager extends Component {
             if (showDisplay) {
                 if (this.statsDisplay) {
                     // console.log(`StaminaManager: Showing stat change: -${amount}`);
-                    this.statsDisplay.displayStatChange('stamina', -amount);
+                    (this.statsDisplay as any).displayStatChange('stamina', -amount);
                 } else {
                     // console.warn('StaminaManager: statsDisplay is null, cannot show stat change');
                 }

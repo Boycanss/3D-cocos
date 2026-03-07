@@ -1,8 +1,15 @@
-import { _decorator, Component, Node, Camera, Vec3, Button, input, Input, EventTouch, find, Label, geometry } from 'cc';
+import { _decorator, Component, Node, Camera, Vec3, Button, input, Input, EventTouch, find, Label, geometry, tween, easing } from 'cc';
 import { CameraController } from '../CameraController';
 import { PlayerController } from '../PlayerController';
 import { GameManager } from './GameManager';
-import { PlatformUtils } from '../Define/Define';
+import { PlatformUtils, Energy } from '../Define/Define';
+import { GameOverUI } from '../UI/GameOverUI';
+import { ScoreManager } from './ScoreManager';
+import { ObstacleManager } from './ObstacleManager';
+import { MissileManager } from '../Obstacle/MissileManager';
+import { FlagManager } from './FlagManager';
+import { Actor } from '../Actor';
+import { StaminaManager } from './StaminaManager';
 const { ccclass, property } = _decorator;
 
 @ccclass('SimpleGameFlowManager')
@@ -26,6 +33,9 @@ export class SimpleGameFlowManager extends Component {
     @property({ type: Button, tooltip: "Play button" })
     playButton: Button = null;
 
+    @property({ type: GameOverUI, tooltip: "Game Over UI component" })
+    gameOverUI: GameOverUI = null;
+
     @property(Node)
     playgroundNode:Node
     
@@ -33,6 +43,7 @@ export class SimpleGameFlowManager extends Component {
     private _isDragging: boolean = false;
     private _playerController: PlayerController = null;
     private _gameManager: GameManager = null;
+    private _scoreManager: ScoreManager = null;
     private _touchControlManager: any = null;
     private _savedCameraPosition: Vec3 = null;
     private _savedCameraRotation: Vec3 = null;
@@ -47,15 +58,21 @@ export class SimpleGameFlowManager extends Component {
             this._playerController = this.playerNode.getComponent(PlayerController);
         }
         this._gameManager = this.node.getComponent(GameManager);
+        this._scoreManager = this.node.getComponent(ScoreManager);
         
         // Setup play button
         if (this.playButton) {
             this.playButton.node.on(Button.EventType.CLICK, this.startGame, this);
         }
         
-        // Setup game over event
+        // Setup game over event - now show Game Over UI instead of direct reset
         if (this._gameManager) {
-            this._gameManager.node.on('game-over', this.resetToStartScreen, this);
+            this._gameManager.node.on('game-over', this.onGameOver, this);
+        }
+        
+        // Setup Game Over UI restart event
+        if (this.gameOverUI) {
+            this.gameOverUI.node.on('game-restart', this.onGameRestart, this);
         }
         
         // Setup player drag
@@ -199,11 +216,6 @@ export class SimpleGameFlowManager extends Component {
         
         // Move player to constrained position
         this.playerNode.setWorldPosition(constrainedPos);
-        
-        console.log("🎮 Player moved:");
-        console.log("   - Requested:", worldPos);
-        console.log("   - Constrained:", constrainedPos);
-        console.log("   - Was constrained:", !Vec3.equals(worldPos, constrainedPos, 0.1));
     }
 
     private constrainToPlayground(position: Vec3): Vec3 {
@@ -333,18 +345,12 @@ export class SimpleGameFlowManager extends Component {
            
         }
         
-        // 2. Restore camera to gameplay settings
+        // 2. Animate camera transition to gameplay settings
         if (this.gameplayCamera) {
-            this.gameplayCamera.node.setRotationFromEuler(-35, -45, 0);
-            this.gameplayCamera.orthoHeight = 5.1;
-           
+            this.animateCameraToGameplay();
         }
         
-        // 3. Enable camera follow
-        if (this.cameraController) {
-            this.cameraController.enabled = true;
-           
-        }
+        // 3. Camera follow will be enabled after transition completes
         
         // 4. Show gameplay UI
         if (this.gameplayUIContainer) {
@@ -363,14 +369,118 @@ export class SimpleGameFlowManager extends Component {
             this._gameManager.startTimer();
             console.log("✅ Game timer started");
         }
+
+        // 7. Start flag spawning
+        if (this._gameManager) {
+            const flagManager = this._gameManager.getComponent(FlagManager);
+            if (flagManager) {
+                flagManager.startFlagSpawning();
+                console.log("✅ Flag spawning started");
+            }
+        }
         
         console.log("🎮 ✅ GAME STARTED SUCCESSFULLY!");
+    }
+
+    /**
+     * Handle game over - show Game Over UI
+     */
+    private onGameOver(): void {
+        console.log("🎮 💀 GAME OVER");
+        
+        // Show Game Over UI with score
+        if (this.gameOverUI && this._scoreManager) {
+            this.gameOverUI.showGameOver(this._scoreManager);
+        } else {
+            console.warn("GameOverUI or ScoreManager not found - falling back to direct restart");
+            this.resetToStartScreen();
+        }
+    }
+
+    /**
+     * Handle game restart from Game Over UI
+     */
+    private onGameRestart(): void {
+        console.log("🎮 🔄 RESTARTING GAME FROM GAME OVER UI");
+        this.resetToStartScreen();
     }
 
     private resetToStartScreen(): void {
         console.log("🎮 🔄 RESETTING TO START SCREEN");
         this._isGameStarted = false;
+        
+        // Hide Game Over UI if it's showing
+        if (this.gameOverUI) {
+            this.gameOverUI.hidePopup();
+        }
+        
+        // Reset all game systems
+        this.resetAllGameSystems();
+        
         this.initializeStartScreen();
+    }
+
+    /**
+     * Reset all game systems to initial state
+     */
+    private resetAllGameSystems(): void {
+        console.log("🔄 Resetting all game systems...");
+
+        // 1. Reset GameManager (timer, difficulty, etc.)
+        if (this._gameManager) {
+            this._gameManager.resetTimer();
+            console.log("✅ GameManager reset");
+        }
+
+        // 2. Reset ScoreManager
+        if (this._scoreManager) {
+            this._scoreManager.resetScore();
+            console.log("✅ ScoreManager reset");
+        }
+
+        // 3. Reset Player Health
+        if (this.playerNode) {
+            const actor = this.playerNode.getComponent(Actor);
+            if (actor) {
+                actor.resetActor();
+                console.log("✅ Player health reset");
+            }
+
+            // 4. Reset Player Stamina
+            const staminaManager = this.playerNode.getComponent(StaminaManager) || 
+                                 this._gameManager?.getComponent(StaminaManager);
+            if (staminaManager) {
+                // Reset stamina to full and clear used stamina
+                staminaManager.stamina = Energy.STAMINA; // Use defined constant
+                staminaManager.totalUsedStamina = 0;
+                console.log("✅ Player stamina reset");
+            }
+        }
+
+        // 5. Clear all obstacles
+        if (this._gameManager) {
+            const obstacleManager = this._gameManager.getComponent(ObstacleManager);
+            if (obstacleManager) {
+                obstacleManager.clearObstacles();
+                console.log("✅ Obstacles cleared");
+            }
+
+            // 6. Clear all missiles
+            const missileManager = this._gameManager.getComponent(MissileManager);
+            if (missileManager) {
+                missileManager.clearMissiles();
+                console.log("✅ Missiles cleared");
+            }
+
+            // 7. Reset flag manager
+            const flagManager = this._gameManager.getComponent(FlagManager);
+            if (flagManager) {
+                flagManager.resetFlagManager();
+                console.log("✅ Flag manager reset");
+            }
+        }
+
+        console.log("🎮 ✅ All game systems reset successfully!");
     }
 
     private saveCameraState(): void {
@@ -427,6 +537,94 @@ export class SimpleGameFlowManager extends Component {
         console.log("🎮 Camera zoomed out for start screen - ortho height:", this.gameplayCamera.orthoHeight);
     }
 
+    private animateCameraToGameplay(): void {
+        if (!this.gameplayCamera) return;
+        
+        console.log("🎮 🎬 Starting camera transition animation...");
+        
+        // Get current camera state (start screen)
+        const startPosition = this.gameplayCamera.node.worldPosition.clone();
+        const startRotation = this.gameplayCamera.node.eulerAngles.clone();
+        const startOrthoHeight = this.gameplayCamera.orthoHeight;
+        
+        // Calculate target position using the camera controller's offset
+        const playerPos = this.playerNode.worldPosition.clone();
+        let targetPosition: Vec3;
+        
+        if (this.cameraController && this.cameraController.offset) {
+            // Use the camera controller's offset for accurate positioning
+            targetPosition = new Vec3();
+            Vec3.add(targetPosition, playerPos, this.cameraController.offset);
+            console.log("🎬 Using CameraController offset:", this.cameraController.offset);
+        } else {
+            // Fallback to default offset if no camera controller
+            targetPosition = new Vec3(
+                playerPos.x + 5,  // Slightly behind player
+                playerPos.y + 8,  // Above player
+                playerPos.z + 8   // Back from player
+            );
+            console.log("🎬 Using fallback offset");
+        }
+        
+        // Target rotation and ortho height for gameplay
+        const targetRotation = this.gameplayCameraRotation.clone();
+        const targetOrthoHeight = this.gameplayCameraOrthoHeight;
+        
+        console.log("🎬 Animation targets:");
+        console.log("   - Position:", startPosition, "→", targetPosition);
+        console.log("   - Rotation:", startRotation, "→", targetRotation);
+        console.log("   - Ortho Height:", startOrthoHeight, "→", targetOrthoHeight);
+        
+        // Create smooth transition animation
+        const transitionDuration = 2.0; // 2 seconds for smooth transition
+        
+        // Animate position
+        tween(this.gameplayCamera.node)
+            .to(transitionDuration, { 
+                worldPosition: targetPosition 
+            }, { 
+                easing: easing.sineInOut 
+            })
+            .start();
+        
+        // Animate rotation using a custom object
+        const rotationData = { 
+            x: startRotation.x, 
+            y: startRotation.y, 
+            z: startRotation.z 
+        };
+        
+        tween(rotationData)
+            .to(transitionDuration, { 
+                x: targetRotation.x, 
+                y: targetRotation.y, 
+                z: targetRotation.z 
+            }, { 
+                easing: easing.sineInOut,
+                onUpdate: () => {
+                    // Apply rotation during animation
+                    this.gameplayCamera.node.setRotationFromEuler(rotationData.x, rotationData.y, rotationData.z);
+                }
+            })
+            .start();
+        
+        // Animate ortho height
+        const orthoTarget = { orthoHeight: targetOrthoHeight };
+        tween(this.gameplayCamera)
+            .to(transitionDuration, orthoTarget, { 
+                easing: easing.sineInOut 
+            })
+            .call(() => {
+                console.log("🎬 ✅ Camera transition completed!");
+                // Enable camera follow after transition completes
+                if (this.cameraController) {
+                    this.cameraController.enabled = true;
+                    console.log("✅ Camera follow enabled after transition");
+                }
+            })
+            .start();
+    }
+
     private restoreCameraForGameplay(): void {
         if (!this.gameplayCamera) return;
         
@@ -455,6 +653,16 @@ export class SimpleGameFlowManager extends Component {
         // Clean up UI events
         if (this.playButton) {
             this.playButton.node.off(Button.EventType.CLICK, this.startGame, this);
+        }
+        
+        // Clean up Game Over UI events
+        if (this.gameOverUI) {
+            this.gameOverUI.node.off('game-restart', this.onGameRestart, this);
+        }
+        
+        // Clean up GameManager events
+        if (this._gameManager) {
+            this._gameManager.node.off('game-over', this.onGameOver, this);
         }
     }
 }

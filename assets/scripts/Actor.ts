@@ -1,20 +1,20 @@
 import { _decorator, Component, Node, CCInteger, CCFloat, ProgressBar, find } from 'cc';
-import { Stats } from './Utils/Stats';
+import { Health } from './Define/Define';
 const { ccclass, property } = _decorator;
 
 @ccclass('Actor')
 export class Actor extends Component {
     @property({ type: CCInteger })
-    maxHp: number = 100;
+    maxHp: number = Health.MAX_HP;
 
     @property({ type: CCInteger })
-    currentHp: number = 100;
+    currentHp: number = Health.MAX_HP;
 
     @property({ type: CCFloat, tooltip: 'HP per second when regenerating' })
-    regenRate: number = 5.0;
+    regenRate: number = Health.REGEN_RATE;
 
     @property({ type: CCFloat, tooltip: 'Seconds after taking damage before regen starts' })
-    regenDelay: number = 3.0;
+    regenDelay: number = Health.REGEN_DELAY;
 
     @property({ tooltip: 'Enable automatic HP regeneration' })
     autoRegen: boolean = true;
@@ -27,7 +27,7 @@ export class Actor extends Component {
     private _timeSinceDamage: number = 0;
     private _regenActive: boolean = false;
     private _healthBar: ProgressBar;
-    private _statsDisplay: Stats = null;
+    private _statsDisplay: Component = null;
 
     start() {
         if (this.currentHp > this.maxHp) this.currentHp = this.maxHp;
@@ -36,7 +36,7 @@ export class Actor extends Component {
         // Find Stats display in the scene - try multiple possible paths
         let statsNode = find('UI/Gameplay_UI/Stats');
         if (statsNode) {
-            this._statsDisplay = statsNode.getComponent(Stats);
+            this._statsDisplay = statsNode.getComponent('Stats');
         }
     }
 
@@ -92,7 +92,7 @@ export class Actor extends Component {
         console.log(`Actor: takeDamage called, dmg=${dmg}, _statsDisplay=${this._statsDisplay ? 'found' : 'null'}`);
         if (this._statsDisplay && dmg > 0) {
             console.log(`Actor: Calling displayStatChange for health: -${dmg}`);
-            this._statsDisplay.displayStatChange('health', -dmg);
+            (this._statsDisplay as any).displayStatChange('health', -dmg);
         } else if (!this._statsDisplay) {
             console.error('Actor: _statsDisplay is null! Cannot show health damage.');
         }
@@ -116,7 +116,7 @@ export class Actor extends Component {
         // Show stat display for healing if requested
         if (showDisplay && this._statsDisplay && healAmt > 0) {
             // console.log(`Actor: Showing health heal: +${healAmt}`);
-            this._statsDisplay.displayStatChange('health', healAmt);
+            (this._statsDisplay as any).displayStatChange('health', healAmt);
         }
     }
 
@@ -130,7 +130,7 @@ export class Actor extends Component {
 
     private _findStatsRecursively(node: Node): void {
         // Check if this node has Stats component
-        const stats = node.getComponent(Stats);
+        const stats = node.getComponent('Stats');
         if (stats) {
             console.log(`Actor: Found Stats component on node: ${node.name}, path: ${this._getNodePath(node)}`);
             this._statsDisplay = stats;
@@ -158,6 +158,18 @@ export class Actor extends Component {
         if (this.isDead) return;
         this.isDead = true;
         this.node.emit('actor-dead', this);
+    }
+
+    /**
+     * Reset actor to initial state
+     */
+    resetActor(): void {
+        this.isDead = false;
+        this.currentHp = this.maxHp;
+        this._timeSinceDamage = 0;
+        this._regenActive = false;
+        this._updateHealthBar();
+        console.log("🏥 Actor reset to full health");
     }
 }
 
