@@ -3,6 +3,7 @@ import { Energy, MovementState, ObstacleType } from './Define/Define';
 import { StaminaManager } from './GameManager/StaminaManager';
 import { PlayerController } from './PlayerController';
 import { Box } from './Obstacle/Box';
+import { DustEffectManager } from './Effects/DustEffectManager';
 const { ccclass, property } = _decorator;
 
 @ccclass('SlidingController')
@@ -27,7 +28,7 @@ export class SlidingController extends Component {
     offsetY: number = 0.1;
 
     @property(CCFloat)
-    miniDashDistance: number = 1.5; // Distance for mini dash boost
+    miniDashDistance: number = 2.5; // Distance for mini dash boost
 
     @property(CCFloat)
     miniDashDuration: number = 0.15; // Duration of mini dash
@@ -54,7 +55,7 @@ export class SlidingController extends Component {
      * Uses ray to detect and disable SLIDEBOX colliders.
      */
     public startSlide(): void {
-        if (this.isSliding || !this._playerController.charController.isGrounded || this._playerController.currentSpeed == 0) return;
+        if (this.isSliding || !this._playerController.charController.isGrounded || this._playerController.currentSpeed <= this._playerController.maxSpeed/2) return;
 
         this.isSliding = true;
         this._slideStartTime = 0;
@@ -63,6 +64,12 @@ export class SlidingController extends Component {
 
         // Use the configured slide duration
         this._slideDuration = this.slideDuration;
+
+        // Start dust trail effect (same approach as GhostEffect)
+        const dustEffect = this.node.getComponent(DustEffectManager);
+        if (dustEffect) {
+            dustEffect.createDustTrail();
+        }
 
         // Cast ray from head position to detect SLIDEBOX colliders
         this.detectAndDisableSlideBoxes();
@@ -80,6 +87,12 @@ export class SlidingController extends Component {
 
         this.isSliding = false;
         this._playerController.Animation.setValue('Slide', false);
+
+        // Stop dust trail effect (same approach as GhostEffect)
+        const dustEffect = this.node.getComponent(DustEffectManager);
+        if (dustEffect) {
+            dustEffect.stopDustTrail();
+        }
 
         // Re-enable all disabled colliders
         this.reEnableSlideBoxes();

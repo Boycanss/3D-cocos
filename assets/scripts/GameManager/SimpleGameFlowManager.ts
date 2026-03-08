@@ -10,6 +10,8 @@ import { MissileManager } from '../Obstacle/MissileManager';
 import { FlagManager } from './FlagManager';
 import { Actor } from '../Actor';
 import { StaminaManager } from './StaminaManager';
+import { StartScreenUI } from '../UI/StartScreenUI';
+import { BestRunManager } from '../BestRunManager';
 const { ccclass, property } = _decorator;
 
 @ccclass('SimpleGameFlowManager')
@@ -36,6 +38,9 @@ export class SimpleGameFlowManager extends Component {
     @property({ type: GameOverUI, tooltip: "Game Over UI component" })
     gameOverUI: GameOverUI = null;
 
+    @property({ type: StartScreenUI, tooltip: "Start Screen UI component" })
+    startScreenUI: StartScreenUI = null;
+
     @property(Node)
     playgroundNode:Node
     
@@ -44,6 +49,7 @@ export class SimpleGameFlowManager extends Component {
     private _playerController: PlayerController = null;
     private _gameManager: GameManager = null;
     private _scoreManager: ScoreManager = null;
+    private _bestRunManager: BestRunManager = null;
     private _touchControlManager: any = null;
     private _savedCameraPosition: Vec3 = null;
     private _savedCameraRotation: Vec3 = null;
@@ -59,6 +65,7 @@ export class SimpleGameFlowManager extends Component {
         }
         this._gameManager = this.node.getComponent(GameManager);
         this._scoreManager = this.node.getComponent(ScoreManager);
+        this._bestRunManager = this.node.getComponent(BestRunManager);
         
         // Setup play button
         if (this.playButton) {
@@ -143,6 +150,9 @@ export class SimpleGameFlowManager extends Component {
                 label.string = "CLICK ANYWHERE TO MOVE THE CHARACTER, THEN PRESS PLAY";
             }
         }
+
+        // 8. Load and display best run stats
+        this.loadAndDisplayBestRunStats();
     }
 
     private setupPlayerDrag(): void {
@@ -220,7 +230,7 @@ export class SimpleGameFlowManager extends Component {
 
     private constrainToPlayground(position: Vec3): Vec3 {
         if (!this.playgroundNode) {
-            console.log("🎮 No playground node - no constraints");
+            // console.log("🎮 No playground node - no constraints");
             return position;
         }
         
@@ -243,13 +253,13 @@ export class SimpleGameFlowManager extends Component {
         constrainedPos.z = Math.max(minZ, Math.min(maxZ, position.z));
         constrainedPos.y = 0.22; // Keep at ground level
         
-        // Debug boundary info
-        if (!Vec3.equals(position, constrainedPos, 0.1)) {
-            console.log("🎮 Position constrained!");
-            console.log("   - Boundaries: X[", minX.toFixed(1), "to", maxX.toFixed(1), "] Z[", minZ.toFixed(1), "to", maxZ.toFixed(1), "]");
-            console.log("   - Original:", position);
-            console.log("   - Constrained:", constrainedPos);
-        }
+        // // Debug boundary info
+        // if (!Vec3.equals(position, constrainedPos, 0.1)) {
+        //     // // console.log("🎮 Position constrained!");
+        //     // // console.log("   - Boundaries: X[", minX.toFixed(1), "to", maxX.toFixed(1), "] Z[", minZ.toFixed(1), "to", maxZ.toFixed(1), "]");
+        //     // // console.log("   - Original:", position);
+        //     // // console.log("   - Constrained:", constrainedPos);
+        // }
         
         return constrainedPos;
     }
@@ -355,19 +365,19 @@ export class SimpleGameFlowManager extends Component {
         // 4. Show gameplay UI
         if (this.gameplayUIContainer) {
             this.gameplayUIContainer.active = true;
-            console.log("✅ Gameplay UI shown");
+            
         }
         
         // 5. Enable player controller
         if (this._playerController) {
             this._playerController.enabled = true;
-            console.log("✅ Player controller enabled");
+            
         }
         
         // 6. Start game timer
         if (this._gameManager) {
             this._gameManager.startTimer();
-            console.log("✅ Game timer started");
+            
         }
 
         // 7. Start flag spawning
@@ -375,18 +385,21 @@ export class SimpleGameFlowManager extends Component {
             const flagManager = this._gameManager.getComponent(FlagManager);
             if (flagManager) {
                 flagManager.startFlagSpawning();
-                console.log("✅ Flag spawning started");
+                
             }
         }
         
-        console.log("🎮 ✅ GAME STARTED SUCCESSFULLY!");
+        // // console.log("🎮 ✅ GAME STARTED SUCCESSFULLY!");
     }
 
     /**
      * Handle game over - show Game Over UI
      */
     private onGameOver(): void {
-        console.log("🎮 💀 GAME OVER");
+        // // console.log("🎮 💀 GAME OVER");
+        
+        // Save current run stats and check for new records
+        this.saveCurrentRunStats();
         
         // Show Game Over UI with score
         if (this.gameOverUI && this._scoreManager) {
@@ -398,15 +411,96 @@ export class SimpleGameFlowManager extends Component {
     }
 
     /**
+     * Save current run statistics and check for new records
+     */
+    private saveCurrentRunStats(): void {
+        if (!this._gameManager || !this._scoreManager || !this._bestRunManager) return;
+
+        // Get current run stats
+        const currentTime = this._gameManager.getGameTime();
+        const currentScore = this._scoreManager.getFinalScore();
+        const currentDistance = this._bestRunManager.getCurrentDistance();
+
+        // Check and save new records
+        let newRecords: string[] = [];
+
+        // Check best time
+        const previousBestTime = this._bestRunManager.getBestTime();
+        if (currentTime > previousBestTime) {
+            this._bestRunManager.saveBestTime(currentTime);
+            newRecords.push('time');
+            // console.log(`🎉 NEW BEST TIME: ${currentTime}s (previous: ${previousBestTime}s)`);
+        }
+
+        // Check best distance (handled by BestRunManager.updateDistance)
+        const previousBestDistance = this._bestRunManager.getBestDistance();
+        if (currentDistance > previousBestDistance) {
+            newRecords.push('distance');
+            // console.log(`🎉 NEW BEST DISTANCE: ${currentDistance}m (previous: ${previousBestDistance}m)`);
+        }
+
+        // Check best score (handled by GameOverUI, but we can track it here too)
+        const previousBestScore = this.gameOverUI ? this.gameOverUI.loadBestScore() : 0;
+        if (currentScore > previousBestScore) {
+            newRecords.push('score');
+            // console.log(`🎉 NEW HIGH SCORE: ${currentScore} (previous: ${previousBestScore})`);
+        }
+
+        // Store new records for celebration on next start screen
+        if (newRecords.length > 0) {
+            this.scheduleNewRecordCelebration(newRecords);
+        }
+
+        // console.log(`📊 Run Complete - Time: ${currentTime}s, Score: ${currentScore}, Distance: ${currentDistance}m`);
+    }
+
+    /**
+     * Schedule celebration for new records on next start screen
+     */
+    private scheduleNewRecordCelebration(newRecords: string[]): void {
+        // We'll show celebration when returning to start screen
+        // For now, just log it - you could store this in localStorage for persistence
+        console.log(`🎉 New Records Achieved: ${newRecords.join(', ')}`);
+    }
+
+    /**
      * Handle game restart from Game Over UI
      */
     private onGameRestart(): void {
-        console.log("🎮 🔄 RESTARTING GAME FROM GAME OVER UI");
+        // // console.log("🎮 🔄 RESTARTING GAME FROM GAME OVER UI");
         this.resetToStartScreen();
     }
 
+    /**
+     * Load and display best run statistics on start screen
+     */
+    private loadAndDisplayBestRunStats(): void {
+        if (!this.startScreenUI) return;
+
+        // Get best run data
+        let bestTime = 0;
+        let bestScore = 0;
+        let bestDistance = 0;
+
+        // Load best time from BestRunManager
+        if (this._bestRunManager) {
+            bestTime = this._bestRunManager.getBestTime();
+            bestDistance = this._bestRunManager.getBestDistance();
+        }
+
+        // Load best score from GameOverUI (it handles score persistence)
+        if (this.gameOverUI) {
+            bestScore = this.gameOverUI.loadBestScore();
+        }
+
+        // Update the start screen UI with best run stats
+        this.startScreenUI.updateBestRunStats(bestTime, bestScore, bestDistance);
+
+        console.log(`📊 Best Run Stats Loaded - Time: ${bestTime}s, Score: ${bestScore}, Distance: ${bestDistance}m`);
+    }
+
     private resetToStartScreen(): void {
-        console.log("🎮 🔄 RESETTING TO START SCREEN");
+        // // console.log("🎮 🔄 RESETTING TO START SCREEN");
         this._isGameStarted = false;
         
         // Hide Game Over UI if it's showing
@@ -418,24 +512,27 @@ export class SimpleGameFlowManager extends Component {
         this.resetAllGameSystems();
         
         this.initializeStartScreen();
+        
+        // Refresh best run stats (in case they were updated)
+        this.loadAndDisplayBestRunStats();
     }
 
     /**
      * Reset all game systems to initial state
      */
     private resetAllGameSystems(): void {
-        console.log("🔄 Resetting all game systems...");
+        // // console.log("🔄 Resetting all game systems...");
 
         // 1. Reset GameManager (timer, difficulty, etc.)
         if (this._gameManager) {
             this._gameManager.resetTimer();
-            console.log("✅ GameManager reset");
+            
         }
 
         // 2. Reset ScoreManager
         if (this._scoreManager) {
             this._scoreManager.resetScore();
-            console.log("✅ ScoreManager reset");
+            
         }
 
         // 3. Reset Player Health
@@ -443,7 +540,7 @@ export class SimpleGameFlowManager extends Component {
             const actor = this.playerNode.getComponent(Actor);
             if (actor) {
                 actor.resetActor();
-                console.log("✅ Player health reset");
+                
             }
 
             // 4. Reset Player Stamina
@@ -453,7 +550,7 @@ export class SimpleGameFlowManager extends Component {
                 // Reset stamina to full and clear used stamina
                 staminaManager.stamina = Energy.STAMINA; // Use defined constant
                 staminaManager.totalUsedStamina = 0;
-                console.log("✅ Player stamina reset");
+                
             }
         }
 
@@ -462,25 +559,25 @@ export class SimpleGameFlowManager extends Component {
             const obstacleManager = this._gameManager.getComponent(ObstacleManager);
             if (obstacleManager) {
                 obstacleManager.clearObstacles();
-                console.log("✅ Obstacles cleared");
+                
             }
 
             // 6. Clear all missiles
             const missileManager = this._gameManager.getComponent(MissileManager);
             if (missileManager) {
                 missileManager.clearMissiles();
-                console.log("✅ Missiles cleared");
+                
             }
 
             // 7. Reset flag manager
             const flagManager = this._gameManager.getComponent(FlagManager);
             if (flagManager) {
                 flagManager.resetFlagManager();
-                console.log("✅ Flag manager reset");
+                
             }
         }
 
-        console.log("🎮 ✅ All game systems reset successfully!");
+        // // console.log("🎮 ✅ All game systems reset successfully!");
     }
 
     private saveCameraState(): void {
@@ -490,24 +587,24 @@ export class SimpleGameFlowManager extends Component {
         this._savedCameraRotation = this.gameplayCamera.node.eulerAngles.clone();
         this._savedCameraOrthoHeight = this.gameplayCamera.orthoHeight;
         
-        console.log("🎮 Camera state saved:", {
-            position: this._savedCameraPosition,
-            rotation: this._savedCameraRotation,
-            orthoHeight: this._savedCameraOrthoHeight
-        });
+        // // console.log("🎮 Camera state saved:", {
+        //     position: this._savedCameraPosition,
+        //     rotation: this._savedCameraRotation,
+        //     orthoHeight: this._savedCameraOrthoHeight
+        // });
     }
 
     private disableCameraFollow(): void {
         if (this.cameraController) {
             this.cameraController.enabled = false;
-            console.log("🎮 Camera follow disabled");
+            // console.log("🎮 Camera follow disabled");
         }
     }
 
     private enableCameraFollow(): void {
         if (this.cameraController) {
             this.cameraController.enabled = true;
-            console.log("🎮 Camera follow enabled");
+            // console.log("🎮 Camera follow enabled");
         }
     }
 
@@ -534,13 +631,13 @@ export class SimpleGameFlowManager extends Component {
             this.gameplayCamera.node.setRotationFromEuler(-45, 0, 0);
         }
         
-        console.log("🎮 Camera zoomed out for start screen - ortho height:", this.gameplayCamera.orthoHeight);
+        // console.log("🎮 Camera zoomed out for start screen - ortho height:", this.gameplayCamera.orthoHeight);
     }
 
     private animateCameraToGameplay(): void {
         if (!this.gameplayCamera) return;
         
-        console.log("🎮 🎬 Starting camera transition animation...");
+        // console.log("🎮 🎬 Starting camera transition animation...");
         
         // Get current camera state (start screen)
         const startPosition = this.gameplayCamera.node.worldPosition.clone();
@@ -555,7 +652,7 @@ export class SimpleGameFlowManager extends Component {
             // Use the camera controller's offset for accurate positioning
             targetPosition = new Vec3();
             Vec3.add(targetPosition, playerPos, this.cameraController.offset);
-            console.log("🎬 Using CameraController offset:", this.cameraController.offset);
+            // console.log("🎬 Using CameraController offset:", this.cameraController.offset);
         } else {
             // Fallback to default offset if no camera controller
             targetPosition = new Vec3(
@@ -563,17 +660,17 @@ export class SimpleGameFlowManager extends Component {
                 playerPos.y + 8,  // Above player
                 playerPos.z + 8   // Back from player
             );
-            console.log("🎬 Using fallback offset");
+            // console.log("🎬 Using fallback offset");
         }
         
         // Target rotation and ortho height for gameplay
         const targetRotation = this.gameplayCameraRotation.clone();
         const targetOrthoHeight = this.gameplayCameraOrthoHeight;
         
-        console.log("🎬 Animation targets:");
-        console.log("   - Position:", startPosition, "→", targetPosition);
-        console.log("   - Rotation:", startRotation, "→", targetRotation);
-        console.log("   - Ortho Height:", startOrthoHeight, "→", targetOrthoHeight);
+        // console.log("🎬 Animation targets:");
+        // console.log("   - Position:", startPosition, "→", targetPosition);
+        // console.log("   - Rotation:", startRotation, "→", targetRotation);
+        // console.log("   - Ortho Height:", startOrthoHeight, "→", targetOrthoHeight);
         
         // Create smooth transition animation
         const transitionDuration = 2.0; // 2 seconds for smooth transition
@@ -615,11 +712,11 @@ export class SimpleGameFlowManager extends Component {
                 easing: easing.sineInOut 
             })
             .call(() => {
-                console.log("🎬 ✅ Camera transition completed!");
+                // console.log("🎬 ✅ Camera transition completed!");
                 // Enable camera follow after transition completes
                 if (this.cameraController) {
                     this.cameraController.enabled = true;
-                    console.log("✅ Camera follow enabled after transition");
+                    
                 }
             })
             .start();
@@ -633,7 +730,7 @@ export class SimpleGameFlowManager extends Component {
         this.gameplayCamera.orthoHeight = this.gameplayCameraOrthoHeight;
         
         // Position will be handled by camera controller when enabled
-        console.log("🎮 Camera restored for gameplay - ortho height:", this.gameplayCamera.orthoHeight);
+        // console.log("🎮 Camera restored for gameplay - ortho height:", this.gameplayCamera.orthoHeight);
     }
 
     // Public API

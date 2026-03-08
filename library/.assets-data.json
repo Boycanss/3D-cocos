@@ -11955,6 +11955,7 @@
         "b0fe8a36-9165-4e72-9982-9a0e8a8b3604@73d57",
         "51c4de5c-3f74-4c31-89d5-d1f57e619a8b@2bcf1",
         "9c28149e-8358-4b8f-9744-8a4e75b8016a@dfda3",
+        "2dc1b2d3-588f-4049-a8e6-508d288185f8",
         "d809f4d6-a522-4004-8532-a7b642242c5a",
         "d032ac98-05e1-4090-88bb-eb640dcb5fc1@b47c0",
         "6f01cf7f-81bf-4a7e-bd5d-0afc19696480@b47c0"
@@ -11985,7 +11986,8 @@
         "9efe28dc-23fa-441b-b69b-fc1a2b74676f",
         "ef53e97b-bd72-4010-bed8-1664208273cd",
         "0a1c2f11-f15b-42fb-b2ba-5e4bcb99e50a",
-        "634f6872-9a20-417c-96c8-a1d758cafe00"
+        "634f6872-9a20-417c-96c8-a1d758cafe00",
+        "b7ccd648-aac9-4571-b48a-ea11754300bd"
       ]
     },
     "versionCode": 1
@@ -15216,6 +15218,50 @@
       "depends": [
         "4b834bd7-b7f6-4d6e-b6c2-7cfc06bfae74@6c48a"
       ]
+    },
+    "versionCode": 1
+  },
+  "448e114c-84b9-4522-a6d0-98c07645f314": {
+    "url": "db://assets/materials/DustMat.mtl",
+    "value": {
+      "depends": [
+        "c8f66d17-351a-48da-a12c-0212d28575c4"
+      ]
+    },
+    "versionCode": 1
+  },
+  "2dc1b2d3-588f-4049-a8e6-508d288185f8": {
+    "url": "db://assets/prefabs/Dust_effect.prefab",
+    "value": {
+      "depends": [
+        "448e114c-84b9-4522-a6d0-98c07645f314",
+        "1263d74c-8167-4928-91a6-4e2672411f47@17020"
+      ],
+      "dependScripts": [
+        "939badcb-a33e-4df1-94b0-c2ecfb21f4e5"
+      ]
+    },
+    "versionCode": 1
+  },
+  "b7ccd648-aac9-4571-b48a-ea11754300bd": {
+    "url": "db://assets/scripts/Effects/DustEffectManager.ts",
+    "value": {},
+    "versionCode": 1
+  },
+  "939badcb-a33e-4df1-94b0-c2ecfb21f4e5": {
+    "url": "db://assets/scripts/Effects/DustParticle.ts",
+    "value": {},
+    "versionCode": 1
+  },
+  "f0861c2d-8af5-4e4c-a7e6-6f3695b7c278": {
+    "url": "db://assets/scripts/Effects",
+    "value": {},
+    "versionCode": 1
+  },
+  "ab084bdb-ce01-4e09-b513-6c9dcc957a8a": {
+    "url": "db://assets/scripts/Effects/DUST_EFFECT_SETUP.md",
+    "value": {
+      "depends": []
     },
     "versionCode": 1
   }

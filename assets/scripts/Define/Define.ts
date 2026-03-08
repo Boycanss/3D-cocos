@@ -19,7 +19,7 @@ export enum StatDisplayColor {
 
 // Energy/Stamina costs - Fine-tuned for balanced gameplay
 export enum Energy{
-    STAMINA = 100,          
+    STAMINA = 10000,          
     RUN = 1.5,              
     JUMP = 8,               
     VAULT = 6,              

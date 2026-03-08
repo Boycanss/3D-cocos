@@ -9,7 +9,8 @@ export class BestRunManager extends Component {
     
     onLoad() {
         this.loadBestDistance();
-        this.loadBestTime();
+        this.bestTime = this.loadBestTime(); // Store the loaded value
+        // console.log(`📊 BestRunManager loaded - Time: ${this.bestTime}s, Distance: ${this.bestDistance}m`);
     }
     
     public updateDistance(distance: number) {
@@ -17,6 +18,7 @@ export class BestRunManager extends Component {
         if (distance > this.bestDistance) {
             this.bestDistance = distance;
             this.saveBestDistance();
+            // console.log(`🎉 New best distance: ${this.bestDistance.toFixed(1)}m`);
         }
     }
     
@@ -51,10 +53,12 @@ export class BestRunManager extends Component {
         }
     }
 
-    // New methods for Time
+    // Methods for Time tracking
     public saveBestTime(time: number) {
+        this.bestTime = time; // Update current best time
         try {
             sys.localStorage.setItem('bestParkourTime', time.toString());
+            // console.log(`💾 Saved new best time: ${time.toFixed(1)}s`);
         } catch (e) {
             console.error('Failed to save best time:', e);
         }

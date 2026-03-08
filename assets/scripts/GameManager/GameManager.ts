@@ -1,4 +1,4 @@
-import { _decorator, CCFloat, Component, Label, Node, Prefab } from 'cc';
+import { _decorator, CCFloat, Component, Label, Node, Prefab, Vec3 } from 'cc';
 import { StaminaManager } from './StaminaManager';
 import { ObstacleManager } from './ObstacleManager';
 import { MovementState } from '../Define/Define';
@@ -27,8 +27,7 @@ export class GameManager extends Component {
     @property(Node)
     levelDisplay: Node;
 
-    @property(Node)
-    bestRunDisplay: Node;
+    // Removed bestRunDisplay - now handled by StartScreenUI
 
     @property(SurvivalZoneManager)
     survivalZoneManager: SurvivalZoneManager = null;
@@ -44,6 +43,11 @@ export class GameManager extends Component {
     private gameTime: number = 0;
     private isTimerRunning: boolean = false;
     private startTime: number = 0;
+    
+    // Distance tracking
+    private lastPlayerPosition: Vec3 = new Vec3();
+    private totalDistance: number = 0;
+    private hasStartedTracking: boolean = false;
     
     private difficultyLevel: GameLevel = GameLevel.LEVEL1;
     private lastDifficultyUpdate: number = 0;
@@ -78,7 +82,7 @@ export class GameManager extends Component {
             this.survivalZoneManager.spawnZones();
         }
 
-        this.loadBestRun();
+        // Best run display now handled by StartScreenUI
     }
 
     private _onActorDead(actor: Actor) {
@@ -107,6 +111,7 @@ export class GameManager extends Component {
             this.gameTime += deltaTime;
             this.updateDifficulty();
             this.updateAutoMissiles();
+            this.updateDistanceTracking();
         }
         
         this.currentPlayerState = this.playerNode.getComponent(PlayerController).getState();
@@ -161,6 +166,7 @@ export class GameManager extends Component {
 
     public startTimer() {
         this.isTimerRunning = true;
+        this.initializeDistanceTracking();
     }
     
     public pauseTimer() {
@@ -176,6 +182,11 @@ export class GameManager extends Component {
         // Reset auto-missile system
         this.lastAutoMissileTime = 0;
         this.currentAutoMissileInterval = 15; // Reset to Level 1 interval
+        
+        // Reset distance tracking
+        this.totalDistance = 0;
+        this.hasStartedTracking = false;
+        this.bestRunManager.resetCurrentDistance();
         
         this.isTimerRunning = false;
         if (this.timeDisplay) {
@@ -266,20 +277,10 @@ export class GameManager extends Component {
         return this.difficultyLevel;
     }
 
-    private loadBestRun() {
-        if (this.bestRunDisplay) {
-            const label = this.bestRunDisplay.getComponent(Label);
-            if (label) {
-                const bestTime = this.bestRunManager.getBestTime();
-                label.string = `Best Time: ${this.formatTime(bestTime)}`;
-            }
-        }
-    }
-
     private saveBestRun() {
         const totalTime = this.getGameTime();
         this.bestRunManager.saveBestTime(totalTime);
-        this.loadBestRun();
+        // Best run display now handled by StartScreenUI
     }
 
     private formatTime(seconds: number): string {
@@ -287,5 +288,49 @@ export class GameManager extends Component {
         const secs = Math.floor(seconds % 60);
         const ms = Math.floor((seconds % 1) * 100);
         return `${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}.${ms.toString().padStart(2, '0')}`;
+    }
+
+    /**
+     * Initialize distance tracking when game starts
+     */
+    private initializeDistanceTracking(): void {
+        if (this.playerNode) {
+            this.lastPlayerPosition = this.playerNode.worldPosition.clone();
+            this.totalDistance = 0;
+            this.hasStartedTracking = true;
+            console.log("📏 Distance tracking initialized");
+        }
+    }
+
+    /**
+     * Update distance tracking based on player movement
+     */
+    private updateDistanceTracking(): void {
+        if (!this.hasStartedTracking || !this.playerNode) return;
+
+        const currentPosition = this.playerNode.worldPosition.clone();
+        
+        // Calculate distance moved since last frame (only X and Z, ignore Y for jumping)
+        const lastPos2D = new Vec3(this.lastPlayerPosition.x, 0, this.lastPlayerPosition.z);
+        const currentPos2D = new Vec3(currentPosition.x, 0, currentPosition.z);
+        const distanceMoved = Vec3.distance(lastPos2D, currentPos2D);
+        
+        // Only count significant movement to avoid jitter
+        if (distanceMoved > 0.01) {
+            this.totalDistance += distanceMoved;
+            
+            // Update BestRunManager with current distance
+            this.bestRunManager.updateDistance(this.totalDistance);
+            
+            // Update last position
+            this.lastPlayerPosition = currentPosition.clone();
+        }
+    }
+
+    /**
+     * Get total distance traveled this run
+     */
+    public getTotalDistance(): number {
+        return this.totalDistance;
     }
 }

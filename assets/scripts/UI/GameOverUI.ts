@@ -169,7 +169,7 @@ export class GameOverUI extends Component {
     /**
      * Load best score from local storage
      */
-    private loadBestScore(): number {
+    public loadBestScore(): number {
         try {
             const saved = sys.localStorage.getItem('bestParkourScore');
             if (saved) {

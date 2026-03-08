@@ -9,6 +9,7 @@ import { ObstacleCollision } from './Obstacle/ObstacleCollision';
 import { Missile } from './Obstacle/Missile';
 import { SlidingController } from './SlidingController';
 import { TouchControlManager } from './Touch/TouchControlManager';
+import { DustEffectManager } from './Effects/DustEffectManager';
 const { ccclass, property } = _decorator;
 
 @ccclass('PlayerController')
@@ -28,6 +29,8 @@ export class PlayerController extends Component {
 
     @property({ type: TouchControlManager, tooltip: "Touch control manager for mobile input" })
     touchControlManager: TouchControlManager = null;
+
+
 
     @property(CCFloat)
     maxSpeed: number = 5;
@@ -71,6 +74,7 @@ export class PlayerController extends Component {
     private _timeSinceLastHit: number = 0;
     private _canTakeDamage: boolean = true;
     private _slidingController: SlidingController;
+    private _previousState: MovementState = MovementState.IDLE; // Track state changes for dust effects
 
     // Track which turn keys are pressed (keyboard)
     private _keyAPressed: boolean = false;
@@ -219,6 +223,7 @@ export class PlayerController extends Component {
                     this._moveDir.z = 1;
                 }
                 this.Animation.setValue('isRunning', true);
+                this.node.getComponent(DustEffectManager).setTrailActive(false);
                 break;
             case MovementState.VAULTING:
 
@@ -233,6 +238,8 @@ export class PlayerController extends Component {
             case MovementState.SLIDING:
                 this._moveDir.z = 0;
                 this.Animation.setValue('isRunning', false);
+                // Start dust trail for sliding
+                this.callDustTrail();
                 break;
             case MovementState.WALL_RUNNING:
                 this.Animation.setValue('isRunning', true);
@@ -240,6 +247,8 @@ export class PlayerController extends Component {
                 this._wallRunLockedSide = this._wallSide;
                 this._wallRunLockedY = this.computeWallParallelY();
                 this.node.setRotationFromEuler(0, this._wallRunLockedY, this._currentLeanAngle);
+                // Start dust trail for wall running
+                this.callDustTrail();
                 console.log("🏃‍♂️ Wall running started!");
                 break;
             default:
@@ -322,6 +331,10 @@ export class PlayerController extends Component {
         if(this.staminaManager.getStamina() <= 0 && (this.currentState == MovementState.RUNNING || this.currentState == MovementState.WALL_RUNNING)){
             this.SetState(MovementState.IDLE);
         }
+
+        // Handle dust effect state changes
+        this.handleDustEffectStateChanges();
+
         if (this.currentState != MovementState.VAULTING && !this.isDashing) this.HandleMovement(deltaTime);
     }
 
@@ -450,11 +463,9 @@ export class PlayerController extends Component {
     Jump() {
         // Prevent jump spam - only allow jump when grounded or wall running
         if (this.currentState === MovementState.JUMPING) return;
-        
+        this.callDustEffect(3);
         // Wall Run Jump Logic - keep original but with immediate rotation
         if (this.currentState === MovementState.WALL_RUNNING) {
-            console.log("🏃‍♂️ Wall running jump triggered!");
-            
             // Calculate jump direction perpendicular to wall
             const normal = this._wallNormal.clone();
             normal.y = 0;
@@ -579,6 +590,9 @@ export class PlayerController extends Component {
         }
 
         this.callGhostEffect(2);
+        
+        // Trigger dust burst effect for dash
+        if(this.charController.isGrounded) this.callDustEffect(8);
     }
 
     private performDashWithCollision(direction: Vec3): void {
@@ -633,6 +647,53 @@ export class PlayerController extends Component {
         if (ghostEffect) {
             ghostEffect.create3DGhost(count);
         }
+    }
+
+    /**
+     * Call dust effect - same approach as GhostEffect
+     */
+    callDustEffect(particleCount: number = 8) {
+        const dustEffect = this.node.getComponent(DustEffectManager);
+        if (dustEffect) {
+            dustEffect.createDustBurst(particleCount);
+        }
+    }
+
+    /**
+     * Call dust trail effect - same approach as GhostEffect
+     */
+    callDustTrail() {
+        const dustEffect = this.node.getComponent(DustEffectManager);
+        if (dustEffect) {
+            dustEffect.createDustTrail();
+        }
+    }
+
+    /**
+     * Stop dust trail effect - same approach as GhostEffect
+     */
+    stopDustTrail() {
+        const dustEffect = this.node.getComponent(DustEffectManager);
+        if (dustEffect) {
+            dustEffect.stopDustTrail();
+        }
+    }
+
+    /**
+     * Handle dust effect state changes
+     */
+    private handleDustEffectStateChanges(): void {
+        // Stop dust trail when exiting sliding or wall running
+        if (this._previousState === MovementState.SLIDING && this.currentState !== MovementState.SLIDING) {
+            this.stopDustTrail();
+        }
+        
+        if (this._previousState === MovementState.WALL_RUNNING && this.currentState !== MovementState.WALL_RUNNING) {
+            this.stopDustTrail();
+        }
+
+        // Update previous state
+        this._previousState = this.currentState;
     }
 
     // Helper: return true if the collider's node has a Box component with HIGHBOX type

@@ -16,6 +16,15 @@ export class StartScreenUI extends Component {
     @property({ type: Node, tooltip: "Best time display" })
     bestTimeDisplay: Node = null;
     
+    @property({ type: Node, tooltip: "Best score display" })
+    bestScoreDisplay: Node = null;
+    
+    @property({ type: Node, tooltip: "Best distance display" })
+    bestDistanceDisplay: Node = null;
+    
+    @property({ type: Node, tooltip: "Container for all best run stats" })
+    bestRunContainer: Node = null;
+    
     @property({ type: Node, tooltip: "Container for all start screen elements" })
     startScreenContainer: Node = null;
     
@@ -54,7 +63,7 @@ export class StartScreenUI extends Component {
 
     start(): void {
         // Start logo animation
-        this.startLogoAnimation();
+        // this.startLogoAnimation();
     }
 
     private setupButtonAnimations(): void {
@@ -237,9 +246,90 @@ export class StartScreenUI extends Component {
         if (!this.bestTimeDisplay) return;
         
         const label = this.bestTimeDisplay.getComponent(Label);
+        console.log(label);
+        
         if (label) {
             label.string = `Best Time: ${timeString}`;
         }
+    }
+
+    /**
+     * Update best score display
+     */
+    public updateBestScore(score: number): void {
+        if (!this.bestScoreDisplay) return;
+        
+        const label = this.bestScoreDisplay.getComponent(Label);
+        if (label) {
+            label.string = `Best Score: ${score.toLocaleString()}`;
+        }
+    }
+
+    /**
+     * Update best distance display
+     */
+    public updateBestDistance(distance: number): void {
+        if (!this.bestDistanceDisplay) return;
+        
+        const label = this.bestDistanceDisplay.getComponent(Label);
+        if (label) {
+            label.string = `Best Distance: ${distance.toFixed(1)}m`;
+        }
+    }
+
+    /**
+     * Update all best run stats at once
+     */
+    public updateBestRunStats(bestTime: number, bestScore: number, bestDistance: number): void {
+        // Format time as MM:SS
+        const minutes = Math.floor(bestTime / 60);
+        const seconds = Math.floor(bestTime % 60);
+        const timeString = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+        
+        this.updateBestTime(timeString);
+        this.updateBestScore(bestScore);
+        this.updateBestDistance(bestDistance);
+        
+        // Show/hide best run container based on whether there are any records
+        if (this.bestRunContainer) {
+            const hasAnyRecord = bestTime > 0 || bestScore > 0 || bestDistance > 0;
+            this.bestRunContainer.active = hasAnyRecord;
+            
+            if (hasAnyRecord) {
+                // Animate the container in
+                const uiOpacity = this.bestRunContainer.getComponent(UIOpacity) || 
+                                 this.bestRunContainer.addComponent(UIOpacity);
+                uiOpacity.opacity = 0;
+                tween(uiOpacity)
+                    .to(0.5, { opacity: 255 })
+                    .start();
+            }
+        }
+    }
+
+    /**
+     * Show congratulations for new record
+     */
+    public showNewRecordCelebration(recordType: 'time' | 'score' | 'distance'): void {
+        let message = "";
+        switch (recordType) {
+            case 'time':
+                message = "🎉 NEW BEST TIME! 🎉";
+                break;
+            case 'score':
+                message = "🎉 NEW HIGH SCORE! 🎉";
+                break;
+            case 'distance':
+                message = "🎉 NEW BEST DISTANCE! 🎉";
+                break;
+        }
+        
+        this.updateInstructionText(message, new Color(255, 215, 0)); // Gold color
+        
+        // Return to normal instruction after 3 seconds
+        this.scheduleOnce(() => {
+            this.updateInstructionText("Drag the character to your desired starting position");
+        }, 3.0);
     }
 
     /**
