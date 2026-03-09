@@ -249,7 +249,7 @@ export class PlayerController extends Component {
                 this.node.setRotationFromEuler(0, this._wallRunLockedY, this._currentLeanAngle);
                 // Start dust trail for wall running
                 this.callDustTrail();
-                console.log("🏃‍♂️ Wall running started!");
+                // console.log("🏃‍♂️ Wall running started!");
                 break;
             default:
                 break;
@@ -352,12 +352,12 @@ export class PlayerController extends Component {
         // Debug current state and conditions for mobile
         if (this._isMobile && this.touchControlManager) {
             const inputData = this.touchControlManager.getInputData();
-            if (inputData.isMoving && inputData.vertical > 0.3) {
-                console.log("📱 Mobile Debug - State:", this.currentState, 
-                           "Grounded:", this.charController.isGrounded,
-                           "JoystickVertical:", inputData.vertical,
-                           "Speed:", this.currentSpeed);
-            }
+            // if (inputData.isMoving && inputData.vertical > 0.3) {
+            //     console.log("📱 Mobile Debug - State:", this.currentState, 
+            //                "Grounded:", this.charController.isGrounded,
+            //                "JoystickVertical:", inputData.vertical,
+            //                "Speed:", this.currentSpeed);
+            // }
         }
 
         // Check for wall running conditions (airborne + wall contact + stamina + moving forward)
@@ -393,9 +393,9 @@ export class PlayerController extends Component {
             const grounded = this.charController.isGrounded;
             
             if (wallContactLost || noStamina || grounded) {
-                if (this._isMobile) {
-                    console.log("🏃‍♂️ Exiting wall run - WallLost:", wallContactLost, "NoStamina:", noStamina, "Grounded:", grounded);
-                }
+                // if (this._isMobile) {
+                //     // console.log("🏃‍♂️ Exiting wall run - WallLost:", wallContactLost, "NoStamina:", noStamina, "Grounded:", grounded);
+                // }
                 this.SetState(MovementState.JUMPING);
             }
         }
@@ -463,7 +463,7 @@ export class PlayerController extends Component {
     Jump() {
         // Prevent jump spam - only allow jump when grounded or wall running
         if (this.currentState === MovementState.JUMPING) return;
-        this.callDustEffect(3);
+        
         // Wall Run Jump Logic - keep original but with immediate rotation
         if (this.currentState === MovementState.WALL_RUNNING) {
             // Calculate jump direction perpendicular to wall
@@ -482,32 +482,22 @@ export class PlayerController extends Component {
             this.SetState(MovementState.JUMPING);
             this.Animation.setValue('Jump', true);
             this.staminaManager.reduceStamina(Energy.JUMP, true);
-            
             this.verticalVelocity = Physics.JUMP_VELOCITY_BASE * (this.currentSpeed / this.maxSpeed);
             if (this.verticalVelocity < Physics.JUMP_VELOCITY_MIN) {
                 this.verticalVelocity = Physics.JUMP_VELOCITY_MIN;
             }
-            
+            this.callDustEffect(3);
             return;
         }
         
-        // Normal Jump Logic - Different validation for mobile vs PC
-        // For mobile: require some movement input to jump (prevent accidental jumps)
-        if (this._isMobile && this.touchControlManager) {
-            const inputData = this.touchControlManager.getInputData();
-            if (!inputData.isMoving && this.currentSpeed < 0.1) {
-                console.log("❌ Jump blocked - No movement input");
-                return;
-            }
-        }
-        
-        // Desktop: require some speed to jump
-        if (!this._isMobile && this.currentSpeed == 0) return;
+        // Match PC and mobile jump gate: require movement speed to jump
+        if (this.currentSpeed == 0) return;
 
         // Normal Jump Logic - SAME FOR BOTH MOBILE AND PC
         this.SetState(MovementState.JUMPING);
         this.Animation.setValue('Jump', true);
         this.staminaManager.reduceStamina(Energy.JUMP, true); // Show stat display
+        this.callDustEffect(3);
         
         // Use consistent jump velocity calculation for both platforms
         this.verticalVelocity = Physics.JUMP_VELOCITY_BASE * (this.currentSpeed / this.maxSpeed);
@@ -849,21 +839,14 @@ export class PlayerController extends Component {
 
         const inputData = this.touchControlManager.getInputData();
 
-        // Handle movement input - True virtual joystick behavior
+        // Handle movement input - align mobile flow with PC mechanics
         if (inputData.isMoving) {
             const joystickMagnitude = Math.sqrt(inputData.horizontal * inputData.horizontal + inputData.vertical * inputData.vertical);
             
             if (joystickMagnitude > 0.1) {
-                // Set running state - but only if we have stamina and grounded
+                // Match PC: running is allowed while movement input is active
                 if (this.currentState !== MovementState.RUNNING && this.currentState !== MovementState.JUMPING && this.currentState !== MovementState.WALL_RUNNING) {
-                    // Check if we have enough stamina to start running
-                    if (this.staminaManager.getStamina() > Energy.RUN) {
-                        this.SetState(MovementState.RUNNING);
-                    } else {
-                        // Not enough stamina - stay idle
-                        this.SetState(MovementState.IDLE);
-                        console.info("❌ Can't run - Not enough stamina:", this.staminaManager.getStamina());
-                    }
+                    this.SetState(MovementState.RUNNING);
                 }
 
                 // Calculate target rotation based on joystick direction
@@ -973,7 +956,7 @@ export class PlayerController extends Component {
 
             // Allow jump from wall running state - PRIORITY: Wall running jumps should always work
             if (this.currentState === MovementState.WALL_RUNNING && inputData.jumpPressed) {
-                console.log("🏃‍♂️ Mobile wall running jump input detected!");
+                // console.log("🏃‍♂️ Mobile wall running jump input detected!");
                 this.Jump();
             }
             // Allow regular jump while in air (for double jump potential)

@@ -510,28 +510,28 @@
     "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\fbx\\building_A_withoutBase.fbx@7d6ab": [
       "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\fbx\\citybits_texture.png"
     ],
-    "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\fbx\\building_B.fbx@7d6ab": [
+    "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\fbx\\building_B_withoutBase.fbx@7d6ab": [
       "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\fbx\\citybits_texture.png"
     ],
-    "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\fbx\\building_B_withoutBase.fbx@7d6ab": [
+    "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\fbx\\building_B.fbx@7d6ab": [
       "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\fbx\\citybits_texture.png"
     ],
     "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\fbx\\building_C.fbx@7d6ab": [
       "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\fbx\\citybits_texture.png"
     ],
-    "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\fbx\\building_D_withoutBase.fbx@7d6ab": [
+    "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\fbx\\building_C_withoutBase.fbx@7d6ab": [
       "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\fbx\\citybits_texture.png"
     ],
     "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\fbx\\building_D.fbx@7d6ab": [
       "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\fbx\\citybits_texture.png"
     ],
-    "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\fbx\\building_C_withoutBase.fbx@7d6ab": [
-      "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\fbx\\citybits_texture.png"
-    ],
-    "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\fbx\\building_E_withoutBase.fbx@7d6ab": [
+    "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\fbx\\building_D_withoutBase.fbx@7d6ab": [
       "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\fbx\\citybits_texture.png"
     ],
     "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\fbx\\building_E.fbx@7d6ab": [
+      "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\fbx\\citybits_texture.png"
+    ],
+    "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\fbx\\building_E_withoutBase.fbx@7d6ab": [
       "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\fbx\\citybits_texture.png"
     ],
     "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\fbx\\building_F.fbx@7d6ab": [
@@ -540,22 +540,25 @@
     "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\fbx\\building_F_withoutBase.fbx@7d6ab": [
       "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\fbx\\citybits_texture.png"
     ],
-    "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\fbx\\building_G_withoutBase.fbx@7d6ab": [
+    "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\fbx\\building_G.fbx@7d6ab": [
       "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\fbx\\citybits_texture.png"
     ],
-    "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\fbx\\building_G.fbx@7d6ab": [
+    "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\fbx\\building_G_withoutBase.fbx@7d6ab": [
       "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\fbx\\citybits_texture.png"
     ],
     "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\fbx\\building_H.fbx@7d6ab": [
       "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\fbx\\citybits_texture.png"
     ],
-    "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\fbx\\bush.fbx@7d6ab": [
-      "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\fbx\\citybits_texture.png"
-    ],
     "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\fbx\\building_H_withoutBase.fbx@7d6ab": [
       "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\fbx\\citybits_texture.png"
     ],
+    "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\fbx\\bush.fbx@7d6ab": [
+      "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\fbx\\citybits_texture.png"
+    ],
     "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\fbx\\car_hatchback.fbx@7d6ab": [
+      "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\fbx\\citybits_texture.png"
+    ],
+    "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\fbx\\car_police.fbx@7d6ab": [
       "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\fbx\\citybits_texture.png"
     ],
     "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\fbx\\car_sedan.fbx@7d6ab": [
@@ -564,49 +567,46 @@
     "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\fbx\\car_stationwagon.fbx@7d6ab": [
       "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\fbx\\citybits_texture.png"
     ],
-    "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\fbx\\car_police.fbx@7d6ab": [
-      "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\fbx\\citybits_texture.png"
-    ],
-    "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\fbx\\car_taxi.fbx@7d6ab": [
-      "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\fbx\\citybits_texture.png"
-    ],
     "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\fbx\\dumpster.fbx@7d6ab": [
       "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\fbx\\citybits_texture.png"
     ],
     "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\fbx\\firehydrant.fbx@7d6ab": [
       "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\fbx\\citybits_texture.png"
     ],
-    "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\fbx\\road_corner.fbx@7d6ab": [
+    "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\fbx\\car_taxi.fbx@7d6ab": [
       "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\fbx\\citybits_texture.png"
     ],
-    "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\fbx\\road_straight.fbx@7d6ab": [
+    "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\fbx\\road_corner.fbx@7d6ab": [
       "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\fbx\\citybits_texture.png"
     ],
     "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\fbx\\road_corner_curved.fbx@7d6ab": [
       "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\fbx\\citybits_texture.png"
     ],
-    "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\fbx\\road_straight_crossing.fbx@7d6ab": [
-      "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\fbx\\citybits_texture.png"
-    ],
     "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\fbx\\road_junction.fbx@7d6ab": [
       "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\fbx\\citybits_texture.png"
     ],
-    "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\fbx\\streetlight.fbx@7d6ab": [
+    "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\fbx\\road_straight.fbx@7d6ab": [
+      "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\fbx\\citybits_texture.png"
+    ],
+    "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\fbx\\road_straight_crossing.fbx@7d6ab": [
       "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\fbx\\citybits_texture.png"
     ],
     "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\fbx\\road_tsplit.fbx@7d6ab": [
       "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\fbx\\citybits_texture.png"
     ],
-    "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\fbx\\trafficlight_B.fbx@7d6ab": [
+    "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\fbx\\streetlight.fbx@7d6ab": [
       "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\fbx\\citybits_texture.png"
     ],
     "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\fbx\\trafficlight_A.fbx@7d6ab": [
       "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\fbx\\citybits_texture.png"
     ],
-    "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\fbx\\trash_A.fbx@7d6ab": [
+    "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\fbx\\trafficlight_B.fbx@7d6ab": [
       "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\fbx\\citybits_texture.png"
     ],
     "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\fbx\\trafficlight_C.fbx@7d6ab": [
+      "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\fbx\\citybits_texture.png"
+    ],
+    "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\fbx\\trash_A.fbx@7d6ab": [
       "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\fbx\\citybits_texture.png"
     ],
     "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\fbx\\trash_B.fbx@7d6ab": [
@@ -627,9 +627,6 @@
     "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\fbx (unity)\\box_B.fbx@7d6ab": [
       "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\fbx (unity)\\citybits_texture.png"
     ],
-    "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\fbx (unity)\\building_B_withoutBase.fbx@7d6ab": [
-      "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\fbx (unity)\\citybits_texture.png"
-    ],
     "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\fbx (unity)\\building_A_withoutBase.fbx@7d6ab": [
       "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\fbx (unity)\\citybits_texture.png"
     ],
@@ -639,10 +636,13 @@
     "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\fbx (unity)\\building_B.fbx@7d6ab": [
       "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\fbx (unity)\\citybits_texture.png"
     ],
-    "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\fbx (unity)\\building_C_withoutBase.fbx@7d6ab": [
+    "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\fbx (unity)\\building_B_withoutBase.fbx@7d6ab": [
       "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\fbx (unity)\\citybits_texture.png"
     ],
     "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\fbx (unity)\\building_C.fbx@7d6ab": [
+      "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\fbx (unity)\\citybits_texture.png"
+    ],
+    "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\fbx (unity)\\building_C_withoutBase.fbx@7d6ab": [
       "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\fbx (unity)\\citybits_texture.png"
     ],
     "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\fbx (unity)\\building_D.fbx@7d6ab": [
@@ -654,25 +654,25 @@
     "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\fbx (unity)\\building_E.fbx@7d6ab": [
       "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\fbx (unity)\\citybits_texture.png"
     ],
+    "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\fbx (unity)\\building_E_withoutBase.fbx@7d6ab": [
+      "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\fbx (unity)\\citybits_texture.png"
+    ],
     "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\fbx (unity)\\building_F.fbx@7d6ab": [
       "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\fbx (unity)\\citybits_texture.png"
     ],
     "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\fbx (unity)\\building_F_withoutBase.fbx@7d6ab": [
       "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\fbx (unity)\\citybits_texture.png"
     ],
-    "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\fbx (unity)\\building_E_withoutBase.fbx@7d6ab": [
-      "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\fbx (unity)\\citybits_texture.png"
-    ],
     "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\fbx (unity)\\building_G.fbx@7d6ab": [
       "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\fbx (unity)\\citybits_texture.png"
     ],
-    "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\fbx (unity)\\building_H_withoutBase.fbx@7d6ab": [
+    "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\fbx (unity)\\building_G_withoutBase.fbx@7d6ab": [
       "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\fbx (unity)\\citybits_texture.png"
     ],
     "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\fbx (unity)\\building_H.fbx@7d6ab": [
       "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\fbx (unity)\\citybits_texture.png"
     ],
-    "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\fbx (unity)\\building_G_withoutBase.fbx@7d6ab": [
+    "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\fbx (unity)\\building_H_withoutBase.fbx@7d6ab": [
       "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\fbx (unity)\\citybits_texture.png"
     ],
     "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\fbx (unity)\\bush.fbx@7d6ab": [
@@ -681,10 +681,10 @@
     "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\fbx (unity)\\car_hatchback.fbx@7d6ab": [
       "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\fbx (unity)\\citybits_texture.png"
     ],
-    "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\fbx (unity)\\car_sedan.fbx@7d6ab": [
+    "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\fbx (unity)\\car_police.fbx@7d6ab": [
       "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\fbx (unity)\\citybits_texture.png"
     ],
-    "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\fbx (unity)\\car_police.fbx@7d6ab": [
+    "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\fbx (unity)\\car_sedan.fbx@7d6ab": [
       "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\fbx (unity)\\citybits_texture.png"
     ],
     "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\fbx (unity)\\car_stationwagon.fbx@7d6ab": [
@@ -735,12 +735,6 @@
     "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\fbx (unity)\\trash_B.fbx@7d6ab": [
       "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\fbx (unity)\\citybits_texture.png"
     ],
-    "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\gltf\\base.gltf": [
-      "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\gltf\\base.bin"
-    ],
-    "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\gltf\\base.gltf@e39f7": [
-      "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\gltf\\citybits_texture.png"
-    ],
     "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\fbx (unity)\\watertower.fbx@7d6ab": [
       "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\fbx (unity)\\citybits_texture.png"
     ],
@@ -748,18 +742,6 @@
       "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\gltf\\bench.bin"
     ],
     "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\gltf\\bench.gltf@e39f7": [
-      "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\gltf\\citybits_texture.png"
-    ],
-    "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\gltf\\box_A.gltf": [
-      "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\gltf\\box_A.bin"
-    ],
-    "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\gltf\\box_A.gltf@e39f7": [
-      "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\gltf\\citybits_texture.png"
-    ],
-    "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\gltf\\box_B.gltf": [
-      "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\gltf\\box_B.bin"
-    ],
-    "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\gltf\\box_B.gltf@e39f7": [
       "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\gltf\\citybits_texture.png"
     ],
     "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\gltf\\building_A.gltf": [
@@ -780,12 +762,6 @@
     "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\gltf\\building_B.gltf@e39f7": [
       "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\gltf\\citybits_texture.png"
     ],
-    "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\gltf\\building_B_withoutBase.gltf": [
-      "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\gltf\\building_B_withoutBase.bin"
-    ],
-    "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\gltf\\building_B_withoutBase.gltf@e39f7": [
-      "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\gltf\\citybits_texture.png"
-    ],
     "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\gltf\\building_C.gltf": [
       "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\gltf\\building_C.bin"
     ],
@@ -798,18 +774,6 @@
     "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\gltf\\building_C_withoutBase.gltf@e39f7": [
       "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\gltf\\citybits_texture.png"
     ],
-    "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\gltf\\building_D.gltf": [
-      "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\gltf\\building_D.bin"
-    ],
-    "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\gltf\\building_D.gltf@e39f7": [
-      "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\gltf\\citybits_texture.png"
-    ],
-    "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\gltf\\building_D_withoutBase.gltf": [
-      "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\gltf\\building_D_withoutBase.bin"
-    ],
-    "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\gltf\\building_D_withoutBase.gltf@e39f7": [
-      "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\gltf\\citybits_texture.png"
-    ],
     "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\gltf\\building_E.gltf": [
       "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\gltf\\building_E.bin"
     ],
@@ -820,18 +784,6 @@
       "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\gltf\\building_E_withoutBase.bin"
     ],
     "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\gltf\\building_E_withoutBase.gltf@e39f7": [
-      "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\gltf\\citybits_texture.png"
-    ],
-    "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\gltf\\building_F.gltf": [
-      "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\gltf\\building_F.bin"
-    ],
-    "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\gltf\\building_F.gltf@e39f7": [
-      "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\gltf\\citybits_texture.png"
-    ],
-    "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\gltf\\building_F_withoutBase.gltf": [
-      "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\gltf\\building_F_withoutBase.bin"
-    ],
-    "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\gltf\\building_F_withoutBase.gltf@e39f7": [
       "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\gltf\\citybits_texture.png"
     ],
     "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\gltf\\building_G.gltf": [
@@ -852,82 +804,10 @@
     "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\gltf\\building_H.gltf@e39f7": [
       "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\gltf\\citybits_texture.png"
     ],
-    "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\gltf\\building_H_withoutBase.gltf": [
-      "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\gltf\\building_H_withoutBase.bin"
-    ],
-    "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\gltf\\building_H_withoutBase.gltf@e39f7": [
-      "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\gltf\\citybits_texture.png"
-    ],
     "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\gltf\\bush.gltf": [
       "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\gltf\\bush.bin"
     ],
     "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\gltf\\bush.gltf@e39f7": [
-      "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\gltf\\citybits_texture.png"
-    ],
-    "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\gltf\\car_hatchback.gltf": [
-      "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\gltf\\car_hatchback.bin"
-    ],
-    "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\gltf\\car_hatchback.gltf@e39f7": [
-      "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\gltf\\citybits_texture.png"
-    ],
-    "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\gltf\\car_police.gltf": [
-      "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\gltf\\car_police.bin"
-    ],
-    "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\gltf\\car_police.gltf@e39f7": [
-      "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\gltf\\citybits_texture.png"
-    ],
-    "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\gltf\\car_sedan.gltf": [
-      "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\gltf\\car_sedan.bin"
-    ],
-    "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\gltf\\car_sedan.gltf@e39f7": [
-      "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\gltf\\citybits_texture.png"
-    ],
-    "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\gltf\\car_stationwagon.gltf": [
-      "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\gltf\\car_stationwagon.bin"
-    ],
-    "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\gltf\\car_stationwagon.gltf@e39f7": [
-      "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\gltf\\citybits_texture.png"
-    ],
-    "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\gltf\\car_taxi.gltf": [
-      "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\gltf\\car_taxi.bin"
-    ],
-    "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\gltf\\car_taxi.gltf@e39f7": [
-      "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\gltf\\citybits_texture.png"
-    ],
-    "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\gltf\\dumpster.gltf": [
-      "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\gltf\\dumpster.bin"
-    ],
-    "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\gltf\\dumpster.gltf@e39f7": [
-      "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\gltf\\citybits_texture.png"
-    ],
-    "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\gltf\\firehydrant.gltf": [
-      "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\gltf\\firehydrant.bin"
-    ],
-    "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\gltf\\road_corner.gltf": [
-      "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\gltf\\road_corner.bin"
-    ],
-    "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\gltf\\firehydrant.gltf@e39f7": [
-      "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\gltf\\citybits_texture.png"
-    ],
-    "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\gltf\\road_corner.gltf@e39f7": [
-      "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\gltf\\citybits_texture.png"
-    ],
-    "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\gltf\\road_corner_curved.gltf": [
-      "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\gltf\\road_corner_curved.bin"
-    ],
-    "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\gltf\\road_corner_curved.gltf@e39f7": [
-      "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\gltf\\citybits_texture.png"
-    ],
-    "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\gltf\\road_junction.gltf": [
-      "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\gltf\\road_junction.bin"
-    ],
-    "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\gltf\\road_junction.gltf@e39f7": [
-      "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\gltf\\citybits_texture.png"
-    ],
-    "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\gltf\\road_straight.gltf": [
-      "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\gltf\\road_straight.bin"
-    ],
-    "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\gltf\\road_straight.gltf@e39f7": [
       "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\gltf\\citybits_texture.png"
     ],
     "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\gltf\\road_straight_crossing.gltf": [
@@ -948,16 +828,16 @@
     "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\gltf\\streetlight.gltf@e39f7": [
       "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\gltf\\citybits_texture.png"
     ],
-    "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\gltf\\trafficlight_B.gltf": [
-      "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\gltf\\trafficlight_B.bin"
-    ],
-    "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\gltf\\trafficlight_B.gltf@e39f7": [
-      "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\gltf\\citybits_texture.png"
-    ],
     "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\gltf\\trafficlight_A.gltf": [
       "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\gltf\\trafficlight_A.bin"
     ],
     "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\gltf\\trafficlight_A.gltf@e39f7": [
+      "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\gltf\\citybits_texture.png"
+    ],
+    "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\gltf\\trafficlight_B.gltf": [
+      "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\gltf\\trafficlight_B.bin"
+    ],
+    "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\gltf\\trafficlight_B.gltf@e39f7": [
       "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\gltf\\citybits_texture.png"
     ],
     "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\gltf\\trafficlight_C.gltf": [
@@ -982,6 +862,126 @@
       "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\gltf\\watertower.bin"
     ],
     "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\gltf\\watertower.gltf@e39f7": [
+      "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\gltf\\citybits_texture.png"
+    ],
+    "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\gltf\\box_B.gltf": [
+      "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\gltf\\box_B.bin"
+    ],
+    "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\gltf\\base.gltf": [
+      "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\gltf\\base.bin"
+    ],
+    "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\gltf\\box_B.gltf@e39f7": [
+      "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\gltf\\citybits_texture.png"
+    ],
+    "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\gltf\\box_A.gltf": [
+      "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\gltf\\box_A.bin"
+    ],
+    "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\gltf\\base.gltf@e39f7": [
+      "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\gltf\\citybits_texture.png"
+    ],
+    "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\gltf\\building_D.gltf": [
+      "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\gltf\\building_D.bin"
+    ],
+    "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\gltf\\building_B_withoutBase.gltf": [
+      "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\gltf\\building_B_withoutBase.bin"
+    ],
+    "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\gltf\\box_A.gltf@e39f7": [
+      "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\gltf\\citybits_texture.png"
+    ],
+    "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\gltf\\building_D.gltf@e39f7": [
+      "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\gltf\\citybits_texture.png"
+    ],
+    "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\gltf\\building_B_withoutBase.gltf@e39f7": [
+      "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\gltf\\citybits_texture.png"
+    ],
+    "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\gltf\\building_D_withoutBase.gltf": [
+      "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\gltf\\building_D_withoutBase.bin"
+    ],
+    "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\gltf\\building_D_withoutBase.gltf@e39f7": [
+      "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\gltf\\citybits_texture.png"
+    ],
+    "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\gltf\\building_F.gltf": [
+      "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\gltf\\building_F.bin"
+    ],
+    "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\gltf\\building_F_withoutBase.gltf": [
+      "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\gltf\\building_F_withoutBase.bin"
+    ],
+    "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\gltf\\building_F.gltf@e39f7": [
+      "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\gltf\\citybits_texture.png"
+    ],
+    "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\gltf\\building_F_withoutBase.gltf@e39f7": [
+      "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\gltf\\citybits_texture.png"
+    ],
+    "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\gltf\\building_H_withoutBase.gltf": [
+      "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\gltf\\building_H_withoutBase.bin"
+    ],
+    "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\gltf\\building_H_withoutBase.gltf@e39f7": [
+      "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\gltf\\citybits_texture.png"
+    ],
+    "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\gltf\\car_hatchback.gltf": [
+      "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\gltf\\car_hatchback.bin"
+    ],
+    "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\gltf\\car_hatchback.gltf@e39f7": [
+      "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\gltf\\citybits_texture.png"
+    ],
+    "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\gltf\\car_police.gltf": [
+      "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\gltf\\car_police.bin"
+    ],
+    "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\gltf\\car_police.gltf@e39f7": [
+      "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\gltf\\citybits_texture.png"
+    ],
+    "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\gltf\\car_stationwagon.gltf": [
+      "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\gltf\\car_stationwagon.bin"
+    ],
+    "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\gltf\\car_stationwagon.gltf@e39f7": [
+      "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\gltf\\citybits_texture.png"
+    ],
+    "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\gltf\\car_taxi.gltf": [
+      "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\gltf\\car_taxi.bin"
+    ],
+    "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\gltf\\car_taxi.gltf@e39f7": [
+      "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\gltf\\citybits_texture.png"
+    ],
+    "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\gltf\\dumpster.gltf": [
+      "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\gltf\\dumpster.bin"
+    ],
+    "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\gltf\\dumpster.gltf@e39f7": [
+      "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\gltf\\citybits_texture.png"
+    ],
+    "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\gltf\\firehydrant.gltf": [
+      "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\gltf\\firehydrant.bin"
+    ],
+    "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\gltf\\firehydrant.gltf@e39f7": [
+      "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\gltf\\citybits_texture.png"
+    ],
+    "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\gltf\\car_sedan.gltf": [
+      "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\gltf\\car_sedan.bin"
+    ],
+    "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\gltf\\car_sedan.gltf@e39f7": [
+      "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\gltf\\citybits_texture.png"
+    ],
+    "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\gltf\\road_corner.gltf": [
+      "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\gltf\\road_corner.bin"
+    ],
+    "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\gltf\\road_corner.gltf@e39f7": [
+      "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\gltf\\citybits_texture.png"
+    ],
+    "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\gltf\\road_corner_curved.gltf": [
+      "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\gltf\\road_corner_curved.bin"
+    ],
+    "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\gltf\\road_corner_curved.gltf@e39f7": [
+      "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\gltf\\citybits_texture.png"
+    ],
+    "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\gltf\\road_junction.gltf": [
+      "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\gltf\\road_junction.bin"
+    ],
+    "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\gltf\\road_junction.gltf@e39f7": [
+      "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\gltf\\citybits_texture.png"
+    ],
+    "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\gltf\\road_straight.gltf": [
+      "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\gltf\\road_straight.bin"
+    ],
+    "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\gltf\\road_straight.gltf@e39f7": [
       "D:\\Development\\Cocos_Projects\\Parkour\\assets\\building\\gltf\\citybits_texture.png"
     ]
   },
@@ -1025,6 +1025,9 @@
       "c8f66d17-351a-48da-a12c-0212d28575c4"
     ],
     "D:\\Development\\Cocos_Projects\\Parkour\\assets\\materials\\DustMat.mtl": [
+      "c8f66d17-351a-48da-a12c-0212d28575c4"
+    ],
+    "D:\\Development\\Cocos_Projects\\Parkour\\assets\\materials\\protectionMat.mtl": [
       "c8f66d17-351a-48da-a12c-0212d28575c4"
     ]
   }

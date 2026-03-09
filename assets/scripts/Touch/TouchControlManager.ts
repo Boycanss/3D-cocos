@@ -59,6 +59,12 @@ export class TouchControlManager extends Component {
 
     private _previousInputData: TouchInputData = { ...this._inputData };
 
+    // One-frame press latches to avoid missing taps due to update order
+    private _pendingJumpPressed: boolean = false;
+    private _pendingVaultPressed: boolean = false;
+    private _pendingDashPressed: boolean = false;
+    private _pendingSlidePressed: boolean = false;
+
     protected onLoad(): void {
         // Show/hide touch controls based on platform
         this.updateControlsVisibility();
@@ -80,7 +86,7 @@ export class TouchControlManager extends Component {
         // Jump button
         if (this.jumpButton) {
             this.jumpButton.node.on('button-pressed', () => {
-                this._inputData.jumpPressed = true;
+                this._pendingJumpPressed = true;
                 this._inputData.jumpHeld = true;
             });
             
@@ -92,7 +98,7 @@ export class TouchControlManager extends Component {
         // Vault button
         if (this.vaultButton) {
             this.vaultButton.node.on('button-pressed', () => {
-                this._inputData.vaultPressed = true;
+                this._pendingVaultPressed = true;
                 this._inputData.vaultHeld = true;
             });
             
@@ -104,7 +110,7 @@ export class TouchControlManager extends Component {
         // Dash button
         if (this.dashButton) {
             this.dashButton.node.on('button-pressed', () => {
-                this._inputData.dashPressed = true;
+                this._pendingDashPressed = true;
                 this._inputData.dashHeld = true;
             });
             
@@ -116,7 +122,7 @@ export class TouchControlManager extends Component {
         // Slide button
         if (this.slideButton) {
             this.slideButton.node.on('button-pressed', () => {
-                this._inputData.slidePressed = true;
+                this._pendingSlidePressed = true;
                 this._inputData.slideHeld = true;
             });
             
@@ -130,6 +136,18 @@ export class TouchControlManager extends Component {
         // Store previous frame data
         this._previousInputData = { ...this._inputData };
 
+        // Consume one-frame press latches first
+        this._inputData.jumpPressed = this._pendingJumpPressed;
+        this._inputData.vaultPressed = this._pendingVaultPressed;
+        this._inputData.dashPressed = this._pendingDashPressed;
+        this._inputData.slidePressed = this._pendingSlidePressed;
+
+        // Clear pending latches after consumption
+        this._pendingJumpPressed = false;
+        this._pendingVaultPressed = false;
+        this._pendingDashPressed = false;
+        this._pendingSlidePressed = false;
+
         // Update movement input from joystick
         if (this.virtualJoystick) {
             const joystickData = this.virtualJoystick.getJoystickData();
@@ -137,12 +155,6 @@ export class TouchControlManager extends Component {
             this._inputData.vertical = joystickData.direction.y * joystickData.magnitude;
             this._inputData.isMoving = joystickData.isActive && joystickData.magnitude > 0;
         }
-
-        // Reset pressed flags (they should only be true for one frame)
-        this._inputData.jumpPressed = false;
-        this._inputData.vaultPressed = false;
-        this._inputData.dashPressed = false;
-        this._inputData.slidePressed = false;
     }
 
     /**

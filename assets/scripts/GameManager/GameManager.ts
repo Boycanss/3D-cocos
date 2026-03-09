@@ -1,7 +1,7 @@
-import { _decorator, CCFloat, Component, Label, Node, Prefab, Vec3 } from 'cc';
+import { _decorator, CCFloat, Component, Label, Node, Prefab, Vec3, screen } from 'cc';
 import { StaminaManager } from './StaminaManager';
 import { ObstacleManager } from './ObstacleManager';
-import { MovementState } from '../Define/Define';
+import { MovementState, PlatformUtils } from '../Define/Define';
 import { Actor } from '../Actor';
 import { GameLevel, GameLevelState } from '../Define/Define';
 import { MissileManager } from '../Obstacle/MissileManager';
@@ -56,8 +56,13 @@ export class GameManager extends Component {
     // Auto-missile system
     private lastAutoMissileTime: number = 0;
     private currentAutoMissileInterval: number = 15; // Start with Level 1 interval
+    private _isMobile: boolean;
 
     protected onLoad(): void {
+        this._isMobile = PlatformUtils.isMobile();
+        if(this._isMobile){
+            screen.requestFullScreen();
+        }
         this.staminaManager = this.getComponent(StaminaManager);
         this.obstacleManager = this.getComponent(ObstacleManager);
         this.bestRunManager = this.getComponent(BestRunManager);

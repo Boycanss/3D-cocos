@@ -15264,5 +15264,61 @@
       "depends": []
     },
     "versionCode": 1
+  },
+  "82e14658-44f4-4e4d-af50-a29a5c11e790": {
+    "url": "db://assets/prefabs/Protection.prefab",
+    "value": {
+      "depends": [
+        "8f861db4-a0ac-4533-b823-bcb7ec4527e2",
+        "1263d74c-8167-4928-91a6-4e2672411f47@17020"
+      ],
+      "dependScripts": []
+    },
+    "versionCode": 1
+  },
+  "8f861db4-a0ac-4533-b823-bcb7ec4527e2": {
+    "url": "db://assets/materials/protectionMat.mtl",
+    "value": {
+      "depends": [
+        "c8f66d17-351a-48da-a12c-0212d28575c4",
+        "411ba920-b4f7-4e63-967b-61628acaeaeb@6c48a"
+      ]
+    },
+    "versionCode": 1
+  },
+  "63f2e242-5aac-409d-aa0c-5569345f088a": {
+    "url": "db://assets/CrazySDK",
+    "value": {},
+    "versionCode": 1
+  },
+  "95494deb-642f-43db-9442-161e2499a101": {
+    "url": "db://assets/CrazySDK/CrazySDK.ts",
+    "value": {},
+    "versionCode": 1
+  },
+  "b581f538-a32c-4c76-9ddd-fb735d62a5b8": {
+    "url": "db://assets/CrazySDK/CrazySDK.types.ts",
+    "value": {},
+    "versionCode": 1
+  },
+  "2b9c83c1-9133-4b29-9982-0fa833a85365": {
+    "url": "db://assets/CrazySDK/CrazySDKDemo.ts",
+    "value": {},
+    "versionCode": 1
+  },
+  "fc47b195-dd6e-4725-ab61-82490db078fc": {
+    "url": "db://assets/CrazySDK/CrazySDKDemoLoadScript.ts",
+    "value": {},
+    "versionCode": 1
+  },
+  "04761929-959d-4809-80aa-b2dc80fcaabd": {
+    "url": "db://assets/CrazySDK/CrazySDKDemo.scene",
+    "value": {},
+    "versionCode": 1
+  },
+  "d8988f30-905e-415d-9fc2-d1c0d903b691": {
+    "url": "db://assets/CrazySDK/CrazySDKDemoLoadScene.scene",
+    "value": {},
+    "versionCode": 1
   }
 }
