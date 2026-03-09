@@ -118,7 +118,7 @@
       "uuid": "e2059748-a345-4ff0-92e9-4374f1b546d4"
     },
     "D:\\Development\\Cocos_Projects\\Parkour\\assets\\scripts\\Utils": {
-      "time": 1772385523297.37,
+      "time": 1773081810377.7793,
       "uuid": "c9e69016-7166-4e0e-b2cd-6ae633515daa"
     },
     "D:\\Development\\Cocos_Projects\\Parkour\\assets\\UI\\control": {
@@ -166,7 +166,7 @@
       "uuid": "951d2e8c-6eb5-4b27-9810-4e9f0f1066be"
     },
     "D:\\Development\\Cocos_Projects\\Parkour\\assets\\scripts\\PlayerController.ts": {
-      "time": 1773070079315.9778,
+      "time": 1773083553386.3848,
       "uuid": "9efe28dc-23fa-441b-b69b-fc1a2b74676f"
     },
     "D:\\Development\\Cocos_Projects\\Parkour\\assets\\scripts\\PlayerControllerUnified.ts": {
@@ -190,7 +190,7 @@
       "uuid": "266dfc63-c4d8-4877-9d69-028a611b0e6d"
     },
     "D:\\Development\\Cocos_Projects\\Parkour\\assets\\scripts\\Collectible\\FlagBuffManager.ts": {
-      "time": 1772862298303.0864,
+      "time": 1773081697457.1365,
       "uuid": "634f6872-9a20-417c-96c8-a1d758cafe00"
     },
     "D:\\Development\\Cocos_Projects\\Parkour\\assets\\scripts\\Define\\Define.ts": {
@@ -254,11 +254,11 @@
       "uuid": "7979a3fa-3bfb-4a44-85d3-11780222cc84"
     },
     "D:\\Development\\Cocos_Projects\\Parkour\\assets\\scripts\\Obstacle\\Missile.ts": {
-      "time": 1772821836889.1064,
+      "time": 1773083398222.2502,
       "uuid": "0902572f-859c-4dcc-a20c-bc811bd65200"
     },
     "D:\\Development\\Cocos_Projects\\Parkour\\assets\\scripts\\Obstacle\\MissileManager.ts": {
-      "time": 1771659115049.3796,
+      "time": 1773083397742.6206,
       "uuid": "ac694d14-e582-48cf-b38d-41f18617f603"
     },
     "D:\\Development\\Cocos_Projects\\Parkour\\assets\\scripts\\Obstacle\\Obstacle.ts": {
@@ -680,7 +680,7 @@
       "uuid": "855e075d-86fd-4ee2-b436-c794cdae8d96"
     },
     "D:\\Development\\Cocos_Projects\\Parkour\\assets\\scenes\\game.scene": {
-      "time": 1773072352559.4167,
+      "time": 1773083540979.0623,
       "uuid": "d6bb5eb2-50b1-40e1-be7a-136f4579e51f"
     },
     "D:\\Development\\Cocos_Projects\\Parkour\\assets\\scripts\\GAME_OVER_UI_SETUP.md": {
@@ -3563,7 +3563,116 @@
     },
     "D:\\Development\\Cocos_Projects\\Parkour\\assets\\UI\\Smaller-control\\vault.png.meta": {
       "time": 1772558193375.181
+    },
+    "D:\\Development\\Cocos_Projects\\Parkour\\assets\\SFX.meta": {
+      "time": 1773079833526.6719
+    },
+    "D:\\Development\\Cocos_Projects\\Parkour\\assets\\SFX": {
+      "time": 1773082899793.1248,
+      "uuid": "505b5b4f-6eb8-41ca-8485-7ed4dd9853db"
+    },
+    "D:\\Development\\Cocos_Projects\\Parkour\\assets\\SFX\\Dash.mp3.meta": {
+      "time": 1773079833578.3987
+    },
+    "D:\\Development\\Cocos_Projects\\Parkour\\assets\\SFX\\jump.mp3.meta": {
+      "time": 1773079833578.3987
+    },
+    "D:\\Development\\Cocos_Projects\\Parkour\\assets\\SFX\\jump_on_landing.mp3.meta": {
+      "time": 1773079833580.4001
+    },
+    "D:\\Development\\Cocos_Projects\\Parkour\\assets\\SFX\\missile_on_launch.mp3.meta": {
+      "time": 1773079833581.4004
+    },
+    "D:\\Development\\Cocos_Projects\\Parkour\\assets\\SFX\\step1.mp3.meta": {
+      "time": 1773079833581.4004
+    },
+    "D:\\Development\\Cocos_Projects\\Parkour\\assets\\SFX\\step2.mp3.meta": {
+      "time": 1773079833608.7761
+    },
+    "D:\\Development\\Cocos_Projects\\Parkour\\assets\\SFX\\jump.mp3": {
+      "time": 1773079535167.212,
+      "uuid": "bc134167-3dea-4a7f-bf6d-84153f8352d5"
+    },
+    "D:\\Development\\Cocos_Projects\\Parkour\\assets\\SFX\\Dash.mp3": {
+      "time": 1773079557028.7285,
+      "uuid": "d78701c7-0d53-486e-968c-f7d01623169c"
+    },
+    "D:\\Development\\Cocos_Projects\\Parkour\\assets\\SFX\\jump_on_landing.mp3": {
+      "time": 1773079610882.0647,
+      "uuid": "39e4458f-f4c1-418a-9611-02e6bba0cd84"
+    },
+    "D:\\Development\\Cocos_Projects\\Parkour\\assets\\SFX\\step1.mp3": {
+      "time": 1773079415132.0254,
+      "uuid": "e3aa2265-bdf0-4356-973f-a87ad490907c"
+    },
+    "D:\\Development\\Cocos_Projects\\Parkour\\assets\\SFX\\missile_on_launch.mp3": {
+      "time": 1773079588633.0376,
+      "uuid": "697c5bb0-1bd5-4636-b249-90c0748a9735"
+    },
+    "D:\\Development\\Cocos_Projects\\Parkour\\assets\\SFX\\step2.mp3": {
+      "time": 1773079386324.761,
+      "uuid": "d9392eb1-5046-44a6-89ec-29aee134cd41"
+    },
+    "D:\\Development\\Cocos_Projects\\Parkour\\assets\\SFX\\Clink_on_collection_flag.mp3.meta": {
+      "time": 1773081310471.3884
+    },
+    "D:\\Development\\Cocos_Projects\\Parkour\\assets\\SFX\\Clink_on_collection_flag.mp3": {
+      "time": 1773081284644.3484,
+      "uuid": "2a2cde39-c823-4dd1-b226-50c161db30ca"
+    },
+    "D:\\Development\\Cocos_Projects\\Parkour\\assets\\scripts\\Utils\\SoundManager.ts.meta": {
+      "time": 1773081810385.7998
+    },
+    "D:\\Development\\Cocos_Projects\\Parkour\\assets\\scripts\\Utils\\SoundManager.ts": {
+      "time": 1773083397279.281,
+      "uuid": "5b8a9c4b-6736-461a-9f5c-a2d59ef26031"
+    },
+    "D:\\Development\\Cocos_Projects\\Parkour\\assets\\SFX\\missile_on_explode.mp3.meta": {
+      "time": 1773082027997.27
+    },
+    "D:\\Development\\Cocos_Projects\\Parkour\\assets\\SFX\\missile_on_explode.mp3": {
+      "time": 1773079741747.7295,
+      "uuid": "704b360e-42e3-414a-93cc-709e53913adf"
+    },
+    "D:\\Development\\Cocos_Projects\\Parkour\\assets\\SFX\\step1_bm.mp3.meta": {
+      "time": 1773082412488.6313
+    },
+    "D:\\Development\\Cocos_Projects\\Parkour\\assets\\SFX\\step1_bm.mp3": {
+      "time": 1773082379559.23,
+      "uuid": "d56d1b88-f46c-41d9-8474-7d1d4c207bfd"
+    },
+    "D:\\Development\\Cocos_Projects\\Parkour\\assets\\SFX\\step1_dm.mp3.meta": {
+      "time": 1773082412524.2964
+    },
+    "D:\\Development\\Cocos_Projects\\Parkour\\assets\\SFX\\step1_dm.mp3": {
+      "time": 1773082395010.968,
+      "uuid": "228cd76e-108d-4f7d-bcc2-c3189ace2a87"
+    },
+    "D:\\Development\\Cocos_Projects\\Parkour\\assets\\SFX\\missile_on_explode_A_major__bpm_117.mp3.meta": {
+      "time": 1773082588488.8062
+    },
+    "D:\\Development\\Cocos_Projects\\Parkour\\assets\\SFX\\missile_on_explode_A_major__bpm_117.mp3": {
+      "time": 1773082572997.7336,
+      "uuid": "e4f1278c-67b0-4604-9d66-25d4fdf43eb4"
+    },
+    "D:\\Development\\Cocos_Projects\\Parkour\\assets\\SFX\\jump_Gm.mp3.meta": {
+      "time": 1773082899865.417
+    },
+    "D:\\Development\\Cocos_Projects\\Parkour\\assets\\SFX\\jump_Gm.mp3": {
+      "time": 1773082885120.0874,
+      "uuid": "b6155367-4c0b-435b-b37f-7ae197ea6c50"
     }
   },
-  "missing": {}
+  "missing": {
+    "d56d1b88-f46c-41d9-8474-7d1d4c207bfd": {
+      "path": "D:\\Development\\Cocos_Projects\\Parkour\\assets\\SFX\\step1_B_minor__bpm_105.mp3",
+      "time": 1773082379559.23,
+      "removeTime": 1773082466592
+    },
+    "228cd76e-108d-4f7d-bcc2-c3189ace2a87": {
+      "path": "D:\\Development\\Cocos_Projects\\Parkour\\assets\\SFX\\step1_D♭_minor__bpm_94.mp3",
+      "time": 1773082395010.968,
+      "removeTime": 1773082471282
+    }
+  }
 }

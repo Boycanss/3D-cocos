@@ -3,6 +3,7 @@ import { FlagLevel, FlagBenefits, FlagRestoration } from '../Define/Define';
 import { PlayerController } from '../PlayerController';
 import { StaminaManager } from '../GameManager/StaminaManager';
 import { Actor } from '../Actor';
+import { SoundManager } from '../Utils/SoundManager';
 const { ccclass, property } = _decorator;
 
 interface ActiveBuff {
@@ -205,6 +206,8 @@ export class FlagBuffManager extends Component {
         // console.log(`FlagBuffManager: Applying instant restoration...`);
         // console.log(`FlagBuffManager: Health to restore: ${benefits.healthRestore}`);
         // console.log(`FlagBuffManager: Stamina to restore: ${benefits.staminaRestore}`);
+
+        SoundManager.instance?.playFlagCollect();
         
         // Restore health
         if (this._actor && benefits.healthRestore > 0) {

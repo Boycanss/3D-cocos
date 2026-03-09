@@ -10,6 +10,7 @@ import { Missile } from './Obstacle/Missile';
 import { SlidingController } from './SlidingController';
 import { TouchControlManager } from './Touch/TouchControlManager';
 import { DustEffectManager } from './Effects/DustEffectManager';
+import { SoundManager } from './Utils/SoundManager';
 const { ccclass, property } = _decorator;
 
 @ccclass('PlayerController')
@@ -90,6 +91,9 @@ export class PlayerController extends Component {
     private _wallNormal: Vec3 = new Vec3(); // Surface normal of the detected wall
     private _wallRunLockedY: number = 0;    // Y rotation locked once at wall-run start
     private _wallRunLockedSide: number = 0; // Wall side locked once at wall-run start
+
+    private _wasGrounded: boolean = true;
+    private _footstepTimer: number = 0;
 
     protected onLoad(): void {
         this.SetState(MovementState.IDLE);
@@ -260,6 +264,7 @@ export class PlayerController extends Component {
         this.rigidb = this.node.getComponent(RigidBody);
         this._actor = this.node.getComponent(Actor);
         this._slidingController = this.node.getComponent(SlidingController);
+        this._wasGrounded = this.charController.isGrounded;
 
         // Register state getter with StaminaManager to avoid circular import
         if (this.staminaManager) {
@@ -310,6 +315,9 @@ export class PlayerController extends Component {
         if (this._isMobile) {
             this.handleTouchInput();
         }
+
+        this.handleLandingSound();
+        this.handleFootsteps(deltaTime);
 
         // Damage cooldown timer
         if (!this._canTakeDamage) {
@@ -483,6 +491,7 @@ export class PlayerController extends Component {
             this.Animation.setValue('Jump', true);
             this.staminaManager.reduceStamina(Energy.JUMP, true);
             this.verticalVelocity = Physics.JUMP_VELOCITY_BASE * (this.currentSpeed / this.maxSpeed);
+            SoundManager.instance?.playJump();
             if (this.verticalVelocity < Physics.JUMP_VELOCITY_MIN) {
                 this.verticalVelocity = Physics.JUMP_VELOCITY_MIN;
             }
@@ -498,6 +507,7 @@ export class PlayerController extends Component {
         this.Animation.setValue('Jump', true);
         this.staminaManager.reduceStamina(Energy.JUMP, true); // Show stat display
         this.callDustEffect(3);
+        SoundManager.instance?.playJump();
         
         // Use consistent jump velocity calculation for both platforms
         this.verticalVelocity = Physics.JUMP_VELOCITY_BASE * (this.currentSpeed / this.maxSpeed);
@@ -566,6 +576,7 @@ export class PlayerController extends Component {
         this.isDashing = true;
         this.staminaManager.reduceStamina(Energy.DASH, true); // Show stat display
         this.dashCooldownTimer = this.dashCooldown;
+        SoundManager.instance?.playDash();
         
         // Calculate dash direction (forward)
         const dashDirection = this.node.forward.clone();
@@ -630,6 +641,41 @@ export class PlayerController extends Component {
     
     private dashStepCallback() {
         // Named callback for schedule/unschedule
+    }
+
+    private handleLandingSound(): void {
+        const grounded = this.charController.isGrounded;
+        if (!this._wasGrounded && grounded) {
+            if (this.currentState === MovementState.JUMPING || this.currentState === MovementState.WALL_RUNNING) {
+                SoundManager.instance?.playLanding();
+            }
+        }
+        this._wasGrounded = grounded;
+    }
+
+    private handleFootsteps(deltaTime: number): void {
+        const isRunningState = this.currentState === MovementState.RUNNING || this.currentState === MovementState.WALL_RUNNING;
+        if (!isRunningState) {
+            this._footstepTimer = 0;
+            return;
+        }
+
+        const groundedOrWallRunning = this.charController.isGrounded || this.currentState === MovementState.WALL_RUNNING;
+        if (!groundedOrWallRunning || this._slidingController.isSliding || this.isDashing) {
+            this._footstepTimer = 0;
+            return;
+        }
+
+        const minInterval = 0.22;
+        const maxInterval = 0.45;
+        const speedRatio = math.clamp(this.currentSpeed / this.maxSpeed, 0, 1);
+        const interval = math.lerp(maxInterval, minInterval, speedRatio);
+
+        this._footstepTimer += deltaTime;
+        if (this._footstepTimer >= interval) {
+            this._footstepTimer = 0;
+            SoundManager.instance?.playStep();
+        }
     }
 
     callGhostEffect(count: number = 1) {

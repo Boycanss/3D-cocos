@@ -11956,6 +11956,13 @@
         "51c4de5c-3f74-4c31-89d5-d1f57e619a8b@2bcf1",
         "9c28149e-8358-4b8f-9744-8a4e75b8016a@dfda3",
         "2dc1b2d3-588f-4049-a8e6-508d288185f8",
+        "b6155367-4c0b-435b-b37f-7ae197ea6c50",
+        "39e4458f-f4c1-418a-9611-02e6bba0cd84",
+        "d78701c7-0d53-486e-968c-f7d01623169c",
+        "2a2cde39-c823-4dd1-b226-50c161db30ca",
+        "697c5bb0-1bd5-4636-b249-90c0748a9735",
+        "e4f1278c-67b0-4604-9d66-25d4fdf43eb4",
+        "d56d1b88-f46c-41d9-8474-7d1d4c207bfd",
         "d809f4d6-a522-4004-8532-a7b642242c5a",
         "d032ac98-05e1-4090-88bb-eb640dcb5fc1@b47c0",
         "6f01cf7f-81bf-4a7e-bd5d-0afc19696480@b47c0"
@@ -11987,7 +11994,8 @@
         "ef53e97b-bd72-4010-bed8-1664208273cd",
         "0a1c2f11-f15b-42fb-b2ba-5e4bcb99e50a",
         "634f6872-9a20-417c-96c8-a1d758cafe00",
-        "b7ccd648-aac9-4571-b48a-ea11754300bd"
+        "b7ccd648-aac9-4571-b48a-ea11754300bd",
+        "5b8a9c4b-6736-461a-9f5c-a2d59ef26031"
       ]
     },
     "versionCode": 1
@@ -15319,6 +15327,100 @@
   "d8988f30-905e-415d-9fc2-d1c0d903b691": {
     "url": "db://assets/CrazySDK/CrazySDKDemoLoadScene.scene",
     "value": {},
+    "versionCode": 1
+  },
+  "505b5b4f-6eb8-41ca-8485-7ed4dd9853db": {
+    "url": "db://assets/SFX",
+    "value": {},
+    "versionCode": 1
+  },
+  "d78701c7-0d53-486e-968c-f7d01623169c": {
+    "url": "db://assets/SFX/Dash.mp3",
+    "value": {
+      "depends": []
+    },
+    "versionCode": 1
+  },
+  "bc134167-3dea-4a7f-bf6d-84153f8352d5": {
+    "url": "db://assets/SFX/jump.mp3",
+    "value": {
+      "depends": []
+    },
+    "versionCode": 1
+  },
+  "39e4458f-f4c1-418a-9611-02e6bba0cd84": {
+    "url": "db://assets/SFX/jump_on_landing.mp3",
+    "value": {
+      "depends": []
+    },
+    "versionCode": 1
+  },
+  "697c5bb0-1bd5-4636-b249-90c0748a9735": {
+    "url": "db://assets/SFX/missile_on_launch.mp3",
+    "value": {
+      "depends": []
+    },
+    "versionCode": 1
+  },
+  "e3aa2265-bdf0-4356-973f-a87ad490907c": {
+    "url": "db://assets/SFX/step1.mp3",
+    "value": {
+      "depends": []
+    },
+    "versionCode": 1
+  },
+  "d9392eb1-5046-44a6-89ec-29aee134cd41": {
+    "url": "db://assets/SFX/step2.mp3",
+    "value": {
+      "depends": []
+    },
+    "versionCode": 1
+  },
+  "2a2cde39-c823-4dd1-b226-50c161db30ca": {
+    "url": "db://assets/SFX/Clink_on_collection_flag.mp3",
+    "value": {
+      "depends": []
+    },
+    "versionCode": 1
+  },
+  "5b8a9c4b-6736-461a-9f5c-a2d59ef26031": {
+    "url": "db://assets/scripts/Utils/SoundManager.ts",
+    "value": {},
+    "versionCode": 1
+  },
+  "704b360e-42e3-414a-93cc-709e53913adf": {
+    "url": "db://assets/SFX/missile_on_explode.mp3",
+    "value": {
+      "depends": []
+    },
+    "versionCode": 1
+  },
+  "d56d1b88-f46c-41d9-8474-7d1d4c207bfd": {
+    "url": "db://assets/SFX/step1_bm.mp3",
+    "value": {
+      "depends": []
+    },
+    "versionCode": 1
+  },
+  "228cd76e-108d-4f7d-bcc2-c3189ace2a87": {
+    "url": "db://assets/SFX/step1_dm.mp3",
+    "value": {
+      "depends": []
+    },
+    "versionCode": 1
+  },
+  "e4f1278c-67b0-4604-9d66-25d4fdf43eb4": {
+    "url": "db://assets/SFX/missile_on_explode_A_major__bpm_117.mp3",
+    "value": {
+      "depends": []
+    },
+    "versionCode": 1
+  },
+  "b6155367-4c0b-435b-b37f-7ae197ea6c50": {
+    "url": "db://assets/SFX/jump_Gm.mp3",
+    "value": {
+      "depends": []
+    },
     "versionCode": 1
   }
 }

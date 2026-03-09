@@ -1,4 +1,5 @@
 import { _decorator, CCFloat, Component, find, math, Node, SphereCollider, Vec3, ParticleSystem, Prefab, instantiate } from 'cc';
+import { SoundManager } from '../Utils/SoundManager';
 const { ccclass, property } = _decorator;
 
 @ccclass('Missile')
@@ -51,6 +52,8 @@ export class Missile extends Component {
         // Prevent multiple destroy calls
         if (this.isDestroying) return;
         this.isDestroying = true;
+
+        SoundManager.instance?.playMissileImpact(this.node);
 
         // Instantiate blow effect at missile position
         if (this.blowPrefab) {

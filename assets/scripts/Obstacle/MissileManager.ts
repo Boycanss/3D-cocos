@@ -1,5 +1,6 @@
 import { _decorator, Component, Node, Prefab, instantiate, Vec3, Button, CCFloat } from 'cc';
 import { Missile } from './Missile';
+import { SoundManager } from '../Utils/SoundManager';
 const { ccclass, property } = _decorator;
 
 @ccclass('MissileManager')
@@ -40,6 +41,7 @@ export class MissileManager extends Component {
         missile.getComponent(Missile).MultiplySpeed(speedMultiplier);
         this.node.addChild(missile);
         this.missileCount++;
+        SoundManager.instance?.playMissileLaunch(missile);
     }
 
     /**
