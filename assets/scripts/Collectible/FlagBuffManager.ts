@@ -33,10 +33,13 @@ export class FlagBuffManager extends Component {
     private _currentDashCooldownReduction: number = 0;
     private _isInvincible: boolean = false;
 
+    private _protectionNode: Node = null;
+
     start() {
         this._playerController = this.node.getComponent(PlayerController);
         this._actor = this.node.getComponent(Actor);
-        
+        this._protectionNode = this.node.children[2];
+        this._protectionNode.active = false;
         // Get StaminaManager from PlayerController (it's on GameManager, not Player)
         if (this._playerController && this._playerController.staminaManager) {
             this._staminaManager = this._playerController.staminaManager;
@@ -272,9 +275,11 @@ export class FlagBuffManager extends Component {
 
         // Apply invincibility
         if (benefits.invincibilityDuration > 0) {
+            this._protectionNode.active = true;
             this._isInvincible = true;
             this.scheduleOnce(() => {
                 this._isInvincible = false;
+                this._protectionNode.active = false;
                 console.log('FlagBuffManager: Invincibility expired');
             }, benefits.invincibilityDuration);
         }

@@ -52,6 +52,7 @@ export enum Physics {
 export enum Damage {
     OBSTACLE_DAMAGE = 10,           // Standard obstacle damage
     MISSILE_DAMAGE = 25,            // Missile damage
+    ATOMIC_BOMB_DAMAGE = 50,        // Atomic bomb damage
     SURVIVAL_ZONE_DAMAGE = 15       // Survival zone damage per second
 }
 
@@ -73,7 +74,8 @@ export enum MovementState {
     JUMPING = "Jumping",
     SLIDING = "Sliding",
     DASHING = "Dashing",
-    WALL_RUNNING = "WallRunning"
+    WALL_RUNNING = "WallRunning",
+    TRIPPING = "Tripping"
 }
 
 // Platform Detection
@@ -129,6 +131,9 @@ interface LevelState {
     autoMissileInterval?: number;  // Time between auto-deployed missiles (seconds)
     autoMissileSpeed?: number;     // Speed of auto-deployed missiles
     autoMissileCount?: number;     // Number of missiles per auto-deployment
+    atomicBombAmount?: number;     // Number of atomic bombs to spawn
+    atomicBombInterval?: number;   // Time between atomic bomb spawns (seconds)
+    atomicBombSpeed?: number;      // Speed multiplier for atomic bombs
 }
 
 export enum GameLevel {
@@ -137,7 +142,8 @@ export enum GameLevel {
     LEVEL3 = 3,
     LEVEL4 = 4,
     LEVEL5 = 5,
-    LEVEL6 = 6
+    LEVEL6 = 6,
+    LEVEL7 = 7
 }
 
 // Difficulty progression - Fine-tuned for gradual challenge increase
@@ -188,6 +194,17 @@ export const GameLevelState: Record<GameLevel, LevelState> = {
         autoMissileInterval: 4,  // Extremely frequent - constant pressure
         autoMissileSpeed: 2.5,  // Extremely fast auto missiles
         autoMissileCount: 3     // Triple missile barrage
+    },
+    [GameLevel.LEVEL7]: {
+        boxSpawnAmount: 7,      // Same as Level 6 - focus on atomic bombs
+        missileAmount: 5,       // Same as Level 6
+        missileSpeed: 3.0,      // Same as Level 6
+        autoMissileInterval: 4,  // Same as Level 6
+        autoMissileSpeed: 2.5,  // Same as Level 6
+        autoMissileCount: 3,    // Same as Level 6
+        atomicBombAmount: 2,    // New: Atomic bombs spawn
+        atomicBombInterval: 8,  // New: Atomic bomb spawn interval (seconds)
+        atomicBombSpeed: 1.5    // New: Atomic bomb speed multiplier
     },
 };
 

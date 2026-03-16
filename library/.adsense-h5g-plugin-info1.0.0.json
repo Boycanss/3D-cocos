@@ -1,0 +1,48 @@
+{
+  "version": "1.0.0",
+  "map": {
+    "C:\\ProgramData\\cocos\\editors\\Creator\\3.8.5\\resources\\app.asar.unpacked\\modules\\platform-extensions\\extensions\\adsense-h5g-plugin\\static\\adsense-h5g-api\\ad_event.ts": {
+      "time": 1739766952816.3691,
+      "uuid": "b8d97018-1648-4f7f-b2c7-941dcbde2a17"
+    },
+    "C:\\ProgramData\\cocos\\editors\\Creator\\3.8.5\\resources\\app.asar.unpacked\\modules\\platform-extensions\\extensions\\adsense-h5g-plugin\\static\\adsense-h5g-api\\h5_games_ads.ts": {
+      "time": 1739766952819.3667,
+      "uuid": "b502a825-f7c2-4ee4-b75e-605528f25515"
+    },
+    "C:\\ProgramData\\cocos\\editors\\Creator\\3.8.5\\resources\\app.asar.unpacked\\modules\\platform-extensions\\extensions\\adsense-h5g-plugin\\static\\adsense-h5g-api\\interstitial_callback.ts": {
+      "time": 1739766952822.6206,
+      "uuid": "fd80a9b5-5b61-4c02-af13-e6508e6644ff"
+    },
+    "C:\\ProgramData\\cocos\\editors\\Creator\\3.8.5\\resources\\app.asar.unpacked\\modules\\platform-extensions\\extensions\\adsense-h5g-plugin\\static\\adsense-h5g-api\\interstitial_type.ts": {
+      "time": 1739766952824.6387,
+      "uuid": "e7ecae40-ddb1-4ac1-8abf-0382e9d40f02"
+    },
+    "C:\\ProgramData\\cocos\\editors\\Creator\\3.8.5\\resources\\app.asar.unpacked\\modules\\platform-extensions\\extensions\\adsense-h5g-plugin\\static\\adsense-h5g-api\\preroll_callback.ts": {
+      "time": 1739766952827.6306,
+      "uuid": "3c6b2349-eaf5-4afc-893a-894cd8511526"
+    },
+    "C:\\ProgramData\\cocos\\editors\\Creator\\3.8.5\\resources\\app.asar.unpacked\\modules\\platform-extensions\\extensions\\adsense-h5g-plugin\\static\\adsense-h5g-api\\rewarded_callback.ts": {
+      "time": 1739766952829.6226,
+      "uuid": "e0c4e2c7-5823-4fba-8095-6ad5a9830da6"
+    },
+    "C:\\ProgramData\\cocos\\editors\\Creator\\3.8.5\\resources\\app.asar.unpacked\\modules\\platform-extensions\\extensions\\adsense-h5g-plugin\\static\\adsense-h5g-api\\ad_event.ts.meta": {
+      "time": 1773163703598.2417
+    },
+    "C:\\ProgramData\\cocos\\editors\\Creator\\3.8.5\\resources\\app.asar.unpacked\\modules\\platform-extensions\\extensions\\adsense-h5g-plugin\\static\\adsense-h5g-api\\h5_games_ads.ts.meta": {
+      "time": 1773163703598.2417
+    },
+    "C:\\ProgramData\\cocos\\editors\\Creator\\3.8.5\\resources\\app.asar.unpacked\\modules\\platform-extensions\\extensions\\adsense-h5g-plugin\\static\\adsense-h5g-api\\interstitial_callback.ts.meta": {
+      "time": 1773163703599.2427
+    },
+    "C:\\ProgramData\\cocos\\editors\\Creator\\3.8.5\\resources\\app.asar.unpacked\\modules\\platform-extensions\\extensions\\adsense-h5g-plugin\\static\\adsense-h5g-api\\interstitial_type.ts.meta": {
+      "time": 1773163703599.2427
+    },
+    "C:\\ProgramData\\cocos\\editors\\Creator\\3.8.5\\resources\\app.asar.unpacked\\modules\\platform-extensions\\extensions\\adsense-h5g-plugin\\static\\adsense-h5g-api\\preroll_callback.ts.meta": {
+      "time": 1773163703600.3442
+    },
+    "C:\\ProgramData\\cocos\\editors\\Creator\\3.8.5\\resources\\app.asar.unpacked\\modules\\platform-extensions\\extensions\\adsense-h5g-plugin\\static\\adsense-h5g-api\\rewarded_callback.ts.meta": {
+      "time": 1773163703602.3508
+    }
+  },
+  "missing": {}
+}

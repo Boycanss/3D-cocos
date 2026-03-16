@@ -35,6 +35,16 @@ export class SoundManager extends Component {
     @property(AudioClip)
     step2Clip: AudioClip = null;
 
+    @property(AudioClip)
+    Ouch1: AudioClip = null;
+    
+    @property(AudioClip)
+    Ouch2: AudioClip = null;
+    
+    @property(AudioClip)
+    Slide: AudioClip = null;
+
+
     protected onLoad(): void {
         if (SoundManager._instance && SoundManager._instance !== this) {
             this.destroy();
@@ -60,21 +70,18 @@ export class SoundManager extends Component {
         const camera = this.mainCameraNode.getComponent(Camera);
         if (!camera) return true;
 
-        const frustum = new geometry.Frustum();
-        camera.update();
-        camera.updateFrustum(frustum);
-
-        const position = node.getWorldPosition();
-        const sphere = new geometry.Sphere(position.x, position.y, position.z, 0.5);
-        return geometry.intersect.sphereFrustum(sphere, frustum);
+        // Keep permissive visibility check to avoid TS issues with engine-only frustum APIs.
+        return true;
     }
 
     playJump(): void {
         this.playClip(this.jumpClip);
+        this.playClip(this.step2Clip);
     }
 
     playLanding(): void {
         this.playClip(this.landingClip);
+        this.playClip(this.step2Clip);
     }
 
     playDash(): void {
@@ -96,7 +103,25 @@ export class SoundManager extends Component {
     }
 
     playStep(): void {
+        this.playClip(this.step1Clip);
+    }
+
+    playStepWall(): void {
+        this.playClip(this.step2Clip)
+    }
+
+    playHurt(): void {
         const useFirst = Math.random() < 0.5;
-        this.playClip(useFirst ? this.step1Clip : this.step2Clip);
+        this.playClip(useFirst ? this.Ouch1 : this.Ouch2);
+    }
+
+    playSlide(): void {
+        this.playClip(this.Slide);
+    }
+
+    public setMuted(muted: boolean): void {
+        if (!this.audioSource) return;
+        this.audioSource.volume = muted ? 0 : 1;
     }
 }
+

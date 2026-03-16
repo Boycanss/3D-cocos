@@ -1,5 +1,6 @@
 import { _decorator, Component, Node, Label, Button, tween, Vec3, sys } from 'cc';
 import { ScoreManager } from '../GameManager/ScoreManager';
+import { BestRunManager } from '../BestRunManager';
 const { ccclass, property } = _decorator;
 
 @ccclass('GameOverUI')
@@ -159,6 +160,12 @@ export class GameOverUI extends Component {
      * Save best score to local storage
      */
     private saveBestScore(score: number): void {
+        const bestRunManager = this.node.scene?.getComponentInChildren(BestRunManager);
+        if (bestRunManager) {
+            bestRunManager.saveBestScore(score);
+            return;
+        }
+
         try {
             sys.localStorage.setItem('bestParkourScore', score.toString());
         } catch (e) {
@@ -170,6 +177,11 @@ export class GameOverUI extends Component {
      * Load best score from local storage
      */
     public loadBestScore(): number {
+        const bestRunManager = this.node.scene?.getComponentInChildren(BestRunManager);
+        if (bestRunManager) {
+            return bestRunManager.loadBestScore();
+        }
+
         try {
             const saved = sys.localStorage.getItem('bestParkourScore');
             if (saved) {

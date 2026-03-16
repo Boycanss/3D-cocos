@@ -4,6 +4,7 @@ import { StaminaManager } from './GameManager/StaminaManager';
 import { PlayerController } from './PlayerController';
 import { Box } from './Obstacle/Box';
 import { DustEffectManager } from './Effects/DustEffectManager';
+import { SoundManager } from './Utils/SoundManager';
 const { ccclass, property } = _decorator;
 
 @ccclass('SlidingController')
@@ -61,7 +62,8 @@ export class SlidingController extends Component {
         this._slideStartTime = 0;
         this._playerController.staminaManager.reduceStamina(Energy.SLIDE, true); // Show stat display
         this._playerController.Animation.setValue('Slide', true);
-
+        SoundManager.instance?.playSlide();
+        
         // Use the configured slide duration
         this._slideDuration = this.slideDuration;
 

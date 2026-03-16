@@ -1,10 +1,12 @@
 import { _decorator, CCFloat, Component, Label, Node, Prefab, Vec3, screen } from 'cc';
 import { StaminaManager } from './StaminaManager';
+import { CrazyGamesManager } from '../Utils/CrazyGamesManager';
 import { ObstacleManager } from './ObstacleManager';
 import { MovementState, PlatformUtils } from '../Define/Define';
 import { Actor } from '../Actor';
 import { GameLevel, GameLevelState } from '../Define/Define';
 import { MissileManager } from '../Obstacle/MissileManager';
+import { AtomicBombManager } from '../Obstacle/AtomicBombManager';
 import { PlayerController } from '../PlayerController';
 import { BestRunManager } from '../BestRunManager';
 import { SurvivalZoneManager } from './SurvivalZoneManager';
@@ -56,6 +58,11 @@ export class GameManager extends Component {
     // Auto-missile system
     private lastAutoMissileTime: number = 0;
     private currentAutoMissileInterval: number = 15; // Start with Level 1 interval
+    
+    // Auto-atomic bomb system (Level 7+)
+    private lastAutoAtomicBombTime: number = 0;
+    private currentAutoAtomicBombInterval: number = 8; // Level 7 interval
+    
     private _isMobile: boolean;
 
     protected onLoad(): void {
@@ -70,6 +77,7 @@ export class GameManager extends Component {
     }
 
     start() {
+        CrazyGamesManager.instance?.notifyLoadingFinished();
         this.resetTimer();
         // Don't start timer automatically - let GameFlowManager control this
         this.isTimerRunning = false;
@@ -98,6 +106,8 @@ export class GameManager extends Component {
     private _onGameOver() {
         console.log('Game Over');
         this.isTimerRunning = false;
+        CrazyGamesManager.instance?.notifyGameplayStop();
+        CrazyGamesManager.instance?.happytime();
         this.node.emit('game-over');
         this.saveBestRun();
     }
@@ -116,6 +126,7 @@ export class GameManager extends Component {
             this.gameTime += deltaTime;
             this.updateDifficulty();
             this.updateAutoMissiles();
+            this.updateAutoAtomicBombs();
             this.updateDistanceTracking();
         }
         
@@ -172,10 +183,12 @@ export class GameManager extends Component {
     public startTimer() {
         this.isTimerRunning = true;
         this.initializeDistanceTracking();
+        CrazyGamesManager.instance?.notifyGameplayStart();
     }
     
     public pauseTimer() {
         this.isTimerRunning = false;
+        CrazyGamesManager.instance?.notifyGameplayStop();
     }
     
     public resetTimer() {
@@ -187,6 +200,10 @@ export class GameManager extends Component {
         // Reset auto-missile system
         this.lastAutoMissileTime = 0;
         this.currentAutoMissileInterval = 15; // Reset to Level 1 interval
+        
+        // Reset auto-atomic bomb system
+        this.lastAutoAtomicBombTime = 0;
+        this.currentAutoAtomicBombInterval = 8; // Reset to Level 7 interval
         
         // Reset distance tracking
         this.totalDistance = 0;
@@ -240,7 +257,12 @@ export class GameManager extends Component {
                 const levelState = GameLevelState[this.difficultyLevel];
                 this.currentAutoMissileInterval = levelState.autoMissileInterval || 15;
                 
-                // console.log(`Difficulty increased to level ${this.difficultyLevel}, next interval: ${this.difficultyIncreaseInterval}s, auto-missile interval: ${this.currentAutoMissileInterval}s`);
+                // // Update auto-atomic bomb interval for Level 7+
+                // if (this.difficultyLevel >= GameLevel.LEVEL7) {
+                //     this.currentAutoAtomicBombInterval = levelState.atomicBombInterval || 8;
+                // }
+                
+                console.log(`🎮 Difficulty increased to level ${this.difficultyLevel}, next interval: ${this.difficultyIncreaseInterval}s`);
             }
         }
     }
@@ -266,6 +288,30 @@ export class GameManager extends Component {
         }
     }
 
+    private updateAutoAtomicBombs() {
+        // Only spawn atomic bombs at Level 7+
+        if (this.difficultyLevel < GameLevel.LEVEL7) return;
+        
+        const timeSinceLastAutoAtomicBomb = this.gameTime - this.lastAutoAtomicBombTime;
+        
+        if (timeSinceLastAutoAtomicBomb >= this.currentAutoAtomicBombInterval) {
+            this.spawnAutoAtomicBombs();
+            this.lastAutoAtomicBombTime = this.gameTime;
+        }
+    }
+
+    private spawnAutoAtomicBombs() {
+        const levelState = GameLevelState[this.difficultyLevel];
+        const bombCount = levelState.atomicBombAmount || 1;
+        const bombSpeed = levelState.atomicBombSpeed || 1.0;
+        
+        const atomicBombManager = this.node.getComponent(AtomicBombManager);
+        if (atomicBombManager) {
+            atomicBombManager.spawnAtomicBombs(bombCount, bombSpeed);
+            console.log(`💣 Auto-spawned ${bombCount} atomic bombs at speed ${bombSpeed} (Level ${this.difficultyLevel})`);
+        }
+    }
+
     private getDifficultyInterval(level: GameLevel): number {
         switch (level) {
             case GameLevel.LEVEL1: return 30;  // 30s to reach Level 2
@@ -273,7 +319,8 @@ export class GameManager extends Component {
             case GameLevel.LEVEL3: return 60;  // 60s to reach Level 4 (135s total)
             case GameLevel.LEVEL4: return 75;  // 75s to reach Level 5 (210s total)
             case GameLevel.LEVEL5: return 90;  // 90s to reach Level 6 (300s total)
-            case GameLevel.LEVEL6: return 120; // Stay at Level 6 (ultimate endurance test)
+            case GameLevel.LEVEL6: return 120; // 120s to reach Level 7 (420s total)
+            case GameLevel.LEVEL7: return 120; // Stay at Level 7 (ultimate endurance test with atomic bombs)
             default: return 30;
         }
     }

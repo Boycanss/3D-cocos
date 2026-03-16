@@ -1,0 +1,99 @@
+{
+  "ver": "2.3.13",
+  "importer": "fbx",
+  "imported": true,
+  "uuid": "17c5c581-e626-4b17-b19f-62b851e8d7b7",
+  "files": [
+    "__original-animation-0.cconb"
+  ],
+  "subMetas": {
+    "d628c": {
+      "importer": "gltf-animation",
+      "uuid": "17c5c581-e626-4b17-b19f-62b851e8d7b7@d628c",
+      "displayName": "",
+      "id": "d628c",
+      "name": "Armature|Armature|Armature|Armature|mixamo.com|Layer0.animation",
+      "userData": {
+        "gltfIndex": 0,
+        "wrapMode": 0,
+        "sample": 30,
+        "span": {
+          "from": 0,
+          "to": 1.2703582759012229
+        },
+        "events": []
+      },
+      "ver": "1.0.17",
+      "imported": true,
+      "files": [
+        ".cconb"
+      ],
+      "subMetas": {}
+    },
+    "7311f": {
+      "importer": "gltf-scene",
+      "uuid": "17c5c581-e626-4b17-b19f-62b851e8d7b7@7311f",
+      "displayName": "",
+      "id": "7311f",
+      "name": "Fall Flat.prefab",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.0.14",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    }
+  },
+  "userData": {
+    "imageMetas": [],
+    "fbx": {
+      "smartMaterialEnabled": true
+    },
+    "animationImportSettings": [
+      {
+        "name": "Armature|Armature|Armature|Armature|mixamo.com|Layer0",
+        "duration": 1.6666666269302368,
+        "fps": 30,
+        "splits": [
+          {
+            "name": "Armature|Armature|Armature|Armature|mixamo.com|Layer0",
+            "from": 0,
+            "to": 1.2703582759012229,
+            "wrapMode": 0,
+            "previousId": "d628c"
+          }
+        ]
+      }
+    ],
+    "lods": {
+      "enable": false,
+      "hasBuiltinLOD": false,
+      "options": [
+        {
+          "screenRatio": 0.25,
+          "faceCount": 1
+        },
+        {
+          "screenRatio": 0.125,
+          "faceCount": 0.25
+        },
+        {
+          "screenRatio": 0.01,
+          "faceCount": 0.1
+        }
+      ]
+    },
+    "assetFinder": {
+      "meshes": [],
+      "skeletons": [],
+      "textures": [],
+      "materials": [],
+      "scenes": [
+        "17c5c581-e626-4b17-b19f-62b851e8d7b7@7311f"
+      ]
+    }
+  }
+}

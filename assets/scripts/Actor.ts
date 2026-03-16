@@ -1,5 +1,6 @@
 import { _decorator, Component, Node, CCInteger, CCFloat, ProgressBar, find } from 'cc';
 import { Health } from './Define/Define';
+import { SoundManager } from './Utils/SoundManager';
 const { ccclass, property } = _decorator;
 
 @ccclass('Actor')
@@ -83,7 +84,7 @@ export class Actor extends Component {
     takeDamage(amount: number) {
         if (this.isDead) return;
         // console.log(">>> TAKE DAMAGE: "+ amount);
-        
+        SoundManager.instance?.playHurt();
         const dmg = Math.max(0, amount);
         this.currentHp -= dmg;
         this._updateHealthBar();

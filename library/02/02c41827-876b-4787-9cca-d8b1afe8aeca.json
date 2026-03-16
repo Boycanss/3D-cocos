@@ -208,6 +208,7 @@
       "__id__": 10
     },
     "damage": 10,
+    "obstacleType": "NORMAL_OBSTACLE",
     "_id": ""
   },
   {

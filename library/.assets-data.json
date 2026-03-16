@@ -2980,7 +2980,16 @@
         "54287e33-6419-4743-bd2c-5e25e73ea0d2@c30eb",
         "d1f5c989-8324-4552-9a98-c5953dc6545c",
         "8f849c4e-2032-4906-91f0-4b4854b35931",
-        "3e2fe608-5533-4473-a6a5-3734a9fb1296@70aad"
+        "3e2fe608-5533-4473-a6a5-3734a9fb1296@70aad",
+        "80b1b3e1-acc4-46ef-bec4-36ed308ee21e",
+        "55c47de7-447c-4a9b-b690-b82645d30009",
+        "fa8a9fbb-c877-4b03-8246-14d9f45b184c@70aad",
+        "1dd8e083-8ed1-4359-af39-6ff6383b2f05",
+        "7b4f6273-4601-4d9f-884c-ebed4871960a",
+        "17c5c581-e626-4b17-b19f-62b851e8d7b7@d628c",
+        "de42856e-a640-4d11-92de-af371a69e697",
+        "39043e36-5986-4724-b8b1-f020f6505858",
+        "d4d34a95-5959-485f-b42c-3140d99060d2@18d6f"
       ]
     },
     "versionCode": 1
@@ -11912,6 +11921,8 @@
         "d6039f0c-53fa-4b13-ace5-6084b4cd05db@b5c4d",
         "d6039f0c-53fa-4b13-ace5-6084b4cd05db@f6ae8",
         "a841b40c-8f1a-4cfa-8437-fc8890995f8b",
+        "d202747b-19d2-43f2-9347-9773f08bbdbd",
+        "82e14658-44f4-4e4d-af50-a29a5c11e790",
         "485f47c4-44b6-418a-91a9-c558183ce922@f9941",
         "5af56d08-c724-4f96-8fef-d0696fe75a27@f9941",
         "4c375813-8170-414c-a69c-6f59f65ddf2b@f9941",
@@ -11926,6 +11937,7 @@
         "7f6579ae-9308-4851-88b9-df2277b49a69@f9941",
         "db601b46-c20d-4188-955e-552b8a68729c@f9941",
         "02c41827-876b-4787-9cca-d8b1afe8aeca",
+        "818c86d4-ee5b-4c26-b370-bb520502c05d",
         "f70bbd61-3168-4225-9106-1fa6855d7b93",
         "1263d74c-8167-4928-91a6-4e2672411f47@2e76e",
         "03f958c8-f519-4401-96dd-856f4d412161",
@@ -11958,16 +11970,24 @@
         "2dc1b2d3-588f-4049-a8e6-508d288185f8",
         "b6155367-4c0b-435b-b37f-7ae197ea6c50",
         "39e4458f-f4c1-418a-9611-02e6bba0cd84",
-        "d78701c7-0d53-486e-968c-f7d01623169c",
+        "a669b715-6952-4443-a9a3-1ede34d946a1",
         "2a2cde39-c823-4dd1-b226-50c161db30ca",
         "697c5bb0-1bd5-4636-b249-90c0748a9735",
         "e4f1278c-67b0-4604-9d66-25d4fdf43eb4",
         "d56d1b88-f46c-41d9-8474-7d1d4c207bfd",
+        "d9392eb1-5046-44a6-89ec-29aee134cd41",
+        "44b4e40f-d2aa-470d-9b58-71cebcdb8450",
+        "937385e1-6c51-4793-b256-a18c59b4a42a",
+        "7ec9db41-9011-4c7a-9b81-bc23e86da47c",
         "d809f4d6-a522-4004-8532-a7b642242c5a",
+        "52d53dfd-c828-4f06-a926-0580162ff02a",
+        "1263d74c-8167-4928-91a6-4e2672411f47@38fd2",
+        "1263d74c-8167-4928-91a6-4e2672411f47@40ece",
         "d032ac98-05e1-4090-88bb-eb640dcb5fc1@b47c0",
         "6f01cf7f-81bf-4a7e-bd5d-0afc19696480@b47c0"
       ],
       "dependScripts": [
+        "df5f71e8-8f58-46e0-8430-9f36bd96c589",
         "36747630-c567-47f2-9301-d52d6e2a71bf",
         "CC3eba29-7abb-723a-f7ab-ae275e2277e8",
         "037991ec-d08f-4f52-b213-cc36ed0783c5",
@@ -11995,7 +12015,8 @@
         "0a1c2f11-f15b-42fb-b2ba-5e4bcb99e50a",
         "634f6872-9a20-417c-96c8-a1d758cafe00",
         "b7ccd648-aac9-4571-b48a-ea11754300bd",
-        "5b8a9c4b-6736-461a-9f5c-a2d59ef26031"
+        "5b8a9c4b-6736-461a-9f5c-a2d59ef26031",
+        "31bf05c0-26ee-4e93-bb02-5826fe7de610"
       ]
     },
     "versionCode": 1
@@ -15158,7 +15179,7 @@
     "url": "db://assets/prefabs/CircleMC.prefab",
     "value": {
       "depends": [
-        "620b6bf3-0369-4560-837f-2a2c00b73c26",
+        "52d53dfd-c828-4f06-a926-0580162ff02a",
         "1263d74c-8167-4928-91a6-4e2672411f47@38fd2",
         "1263d74c-8167-4928-91a6-4e2672411f47@40ece"
       ],
@@ -15418,6 +15439,463 @@
   },
   "b6155367-4c0b-435b-b37f-7ae197ea6c50": {
     "url": "db://assets/SFX/jump_Gm.mp3",
+    "value": {
+      "depends": []
+    },
+    "versionCode": 1
+  },
+  "df5f71e8-8f58-46e0-8430-9f36bd96c589": {
+    "url": "db://assets/scripts/Utils/CrazyGamesManager.ts",
+    "value": {},
+    "versionCode": 1
+  },
+  "a669b715-6952-4443-a9a3-1ede34d946a1": {
+    "url": "db://assets/SFX/dashdash.mp3",
+    "value": {
+      "depends": []
+    },
+    "versionCode": 1
+  },
+  "44b4e40f-d2aa-470d-9b58-71cebcdb8450": {
+    "url": "db://assets/SFX/ouch1.mp3",
+    "value": {
+      "depends": []
+    },
+    "versionCode": 1
+  },
+  "937385e1-6c51-4793-b256-a18c59b4a42a": {
+    "url": "db://assets/SFX/ouch2.mp3",
+    "value": {
+      "depends": []
+    },
+    "versionCode": 1
+  },
+  "7ec9db41-9011-4c7a-9b81-bc23e86da47c": {
+    "url": "db://assets/SFX/slide.mp3",
+    "value": {
+      "depends": []
+    },
+    "versionCode": 1
+  },
+  "31bf05c0-26ee-4e93-bb02-5826fe7de610": {
+    "url": "db://assets/scripts/UI/PointerIndicator.ts",
+    "value": {},
+    "versionCode": 1
+  },
+  "bb262c18-3a81-4aeb-9e79-9e375d014959": {
+    "url": "db://assets/scripts/UI/POINTER_INDICATOR_SETUP.md",
+    "value": {
+      "depends": []
+    },
+    "versionCode": 1
+  },
+  "52d53dfd-c828-4f06-a926-0580162ff02a": {
+    "url": "db://assets/materials/pointerMat.mtl",
+    "value": {
+      "depends": [
+        "c8f66d17-351a-48da-a12c-0212d28575c4"
+      ]
+    },
+    "versionCode": 1
+  },
+  "d202747b-19d2-43f2-9347-9773f08bbdbd": {
+    "url": "db://assets/materials/circleMat.mtl",
+    "value": {
+      "depends": [
+        "c8f66d17-351a-48da-a12c-0212d28575c4"
+      ]
+    },
+    "versionCode": 1
+  },
+  "818c86d4-ee5b-4c26-b370-bb520502c05d": {
+    "url": "db://assets/prefabs/Obstacle_small.prefab",
+    "value": {
+      "depends": [
+        "85b1d93f-b72f-4734-ae47-fe402600d949",
+        "1263d74c-8167-4928-91a6-4e2672411f47@38fd2"
+      ],
+      "dependScripts": [
+        "5d2c4c58-3023-4ea3-a455-6a3ac5552ab4"
+      ]
+    },
+    "versionCode": 1
+  },
+  "e874d609-53a9-42d4-b1e6-1ccf0628b362": {
+    "url": "db://assets/scripts/GameManager/SMALL_OBSTACLE_SETUP.md",
+    "value": {
+      "depends": []
+    },
+    "versionCode": 1
+  },
+  "7ffecdcb-3bba-490a-a371-f138577ad2fe": {
+    "url": "db://assets/scripts/Effects/FogEffectManager.ts",
+    "value": {},
+    "versionCode": 1
+  },
+  "5a0ebed3-65e8-4274-940e-0a2c9741d09e": {
+    "url": "db://assets/scripts/Obstacle/AtomicBomb.ts",
+    "value": {},
+    "versionCode": 1
+  },
+  "da455fa4-2b4f-4f5e-92df-32904f271b8d": {
+    "url": "db://assets/scripts/Obstacle/AtomicBombManager.ts",
+    "value": {},
+    "versionCode": 1
+  },
+  "f63fa7af-1af8-484d-8e85-9619005f07d5": {
+    "url": "db://assets/prefabs/Fog_particle.prefab",
+    "value": {
+      "depends": [
+        "3830ba9b-21ca-4c50-90bb-e4d2ddd0a58c",
+        "1263d74c-8167-4928-91a6-4e2672411f47@17020"
+      ],
+      "dependScripts": [
+        "939badcb-a33e-4df1-94b0-c2ecfb21f4e5"
+      ]
+    },
+    "versionCode": 1
+  },
+  "a97da7e8-2291-48ea-b69f-11f02bd7a0f3": {
+    "url": "db://assets/materials/fogParticleMat.mtl",
+    "value": {
+      "depends": [
+        "c8f66d17-351a-48da-a12c-0212d28575c4"
+      ]
+    },
+    "versionCode": 1
+  },
+  "12b58633-2781-4360-a2ee-7485481160fe": {
+    "url": "db://assets/prefabs/AtomicBomb.prefab",
+    "value": {
+      "depends": [
+        "620b6bf3-0369-4560-837f-2a2c00b73c26",
+        "1263d74c-8167-4928-91a6-4e2672411f47@801ec",
+        "3bb9a1af-5506-4fb5-ae2c-8aad0526e8b4"
+      ],
+      "dependScripts": [
+        "5a0ebed3-65e8-4274-940e-0a2c9741d09e"
+      ]
+    },
+    "versionCode": 1
+  },
+  "e3479afe-0be9-4c0b-bf4a-ec6969c1f3d4": {
+    "url": "db://assets/characters/Female/Soccer Trip.fbx",
+    "value": {},
+    "versionCode": 1
+  },
+  "82a31915-e2d0-4cd8-8577-8d7e19070d99": {
+    "url": "db://assets/characters/Female/Tripping.fbx",
+    "value": {},
+    "versionCode": 1
+  },
+  "e3479afe-0be9-4c0b-bf4a-ec6969c1f3d4@18d6f": {
+    "url": "db://assets/characters/Female/Soccer Trip.fbx@18d6f",
+    "value": {
+      "depends": []
+    },
+    "versionCode": 1
+  },
+  "82a31915-e2d0-4cd8-8577-8d7e19070d99@18d6f": {
+    "url": "db://assets/characters/Female/Tripping.fbx@18d6f",
+    "value": {
+      "depends": []
+    },
+    "versionCode": 1
+  },
+  "e3479afe-0be9-4c0b-bf4a-ec6969c1f3d4@92b52": {
+    "url": "db://assets/characters/Female/Soccer Trip.fbx@92b52",
+    "value": {
+      "depends": [
+        "e3479afe-0be9-4c0b-bf4a-ec6969c1f3d4@18d6f"
+      ]
+    },
+    "versionCode": 1
+  },
+  "82a31915-e2d0-4cd8-8577-8d7e19070d99@d43d1": {
+    "url": "db://assets/characters/Female/Tripping.fbx@d43d1",
+    "value": {
+      "depends": [
+        "82a31915-e2d0-4cd8-8577-8d7e19070d99@18d6f"
+      ]
+    },
+    "versionCode": 1
+  },
+  "9ef3a93c-e63b-481b-a47b-36cdf95bfe47": {
+    "url": "db://assets/characters/Female/fast_tripping.fbx",
+    "value": {
+      "depends": []
+    },
+    "versionCode": 1
+  },
+  "fa8a9fbb-c877-4b03-8246-14d9f45b184c": {
+    "url": "db://assets/characters/Female/slow_tripping.fbx",
+    "value": {
+      "depends": []
+    },
+    "versionCode": 1
+  },
+  "9ef3a93c-e63b-481b-a47b-36cdf95bfe47@70aad": {
+    "url": "db://assets/characters/Female/fast_tripping.fbx@70aad",
+    "value": {
+      "depends": []
+    },
+    "versionCode": 1
+  },
+  "9ef3a93c-e63b-481b-a47b-36cdf95bfe47@9711b": {
+    "url": "db://assets/characters/Female/fast_tripping.fbx@9711b",
+    "value": {
+      "depends": [
+        "9ef3a93c-e63b-481b-a47b-36cdf95bfe47@70aad"
+      ]
+    },
+    "versionCode": 1
+  },
+  "fa8a9fbb-c877-4b03-8246-14d9f45b184c@70aad": {
+    "url": "db://assets/characters/Female/slow_tripping.fbx@70aad",
+    "value": {
+      "depends": []
+    },
+    "versionCode": 1
+  },
+  "fa8a9fbb-c877-4b03-8246-14d9f45b184c@a7ff6": {
+    "url": "db://assets/characters/Female/slow_tripping.fbx@a7ff6",
+    "value": {
+      "depends": [
+        "fa8a9fbb-c877-4b03-8246-14d9f45b184c@70aad"
+      ]
+    },
+    "versionCode": 1
+  },
+  "6d9126dd-a0af-4119-980b-4b85da81f1b9": {
+    "url": "db://assets/characters/Female/getting_up.fbx",
+    "value": {},
+    "versionCode": 1
+  },
+  "6d9126dd-a0af-4119-980b-4b85da81f1b9@25306": {
+    "url": "db://assets/characters/Female/getting_up.fbx@25306",
+    "value": {
+      "depends": [
+        "6d9126dd-a0af-4119-980b-4b85da81f1b9@cbba2",
+        "6d9126dd-a0af-4119-980b-4b85da81f1b9@8dfab",
+        "6d9126dd-a0af-4119-980b-4b85da81f1b9@30732",
+        "6d9126dd-a0af-4119-980b-4b85da81f1b9@35d4d",
+        "6d9126dd-a0af-4119-980b-4b85da81f1b9@1d5ed",
+        "6d9126dd-a0af-4119-980b-4b85da81f1b9@d2338",
+        "6d9126dd-a0af-4119-980b-4b85da81f1b9@f1394",
+        "6d9126dd-a0af-4119-980b-4b85da81f1b9@61bec",
+        "6d9126dd-a0af-4119-980b-4b85da81f1b9@75ee4",
+        "6d9126dd-a0af-4119-980b-4b85da81f1b9@d45af",
+        "6d9126dd-a0af-4119-980b-4b85da81f1b9@19b2b",
+        "6d9126dd-a0af-4119-980b-4b85da81f1b9@dc44b",
+        "6d9126dd-a0af-4119-980b-4b85da81f1b9@6b9be",
+        "6d9126dd-a0af-4119-980b-4b85da81f1b9@b5c4d",
+        "6d9126dd-a0af-4119-980b-4b85da81f1b9@f6ae8",
+        "6d9126dd-a0af-4119-980b-4b85da81f1b9@1551e",
+        "6d9126dd-a0af-4119-980b-4b85da81f1b9@a72ab",
+        "6d9126dd-a0af-4119-980b-4b85da81f1b9@18d6f"
+      ]
+    },
+    "versionCode": 1
+  },
+  "6d9126dd-a0af-4119-980b-4b85da81f1b9@30732": {
+    "url": "db://assets/characters/Female/getting_up.fbx@30732",
+    "value": {
+      "depends": []
+    },
+    "versionCode": 1
+  },
+  "6d9126dd-a0af-4119-980b-4b85da81f1b9@8dfab": {
+    "url": "db://assets/characters/Female/getting_up.fbx@8dfab",
+    "value": {
+      "depends": []
+    },
+    "versionCode": 1
+  },
+  "6d9126dd-a0af-4119-980b-4b85da81f1b9@d2338": {
+    "url": "db://assets/characters/Female/getting_up.fbx@d2338",
+    "value": {
+      "depends": []
+    },
+    "versionCode": 1
+  },
+  "6d9126dd-a0af-4119-980b-4b85da81f1b9@61bec": {
+    "url": "db://assets/characters/Female/getting_up.fbx@61bec",
+    "value": {
+      "depends": []
+    },
+    "versionCode": 1
+  },
+  "6d9126dd-a0af-4119-980b-4b85da81f1b9@1551e": {
+    "url": "db://assets/characters/Female/getting_up.fbx@1551e",
+    "value": {
+      "depends": []
+    },
+    "versionCode": 1
+  },
+  "6d9126dd-a0af-4119-980b-4b85da81f1b9@18d6f": {
+    "url": "db://assets/characters/Female/getting_up.fbx@18d6f",
+    "value": {
+      "depends": []
+    },
+    "versionCode": 1
+  },
+  "6d9126dd-a0af-4119-980b-4b85da81f1b9@f1394": {
+    "url": "db://assets/characters/Female/getting_up.fbx@f1394",
+    "value": {
+      "depends": []
+    },
+    "versionCode": 1
+  },
+  "6d9126dd-a0af-4119-980b-4b85da81f1b9@75ee4": {
+    "url": "db://assets/characters/Female/getting_up.fbx@75ee4",
+    "value": {
+      "depends": []
+    },
+    "versionCode": 1
+  },
+  "6d9126dd-a0af-4119-980b-4b85da81f1b9@a72ab": {
+    "url": "db://assets/characters/Female/getting_up.fbx@a72ab",
+    "value": {
+      "depends": []
+    },
+    "versionCode": 1
+  },
+  "6d9126dd-a0af-4119-980b-4b85da81f1b9@cbba2": {
+    "url": "db://assets/characters/Female/getting_up.fbx@cbba2",
+    "value": {
+      "depends": [
+        "f648964e-8d32-41fc-9ac9-7a1e714dd17b"
+      ]
+    },
+    "versionCode": 1
+  },
+  "6d9126dd-a0af-4119-980b-4b85da81f1b9@35d4d": {
+    "url": "db://assets/characters/Female/getting_up.fbx@35d4d",
+    "value": {
+      "depends": [
+        "f648964e-8d32-41fc-9ac9-7a1e714dd17b"
+      ]
+    },
+    "versionCode": 1
+  },
+  "6d9126dd-a0af-4119-980b-4b85da81f1b9@1d5ed": {
+    "url": "db://assets/characters/Female/getting_up.fbx@1d5ed",
+    "value": {
+      "depends": [
+        "f648964e-8d32-41fc-9ac9-7a1e714dd17b"
+      ]
+    },
+    "versionCode": 1
+  },
+  "6d9126dd-a0af-4119-980b-4b85da81f1b9@d45af": {
+    "url": "db://assets/characters/Female/getting_up.fbx@d45af",
+    "value": {
+      "depends": [
+        "f648964e-8d32-41fc-9ac9-7a1e714dd17b"
+      ]
+    },
+    "versionCode": 1
+  },
+  "6d9126dd-a0af-4119-980b-4b85da81f1b9@19b2b": {
+    "url": "db://assets/characters/Female/getting_up.fbx@19b2b",
+    "value": {
+      "depends": [
+        "f648964e-8d32-41fc-9ac9-7a1e714dd17b"
+      ]
+    },
+    "versionCode": 1
+  },
+  "6d9126dd-a0af-4119-980b-4b85da81f1b9@dc44b": {
+    "url": "db://assets/characters/Female/getting_up.fbx@dc44b",
+    "value": {
+      "depends": [
+        "f648964e-8d32-41fc-9ac9-7a1e714dd17b"
+      ]
+    },
+    "versionCode": 1
+  },
+  "6d9126dd-a0af-4119-980b-4b85da81f1b9@6b9be": {
+    "url": "db://assets/characters/Female/getting_up.fbx@6b9be",
+    "value": {
+      "depends": [
+        "f648964e-8d32-41fc-9ac9-7a1e714dd17b"
+      ]
+    },
+    "versionCode": 1
+  },
+  "6d9126dd-a0af-4119-980b-4b85da81f1b9@b5c4d": {
+    "url": "db://assets/characters/Female/getting_up.fbx@b5c4d",
+    "value": {
+      "depends": [
+        "f648964e-8d32-41fc-9ac9-7a1e714dd17b"
+      ]
+    },
+    "versionCode": 1
+  },
+  "6d9126dd-a0af-4119-980b-4b85da81f1b9@f6ae8": {
+    "url": "db://assets/characters/Female/getting_up.fbx@f6ae8",
+    "value": {
+      "depends": [
+        "f648964e-8d32-41fc-9ac9-7a1e714dd17b"
+      ]
+    },
+    "versionCode": 1
+  },
+  "d4d34a95-5959-485f-b42c-3140d99060d2": {
+    "url": "db://assets/characters/Female/Getting Up.fbx",
+    "value": {
+      "depends": []
+    },
+    "versionCode": 1
+  },
+  "d4d34a95-5959-485f-b42c-3140d99060d2@18d6f": {
+    "url": "db://assets/characters/Female/Getting Up.fbx@18d6f",
+    "value": {
+      "depends": []
+    },
+    "versionCode": 1
+  },
+  "d4d34a95-5959-485f-b42c-3140d99060d2@8557a": {
+    "url": "db://assets/characters/Female/Getting Up.fbx@8557a",
+    "value": {
+      "depends": [
+        "d4d34a95-5959-485f-b42c-3140d99060d2@18d6f"
+      ]
+    },
+    "versionCode": 1
+  },
+  "17c5c581-e626-4b17-b19f-62b851e8d7b7": {
+    "url": "db://assets/characters/Female/Fall Flat.fbx",
+    "value": {
+      "depends": []
+    },
+    "versionCode": 1
+  },
+  "17c5c581-e626-4b17-b19f-62b851e8d7b7@18d6f": {
+    "url": "db://assets/characters/Female/Fall Flat.fbx@18d6f",
+    "value": {
+      "depends": []
+    },
+    "versionCode": 1
+  },
+  "17c5c581-e626-4b17-b19f-62b851e8d7b7@7311f": {
+    "url": "db://assets/characters/Female/Fall Flat.fbx@7311f",
+    "value": {
+      "depends": [
+        "17c5c581-e626-4b17-b19f-62b851e8d7b7@d628c"
+      ]
+    },
+    "versionCode": 1
+  },
+  "17c5c581-e626-4b17-b19f-62b851e8d7b7@70aad": {
+    "url": "db://assets/characters/Female/Fall Flat.fbx@70aad",
+    "value": {
+      "depends": []
+    },
+    "versionCode": 1
+  },
+  "17c5c581-e626-4b17-b19f-62b851e8d7b7@d628c": {
+    "url": "db://assets/characters/Female/Fall Flat.fbx@d628c",
     "value": {
       "depends": []
     },

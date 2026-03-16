@@ -38,7 +38,7 @@ export class Missile extends Component {
 
     MultiplySpeed(multiplier: number) {
         this.speed *= multiplier;
-        this.turnRate *= multiplier/1.5; // Optionally increase turn rate as well for more challenge at higher speeds
+        this.turnRate *= multiplier/1.55;
     }
 
     private onTriggerEnter(event): void {

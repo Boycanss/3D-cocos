@@ -1,4 +1,5 @@
 import { _decorator, Component, sys } from 'cc';
+import { CrazyGamesManager } from './Utils/CrazyGamesManager';
 const { ccclass, property } = _decorator;
 
 @ccclass('BestRunManager')
@@ -9,8 +10,22 @@ export class BestRunManager extends Component {
     
     onLoad() {
         this.loadBestDistance();
-        this.bestTime = this.loadBestTime(); // Store the loaded value
-        // console.log(`📊 BestRunManager loaded - Time: ${this.bestTime}s, Distance: ${this.bestDistance}m`);
+        this.bestTime = this.loadBestTime();
+        this.syncWithCrazyGames();
+    }
+
+    private async syncWithCrazyGames(): Promise<void> {
+        const crazyGames = CrazyGamesManager.instance;
+        if (!crazyGames) return;
+
+        const bestScore = this.loadBestScore();
+        const merged = await crazyGames.syncExistingLocalData(this.bestTime, this.bestDistance, bestScore);
+
+        this.bestTime = merged.bestTime;
+        this.bestDistance = merged.bestDistance;
+        this.saveBestTime(this.bestTime);
+        this.saveBestDistance();
+        this.saveBestScore(merged.bestScore);
     }
     
     public updateDistance(distance: number) {
@@ -40,6 +55,7 @@ export class BestRunManager extends Component {
         } catch (e) {
             console.error('Failed to save best distance:', e);
         }
+        this.syncSaveData();
     }
     
     private loadBestDistance() {
@@ -55,13 +71,13 @@ export class BestRunManager extends Component {
 
     // Methods for Time tracking
     public saveBestTime(time: number) {
-        this.bestTime = time; // Update current best time
+        this.bestTime = time;
         try {
             sys.localStorage.setItem('bestParkourTime', time.toString());
-            // console.log(`💾 Saved new best time: ${time.toFixed(1)}s`);
         } catch (e) {
             console.error('Failed to save best time:', e);
         }
+        this.syncSaveData();
     }
     
     public loadBestTime(): number {
@@ -78,5 +94,33 @@ export class BestRunManager extends Component {
     
     public getBestTime(): number {
         return this.bestTime;
+    }
+
+    public loadBestScore(): number {
+        try {
+            const saved = sys.localStorage.getItem('bestParkourScore');
+            return saved ? parseInt(saved) : 0;
+        } catch (e) {
+            console.error('Failed to load best score:', e);
+            return 0;
+        }
+    }
+
+    public saveBestScore(score: number): void {
+        try {
+            sys.localStorage.setItem('bestParkourScore', score.toString());
+        } catch (e) {
+            console.error('Failed to save best score:', e);
+        }
+        this.syncSaveData();
+    }
+
+    private syncSaveData(): void {
+        CrazyGamesManager.instance?.saveGameData({
+            bestTime: this.bestTime,
+            bestDistance: this.bestDistance,
+            bestScore: this.loadBestScore(),
+            updatedAt: Date.now(),
+        });
     }
 }

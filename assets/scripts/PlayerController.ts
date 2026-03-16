@@ -5,7 +5,7 @@ import { Box } from './Obstacle/Box';
 import { GhostEffect } from './Utils/GhostEffect';
 import { Actor } from './Actor';
 import { StaminaManager } from './GameManager/StaminaManager';
-import { ObstacleCollision } from './Obstacle/ObstacleCollision';
+import { ObstacleCollision, ObsType } from './Obstacle/ObstacleCollision';
 import { Missile } from './Obstacle/Missile';
 import { SlidingController } from './SlidingController';
 import { TouchControlManager } from './Touch/TouchControlManager';
@@ -94,6 +94,8 @@ export class PlayerController extends Component {
 
     private _wasGrounded: boolean = true;
     private _footstepTimer: number = 0;
+    private _trippingTimer: number = 0;
+    private _trippingDuration: number = 3.0; // Approx 3 seconds for trip animation
 
     protected onLoad(): void {
         this.SetState(MovementState.IDLE);
@@ -114,7 +116,9 @@ export class PlayerController extends Component {
     onKeyDown(event: EventKeyboard) {
         if (this._isMobile) return; // Ignore keyboard on mobile
 
-        if (this.currentState === MovementState.VAULTING) return;
+        // Block input during vaulting or tripping
+        const isBlockedState = this.currentState === MovementState.VAULTING || this.currentState === MovementState.TRIPPING;
+        if (isBlockedState) return;
 
         if (this._slidingController.isSliding) {
             if (event.keyCode === KeyCode.KEY_E) {
@@ -172,6 +176,9 @@ export class PlayerController extends Component {
 
     onKeyUp(event: EventKeyboard) {
         if (this._isMobile) return; // Ignore keyboard on mobile
+
+        // Block all input during tripping
+        if (this.currentState === MovementState.TRIPPING) return;
 
         if (event.keyCode === KeyCode.KEY_W) {
             this._keyWPressed = false;
@@ -255,9 +262,23 @@ export class PlayerController extends Component {
                 this.callDustTrail();
                 // console.log("🏃‍♂️ Wall running started!");
                 break;
+            case MovementState.TRIPPING:
+                // Prevent all movement during trip
+                this.shutdownMovement();
+                break;
             default:
                 break;
         }
+    }
+
+    shutdownMovement(){
+        this._moveDir.z = 0;
+        this._moveDir.x = 0;
+        this.currentSpeed = 0;
+        this.Animation.setValue('isRunning', false);
+        this.Animation.setValue('isTurning', false);
+        this._keyAPressed = false;
+        this._keyDPressed = false;
     }
 
     start() {
@@ -291,7 +312,7 @@ export class PlayerController extends Component {
         }
         
         // Handle obstacle damage
-        if (!this._canTakeDamage || this.currentState === MovementState.VAULTING) return;
+        if (!this._canTakeDamage || this.currentState === MovementState.VAULTING || this.isDashing) return;
         
         const obstacle = hitNode.getComponent(ObstacleCollision);
         if (obstacle && this._actor) {
@@ -299,10 +320,45 @@ export class PlayerController extends Component {
             const missile = hitNode.getComponent(Missile);
             if(missile){
                 missile.destroyMissile(); // Call missile's destroy method to show blow effect
+            }else{
+                // Only trigger trip for small obstacles (LOWBOX)
+                const obs = hitNode.getComponent(ObstacleCollision);
+                if (obs && obs.obstacleType == ObsType.SmallObstacle) {
+                    this.goTrip();
+                }
             }
             this._canTakeDamage = false;
             this._timeSinceLastHit = 0;
         }
+    }
+
+    private goTrip(){
+        this._trippingTimer = 0;
+        let knockbackForce = 1.25;
+        if(this.currentSpeed <= this.maxSpeed - 1){
+            this.Animation.setValue("SlowTrip", true);
+        }else{
+            knockbackForce = 1.75;
+            this.Animation.setValue("FastTrip", true);
+        }
+        this.SetState(MovementState.TRIPPING);
+
+        // Create thrown effect at player position
+        this.callDustEffect(4);
+        
+        const knockbackDir = this.node.forward.clone();
+        knockbackDir.y = 0;
+        knockbackDir.normalize();
+        knockbackDir.multiplyScalar(-knockbackForce);
+        
+        const startPos = this.node.worldPosition.clone();
+        const endPos = startPos.clone().add(knockbackDir);
+        
+        // Apply knockback over 0.3 seconds
+        tween()
+            .target(this.node)
+            .to(0.3, { worldPosition: endPos })
+            .start();
     }
 
     
@@ -335,6 +391,15 @@ export class PlayerController extends Component {
         // Update slide timer - ends slide when animation finishes
         this._slidingController.updateSlideTimer(deltaTime);
 
+        // Update trip timer - ends trip when animation finishes
+        if (this.currentState === MovementState.TRIPPING) {
+            this._trippingTimer += deltaTime;
+            if (this._trippingTimer >= this._trippingDuration) {
+                this.SetState(MovementState.IDLE);
+                this.shutdownMovement();
+            }
+        }
+
         // Check stamina for running states
         if(this.staminaManager.getStamina() <= 0 && (this.currentState == MovementState.RUNNING || this.currentState == MovementState.WALL_RUNNING)){
             this.SetState(MovementState.IDLE);
@@ -343,7 +408,7 @@ export class PlayerController extends Component {
         // Handle dust effect state changes
         this.handleDustEffectStateChanges();
 
-        if (this.currentState != MovementState.VAULTING && !this.isDashing) this.HandleMovement(deltaTime);
+        if (this.currentState != MovementState.VAULTING && this.currentState != MovementState.TRIPPING && !this.isDashing) this.HandleMovement(deltaTime);
     }
 
 
@@ -456,12 +521,15 @@ export class PlayerController extends Component {
     }
     
     VaultOver() {
+        // Prevent vault spam - check state first before any detection
+        if (this.currentState == MovementState.VAULTING) return;
+        
         const vaultDetector = this.node.getComponent(VaultDetector);
         vaultDetector.checkObstacleAhead();
         const obstacle:Node = vaultDetector.hitResult;
-        if (!obstacle || this.currentState == MovementState.VAULTING) return;
+        if (!obstacle) return;
         
-        if(obstacle && obstacle.getComponent(Box).boxType == ObstacleType.LOWBOX){
+        if(obstacle.getComponent(Box).boxType == ObstacleType.LOWBOX){
             this.SetState(MovementState.IDLE);
             this.SetState(MovementState.VAULTING);
             this.LowVault(obstacle);
@@ -527,7 +595,7 @@ export class PlayerController extends Component {
         // PC uses keyboard A/D keys to set _moveDir.x for turning
         // Mobile uses joystick input handled in handleTouchInput() but doesn't use _moveDir.x for turning
         // Keep PC turning behavior intact
-        if (!this.charController.isGrounded || this._slidingController.isSliding) return;
+        if (!this.charController.isGrounded || this._slidingController.isSliding || this.currentState === MovementState.TRIPPING) return;
         this.node.setRotationFromEuler(0, this.node.eulerAngles.y + (this.turnRate * deltaTime * this._moveDir.x), 0);
     }
 
@@ -555,7 +623,7 @@ export class PlayerController extends Component {
     }
 
     ApplyGravity(deltaTime: number) {
-        if (this.currentState == MovementState.VAULTING || this._slidingController.isSliding) return;
+        if (this.currentState == MovementState.VAULTING || this.currentState == MovementState.TRIPPING || this._slidingController.isSliding) return;
         if (this.charController.isGrounded == false) {
             this.verticalVelocity -= Physics.GRAVITY;
         } else {
@@ -674,7 +742,11 @@ export class PlayerController extends Component {
         this._footstepTimer += deltaTime;
         if (this._footstepTimer >= interval) {
             this._footstepTimer = 0;
-            SoundManager.instance?.playStep();
+            if(this.currentState === MovementState.RUNNING){
+                SoundManager.instance?.playStep();
+            }else{
+                SoundManager.instance?.playStepWall();
+            }
         }
     }
 
@@ -881,7 +953,7 @@ export class PlayerController extends Component {
     }
 
     private handleTouchInput(): void {
-        if (!this._isMobile || !this.touchControlManager) return;
+        if (!this._isMobile || !this.touchControlManager || this.currentState == MovementState.TRIPPING ) return;
 
         const inputData = this.touchControlManager.getInputData();
 
@@ -969,7 +1041,7 @@ export class PlayerController extends Component {
         }
 
         // Handle action buttons
-        if (this.currentState === MovementState.VAULTING) return;
+        if (this.currentState === MovementState.VAULTING || this.currentState === MovementState.TRIPPING) return;
 
         if (this._slidingController.isSliding) {
             if (inputData.dashPressed) {

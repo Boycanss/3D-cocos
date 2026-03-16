@@ -1,4 +1,5 @@
 import { _decorator, CCFloat, Component, Node, Prefab, instantiate, Vec3, Collider } from 'cc';
+import { GameManager } from './GameManager';
 const { ccclass, property } = _decorator;
 
 @ccclass('ObstacleManager')
@@ -6,11 +7,17 @@ export class ObstacleManager extends Component {
     @property(Prefab)
     obstaclePrefab: Prefab;
 
+    @property(Prefab)
+    smallObstaclePrefab: Prefab;  // Small obstacle (small box) prefab
+
     @property(CCFloat)
     obstacleSpawnRadius: number = 10;  // Radius for spawning obstacles
 
     @property(CCFloat)
     obstacleCheckRadius: number = 2;  // Radius to check for existing obstacles
+
+    @property(CCFloat)
+    smallObstacleCheckRadius: number = 1.5;  // Smaller radius for small obstacles
 
     @property(Node)
     playerNode: Node;
@@ -58,14 +65,14 @@ export class ObstacleManager extends Component {
                position.z <= this.planeBounds.maxZ;
     }
 
-    private isPositionClear(position: Vec3): boolean {
+    private isPositionClear(position: Vec3, checkRadius: number = this.obstacleCheckRadius): boolean {
         // Check all children in the scene for obstacles
         const checkNode = (node: Node): boolean => {
             const collider = node.getComponent(Collider);
             if (collider && node !== this.playerNode) {
                 const nodePos = node.getWorldPosition();
                 const distance = Vec3.distance(position, nodePos);
-                if (distance < this.obstacleCheckRadius) {
+                if (distance < checkRadius) {
                     return false; // Position is occupied
                 }
             }
@@ -93,6 +100,55 @@ export class ObstacleManager extends Component {
             return;
         }
 
+        // Calculate small obstacle count based on difficulty level
+        const smallObstacleCount = this.calculateSmallObstacleCount(count);
+        const largeObstacleCount = count - smallObstacleCount;
+
+        // Spawn large obstacles
+        this.spawnObstacleType(largeObstacleCount, this.obstaclePrefab, this.obstacleCheckRadius);
+
+        // Spawn small obstacles if prefab is available
+        if (this.smallObstaclePrefab && smallObstacleCount > 0) {
+            this.spawnObstacleType(smallObstacleCount, this.smallObstaclePrefab, this.smallObstacleCheckRadius);
+        }
+    }
+
+    /**
+     * Calculate how many small obstacles should spawn based on difficulty
+     */
+    private calculateSmallObstacleCount(totalCount: number): number {
+        const gameManager = this.node.getComponent(GameManager);
+        if (!gameManager) return 0;
+
+        const difficultyLevel = gameManager.getDifficultyLevel();
+
+        // Small obstacles only appear in higher difficulties
+        // Level 1-4: No small obstacles
+        // Level 5: 30% small obstacles (interesting variation)
+        // Level 6: 40% small obstacles (expert challenge)
+        switch (difficultyLevel) {
+            case 1:
+            case 2:
+                return 0;
+            case 3:
+                return Math.floor(totalCount * 0.1);
+            case 4:
+                return Math.floor(totalCount * 0.3);
+            case 5:
+                return Math.floor(totalCount * 0.4);
+            case 6:
+                return Math.floor(totalCount * 0.5);
+            default:
+                return 0;
+        }
+    }
+
+    /**
+     * Spawn obstacles of a specific type
+     */
+    private spawnObstacleType(count: number, prefab: Prefab, checkRadius: number): void {
+        if (!prefab || count <= 0) return;
+
         const playerPos = this.playerNode.getWorldPosition();
         let spawnedCount = 0;
         let attempts = 0;
@@ -115,9 +171,9 @@ export class ObstacleManager extends Component {
             );
 
             // Check if position is clear and within plane bounds
-            if (this.isPositionClear(spawnPos) && this.isWithinPlaneBounds(spawnPos)) {
+            if (this.isPositionClear(spawnPos, checkRadius) && this.isWithinPlaneBounds(spawnPos)) {
                 // Create obstacle instance
-                const obstacle = instantiate(this.obstaclePrefab);
+                const obstacle = instantiate(prefab);
                 obstacle.setWorldPosition(spawnPos);
 
                 // Add to scene

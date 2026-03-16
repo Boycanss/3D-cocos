@@ -18,6 +18,15 @@
         "embedWebDebugger": false,
         "__version__": "1.0.1"
       }
-    }
+    },
+    "taskOptionsMap": {
+      "1773163754319": {
+        "useWebGPU": false,
+        "orientation": "landscape",
+        "embedWebDebugger": false,
+        "__version__": "1.0.1"
+      }
+    },
+    "__version__": "1.3.9"
   }
 }

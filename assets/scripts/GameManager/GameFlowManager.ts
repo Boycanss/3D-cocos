@@ -1,5 +1,6 @@
-import { _decorator, Component, Node, Camera, Vec3, Button, Label, Sprite, Color, tween, UIOpacity, find, EventTouch, Input, input, PhysicsSystem, geometry, Collider, CapsuleCharacterController } from 'cc';
+import { _decorator, Component, Node, Camera, Vec2, Vec3, Button, Label, Sprite, Color, tween, UIOpacity, find, EventTouch, Input, input, PhysicsSystem, geometry, Collider, CapsuleCharacterController } from 'cc';
 import { CameraController } from '../CameraController';
+import { CrazyGamesManager } from '../Utils/CrazyGamesManager';
 import { PlayerController } from '../PlayerController';
 import { GameManager } from './GameManager';
 import { TouchControlManager } from '../Touch/TouchControlManager';
@@ -236,9 +237,15 @@ export class GameFlowManager extends Component {
         this.endPlayerDrag();
     }
 
-    private isPlayerClicked(screenPosition: Vec3): boolean {
+    private toScreenVec3(screenPosition: Vec2 | Vec3): Vec3 {
+        return screenPosition instanceof Vec3
+            ? screenPosition
+            : new Vec3(screenPosition.x, screenPosition.y, 0);
+    }
+
+    private isPlayerClicked(screenPosition: Vec2 | Vec3): boolean {
         // Simple distance-based detection since we don't have a regular collider on player
-        const worldPos = this.screenToWorldPosition(screenPosition);
+        const worldPos = this.screenToWorldPosition(this.toScreenVec3(screenPosition));
         const playerPos = this.playerNode.worldPosition;
         const distance = Vec3.distance(worldPos, playerPos);
         
@@ -265,11 +272,11 @@ export class GameFlowManager extends Component {
     }
 
     // === Unified Drag Methods ===
-    private startPlayerDrag(screenPosition: Vec3): void {
+    private startPlayerDrag(screenPosition: Vec2 | Vec3): void {
         this._isDraggingPlayer = true;
         
         // Calculate drag offset
-        const worldPos = this.screenToWorldPosition(screenPosition);
+        const worldPos = this.screenToWorldPosition(this.toScreenVec3(screenPosition));
         const playerPos = this.playerNode.worldPosition;
         Vec3.subtract(this._dragOffset, playerPos, worldPos);
         
@@ -326,13 +333,15 @@ export class GameFlowManager extends Component {
         }
     }
 
-    private screenToWorldPosition(screenPos: Vec3): Vec3 {
+    private screenToWorldPosition(screenPos: Vec2 | Vec3): Vec3 {
         if (!this.gameplayCamera) return new Vec3();
+
+        const position = this.toScreenVec3(screenPos);
         
         // For orthographic camera, we need to project to a specific plane
         // Project to the ground plane (Y = 0)
         const ray = new geometry.Ray();
-        this.gameplayCamera.screenPointToRay(screenPos.x, screenPos.y, ray);
+        this.gameplayCamera.screenPointToRay(position.x, position.y, ray);
         
         // Calculate intersection with ground plane (Y = 0)
         const groundY = 0;
@@ -364,7 +373,9 @@ export class GameFlowManager extends Component {
 
     private onGameOver(): void {
         console.log("🎮 Game over - Returning to start state");
-        this.setState(GameState.START);
+        CrazyGamesManager.instance?.requestMidgameAd(() => {
+            this.setState(GameState.START);
+        });
     }
 
     private setState(newState: GameState): void {

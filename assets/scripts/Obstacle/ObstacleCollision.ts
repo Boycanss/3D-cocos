@@ -1,12 +1,20 @@
-import { _decorator, Component, Collider, ICollisionEvent, Node, CCFloat, find } from 'cc';
+import { _decorator, Component, Collider, ICollisionEvent, Node, CCFloat, find, Enum } from 'cc';
 import { Actor } from '../Actor';
 import { Damage } from '../Define/Define';
 const { ccclass, property } = _decorator;
+
+export enum ObsType{
+    NormalObstacle = "NORMAL_OBSTACLE",
+    SmallObstacle = "SMALL_OBSTACLE"
+}
 
 @ccclass('ObstacleCollision')
 export class ObstacleCollision extends Component {
     @property(CCFloat)
     damage: number = Damage.OBSTACLE_DAMAGE;
+
+    @property({type: Enum(ObsType)})
+    obstacleType: ObsType = ObsType.NormalObstacle;
 
     private _lastHitTime: number = 0;
     private _hitCooldown: number = 0.5; // Prevent multiple hits in quick succession
