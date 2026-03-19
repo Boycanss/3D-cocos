@@ -132,7 +132,7 @@ export class Flag extends Component {
         if (this._isCollected) return;
         
         if (player) {
-            console.log(">>>>>> Flag Collected via CharacterController!");
+            // console.log(">>>>>> Flag Collected via CharacterController!");
             this.collectFlag(player);
         }
     }

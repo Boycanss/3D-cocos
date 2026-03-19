@@ -143,7 +143,6 @@ export enum GameLevel {
     LEVEL4 = 4,
     LEVEL5 = 5,
     LEVEL6 = 6,
-    LEVEL7 = 7
 }
 
 // Difficulty progression - Fine-tuned for gradual challenge increase
@@ -194,18 +193,7 @@ export const GameLevelState: Record<GameLevel, LevelState> = {
         autoMissileInterval: 4,  // Extremely frequent - constant pressure
         autoMissileSpeed: 2.5,  // Extremely fast auto missiles
         autoMissileCount: 3     // Triple missile barrage
-    },
-    [GameLevel.LEVEL7]: {
-        boxSpawnAmount: 7,      // Same as Level 6 - focus on atomic bombs
-        missileAmount: 5,       // Same as Level 6
-        missileSpeed: 3.0,      // Same as Level 6
-        autoMissileInterval: 4,  // Same as Level 6
-        autoMissileSpeed: 2.5,  // Same as Level 6
-        autoMissileCount: 3,    // Same as Level 6
-        atomicBombAmount: 2,    // New: Atomic bombs spawn
-        atomicBombInterval: 8,  // New: Atomic bomb spawn interval (seconds)
-        atomicBombSpeed: 1.5    // New: Atomic bomb speed multiplier
-    },
+    }
 };
 
 // Flag System

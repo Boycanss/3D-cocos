@@ -1,4 +1,4 @@
-import { _decorator, Component, Enum, Node } from 'cc';
+import { _decorator, Component, Enum, Node, Vec3 } from 'cc';
 import { ObstacleType } from '../Define/Define';
 const { ccclass, property } = _decorator;
 
@@ -8,8 +8,18 @@ export class Box extends Component {
     @property({type: ObstacleTypeEnum})
     boxType: ObstacleType;
 
-    start() {
+    private initScaleSize: Vec3;
 
+    onEnable() {
+        this.initScaleSize = this.node.scale.clone();
+    }
+
+    public resetScaleSize(){
+        this.node.setScale(this.initScaleSize);
+    }
+
+    public getInitScaleSize(){
+        return this.initScaleSize;
     }
 
     update(deltaTime: number) {

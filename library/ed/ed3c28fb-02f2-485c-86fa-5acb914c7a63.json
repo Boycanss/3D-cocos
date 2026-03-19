@@ -1,6 +1,6 @@
 {
   "__type__": "cc.Material",
-  "_name": "",
+  "_name": "playgroundMat",
   "_objFlags": 0,
   "__editorExtras__": {},
   "_native": "",
@@ -11,6 +11,7 @@
   "_techIdx": 0,
   "_defines": [
     {
+      "USE_NORMAL_MAP": true,
       "USE_ALBEDO_MAP": true
     },
     {},
@@ -79,35 +80,31 @@
     {
       "tilingOffset": {
         "__type__": "cc.Vec4",
-        "x": 4,
-        "y": 4,
+        "x": 2,
+        "y": 2,
         "z": 0,
         "w": 0
       },
       "mainColor": {
         "__type__": "cc.Color",
-        "r": 42,
-        "g": 42,
-        "b": 42,
+        "r": 100,
+        "g": 100,
+        "b": 100,
         "a": 255
-      },
-      "albedoScale": {
-        "__type__": "cc.Vec3",
-        "x": -0.1,
-        "y": 1,
-        "z": 1
       },
       "roughness": 0,
-      "specularIntensity": 0,
-      "emissive": {
-        "__type__": "cc.Color",
-        "r": 22,
-        "g": 22,
-        "b": 22,
-        "a": 255
-      },
+      "specularIntensity": 0.032,
+      "normalStrength": 0.111,
       "mainTexture": {
-        "__uuid__": "754a48f0-b6d8-4eb3-b605-ac7110bc341e@6c48a",
+        "__uuid__": "d95ed804-c45b-4eca-b87d-0100d876b505@6c48a",
+        "__expectedType__": "cc.Texture2D"
+      },
+      "normalMap": {
+        "__uuid__": "d95ed804-c45b-4eca-b87d-0100d876b505@6c48a",
+        "__expectedType__": "cc.Texture2D"
+      },
+      "occlusionMap": {
+        "__uuid__": "147db250-8bf6-4d08-9fc4-59469a40702a@6c48a",
         "__expectedType__": "cc.Texture2D"
       }
     },

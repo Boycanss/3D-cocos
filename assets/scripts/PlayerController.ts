@@ -99,7 +99,7 @@ export class PlayerController extends Component {
 
     protected onLoad(): void {
         this.SetState(MovementState.IDLE);
-        
+
         // Detect platform
         this._isMobile = PlatformUtils.isMobile();
         console.info(`PlayerController initialized for ${this._isMobile ? 'Mobile' : 'Desktop'} platform`);
@@ -152,7 +152,7 @@ export class PlayerController extends Component {
             if (event.keyCode === KeyCode.KEY_F) {
                 this.VaultOver();
             }
-            
+
             //dash
             if (event.keyCode === KeyCode.KEY_E) {
                 this.Dash();
@@ -208,13 +208,13 @@ export class PlayerController extends Component {
             this._moveDir.x = 0;
         }
     }
-    
+
     SetState(newState: MovementState) {
         // Prevent re-setting the same state to avoid repeated initialization
         if (this.currentState === newState) return;
-        
+
         this.currentState = newState;
-        
+
         switch (this.currentState) {
             case MovementState.IDLE:
                 // PC behavior: always reset moveDir.z to 0 when idle
@@ -271,7 +271,7 @@ export class PlayerController extends Component {
         }
     }
 
-    shutdownMovement(){
+    shutdownMovement() {
         this._moveDir.z = 0;
         this._moveDir.x = 0;
         this.currentSpeed = 0;
@@ -302,7 +302,7 @@ export class PlayerController extends Component {
     private onControllerColliderHit(contact: CharacterControllerContact) {
 
         const hitNode = contact.collider.node;
-        
+
         // Check for Flag collision first
         const Flag = hitNode.getComponent('Flag');
         if (Flag) {
@@ -310,17 +310,17 @@ export class PlayerController extends Component {
             hitNode.emit('player-collision', this);
             return;
         }
-        
+
         // Handle obstacle damage
         if (!this._canTakeDamage || this.currentState === MovementState.VAULTING || this.isDashing) return;
-        
+
         const obstacle = hitNode.getComponent(ObstacleCollision);
         if (obstacle && this._actor) {
             this._actor.takeDamage(obstacle.damage);
             const missile = hitNode.getComponent(Missile);
-            if(missile){
+            if (missile) {
                 missile.destroyMissile(); // Call missile's destroy method to show blow effect
-            }else{
+            } else {
                 // Only trigger trip for small obstacles (LOWBOX)
                 const obs = hitNode.getComponent(ObstacleCollision);
                 if (obs && obs.obstacleType == ObsType.SmallObstacle) {
@@ -332,12 +332,12 @@ export class PlayerController extends Component {
         }
     }
 
-    private goTrip(){
+    private goTrip() {
         this._trippingTimer = 0;
         let knockbackForce = 1.25;
-        if(this.currentSpeed <= this.maxSpeed - 1){
+        if (this.currentSpeed <= this.maxSpeed - 1) {
             this.Animation.setValue("SlowTrip", true);
-        }else{
+        } else {
             knockbackForce = 1.75;
             this.Animation.setValue("FastTrip", true);
         }
@@ -345,15 +345,15 @@ export class PlayerController extends Component {
 
         // Create thrown effect at player position
         this.callDustEffect(4);
-        
+
         const knockbackDir = this.node.forward.clone();
         knockbackDir.y = 0;
         knockbackDir.normalize();
         knockbackDir.multiplyScalar(-knockbackForce);
-        
+
         const startPos = this.node.worldPosition.clone();
         const endPos = startPos.clone().add(knockbackDir);
-        
+
         // Apply knockback over 0.3 seconds
         tween()
             .target(this.node)
@@ -361,8 +361,8 @@ export class PlayerController extends Component {
             .start();
     }
 
-    
-    public getState():MovementState{
+
+    public getState(): MovementState {
         return this.currentState;
     }
 
@@ -401,7 +401,7 @@ export class PlayerController extends Component {
         }
 
         // Check stamina for running states
-        if(this.staminaManager.getStamina() <= 0 && (this.currentState == MovementState.RUNNING || this.currentState == MovementState.WALL_RUNNING)){
+        if (this.staminaManager.getStamina() <= 0 && (this.currentState == MovementState.RUNNING || this.currentState == MovementState.WALL_RUNNING)) {
             this.SetState(MovementState.IDLE);
         }
 
@@ -418,7 +418,7 @@ export class PlayerController extends Component {
         // - Same wall detection distance (1.5)
         // - Same jump velocities and mechanics
         // - Mobile uses touch input, PC uses keyboard, but core mechanics are identical
-        
+
         this.movementDirection.set(0, this.verticalVelocity, 0);
         this.ApplyGravity(deltaTime);
 
@@ -438,20 +438,20 @@ export class PlayerController extends Component {
         if (this.currentState === MovementState.JUMPING && !this.charController.isGrounded) {
             const wallContact = this.checkWallContact();
             const hasStamina = this.staminaManager.getStamina() >= Energy.RUN;
-            
+
             // Use same speed threshold for both mobile and PC for consistent behavior
             const speedThreshold = this.maxSpeed * 0.4;
             const canWallRun = this.currentSpeed >= speedThreshold;
-            
+
             // Debug wall running conditions (same for both platforms)
             if (this._isMobile) {
-                console.info("🏃‍♂️ Wall Run Check - State:", this.currentState, 
-                           "WallContact:", wallContact, 
-                           "Speed:", this.currentSpeed,
-                           "SpeedThreshold:", speedThreshold,
-                           "CanWallRun:", canWallRun);
+                console.info("🏃‍♂️ Wall Run Check - State:", this.currentState,
+                    "WallContact:", wallContact,
+                    "Speed:", this.currentSpeed,
+                    "SpeedThreshold:", speedThreshold,
+                    "CanWallRun:", canWallRun);
             }
-            
+
             if (wallContact && hasStamina && canWallRun) {
                 console.info("🏃‍♂️ Wall running triggered!");
                 this.SetState(MovementState.WALL_RUNNING);
@@ -464,7 +464,7 @@ export class PlayerController extends Component {
             const wallContactLost = !this.checkWallContactOnSide(this._wallRunLockedSide);
             const noStamina = this.staminaManager.getStamina() < Energy.RUN;
             const grounded = this.charController.isGrounded;
-            
+
             if (wallContactLost || noStamina || grounded) {
                 // if (this._isMobile) {
                 //     // console.log("🏃‍♂️ Exiting wall run - WallLost:", wallContactLost, "NoStamina:", noStamina, "Grounded:", grounded);
@@ -473,7 +473,7 @@ export class PlayerController extends Component {
             }
         }
 
-        if(this._slidingController.isSliding){
+        if (this._slidingController.isSliding) {
             // During slide: maintain ground contact and forward momentum
             this.verticalVelocity = Physics.SLIDE_DOWNWARD_VELOCITY; // Strong downward velocity to keep grounded and low
             this.currentSpeed = this._slidingController.handleSlideMovement(this.movementDirection, this.currentSpeed, deltaTime);
@@ -507,29 +507,29 @@ export class PlayerController extends Component {
         const pos = this.node.worldPosition.clone()
         var destination = pos.clone();
         Vec3.scaleAndAdd(destination, pos, this.node.forward, -.75);
-        destination.y = obstacle.position.y+.5;
+        destination.y = obstacle.position.y + .5;
         // console.log(destination);
         this.staminaManager.reduceStamina(Energy.VAULT, true); // Show stat display
         tween()
-        .target(this.node)
-        .delay(.25)
-        .to(.5, { worldPosition: destination })
-        .call(() => {
-            this.SetState(MovementState.IDLE);
-        })
-        .start();
+            .target(this.node)
+            .delay(.25)
+            .to(.5, { worldPosition: destination })
+            .call(() => {
+                this.SetState(MovementState.IDLE);
+            })
+            .start();
     }
-    
+
     VaultOver() {
         // Prevent vault spam - check state first before any detection
         if (this.currentState == MovementState.VAULTING) return;
-        
+
         const vaultDetector = this.node.getComponent(VaultDetector);
         vaultDetector.checkObstacleAhead();
-        const obstacle:Node = vaultDetector.hitResult;
+        const obstacle: Node = vaultDetector.hitResult;
         if (!obstacle) return;
-        
-        if(obstacle.getComponent(Box).boxType == ObstacleType.LOWBOX){
+
+        if (obstacle.getComponent(Box).boxType == ObstacleType.LOWBOX) {
             this.SetState(MovementState.IDLE);
             this.SetState(MovementState.VAULTING);
             this.LowVault(obstacle);
@@ -539,7 +539,7 @@ export class PlayerController extends Component {
     Jump() {
         // Prevent jump spam - only allow jump when grounded or wall running
         if (this.currentState === MovementState.JUMPING) return;
-        
+
         // Wall Run Jump Logic - keep original but with immediate rotation
         if (this.currentState === MovementState.WALL_RUNNING) {
             // Calculate jump direction perpendicular to wall
@@ -566,7 +566,7 @@ export class PlayerController extends Component {
             this.callDustEffect(3);
             return;
         }
-        
+
         // Match PC and mobile jump gate: require movement speed to jump
         if (this.currentSpeed == 0) return;
 
@@ -576,15 +576,15 @@ export class PlayerController extends Component {
         this.staminaManager.reduceStamina(Energy.JUMP, true); // Show stat display
         this.callDustEffect(3);
         SoundManager.instance?.playJump();
-        
+
         // Use consistent jump velocity calculation for both platforms
         this.verticalVelocity = Physics.JUMP_VELOCITY_BASE * (this.currentSpeed / this.maxSpeed);
-        
+
         // Ensure minimum jump velocity for both platforms
         if (this.verticalVelocity < Physics.JUMP_VELOCITY_MIN) {
             this.verticalVelocity = Physics.JUMP_VELOCITY_MIN;
         }
-        
+
         // For mobile: ensure forward momentum for wall running (but don't change PC behavior)
         if (this._isMobile && this._moveDir.z < 0.5) {
             this._moveDir.z = 0.8; // Set minimum forward movement for mobile only
@@ -600,21 +600,21 @@ export class PlayerController extends Component {
     }
 
     Run(deltaTime: number) {
-        if(this.currentState == MovementState.RUNNING || this.currentState == MovementState.WALL_RUNNING || this.currentState == MovementState.JUMPING){
+        if (this.currentState == MovementState.RUNNING || this.currentState == MovementState.WALL_RUNNING || this.currentState == MovementState.JUMPING) {
             // Check stamina for running - stop if no stamina
             if (this.currentState == MovementState.RUNNING && this.staminaManager.getStamina() <= 0) {
                 this.currentSpeed = 0;
                 this.SetState(MovementState.IDLE);
                 return;
             }
-            
+
             // Use consistent speed behavior for both mobile and PC
             this.currentSpeed = math.lerp(this.currentSpeed, this.maxSpeed, deltaTime * this.acceleration);
         } else {
             this.currentSpeed = 0;
         }
         this.Animation.setValue('currentSpeed', this.currentSpeed / this.maxSpeed);
-        
+
         // Only apply forward movement if we have speed
         if (this.currentSpeed > 0.1) {
             const fw = this.node.forward.clone().multiplyScalar(-this.currentSpeed);
@@ -629,7 +629,7 @@ export class PlayerController extends Component {
         } else {
             if (this.verticalVelocity < 0) {
                 this.verticalVelocity = Physics.GROUNDED_VELOCITY;
-                if(this._moveDir.z != 0){
+                if (this._moveDir.z != 0) {
                     this.SetState(MovementState.RUNNING);
                 }
             }
@@ -638,19 +638,19 @@ export class PlayerController extends Component {
 
     Dash() {
         if (this.isDashing || this.dashCooldownTimer > 0 || this.currentState === MovementState.VAULTING) return;
-        
+
         if (this.staminaManager.getStamina() < Energy.DASH) return;
-        
+
         this.isDashing = true;
         this.staminaManager.reduceStamina(Energy.DASH, true); // Show stat display
         this.dashCooldownTimer = this.dashCooldown;
         SoundManager.instance?.playDash();
-        
+
         // Calculate dash direction (forward)
         const dashDirection = this.node.forward.clone();
         dashDirection.y = 0;
         dashDirection.normalize();
-        
+
         // Perform dash using CharacterController.move() with collision detection
         this.performDashWithCollision(dashDirection);
 
@@ -659,9 +659,9 @@ export class PlayerController extends Component {
         }
 
         this.callGhostEffect(2);
-        
+
         // Trigger dust burst effect for dash
-        if(this.charController.isGrounded) this.callDustEffect(8);
+        if (this.charController.isGrounded) this.callDustEffect(8);
     }
 
     private performDashWithCollision(direction: Vec3): void {
@@ -669,9 +669,9 @@ export class PlayerController extends Component {
         const stepCount = 10; // Number of steps for smooth dash
         const stepDistance = this.dashDistance / stepCount;
         const stepDuration = 0.01; // 0.1 seconds / 10 steps
-        
+
         let currentStep = 0;
-        
+
         // Use schedule to perform dash in small steps with collision detection
         this.schedule(() => {
             if (currentStep >= stepCount) {
@@ -679,34 +679,34 @@ export class PlayerController extends Component {
                 this.unschedule(this.dashStepCallback);
                 return;
             }
-            
+
             // Calculate movement for this step
             const moveVec = direction.clone().multiplyScalar(-stepDistance);
-            
+
             // Check if path is clear using raycast
             const ray = new geometry.Ray();
             const startPos = this.node.worldPosition.clone();
             const endPos = startPos.clone().add(moveVec);
             geometry.Ray.fromPoints(ray, startPos, endPos);
-            
+
             // Raycast to check for obstacles
             const hit = PhysicsSystem.instance.raycastClosest(ray, 1, stepDistance);
-            
+
             if (hit && PhysicsSystem.instance.raycastClosestResult) {
                 // Hit a wall - stop dash immediately
                 this.isDashing = false;
                 this.unschedule(this.dashStepCallback);
                 return;
             }
-            
+
             // Safe to move - use CharacterController for proper collision
             moveVec.y = 0; // Keep on same vertical level
             this.charController.move(moveVec);
-            
+
             currentStep++;
         }, stepDuration, stepCount, 0, 'dashStepCallback');
     }
-    
+
     private dashStepCallback() {
         // Named callback for schedule/unschedule
     }
@@ -742,9 +742,9 @@ export class PlayerController extends Component {
         this._footstepTimer += deltaTime;
         if (this._footstepTimer >= interval) {
             this._footstepTimer = 0;
-            if(this.currentState === MovementState.RUNNING){
+            if (this.currentState === MovementState.RUNNING) {
                 SoundManager.instance?.playStep();
-            }else{
+            } else {
                 SoundManager.instance?.playStepWall();
             }
         }
@@ -795,7 +795,7 @@ export class PlayerController extends Component {
         if (this._previousState === MovementState.SLIDING && this.currentState !== MovementState.SLIDING) {
             this.stopDustTrail();
         }
-        
+
         if (this._previousState === MovementState.WALL_RUNNING && this.currentState !== MovementState.WALL_RUNNING) {
             this.stopDustTrail();
         }
@@ -837,7 +837,7 @@ export class PlayerController extends Component {
         const checkDistance = 1.5;
         const playerPos = this.node.worldPosition;
         const playerRight = this.node.right.clone(); // Get right vector based on player orientation
-        
+
         // Check right side — capture normal before next raycast overwrites the result
         const rayRight = new geometry.Ray();
         const rightCheckPoint = new Vec3();
@@ -885,14 +885,14 @@ export class PlayerController extends Component {
             this._wallSide = 0;
             this._wallNormal.set(Vec3.ZERO);
         }
-        
+
         // A wall is detected if there's a hit on either side
         const wallDetected = (rightNormal !== null) || (leftNormal !== null);
-        
+
         if (this._isMobile && this.currentState === MovementState.JUMPING) {
             console.info("🧱 Wall Contact Result:", wallDetected, "Side:", this._wallSide, "Normal:", this._wallNormal);
         }
-        
+
         return wallDetected;
     }
 
@@ -932,7 +932,7 @@ export class PlayerController extends Component {
     private updateWallRunLean(deltaTime: number): void {
         const targetLean = this._wallSide * this.wallRunLeanAngle;
         this._currentLeanAngle = math.lerp(this._currentLeanAngle, targetLean, deltaTime * this.wallRunLeanSpeed);
-        
+
         const yRotation = this.node.eulerAngles.y;
         this.node.setRotationFromEuler(0, yRotation, this._currentLeanAngle);
     }
@@ -946,21 +946,23 @@ export class PlayerController extends Component {
             }
             return;
         }
-        
+
         this._currentLeanAngle = math.lerp(this._currentLeanAngle, 0, deltaTime * this.wallRunLeanSpeed);
         const yRotation = this.node.eulerAngles.y;
         this.node.setRotationFromEuler(0, yRotation, this._currentLeanAngle);
     }
 
     private handleTouchInput(): void {
-        if (!this._isMobile || !this.touchControlManager || this.currentState == MovementState.TRIPPING ) return;
+        if (!this._isMobile || !this.touchControlManager 
+            || this.currentState == MovementState.TRIPPING 
+            || this.currentState == MovementState.VAULTING) return;
 
         const inputData = this.touchControlManager.getInputData();
 
         // Handle movement input - align mobile flow with PC mechanics
         if (inputData.isMoving) {
             const joystickMagnitude = Math.sqrt(inputData.horizontal * inputData.horizontal + inputData.vertical * inputData.vertical);
-            
+
             if (joystickMagnitude > 0.1) {
                 // Match PC: running is allowed while movement input is active
                 if (this.currentState !== MovementState.RUNNING && this.currentState !== MovementState.JUMPING && this.currentState !== MovementState.WALL_RUNNING) {
@@ -970,31 +972,31 @@ export class PlayerController extends Component {
                 // Calculate target rotation based on joystick direction
                 // Transform joystick input to match camera perspective (-35, -45, 0)
                 // Camera is rotated, so we need to adjust the input mapping
-                
+
                 // Apply camera rotation offset (45 degrees Y rotation)
                 const cameraYOffset = -45; // Camera's Y rotation
-                
+
                 // Fix up/down direction: invert vertical input since up should be forward
                 const worldAngle = Math.atan2(inputData.horizontal, -inputData.vertical) * (180 / Math.PI);
                 const targetAngle = worldAngle + cameraYOffset;
-                
+
                 // Don't rotate during wall running OR jumping to match PC behavior
                 if (this.currentState !== MovementState.WALL_RUNNING && this.currentState !== MovementState.JUMPING) {
                     // Smoothly rotate player to face joystick direction
                     const currentY = this.node.eulerAngles.y;
                     let angleDiff = targetAngle - currentY;
-                    
+
                     // Handle angle wrapping (-180 to 180)
                     while (angleDiff > 180) angleDiff -= 360;
                     while (angleDiff < -180) angleDiff += 360;
-                    
+
                     // Apply rotation with smooth turning
                     const turnSpeed = this.turnRate * 2; // Faster turning for mobile
                     const maxTurnThisFrame = turnSpeed * 0.016; // Assuming ~60fps
                     const turnAmount = Math.sign(angleDiff) * Math.min(Math.abs(angleDiff), maxTurnThisFrame);
-                    
+
                     this.node.setRotationFromEuler(0, currentY + turnAmount, 0);
-                    
+
                     // Show turning animation if rotating significantly
                     if (Math.abs(angleDiff) > 5) {
                         this.Animation.setValue('isTurning', true);
@@ -1005,7 +1007,7 @@ export class PlayerController extends Component {
                     // During wall running or jumping, maintain current rotation and don't show turning animation
                     this.Animation.setValue('isTurning', false);
                 }
-                
+
                 // Set movement direction (always forward when moving)
                 this._moveDir.z = joystickMagnitude;
                 this._moveDir.x = 0; // No side turning, we rotate the player instead
@@ -1058,7 +1060,7 @@ export class PlayerController extends Component {
             if (inputData.vaultPressed) {
                 this.VaultOver();
             }
-            
+
             if (inputData.dashPressed) {
                 this.Dash();
             }
