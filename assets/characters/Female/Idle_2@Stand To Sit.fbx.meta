@@ -1,0 +1,99 @@
+{
+  "ver": "2.3.13",
+  "importer": "fbx",
+  "imported": true,
+  "uuid": "8e19e795-d326-4888-a662-60b4ded5b795",
+  "files": [
+    "__original-animation-0.cconb"
+  ],
+  "subMetas": {
+    "e34bc": {
+      "importer": "gltf-animation",
+      "uuid": "8e19e795-d326-4888-a662-60b4ded5b795@e34bc",
+      "displayName": "",
+      "id": "e34bc",
+      "name": "Stand To Sit.animation",
+      "userData": {
+        "gltfIndex": 0,
+        "wrapMode": 0,
+        "sample": 30,
+        "span": {
+          "from": 0,
+          "to": 1.5
+        },
+        "events": []
+      },
+      "ver": "1.0.17",
+      "imported": true,
+      "files": [
+        ".cconb"
+      ],
+      "subMetas": {}
+    },
+    "a6554": {
+      "importer": "gltf-scene",
+      "uuid": "8e19e795-d326-4888-a662-60b4ded5b795@a6554",
+      "displayName": "",
+      "id": "a6554",
+      "name": "Idle_2@Stand To Sit.prefab",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.0.14",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    }
+  },
+  "userData": {
+    "imageMetas": [],
+    "fbx": {
+      "smartMaterialEnabled": true
+    },
+    "animationImportSettings": [
+      {
+        "name": "mixamo.com",
+        "duration": 1.5,
+        "fps": 30,
+        "splits": [
+          {
+            "name": "Stand To Sit",
+            "from": 0,
+            "to": 1.5,
+            "wrapMode": 0,
+            "previousId": "e34bc"
+          }
+        ]
+      }
+    ],
+    "lods": {
+      "enable": false,
+      "hasBuiltinLOD": false,
+      "options": [
+        {
+          "screenRatio": 0.25,
+          "faceCount": 1
+        },
+        {
+          "screenRatio": 0.125,
+          "faceCount": 0.25
+        },
+        {
+          "screenRatio": 0.01,
+          "faceCount": 0.1
+        }
+      ]
+    },
+    "assetFinder": {
+      "meshes": [],
+      "skeletons": [],
+      "textures": [],
+      "materials": [],
+      "scenes": [
+        "8e19e795-d326-4888-a662-60b4ded5b795@a6554"
+      ]
+    }
+  }
+}

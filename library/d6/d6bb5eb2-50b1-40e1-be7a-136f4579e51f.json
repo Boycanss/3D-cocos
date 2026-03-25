@@ -1656,7 +1656,7 @@
     "_priority": 1073741824,
     "_fov": 45,
     "_fovAxis": 0,
-    "_orthoHeight": 362.9183841714757,
+    "_orthoHeight": 334.07599309153716,
     "_near": 1,
     "_far": 2000,
     "_color": {
@@ -18025,8 +18025,8 @@
       "__expectedType__": "cc.Prefab"
     },
     "obstacleSpawnRadius": 5,
-    "obstacleCheckRadius": 2,
-    "smallObstacleCheckRadius": 1.5,
+    "obstacleCheckRadius": 1.5,
+    "smallObstacleCheckRadius": 1,
     "playerNode": {
       "__id__": 10
     },

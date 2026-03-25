@@ -1,5 +1,6 @@
-import { _decorator, CCFloat, Component, Node, Prefab, instantiate, Vec3, Collider } from 'cc';
+import { _decorator, CCFloat, Component, Node, Prefab, instantiate, Vec3, Collider, NodePool, random, randomRange } from 'cc';
 import { GameManager } from './GameManager';
+import { ObstacleCollision, ObsType } from '../Obstacle/ObstacleCollision';
 const { ccclass, property } = _decorator;
 
 @ccclass('ObstacleManager')
@@ -30,8 +31,20 @@ export class ObstacleManager extends Component {
 
     planeBounds: { minX: number; maxX: number; minZ: number; maxZ: number };
 
+    obstaclePool:NodePool;
+
     protected onLoad(): void {
         this.calculatePlaneBounds();
+        this.initObstaclePool();
+    }
+
+    initObstaclePool(){
+        this.obstaclePool = new NodePool();
+        let initPoolCount = 700;
+        for (let i = 0; i < initPoolCount; i++) {
+            let obst = instantiate(this.obstaclePrefab);
+            this.obstaclePool.put(obst);
+        }
     }
 
     private calculatePlaneBounds(): void {
@@ -173,7 +186,24 @@ export class ObstacleManager extends Component {
             // Check if position is clear and within plane bounds
             if (this.isPositionClear(spawnPos, checkRadius) && this.isWithinPlaneBounds(spawnPos)) {
                 // Create obstacle instance
-                const obstacle = instantiate(prefab);
+                // let currentObs = prefab == this.obstaclePrefab ? 
+                // const obstacle = this.obstaclePool.get();
+                let obstacle:Node;
+                let randomInt = randomRange(1,10);
+                if(prefab == this.obstaclePrefab){
+                    obstacle = this.obstaclePool.get();
+                    if(randomInt <= 3){
+                        obstacle.children[0].active = true;
+                        obstacle.children[1].active = false;
+                    }else{
+                        obstacle.children[0].active = false;
+                        obstacle.children[1].active = true;
+                    }
+                        
+                }else{
+                    obstacle = instantiate(prefab);
+                }
+
                 obstacle.setWorldPosition(spawnPos);
 
                 // Add to scene
@@ -188,10 +218,15 @@ export class ObstacleManager extends Component {
      */
     clearObstacles(): void {
         // Destroy all child obstacles
+        console.log(this.obstaclePool.size());
         const childrenToDestroy = [...this.node.children];
         childrenToDestroy.forEach(child => {
-            child.destroy();
+            if(child.getComponent(ObstacleCollision) && child.getComponent(ObstacleCollision).obstacleType == ObsType.NormalObstacle){
+                this.obstaclePool.put(child);
+            }else{
+                child.destroy();
+            }
         });
-        console.log(`🧹 Cleared ${childrenToDestroy.length} obstacles`);
+        console.log(this.obstaclePool.size());
     }
 }

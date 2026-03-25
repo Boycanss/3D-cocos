@@ -1,0 +1,90 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "fire_shard",
+    "atlas": "",
+    "rect": {
+      "x": 0,
+      "y": 2,
+      "width": 54,
+      "height": 117
+    },
+    "offset": {
+      "x": 0,
+      "y": -1
+    },
+    "originalSize": {
+      "width": 54,
+      "height": 119
+    },
+    "rotated": false,
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "vertices": {
+      "rawPosition": [
+        -27,
+        -58.5,
+        0,
+        27,
+        -58.5,
+        0,
+        -27,
+        58.5,
+        0,
+        27,
+        58.5,
+        0
+      ],
+      "indexes": [
+        0,
+        1,
+        2,
+        2,
+        1,
+        3
+      ],
+      "uv": [
+        0,
+        117,
+        54,
+        117,
+        0,
+        0,
+        54,
+        0
+      ],
+      "nuv": [
+        0,
+        0,
+        1,
+        0,
+        0,
+        0.9831932773109243,
+        1,
+        0.9831932773109243
+      ],
+      "minPos": {
+        "x": -27,
+        "y": -58.5,
+        "z": 0
+      },
+      "maxPos": {
+        "x": 27,
+        "y": 58.5,
+        "z": 0
+      }
+    },
+    "texture": "233a6ab5-49e1-4b18-bd13-2f10a562f8ff@6c48a",
+    "packable": true,
+    "pixelsToUnit": 100,
+    "pivot": {
+      "x": 0.5,
+      "y": 0.5
+    },
+    "meshType": 0
+  }
+}

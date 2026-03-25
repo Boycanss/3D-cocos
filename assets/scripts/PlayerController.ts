@@ -97,6 +97,9 @@ export class PlayerController extends Component {
     private _trippingTimer: number = 0;
     private _trippingDuration: number = 3.0; // Approx 3 seconds for trip animation
 
+    private _restingDuration:number = 3;
+    private _restingTimer:number = 0;
+
     protected onLoad(): void {
         this.SetState(MovementState.IDLE);
 
@@ -129,7 +132,7 @@ export class PlayerController extends Component {
         //walk - run
         if (event.keyCode === KeyCode.KEY_W) {
             this._keyWPressed = true;
-            this.SetState(MovementState.RUNNING);
+            if(this.currentState !== MovementState.RESTING) this.SetState(MovementState.RUNNING);
         }
 
         //turn
@@ -182,7 +185,7 @@ export class PlayerController extends Component {
 
         if (event.keyCode === KeyCode.KEY_W) {
             this._keyWPressed = false;
-            this.SetState(MovementState.IDLE);
+            if(this.currentState !== MovementState.RESTING) this.SetState(MovementState.IDLE);
         }
         if (event.keyCode === KeyCode.KEY_A) {
             this._keyAPressed = false;
@@ -210,7 +213,8 @@ export class PlayerController extends Component {
     }
 
     SetState(newState: MovementState) {
-        // Prevent re-setting the same state to avoid repeated initialization
+        console.log(">>>> setstate: ", newState);
+        
         if (this.currentState === newState) return;
 
         this.currentState = newState;
@@ -266,8 +270,27 @@ export class PlayerController extends Component {
                 // Prevent all movement during trip
                 this.shutdownMovement();
                 break;
+            case MovementState.RESTING:
+                this.shutdownMovement();
+                this.Animation.setValue('Resting', true);
+                this.resetResttimer();
+                break;
             default:
                 break;
+        }
+    }
+
+    resetResttimer(){
+        this._restingTimer = this._restingDuration;
+    }
+
+    isResting(dt:number){
+        if(this._restingTimer > 0){
+            this._restingTimer -= dt;
+            if(this._restingTimer <= 0){
+                this.Animation.setValue('Resting', false);
+                this.SetState(MovementState.IDLE);
+            }
         }
     }
 
@@ -402,37 +425,19 @@ export class PlayerController extends Component {
 
         // Check stamina for running states
         if (this.staminaManager.getStamina() <= 0 && (this.currentState == MovementState.RUNNING || this.currentState == MovementState.WALL_RUNNING)) {
-            this.SetState(MovementState.IDLE);
+            this.SetState(MovementState.RESTING);
         }
 
         // Handle dust effect state changes
         this.handleDustEffectStateChanges();
-
-        if (this.currentState != MovementState.VAULTING && this.currentState != MovementState.TRIPPING && !this.isDashing) this.HandleMovement(deltaTime);
+        this.isResting(deltaTime);
+        if (this.currentState != MovementState.VAULTING && this.currentState != MovementState.TRIPPING && this.currentState != MovementState.RESTING && !this.isDashing) this.HandleMovement(deltaTime);
     }
 
 
     HandleMovement(deltaTime: number) {
-        // UNIFIED BEHAVIOR FOR MOBILE AND PC:
-        // - Same speed thresholds (40% for wall running)
-        // - Same wall detection distance (1.5)
-        // - Same jump velocities and mechanics
-        // - Mobile uses touch input, PC uses keyboard, but core mechanics are identical
-
         this.movementDirection.set(0, this.verticalVelocity, 0);
         this.ApplyGravity(deltaTime);
-
-        // Debug current state and conditions for mobile
-        if (this._isMobile && this.touchControlManager) {
-            const inputData = this.touchControlManager.getInputData();
-            // if (inputData.isMoving && inputData.vertical > 0.3) {
-            //     console.log("📱 Mobile Debug - State:", this.currentState, 
-            //                "Grounded:", this.charController.isGrounded,
-            //                "JoystickVertical:", inputData.vertical,
-            //                "Speed:", this.currentSpeed);
-            // }
-        }
-
         // Check for wall running conditions (airborne + wall contact + stamina + moving forward)
         // Only enter wall-run once — do NOT call SetState(WALL_RUNNING) every frame
         if (this.currentState === MovementState.JUMPING && !this.charController.isGrounded) {
@@ -442,15 +447,6 @@ export class PlayerController extends Component {
             // Use same speed threshold for both mobile and PC for consistent behavior
             const speedThreshold = this.maxSpeed * 0.4;
             const canWallRun = this.currentSpeed >= speedThreshold;
-
-            // Debug wall running conditions (same for both platforms)
-            if (this._isMobile) {
-                console.info("🏃‍♂️ Wall Run Check - State:", this.currentState,
-                    "WallContact:", wallContact,
-                    "Speed:", this.currentSpeed,
-                    "SpeedThreshold:", speedThreshold,
-                    "CanWallRun:", canWallRun);
-            }
 
             if (wallContact && hasStamina && canWallRun) {
                 console.info("🏃‍♂️ Wall running triggered!");
@@ -604,7 +600,7 @@ export class PlayerController extends Component {
             // Check stamina for running - stop if no stamina
             if (this.currentState == MovementState.RUNNING && this.staminaManager.getStamina() <= 0) {
                 this.currentSpeed = 0;
-                this.SetState(MovementState.IDLE);
+                this.SetState(MovementState.RESTING);
                 return;
             }
 
@@ -637,7 +633,7 @@ export class PlayerController extends Component {
     }
 
     Dash() {
-        if (this.isDashing || this.dashCooldownTimer > 0 || this.currentState === MovementState.VAULTING) return;
+        if (this.isDashing || this.dashCooldownTimer > 0 || this.currentState === MovementState.VAULTING || this.currentState === MovementState.IDLE) return;
 
         if (this.staminaManager.getStamina() < Energy.DASH) return;
 
@@ -955,7 +951,8 @@ export class PlayerController extends Component {
     private handleTouchInput(): void {
         if (!this._isMobile || !this.touchControlManager 
             || this.currentState == MovementState.TRIPPING 
-            || this.currentState == MovementState.VAULTING) return;
+            || this.currentState == MovementState.VAULTING
+            || this.currentState == MovementState.RESTING) return;
 
         const inputData = this.touchControlManager.getInputData();
 

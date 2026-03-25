@@ -1,4 +1,4 @@
-import { _decorator, CCFloat, Component, Label, Node } from 'cc';
+import { _decorator, CCFloat, Color, ColorKey, Component, Label, Node } from 'cc';
 import { MovementState, ScoreValues, Health, Timing } from '../Define/Define';
 import { PlayerController } from '../PlayerController';
 import { FlagBuffManager } from '../Collectible/FlagBuffManager';
@@ -104,16 +104,24 @@ export class ScoreManager extends Component {
         switch (state) {
             case MovementState.IDLE:
                 points = ScoreValues.SURVIVAL * deltaTime;
+                this.scoreLabel.color = new Color(255, 255, 255);
+                this.scoreLabel.isBold = false;
                 break;
             case MovementState.RUNNING:
                 points = ScoreValues.RUNNING * deltaTime;
+                this.scoreLabel.color = new Color(255, 255, 255);
+                this.scoreLabel.isBold = true;
                 break;
             case MovementState.WALL_RUNNING:
                 points = ScoreValues.WALL_RUNNING * deltaTime;
+                this.scoreLabel.color = new Color(255, 255, 0);
+                this.scoreLabel.isBold = true;
                 this.addCombo(); // Wall running adds to combo
                 break;
             default:
                 points = ScoreValues.SURVIVAL * deltaTime;
+                this.scoreLabel.color = new Color(255, 255, 255);
+                this.scoreLabel.isBold = false;
                 break;
         }
 
@@ -138,18 +146,26 @@ export class ScoreManager extends Component {
             switch (currentState) {
                 case MovementState.JUMPING:
                     this.awardPoints(ScoreValues.JUMP);
+                    this.scoreLabel.color = new Color(255, 255, 0);
+                    this.scoreLabel.isBold = true;
                     this.addCombo();
                     break;
                 case MovementState.SLIDING:
                     this.awardPoints(ScoreValues.SLIDE);
+                    this.scoreLabel.color = new Color(255, 255, 0);
+                    this.scoreLabel.isBold = true;
                     this.addCombo();
                     break;
                 case MovementState.VAULTING:
                     this.awardPoints(ScoreValues.VAULT);
+                    this.scoreLabel.color = new Color(255, 255, 255);
+                    this.scoreLabel.isBold = true;
                     this.addCombo();
                     break;
                 case MovementState.DASHING:
                     this.awardPoints(ScoreValues.DASH);
+                    this.scoreLabel.color = new Color(255, 255, 0);
+                    this.scoreLabel.isBold = true;
                     this.addCombo();
                     break;
             }

@@ -1,0 +1,204 @@
+{
+  "ver": "2.3.13",
+  "importer": "gltf",
+  "imported": true,
+  "uuid": "10168c41-0333-4698-b856-608a6108c435",
+  "files": [
+    "__original-animation-0.cconb"
+  ],
+  "subMetas": {
+    "40586": {
+      "importer": "gltf-embeded-image",
+      "uuid": "10168c41-0333-4698-b856-608a6108c435@40586",
+      "displayName": "",
+      "id": "40586",
+      "name": "UnnamedImage.image",
+      "userData": {
+        "gltfIndex": 0,
+        "fixAlphaTransparencyArtifacts": true,
+        "hasAlpha": false,
+        "type": "texture"
+      },
+      "ver": "1.0.3",
+      "imported": true,
+      "files": [
+        ".json",
+        ".png"
+      ],
+      "subMetas": {}
+    },
+    "60915": {
+      "importer": "gltf-animation",
+      "uuid": "10168c41-0333-4698-b856-608a6108c435@60915",
+      "displayName": "",
+      "id": "60915",
+      "name": "Armature|idle.animation",
+      "userData": {
+        "gltfIndex": 0,
+        "wrapMode": 38,
+        "sample": 30,
+        "span": {
+          "from": 0,
+          "to": 2.9166667461395264
+        },
+        "events": [],
+        "speed": 6
+      },
+      "ver": "1.0.17",
+      "imported": true,
+      "files": [
+        ".cconb"
+      ],
+      "subMetas": {}
+    },
+    "61344": {
+      "importer": "gltf-mesh",
+      "uuid": "10168c41-0333-4698-b856-608a6108c435@61344",
+      "displayName": "",
+      "id": "61344",
+      "name": "flame_Fire_0.mesh",
+      "userData": {
+        "gltfIndex": 0,
+        "triangleCount": 2030
+      },
+      "ver": "1.1.1",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "438fe": {
+      "importer": "gltf-skeleton",
+      "uuid": "10168c41-0333-4698-b856-608a6108c435@438fe",
+      "displayName": "",
+      "id": "438fe",
+      "name": "UnnamedSkeleton.skeleton",
+      "userData": {
+        "gltfIndex": 0,
+        "jointsLength": 41
+      },
+      "ver": "1.0.1",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "e39f7": {
+      "importer": "texture",
+      "uuid": "10168c41-0333-4698-b856-608a6108c435@e39f7",
+      "displayName": "",
+      "id": "e39f7",
+      "name": "UnnamedTexture.texture",
+      "userData": {
+        "wrapModeS": "repeat",
+        "wrapModeT": "repeat",
+        "minfilter": "linear",
+        "magfilter": "linear",
+        "mipfilter": "linear",
+        "anisotropy": 0,
+        "isUuid": true,
+        "imageUuidOrDatabaseUri": "10168c41-0333-4698-b856-608a6108c435@40586"
+      },
+      "ver": "1.0.22",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "f3f0b": {
+      "importer": "gltf-material",
+      "uuid": "10168c41-0333-4698-b856-608a6108c435@f3f0b",
+      "displayName": "",
+      "id": "f3f0b",
+      "name": "Fire.material",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.0.14",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "0d0b0": {
+      "importer": "gltf-scene",
+      "uuid": "10168c41-0333-4698-b856-608a6108c435@0d0b0",
+      "displayName": "",
+      "id": "0d0b0",
+      "name": "bomberman_fire.prefab",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.0.14",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    }
+  },
+  "userData": {
+    "imageMetas": [
+      {
+        "uri": "10168c41-0333-4698-b856-608a6108c435@40586"
+      }
+    ],
+    "animationImportSettings": [
+      {
+        "name": "Armature|idle",
+        "duration": 2.9166667461395264,
+        "fps": 30,
+        "splits": [
+          {
+            "name": "Armature|idle",
+            "from": 0,
+            "to": 2.9166667461395264,
+            "wrapMode": 38,
+            "previousId": "60915",
+            "speed": 6
+          }
+        ]
+      }
+    ],
+    "lods": {
+      "enable": false,
+      "hasBuiltinLOD": false,
+      "options": [
+        {
+          "screenRatio": 0.25,
+          "faceCount": 1
+        },
+        {
+          "screenRatio": 0.125,
+          "faceCount": 0.25
+        },
+        {
+          "screenRatio": 0.01,
+          "faceCount": 0.1
+        }
+      ]
+    },
+    "assetFinder": {
+      "meshes": [
+        "10168c41-0333-4698-b856-608a6108c435@61344"
+      ],
+      "skeletons": [
+        "10168c41-0333-4698-b856-608a6108c435@438fe"
+      ],
+      "textures": [
+        "10168c41-0333-4698-b856-608a6108c435@e39f7"
+      ],
+      "materials": [
+        "10168c41-0333-4698-b856-608a6108c435@f3f0b"
+      ],
+      "scenes": [
+        "10168c41-0333-4698-b856-608a6108c435@0d0b0"
+      ]
+    }
+  }
+}

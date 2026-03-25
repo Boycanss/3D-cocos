@@ -42,7 +42,7 @@ export class DustEffectManager extends Component {
     public createDustBurst(particleCount: number = 10): void {
         if (!this.enableDustEffects || !this.dustParticlePrefab) return;
 
-        console.log(`💨 Spawning dust burst with ${particleCount} particles`);
+        // console.log(`💨 Spawning dust burst with ${particleCount} particles`);
 
         for (let i = 0; i < particleCount; i++) {
             this.spawnDustParticle('burst');
@@ -60,7 +60,7 @@ export class DustEffectManager extends Component {
         
         this._isTrailActive = true;
         this._trailTimer = 0;
-        console.log("💨 Dust trail started");
+        // console.log("💨 Dust trail started");
     }
 
     /**
@@ -69,7 +69,7 @@ export class DustEffectManager extends Component {
     public stopDustTrail(): void {
         this._isTrailActive = false;
         this._trailTimer = 0; // Reset timer to prevent immediate spawn on restart
-        console.log("💨 Dust trail stopped");
+        // console.log("💨 Dust trail stopped");
     }
 
     /**
@@ -207,6 +207,6 @@ export class DustEffectManager extends Component {
             particle.destroy();
         });
         
-        console.log(`💨 Cleared ${dustParticles.length} dust particles`);
+        // console.log(`💨 Cleared ${dustParticles.length} dust particles`);
     }
 }

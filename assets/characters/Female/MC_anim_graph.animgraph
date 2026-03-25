@@ -12,34 +12,37 @@
     ],
     "_variables": {
       "Float Number": {
-        "__id__": 127
+        "__id__": 155
       },
       "isRunning": {
-        "__id__": 128
+        "__id__": 156
       },
       "Jump": {
-        "__id__": 129
+        "__id__": 157
       },
       "currentSpeed": {
-        "__id__": 130
+        "__id__": 158
       },
       "hValue": {
-        "__id__": 131
+        "__id__": 159
       },
       "isTurning": {
-        "__id__": 132
+        "__id__": 160
       },
       "Vault": {
-        "__id__": 133
+        "__id__": 161
       },
       "Slide": {
-        "__id__": 134
+        "__id__": 162
       },
       "SlowTrip": {
-        "__id__": 135
+        "__id__": 163
       },
       "FastTrip": {
-        "__id__": 136
+        "__id__": 164
+      },
+      "Resting": {
+        "__id__": 165
       }
     }
   },
@@ -97,29 +100,32 @@
       },
       {
         "__id__": 43
-      }
-    ],
-    "_transitions": [
+      },
       {
         "__id__": 47
       },
       {
-        "__id__": 48
+        "__id__": 51
       },
       {
-        "__id__": 52
+        "__id__": 55
+      }
+    ],
+    "_transitions": [
+      {
+        "__id__": 59
       },
       {
-        "__id__": 57
+        "__id__": 60
       },
       {
-        "__id__": 62
+        "__id__": 64
       },
       {
-        "__id__": 67
+        "__id__": 69
       },
       {
-        "__id__": 72
+        "__id__": 74
       },
       {
         "__id__": 79
@@ -128,34 +134,52 @@
         "__id__": 84
       },
       {
-        "__id__": 89
+        "__id__": 91
       },
       {
-        "__id__": 93
+        "__id__": 96
       },
       {
-        "__id__": 98
+        "__id__": 101
       },
       {
-        "__id__": 103
-      },
-      {
-        "__id__": 107
+        "__id__": 105
       },
       {
         "__id__": 110
       },
       {
-        "__id__": 114
+        "__id__": 115
       },
       {
-        "__id__": 118
+        "__id__": 119
       },
       {
-        "__id__": 121
+        "__id__": 122
       },
       {
-        "__id__": 124
+        "__id__": 126
+      },
+      {
+        "__id__": 130
+      },
+      {
+        "__id__": 133
+      },
+      {
+        "__id__": 136
+      },
+      {
+        "__id__": 139
+      },
+      {
+        "__id__": 144
+      },
+      {
+        "__id__": 147
+      },
+      {
+        "__id__": 152
       }
     ],
     "_entryState": {
@@ -174,8 +198,8 @@
       "name": "",
       "id": "e0db3269-5500-42d1-b4c9-14190167c365",
       "clone": null,
-      "centerX": -154.76483762597982,
-      "centerY": -38.91377379619263
+      "centerX": -393.3190544934497,
+      "centerY": -42.528231627517926
     },
     "name": "Entry"
   },
@@ -196,8 +220,8 @@
       "name": "",
       "id": "e39ea16b-f510-426f-88c8-728c6f0c9d9e",
       "clone": null,
-      "centerX": 26.229576142726273,
-      "centerY": -206.9467685219467
+      "centerX": 23.81993758850939,
+      "centerY": -286.46484081110333
     },
     "name": "Any"
   },
@@ -529,8 +553,8 @@
       "name": "SlowTrip",
       "id": "80b1b3e1-acc4-46ef-bec4-36ed308ee21e",
       "clone": null,
-      "centerX": -76.96468968067353,
-      "centerY": -138.36899840716018
+      "centerX": -21.94460935938838,
+      "centerY": -206.78459628253265
     },
     "name": "SlowTrip",
     "_components": [],
@@ -573,8 +597,8 @@
       "name": "Fast Trip",
       "id": "1dd8e083-8ed1-4359-af39-6ff6383b2f05",
       "clone": null,
-      "centerX": -211.91614599135318,
-      "centerY": -157.7864741353155
+      "centerX": -103.63787160347908,
+      "centerY": -207.4820305545408
     },
     "name": "Fast Trip",
     "_components": [],
@@ -617,8 +641,8 @@
       "name": "getUp",
       "id": "de42856e-a640-4d11-92de-af371a69e697",
       "clone": null,
-      "centerX": -165.3142042437804,
-      "centerY": -103.41754209648059
+      "centerX": -65.31420424378041,
+      "centerY": -157.97124076211088
     },
     "name": "getUp",
     "_components": [],
@@ -656,6 +680,138 @@
     "methodName": ""
   },
   {
+    "__type__": "cc.animation.Motion",
+    "__editorExtras__": {
+      "name": "TakeRest",
+      "id": "4e5630c6-0743-4228-9cce-b5a6eff1d735",
+      "clone": null,
+      "centerX": -228.69821949402967,
+      "centerY": -172.45707755416834
+    },
+    "name": "TakeRest",
+    "_components": [],
+    "motion": {
+      "__id__": 48
+    },
+    "speed": 1,
+    "speedMultiplier": "",
+    "speedMultiplierEnabled": false,
+    "transitionInEventBinding": {
+      "__id__": 49
+    },
+    "transitionOutEventBinding": {
+      "__id__": 50
+    }
+  },
+  {
+    "__type__": "cc.animation.ClipMotion",
+    "__editorExtras__": {
+      "name": "",
+      "id": "aad1059e-4527-490d-b09a-56184151d552",
+      "clone": null
+    },
+    "clip": {
+      "__uuid__": "9b34781e-2fe7-4037-9883-98f7ed42c3e8@2d2e7",
+      "__expectedType__": "cc.AnimationClip"
+    }
+  },
+  {
+    "__type__": "cc.animation.AnimationGraphEventBinding",
+    "methodName": ""
+  },
+  {
+    "__type__": "cc.animation.AnimationGraphEventBinding",
+    "methodName": ""
+  },
+  {
+    "__type__": "cc.animation.Motion",
+    "__editorExtras__": {
+      "name": "GoingRest",
+      "id": "9110289e-73b4-4813-8efe-59411f2b8385",
+      "clone": null,
+      "centerX": -227.67477086078702,
+      "centerY": -87.61448136295184
+    },
+    "name": "GoingRest",
+    "_components": [],
+    "motion": {
+      "__id__": 52
+    },
+    "speed": 1,
+    "speedMultiplier": "",
+    "speedMultiplierEnabled": false,
+    "transitionInEventBinding": {
+      "__id__": 53
+    },
+    "transitionOutEventBinding": {
+      "__id__": 54
+    }
+  },
+  {
+    "__type__": "cc.animation.ClipMotion",
+    "__editorExtras__": {
+      "name": "",
+      "id": "4520858c-815d-4e54-935d-df9b11dc98ed",
+      "clone": null
+    },
+    "clip": {
+      "__uuid__": "cb5c3f2c-0c39-4f36-886c-243ad6a86f75@b448f",
+      "__expectedType__": "cc.AnimationClip"
+    }
+  },
+  {
+    "__type__": "cc.animation.AnimationGraphEventBinding",
+    "methodName": ""
+  },
+  {
+    "__type__": "cc.animation.AnimationGraphEventBinding",
+    "methodName": ""
+  },
+  {
+    "__type__": "cc.animation.Motion",
+    "__editorExtras__": {
+      "name": "Sit_getUp",
+      "id": "b1f333a1-bd0e-40d7-94bd-e88e6e63b988",
+      "clone": null,
+      "centerX": -150.3978547127017,
+      "centerY": -125.38104313676075
+    },
+    "name": "Sit_getUp",
+    "_components": [],
+    "motion": {
+      "__id__": 56
+    },
+    "speed": 1,
+    "speedMultiplier": "",
+    "speedMultiplierEnabled": false,
+    "transitionInEventBinding": {
+      "__id__": 57
+    },
+    "transitionOutEventBinding": {
+      "__id__": 58
+    }
+  },
+  {
+    "__type__": "cc.animation.ClipMotion",
+    "__editorExtras__": {
+      "name": "",
+      "id": "2dd6bb22-7be6-4d3c-8504-4fc475efc9d0",
+      "clone": null
+    },
+    "clip": {
+      "__uuid__": "f789d3f9-3c12-48f7-91c1-18b99b15ee71@96162",
+      "__expectedType__": "cc.AnimationClip"
+    }
+  },
+  {
+    "__type__": "cc.animation.AnimationGraphEventBinding",
+    "methodName": ""
+  },
+  {
+    "__type__": "cc.animation.AnimationGraphEventBinding",
+    "methodName": ""
+  },
+  {
     "__type__": "cc.animation.Transition",
     "__editorExtras__": null,
     "from": {
@@ -677,16 +833,16 @@
     },
     "conditions": [
       {
-        "__id__": 49
+        "__id__": 61
       }
     ],
     "destinationStart": 0,
     "relativeDestinationStart": false,
     "startEventBinding": {
-      "__id__": 50
+      "__id__": 62
     },
     "endEventBinding": {
-      "__id__": 51
+      "__id__": 63
     },
     "duration": 0.3,
     "relativeDuration": false,
@@ -716,16 +872,16 @@
     },
     "conditions": [
       {
-        "__id__": 53
+        "__id__": 65
       }
     ],
     "destinationStart": 0,
     "relativeDestinationStart": false,
     "startEventBinding": {
-      "__id__": 55
+      "__id__": 67
     },
     "endEventBinding": {
-      "__id__": 56
+      "__id__": 68
     },
     "duration": 0.3,
     "relativeDuration": false,
@@ -736,7 +892,7 @@
     "__type__": "cc.animation.UnaryCondition",
     "operator": 1,
     "operand": {
-      "__id__": 54
+      "__id__": 66
     }
   },
   {
@@ -763,16 +919,16 @@
     },
     "conditions": [
       {
-        "__id__": 58
+        "__id__": 70
       }
     ],
     "destinationStart": 0,
     "relativeDestinationStart": false,
     "startEventBinding": {
-      "__id__": 60
+      "__id__": 72
     },
     "endEventBinding": {
-      "__id__": 61
+      "__id__": 73
     },
     "duration": 0.3,
     "relativeDuration": false,
@@ -783,7 +939,7 @@
     "__type__": "cc.animation.UnaryCondition",
     "operator": 0,
     "operand": {
-      "__id__": 59
+      "__id__": 71
     }
   },
   {
@@ -810,103 +966,6 @@
     },
     "conditions": [
       {
-        "__id__": 63
-      }
-    ],
-    "destinationStart": 0,
-    "relativeDestinationStart": false,
-    "startEventBinding": {
-      "__id__": 65
-    },
-    "endEventBinding": {
-      "__id__": 66
-    },
-    "duration": 0.3,
-    "relativeDuration": false,
-    "exitConditionEnabled": true,
-    "_exitCondition": 1
-  },
-  {
-    "__type__": "cc.animation.UnaryCondition",
-    "operator": 0,
-    "operand": {
-      "__id__": 64
-    }
-  },
-  {
-    "__type__": "cc.animation.BindableBoolean",
-    "variable": "isRunning",
-    "value": false
-  },
-  {
-    "__type__": "cc.animation.AnimationGraphEventBinding",
-    "methodName": ""
-  },
-  {
-    "__type__": "cc.animation.AnimationGraphEventBinding",
-    "methodName": ""
-  },
-  {
-    "__type__": "cc.animation.AnimationTransition",
-    "__editorExtras__": null,
-    "from": {
-      "__id__": 14
-    },
-    "to": {
-      "__id__": 6
-    },
-    "conditions": [
-      {
-        "__id__": 68
-      }
-    ],
-    "destinationStart": 0,
-    "relativeDestinationStart": false,
-    "startEventBinding": {
-      "__id__": 70
-    },
-    "endEventBinding": {
-      "__id__": 71
-    },
-    "duration": 0.1,
-    "relativeDuration": false,
-    "exitConditionEnabled": false,
-    "_exitCondition": 1
-  },
-  {
-    "__type__": "cc.animation.UnaryCondition",
-    "operator": 1,
-    "operand": {
-      "__id__": 69
-    }
-  },
-  {
-    "__type__": "cc.animation.BindableBoolean",
-    "variable": "isRunning",
-    "value": false
-  },
-  {
-    "__type__": "cc.animation.AnimationGraphEventBinding",
-    "methodName": ""
-  },
-  {
-    "__type__": "cc.animation.AnimationGraphEventBinding",
-    "methodName": ""
-  },
-  {
-    "__type__": "cc.animation.AnimationTransition",
-    "__editorExtras__": null,
-    "from": {
-      "__id__": 6
-    },
-    "to": {
-      "__id__": 23
-    },
-    "conditions": [
-      {
-        "__id__": 73
-      },
-      {
         "__id__": 75
       }
     ],
@@ -920,24 +979,12 @@
     },
     "duration": 0.3,
     "relativeDuration": false,
-    "exitConditionEnabled": false,
+    "exitConditionEnabled": true,
     "_exitCondition": 1
   },
   {
     "__type__": "cc.animation.UnaryCondition",
     "operator": 0,
-    "operand": {
-      "__id__": 74
-    }
-  },
-  {
-    "__type__": "cc.animation.BindableBoolean",
-    "variable": "isTurning",
-    "value": false
-  },
-  {
-    "__type__": "cc.animation.UnaryCondition",
-    "operator": 1,
     "operand": {
       "__id__": 76
     }
@@ -959,7 +1006,7 @@
     "__type__": "cc.animation.AnimationTransition",
     "__editorExtras__": null,
     "from": {
-      "__id__": 23
+      "__id__": 14
     },
     "to": {
       "__id__": 6
@@ -977,7 +1024,7 @@
     "endEventBinding": {
       "__id__": 83
     },
-    "duration": 0.3,
+    "duration": 0.1,
     "relativeDuration": false,
     "exitConditionEnabled": false,
     "_exitCondition": 1
@@ -987,6 +1034,115 @@
     "operator": 1,
     "operand": {
       "__id__": 81
+    }
+  },
+  {
+    "__type__": "cc.animation.BindableBoolean",
+    "variable": "isRunning",
+    "value": false
+  },
+  {
+    "__type__": "cc.animation.AnimationGraphEventBinding",
+    "methodName": ""
+  },
+  {
+    "__type__": "cc.animation.AnimationGraphEventBinding",
+    "methodName": ""
+  },
+  {
+    "__type__": "cc.animation.AnimationTransition",
+    "__editorExtras__": null,
+    "from": {
+      "__id__": 6
+    },
+    "to": {
+      "__id__": 23
+    },
+    "conditions": [
+      {
+        "__id__": 85
+      },
+      {
+        "__id__": 87
+      }
+    ],
+    "destinationStart": 0,
+    "relativeDestinationStart": false,
+    "startEventBinding": {
+      "__id__": 89
+    },
+    "endEventBinding": {
+      "__id__": 90
+    },
+    "duration": 0.3,
+    "relativeDuration": false,
+    "exitConditionEnabled": false,
+    "_exitCondition": 1
+  },
+  {
+    "__type__": "cc.animation.UnaryCondition",
+    "operator": 0,
+    "operand": {
+      "__id__": 86
+    }
+  },
+  {
+    "__type__": "cc.animation.BindableBoolean",
+    "variable": "isTurning",
+    "value": false
+  },
+  {
+    "__type__": "cc.animation.UnaryCondition",
+    "operator": 1,
+    "operand": {
+      "__id__": 88
+    }
+  },
+  {
+    "__type__": "cc.animation.BindableBoolean",
+    "variable": "isRunning",
+    "value": false
+  },
+  {
+    "__type__": "cc.animation.AnimationGraphEventBinding",
+    "methodName": ""
+  },
+  {
+    "__type__": "cc.animation.AnimationGraphEventBinding",
+    "methodName": ""
+  },
+  {
+    "__type__": "cc.animation.AnimationTransition",
+    "__editorExtras__": null,
+    "from": {
+      "__id__": 23
+    },
+    "to": {
+      "__id__": 6
+    },
+    "conditions": [
+      {
+        "__id__": 92
+      }
+    ],
+    "destinationStart": 0,
+    "relativeDestinationStart": false,
+    "startEventBinding": {
+      "__id__": 94
+    },
+    "endEventBinding": {
+      "__id__": 95
+    },
+    "duration": 0.3,
+    "relativeDuration": false,
+    "exitConditionEnabled": false,
+    "_exitCondition": 1
+  },
+  {
+    "__type__": "cc.animation.UnaryCondition",
+    "operator": 1,
+    "operand": {
+      "__id__": 93
     }
   },
   {
@@ -1013,16 +1169,16 @@
     },
     "conditions": [
       {
-        "__id__": 85
+        "__id__": 97
       }
     ],
     "destinationStart": 0,
     "relativeDestinationStart": false,
     "startEventBinding": {
-      "__id__": 87
+      "__id__": 99
     },
     "endEventBinding": {
-      "__id__": 88
+      "__id__": 100
     },
     "duration": 0.3,
     "relativeDuration": false,
@@ -1033,7 +1189,7 @@
     "__type__": "cc.animation.UnaryCondition",
     "operator": 0,
     "operand": {
-      "__id__": 86
+      "__id__": 98
     }
   },
   {
@@ -1060,16 +1216,16 @@
     },
     "conditions": [
       {
-        "__id__": 90
+        "__id__": 102
       }
     ],
     "destinationStart": 0,
     "relativeDestinationStart": false,
     "startEventBinding": {
-      "__id__": 91
+      "__id__": 103
     },
     "endEventBinding": {
-      "__id__": 92
+      "__id__": 104
     },
     "duration": 0.3,
     "relativeDuration": false,
@@ -1099,16 +1255,16 @@
     },
     "conditions": [
       {
-        "__id__": 94
+        "__id__": 106
       }
     ],
     "destinationStart": 0,
     "relativeDestinationStart": false,
     "startEventBinding": {
-      "__id__": 96
+      "__id__": 108
     },
     "endEventBinding": {
-      "__id__": 97
+      "__id__": 109
     },
     "duration": 0.3,
     "relativeDuration": false,
@@ -1119,7 +1275,7 @@
     "__type__": "cc.animation.UnaryCondition",
     "operator": 1,
     "operand": {
-      "__id__": 95
+      "__id__": 107
     }
   },
   {
@@ -1146,16 +1302,16 @@
     },
     "conditions": [
       {
-        "__id__": 99
+        "__id__": 111
       }
     ],
     "destinationStart": 0,
     "relativeDestinationStart": false,
     "startEventBinding": {
-      "__id__": 101
+      "__id__": 113
     },
     "endEventBinding": {
-      "__id__": 102
+      "__id__": 114
     },
     "duration": 0.3,
     "relativeDuration": false,
@@ -1166,7 +1322,7 @@
     "__type__": "cc.animation.UnaryCondition",
     "operator": 0,
     "operand": {
-      "__id__": 100
+      "__id__": 112
     }
   },
   {
@@ -1193,16 +1349,16 @@
     },
     "conditions": [
       {
-        "__id__": 104
+        "__id__": 116
       }
     ],
     "destinationStart": 0,
     "relativeDestinationStart": false,
     "startEventBinding": {
-      "__id__": 105
+      "__id__": 117
     },
     "endEventBinding": {
-      "__id__": 106
+      "__id__": 118
     },
     "duration": 0.3,
     "relativeDuration": false,
@@ -1234,10 +1390,10 @@
     "destinationStart": 0,
     "relativeDestinationStart": false,
     "startEventBinding": {
-      "__id__": 108
+      "__id__": 120
     },
     "endEventBinding": {
-      "__id__": 109
+      "__id__": 121
     },
     "duration": 0.3,
     "relativeDuration": false,
@@ -1263,16 +1419,16 @@
     },
     "conditions": [
       {
-        "__id__": 111
+        "__id__": 123
       }
     ],
     "destinationStart": 0,
     "relativeDestinationStart": false,
     "startEventBinding": {
-      "__id__": 112
+      "__id__": 124
     },
     "endEventBinding": {
-      "__id__": 113
+      "__id__": 125
     },
     "duration": 0.3,
     "relativeDuration": false,
@@ -1302,16 +1458,16 @@
     },
     "conditions": [
       {
-        "__id__": 115
+        "__id__": 127
       }
     ],
     "destinationStart": 0,
     "relativeDestinationStart": false,
     "startEventBinding": {
-      "__id__": 116
+      "__id__": 128
     },
     "endEventBinding": {
-      "__id__": 117
+      "__id__": 129
     },
     "duration": 0.3,
     "relativeDuration": false,
@@ -1343,10 +1499,10 @@
     "destinationStart": 0,
     "relativeDestinationStart": false,
     "startEventBinding": {
-      "__id__": 119
+      "__id__": 131
     },
     "endEventBinding": {
-      "__id__": 120
+      "__id__": 132
     },
     "duration": 0.3,
     "relativeDuration": false,
@@ -1374,10 +1530,10 @@
     "destinationStart": 0,
     "relativeDestinationStart": false,
     "startEventBinding": {
-      "__id__": 122
+      "__id__": 134
     },
     "endEventBinding": {
-      "__id__": 123
+      "__id__": 135
     },
     "duration": 0.3,
     "relativeDuration": false,
@@ -1405,10 +1561,166 @@
     "destinationStart": 0,
     "relativeDestinationStart": false,
     "startEventBinding": {
-      "__id__": 125
+      "__id__": 137
     },
     "endEventBinding": {
-      "__id__": 126
+      "__id__": 138
+    },
+    "duration": 0.3,
+    "relativeDuration": false,
+    "exitConditionEnabled": true,
+    "_exitCondition": 1
+  },
+  {
+    "__type__": "cc.animation.AnimationGraphEventBinding",
+    "methodName": ""
+  },
+  {
+    "__type__": "cc.animation.AnimationGraphEventBinding",
+    "methodName": ""
+  },
+  {
+    "__type__": "cc.animation.AnimationTransition",
+    "__editorExtras__": null,
+    "from": {
+      "__id__": 6
+    },
+    "to": {
+      "__id__": 51
+    },
+    "conditions": [
+      {
+        "__id__": 140
+      }
+    ],
+    "destinationStart": 0,
+    "relativeDestinationStart": false,
+    "startEventBinding": {
+      "__id__": 142
+    },
+    "endEventBinding": {
+      "__id__": 143
+    },
+    "duration": 0.3,
+    "relativeDuration": false,
+    "exitConditionEnabled": false,
+    "_exitCondition": 1
+  },
+  {
+    "__type__": "cc.animation.UnaryCondition",
+    "operator": 0,
+    "operand": {
+      "__id__": 141
+    }
+  },
+  {
+    "__type__": "cc.animation.BindableBoolean",
+    "variable": "Resting",
+    "value": false
+  },
+  {
+    "__type__": "cc.animation.AnimationGraphEventBinding",
+    "methodName": ""
+  },
+  {
+    "__type__": "cc.animation.AnimationGraphEventBinding",
+    "methodName": ""
+  },
+  {
+    "__type__": "cc.animation.AnimationTransition",
+    "__editorExtras__": null,
+    "from": {
+      "__id__": 51
+    },
+    "to": {
+      "__id__": 47
+    },
+    "conditions": [],
+    "destinationStart": 0,
+    "relativeDestinationStart": false,
+    "startEventBinding": {
+      "__id__": 145
+    },
+    "endEventBinding": {
+      "__id__": 146
+    },
+    "duration": 0.3,
+    "relativeDuration": false,
+    "exitConditionEnabled": true,
+    "_exitCondition": 1
+  },
+  {
+    "__type__": "cc.animation.AnimationGraphEventBinding",
+    "methodName": ""
+  },
+  {
+    "__type__": "cc.animation.AnimationGraphEventBinding",
+    "methodName": ""
+  },
+  {
+    "__type__": "cc.animation.AnimationTransition",
+    "__editorExtras__": null,
+    "from": {
+      "__id__": 47
+    },
+    "to": {
+      "__id__": 55
+    },
+    "conditions": [
+      {
+        "__id__": 148
+      }
+    ],
+    "destinationStart": 0,
+    "relativeDestinationStart": false,
+    "startEventBinding": {
+      "__id__": 150
+    },
+    "endEventBinding": {
+      "__id__": 151
+    },
+    "duration": 0.3,
+    "relativeDuration": false,
+    "exitConditionEnabled": false,
+    "_exitCondition": 1
+  },
+  {
+    "__type__": "cc.animation.UnaryCondition",
+    "operator": 1,
+    "operand": {
+      "__id__": 149
+    }
+  },
+  {
+    "__type__": "cc.animation.BindableBoolean",
+    "variable": "Resting",
+    "value": false
+  },
+  {
+    "__type__": "cc.animation.AnimationGraphEventBinding",
+    "methodName": ""
+  },
+  {
+    "__type__": "cc.animation.AnimationGraphEventBinding",
+    "methodName": ""
+  },
+  {
+    "__type__": "cc.animation.AnimationTransition",
+    "__editorExtras__": null,
+    "from": {
+      "__id__": 55
+    },
+    "to": {
+      "__id__": 6
+    },
+    "conditions": [],
+    "destinationStart": 0,
+    "relativeDestinationStart": false,
+    "startEventBinding": {
+      "__id__": 153
+    },
+    "endEventBinding": {
+      "__id__": 154
     },
     "duration": 0.3,
     "relativeDuration": false,
@@ -1467,5 +1779,10 @@
   {
     "__type__": "cc.animation.TriggerVariable",
     "_flags": 2
+  },
+  {
+    "__type__": "cc.animation.PlainVariable",
+    "_type": 1,
+    "_value": false
   }
 ]

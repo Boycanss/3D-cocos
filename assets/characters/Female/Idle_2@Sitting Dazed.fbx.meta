@@ -1,0 +1,99 @@
+{
+  "ver": "2.3.13",
+  "importer": "fbx",
+  "imported": true,
+  "uuid": "f3f7b0ea-f538-48e6-b072-dc3206761201",
+  "files": [
+    "__original-animation-0.cconb"
+  ],
+  "subMetas": {
+    "09825": {
+      "importer": "gltf-animation",
+      "uuid": "f3f7b0ea-f538-48e6-b072-dc3206761201@09825",
+      "displayName": "",
+      "id": "09825",
+      "name": "Sitting Dazed.animation",
+      "userData": {
+        "gltfIndex": 0,
+        "wrapMode": 2,
+        "sample": 30,
+        "span": {
+          "from": 0,
+          "to": 8.333333015441895
+        },
+        "events": []
+      },
+      "ver": "1.0.17",
+      "imported": true,
+      "files": [
+        ".cconb"
+      ],
+      "subMetas": {}
+    },
+    "cd431": {
+      "importer": "gltf-scene",
+      "uuid": "f3f7b0ea-f538-48e6-b072-dc3206761201@cd431",
+      "displayName": "",
+      "id": "cd431",
+      "name": "Idle_2@Sitting Dazed.prefab",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.0.14",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    }
+  },
+  "userData": {
+    "imageMetas": [],
+    "fbx": {
+      "smartMaterialEnabled": true
+    },
+    "animationImportSettings": [
+      {
+        "name": "mixamo.com",
+        "duration": 8.333333015441895,
+        "fps": 30,
+        "splits": [
+          {
+            "name": "Sitting Dazed",
+            "from": 0,
+            "to": 8.333333015441895,
+            "wrapMode": 2,
+            "previousId": "09825"
+          }
+        ]
+      }
+    ],
+    "lods": {
+      "enable": false,
+      "hasBuiltinLOD": false,
+      "options": [
+        {
+          "screenRatio": 0.25,
+          "faceCount": 1
+        },
+        {
+          "screenRatio": 0.125,
+          "faceCount": 0.25
+        },
+        {
+          "screenRatio": 0.01,
+          "faceCount": 0.1
+        }
+      ]
+    },
+    "assetFinder": {
+      "meshes": [],
+      "skeletons": [],
+      "textures": [],
+      "materials": [],
+      "scenes": [
+        "f3f7b0ea-f538-48e6-b072-dc3206761201@cd431"
+      ]
+    }
+  }
+}

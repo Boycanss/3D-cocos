@@ -75,7 +75,8 @@ export enum MovementState {
     SLIDING = "Sliding",
     DASHING = "Dashing",
     WALL_RUNNING = "WallRunning",
-    TRIPPING = "Tripping"
+    TRIPPING = "Tripping",
+    RESTING = "Resting"
 }
 
 // Platform Detection

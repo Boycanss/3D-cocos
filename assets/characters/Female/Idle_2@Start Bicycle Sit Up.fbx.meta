@@ -1,0 +1,101 @@
+{
+  "ver": "2.3.13",
+  "importer": "fbx",
+  "imported": true,
+  "uuid": "cb5c3f2c-0c39-4f36-886c-243ad6a86f75",
+  "files": [
+    "__original-animation-0.cconb"
+  ],
+  "subMetas": {
+    "b448f": {
+      "importer": "gltf-animation",
+      "uuid": "cb5c3f2c-0c39-4f36-886c-243ad6a86f75@b448f",
+      "displayName": "",
+      "id": "b448f",
+      "name": "Start Bicycle Sit Up.animation",
+      "userData": {
+        "gltfIndex": 0,
+        "wrapMode": 0,
+        "sample": 30,
+        "span": {
+          "from": 0,
+          "to": 3.0754098360655737
+        },
+        "events": [],
+        "speed": 1.75
+      },
+      "ver": "1.0.17",
+      "imported": true,
+      "files": [
+        ".cconb"
+      ],
+      "subMetas": {}
+    },
+    "3cb7a": {
+      "importer": "gltf-scene",
+      "uuid": "cb5c3f2c-0c39-4f36-886c-243ad6a86f75@3cb7a",
+      "displayName": "",
+      "id": "3cb7a",
+      "name": "Idle_2@Start Bicycle Sit Up.prefab",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.0.14",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    }
+  },
+  "userData": {
+    "imageMetas": [],
+    "fbx": {
+      "smartMaterialEnabled": true
+    },
+    "animationImportSettings": [
+      {
+        "name": "mixamo.com",
+        "duration": 3.5,
+        "fps": 30,
+        "splits": [
+          {
+            "name": "Start Bicycle Sit Up",
+            "from": 0,
+            "to": 3.0754098360655737,
+            "wrapMode": 0,
+            "previousId": "b448f",
+            "speed": 1.75
+          }
+        ]
+      }
+    ],
+    "lods": {
+      "enable": false,
+      "hasBuiltinLOD": false,
+      "options": [
+        {
+          "screenRatio": 0.25,
+          "faceCount": 1
+        },
+        {
+          "screenRatio": 0.125,
+          "faceCount": 0.25
+        },
+        {
+          "screenRatio": 0.01,
+          "faceCount": 0.1
+        }
+      ]
+    },
+    "assetFinder": {
+      "meshes": [],
+      "skeletons": [],
+      "textures": [],
+      "materials": [],
+      "scenes": [
+        "cb5c3f2c-0c39-4f36-886c-243ad6a86f75@3cb7a"
+      ]
+    }
+  }
+}

@@ -1,0 +1,99 @@
+{
+  "ver": "2.3.13",
+  "importer": "fbx",
+  "imported": true,
+  "uuid": "f789d3f9-3c12-48f7-91c1-18b99b15ee71",
+  "files": [
+    "__original-animation-0.cconb"
+  ],
+  "subMetas": {
+    "96162": {
+      "importer": "gltf-animation",
+      "uuid": "f789d3f9-3c12-48f7-91c1-18b99b15ee71@96162",
+      "displayName": "",
+      "id": "96162",
+      "name": "Getting Up.animation",
+      "userData": {
+        "gltfIndex": 0,
+        "wrapMode": 0,
+        "sample": 30,
+        "span": {
+          "from": 0,
+          "to": 1.4666666984558105
+        },
+        "events": []
+      },
+      "ver": "1.0.17",
+      "imported": true,
+      "files": [
+        ".cconb"
+      ],
+      "subMetas": {}
+    },
+    "8bfd8": {
+      "importer": "gltf-scene",
+      "uuid": "f789d3f9-3c12-48f7-91c1-18b99b15ee71@8bfd8",
+      "displayName": "",
+      "id": "8bfd8",
+      "name": "Idle_2@Getting Up.prefab",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.0.14",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    }
+  },
+  "userData": {
+    "imageMetas": [],
+    "fbx": {
+      "smartMaterialEnabled": true
+    },
+    "animationImportSettings": [
+      {
+        "name": "mixamo.com",
+        "duration": 1.4666666984558105,
+        "fps": 30,
+        "splits": [
+          {
+            "name": "Getting Up",
+            "from": 0,
+            "to": 1.4666666984558105,
+            "wrapMode": 0,
+            "previousId": "96162"
+          }
+        ]
+      }
+    ],
+    "lods": {
+      "enable": false,
+      "hasBuiltinLOD": false,
+      "options": [
+        {
+          "screenRatio": 0.25,
+          "faceCount": 1
+        },
+        {
+          "screenRatio": 0.125,
+          "faceCount": 0.25
+        },
+        {
+          "screenRatio": 0.01,
+          "faceCount": 0.1
+        }
+      ]
+    },
+    "assetFinder": {
+      "meshes": [],
+      "skeletons": [],
+      "textures": [],
+      "materials": [],
+      "scenes": [
+        "f789d3f9-3c12-48f7-91c1-18b99b15ee71@8bfd8"
+      ]
+    }
+  }
+}

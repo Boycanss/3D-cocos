@@ -1,0 +1,99 @@
+{
+  "ver": "2.3.13",
+  "importer": "fbx",
+  "imported": true,
+  "uuid": "9b34781e-2fe7-4037-9883-98f7ed42c3e8",
+  "files": [
+    "__original-animation-0.cconb"
+  ],
+  "subMetas": {
+    "2d2e7": {
+      "importer": "gltf-animation",
+      "uuid": "9b34781e-2fe7-4037-9883-98f7ed42c3e8@2d2e7",
+      "displayName": "",
+      "id": "2d2e7",
+      "name": "Male Sitting Pose.animation",
+      "userData": {
+        "gltfIndex": 0,
+        "wrapMode": 2,
+        "sample": 30,
+        "span": {
+          "from": 0,
+          "to": 0.03333333507180214
+        },
+        "events": []
+      },
+      "ver": "1.0.17",
+      "imported": true,
+      "files": [
+        ".cconb"
+      ],
+      "subMetas": {}
+    },
+    "8744e": {
+      "importer": "gltf-scene",
+      "uuid": "9b34781e-2fe7-4037-9883-98f7ed42c3e8@8744e",
+      "displayName": "",
+      "id": "8744e",
+      "name": "Idle_2@Male Sitting Pose.prefab",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.0.14",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    }
+  },
+  "userData": {
+    "imageMetas": [],
+    "fbx": {
+      "smartMaterialEnabled": true
+    },
+    "animationImportSettings": [
+      {
+        "name": "mixamo.com",
+        "duration": 0.03333333507180214,
+        "fps": 30,
+        "splits": [
+          {
+            "name": "Male Sitting Pose",
+            "from": 0,
+            "to": 0.03333333507180214,
+            "wrapMode": 2,
+            "previousId": "2d2e7"
+          }
+        ]
+      }
+    ],
+    "lods": {
+      "enable": false,
+      "hasBuiltinLOD": false,
+      "options": [
+        {
+          "screenRatio": 0.25,
+          "faceCount": 1
+        },
+        {
+          "screenRatio": 0.125,
+          "faceCount": 0.25
+        },
+        {
+          "screenRatio": 0.01,
+          "faceCount": 0.1
+        }
+      ]
+    },
+    "assetFinder": {
+      "meshes": [],
+      "skeletons": [],
+      "textures": [],
+      "materials": [],
+      "scenes": [
+        "9b34781e-2fe7-4037-9883-98f7ed42c3e8@8744e"
+      ]
+    }
+  }
+}

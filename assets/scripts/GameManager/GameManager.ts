@@ -340,13 +340,12 @@ export class GameManager extends Component {
 
     private getDifficultyInterval(level: GameLevel): number {
         switch (level) {
-            case GameLevel.LEVEL1: return 30;  // 30s to reach Level 2
-            case GameLevel.LEVEL2: return 45;  // 45s to reach Level 3 (75s total)
-            case GameLevel.LEVEL3: return 60;  // 60s to reach Level 4 (135s total)
-            case GameLevel.LEVEL4: return 75;  // 75s to reach Level 5 (210s total)
-            case GameLevel.LEVEL5: return 90;  // 90s to reach Level 6 (300s total)
-            case GameLevel.LEVEL6: return 120; // 120s to reach Level 7 (420s total)
-            // case GameLevel.LEVEL7: return 120; // Stay at Level 7 (ultimate endurance test with atomic bombs)
+            case GameLevel.LEVEL1: return 15; 
+            case GameLevel.LEVEL2: return 30; 
+            case GameLevel.LEVEL3: return 55; 
+            case GameLevel.LEVEL4: return 75; 
+            case GameLevel.LEVEL5: return 90; 
+            case GameLevel.LEVEL6: return 120;
             default: return 30;
         }
     }
