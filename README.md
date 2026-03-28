@@ -1,4 +1,4 @@
-Playable: bawangcs.itch.io/ayo
+Playable: [https://bawangcs.itch.io/ayo](https://bawangcs.itch.io/ayo)
 
 # Survival - not-so-parkour - instant game - 3D
   sheees i gotta work that name out.
