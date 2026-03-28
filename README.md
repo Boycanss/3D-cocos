@@ -1,3 +1,5 @@
+Playable: bawangcs.itch.io/ayo
+
 # Survival - not-so-parkour - instant game - 3D
   sheees i gotta work that name out.
   this was planned as the 3D version of my first ever game created in Cocos. it was called MuscleMan.
